@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../lib/geometry/ConvexHull.h"
+#include "../../src/geometry/ConvexHull.h"
 #include "../utilities/bench.h"
 
 namespace old {

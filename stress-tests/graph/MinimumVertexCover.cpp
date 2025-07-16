@@ -1,7 +1,7 @@
 #include "../utilities/template.h"
 
-#include "../../lib/graph/MinimumVertexCover.h"
-#include "../../lib/graph/hopcroftKarp.h"
+#include "../../src/graph/MinimumVertexCover.h"
+#include "../../src/graph/hopcroftKarp.h"
 
 vi coverHK(vector<vi>& g, int n, int m) {
 	vi match(m, -1);

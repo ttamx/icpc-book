@@ -3,7 +3,7 @@
 #define main main2
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wreturn-type"
-#include "../../lib/strings/Hashing-codeforces.h"
+#include "../../src/strings/Hashing-codeforces.h"
 #pragma GCC diagnostic pop
 #undef main
 

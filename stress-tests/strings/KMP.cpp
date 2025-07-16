@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../lib/strings/KMP.h"
+#include "../../src/strings/KMP.h"
 
 template<class F>
 void gen(string& s, int at, int alpha, F f) {

@@ -1,7 +1,7 @@
 #include "../utilities/template.h"
 #include "../utilities/genTree.h"
 
-#include "../../lib/graph/HLD.h"
+#include "../../src/graph/HLD.h"
 
 namespace old {
 #include "oldHLD.h"

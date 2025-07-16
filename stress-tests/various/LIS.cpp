@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../lib/various/LIS.h"
+#include "../../src/various/LIS.h"
 
 template<class I> vi lisWeak(const vector<I>& S) {
 	if (S.empty()) return {};

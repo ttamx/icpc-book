@@ -10,7 +10,7 @@
  */
 #pragma once
 
-#include "../../lib/geometry/Point.h"
+#include "../../src/geometry/Point.h"
 
 typedef Point<double> P;
 #define arg(p, q) atan2(p.cross(q), p.dot(q))

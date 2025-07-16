@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../lib/numerical/FastSubsetTransform.h"
+#include "../../src/numerical/FastSubsetTransform.h"
 
 int main() {
 	rep(k,0,10) {

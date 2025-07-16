@@ -2,11 +2,11 @@
 
 // #define TEST_PERF
 
-#include "../../lib/geometry/ConvexHull.h"
-#include "../../lib/geometry/PolygonArea.h"
+#include "../../src/geometry/ConvexHull.h"
+#include "../../src/geometry/PolygonArea.h"
 
 #define P P2
-#include "../../lib/geometry/circumcircle.h"
+#include "../../src/geometry/circumcircle.h"
 #undef P
 
 P2 top(P x) { return P2((double)x.x, (double)x.y); }
@@ -32,7 +32,7 @@ struct Bumpalloc {
 #ifndef TEST_PERF
 #define new bumpalloc =
 #endif
-#include "../../lib/geometry/FastDelaunay.h"
+#include "../../src/geometry/FastDelaunay.h"
 #ifndef TEST_PERF
 #undef new
 #endif

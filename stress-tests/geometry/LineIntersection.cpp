@@ -1,7 +1,7 @@
 #include "../utilities/template.h"
 
-#include "../../lib/geometry/lineIntersection.h"
-#include "../../lib/geometry/lineDistance.h"
+#include "../../src/geometry/lineIntersection.h"
+#include "../../src/geometry/lineDistance.h"
 
 int main() {
 	rep(t,0,1000000) {

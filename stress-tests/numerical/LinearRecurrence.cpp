@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../lib/numerical/LinearRecurrence.h"
+#include "../../src/numerical/LinearRecurrence.h"
 
 template<class F>
 void gen(vector<ll>& v, int at, F f) {

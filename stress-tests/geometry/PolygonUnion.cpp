@@ -11,10 +11,10 @@ typedef long long ll;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
 
-#include "../../lib/geometry/Point.h"
-#include "../../lib/geometry/sideOf.h"
-#include "../../lib/geometry/PolygonArea.h"
-#include "../../lib/geometry/PolygonUnion.h"
+#include "../../src/geometry/Point.h"
+#include "../../src/geometry/sideOf.h"
+#include "../../src/geometry/PolygonArea.h"
+#include "../../src/geometry/PolygonUnion.h"
 #include "../utilities/genPolygon.h"
 #include "../utilities/random.h"
 
@@ -82,7 +82,7 @@ db polygon_union(vector<pt> poly[], int n) {
 } // namespace blackhorse
 
 namespace approximate {
-#include "../../lib/geometry/InsidePolygon.h"
+#include "../../src/geometry/InsidePolygon.h"
 double polygonUnion(vector<vector<P>> &polygons, int lim) {
 	int cnt = 0;
 	int total = 0;

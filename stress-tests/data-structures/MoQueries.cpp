@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-// #include "../../lib/data-structures/MoQueries.h"
+// #include "../../src/data-structures/MoQueries.h"
 
 int curL = 0, curR = 0, ops = 0;
 void add(int ind, int end) {

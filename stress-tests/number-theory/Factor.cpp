@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../lib/number-theory/Factor.h"
+#include "../../src/number-theory/Factor.h"
 
 mt19937_64 uni(time(0));
 void assertValid(ull N, vector<ull> prFac){

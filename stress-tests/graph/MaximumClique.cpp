@@ -1,8 +1,8 @@
 #include "../utilities/template.h"
 
-#include "../../lib/graph/MaximumClique.h"
+#include "../../src/graph/MaximumClique.h"
 namespace maximal {
-#include "../../lib/graph/MaximalCliques.h"
+#include "../../src/graph/MaximalCliques.h"
 }
 
 struct timeit {

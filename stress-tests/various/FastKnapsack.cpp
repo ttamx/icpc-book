@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../lib/various/FastKnapsack.h"
+#include "../../src/various/FastKnapsack.h"
 
 int naive(vi w, int t) {
 	vector<bool> can_reach(t+1);

@@ -8,7 +8,7 @@
 #define setpi dummy(){} bool setpi
 #undef assert
 #define assert(x) return x
-#include "../../lib/graph/MinCostMaxFlow.h"
+#include "../../src/graph/MinCostMaxFlow.h"
 #undef assert
 #undef setpi
 #include <cassert>

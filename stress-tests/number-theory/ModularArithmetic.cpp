@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../lib/number-theory/ModularArithmetic.h"
+#include "../../src/number-theory/ModularArithmetic.h"
 
 int main() {
 	rep(a,0,mod) rep(b,1,mod) {

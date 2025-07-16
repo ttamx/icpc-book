@@ -1,5 +1,5 @@
 #include "../utilities/template.h"
-#include "../../lib/strings/AhoCorasick.h"
+#include "../../src/strings/AhoCorasick.h"
 
 #define trav(a, x) for (auto& a : x)
 

@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../lib/data-structures/RMQ.h"
+#include "../../src/data-structures/RMQ.h"
 
 int main() {
 	srand(2);

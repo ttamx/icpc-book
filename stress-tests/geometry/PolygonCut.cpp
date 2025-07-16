@@ -1,10 +1,10 @@
 #include "../utilities/template.h"
 
-#include "../../lib/geometry/PolygonArea.h"
-#include "../../lib/geometry/PolygonCut.h"
-#include "../../lib/geometry/sideOf.h"
-#include "../../lib/geometry/InsidePolygon.h"
-#include "../../lib/geometry/SegmentIntersection.h"
+#include "../../src/geometry/PolygonArea.h"
+#include "../../src/geometry/PolygonCut.h"
+#include "../../src/geometry/sideOf.h"
+#include "../../src/geometry/InsidePolygon.h"
+#include "../../src/geometry/SegmentIntersection.h"
 
 typedef Point<double> P;
 int main() {

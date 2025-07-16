@@ -1,8 +1,8 @@
 #include "../utilities/template.h"
 
-#include "../../lib/geometry/Point.h"
-#include "../../lib/geometry/ManhattanMST.h"
-#include "../../lib/data-structures/UnionFind.h"
+#include "../../src/geometry/Point.h"
+#include "../../src/geometry/ManhattanMST.h"
+#include "../../src/data-structures/UnionFind.h"
 
 
 typedef Point<int> P;

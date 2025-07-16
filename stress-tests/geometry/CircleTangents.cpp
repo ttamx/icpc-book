@@ -1,7 +1,7 @@
 #include "../utilities/template.h"
 
-#include "../../lib/geometry/CircleTangents.h"
-#include "../../lib/geometry/lineDistance.h"
+#include "../../src/geometry/CircleTangents.h"
+#include "../../src/geometry/lineDistance.h"
 #include "../utilities/randGeo.h"
 
 typedef Point<double> P;

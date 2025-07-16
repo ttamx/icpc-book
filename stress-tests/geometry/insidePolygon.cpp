@@ -12,11 +12,11 @@ typedef vector<int> vi;
 
 const double EPS =1e-8;
 #include "../utilities/genPolygon.h"
-#include "../../lib/geometry/InsidePolygon.h"
+#include "../../src/geometry/InsidePolygon.h"
 namespace old {
 
-#include "../../lib/geometry/OnSegment.h"
-#include "../../lib/geometry/SegmentDistance.h"
+#include "../../src/geometry/OnSegment.h"
+#include "../../src/geometry/SegmentDistance.h"
 
 template<class It, class P>
 bool insidePolygon(It begin, It end, const P& p,

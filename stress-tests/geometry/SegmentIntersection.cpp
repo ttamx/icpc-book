@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../lib/geometry/SegmentIntersection.h"
+#include "../../src/geometry/SegmentIntersection.h"
 
 namespace oldImpl {
 template<class P>

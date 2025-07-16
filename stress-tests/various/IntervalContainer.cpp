@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../lib/various/IntervalContainer.h"
+#include "../../src/various/IntervalContainer.h"
 
 int main2() {
 	const int its = 4000000;

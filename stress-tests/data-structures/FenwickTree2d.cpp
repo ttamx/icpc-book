@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../lib/data-structures/FenwickTree2d.h"
+#include "../../src/data-structures/FenwickTree2d.h"
 
 int main() {
 	rep(it,0,1000000) {

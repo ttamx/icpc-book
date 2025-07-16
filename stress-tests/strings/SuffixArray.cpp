@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../lib/strings/SuffixArray.h"
+#include "../../src/strings/SuffixArray.h"
 
 struct VecSuffixArray {
 	vi sa, lcp;

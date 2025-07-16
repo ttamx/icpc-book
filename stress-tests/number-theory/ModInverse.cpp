@@ -16,7 +16,7 @@ int main() {
 	rep(it,1,1000) {
 		int mod = it, LIM=1000;
 		if (!isPrime(mod)) continue;
-		#include "../../lib/number-theory/ModInverse.h"
+		#include "../../src/number-theory/ModInverse.h"
 		for (int i=1; i<it; i++){
 			assert(inv[i] == modpow(i, mod-2, mod));
 		}

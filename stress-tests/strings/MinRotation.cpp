@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../lib/strings/MinRotation.h"
+#include "../../src/strings/MinRotation.h"
 
 int min_rotation2(string& v) {
 	int n = sz(v);

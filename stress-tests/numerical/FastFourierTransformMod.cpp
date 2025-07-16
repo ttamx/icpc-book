@@ -2,7 +2,7 @@
 
 const ll mod = 1000000007;
 
-#include "../../lib/numerical/FastFourierTransformMod.h"
+#include "../../src/numerical/FastFourierTransformMod.h"
 
 vl simpleConv(vl a, vl b) {
 	if (a.empty() || b.empty()) return {};

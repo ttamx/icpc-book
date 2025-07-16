@@ -1,7 +1,7 @@
 #include "../utilities/template.h"
 #include <valarray>
 
-#include "../../lib/numerical/FastFourierTransform.h"
+#include "../../src/numerical/FastFourierTransform.h"
 
 const double eps = 1e-8;
 int main() {

@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../lib/geometry/CirclePolygonIntersection.h"
+#include "../../src/geometry/CirclePolygonIntersection.h"
 #include "../utilities/genPolygon.h"
 
 namespace orig{

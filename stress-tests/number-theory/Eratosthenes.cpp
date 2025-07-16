@@ -20,8 +20,8 @@ vi eratosthenes(int LIM) {
 	return pr;
 }
 }
-#include "../../lib/number-theory/FastEratosthenes.h"
-#include "../../lib/number-theory/Eratosthenes.h"
+#include "../../src/number-theory/FastEratosthenes.h"
+#include "../../src/number-theory/Eratosthenes.h"
 
 
 int main() {

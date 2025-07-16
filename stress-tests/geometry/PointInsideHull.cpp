@@ -1,11 +1,11 @@
 #include "../utilities/template.h"
 
-#include "../../lib/geometry/ConvexHull.h"
+#include "../../src/geometry/ConvexHull.h"
 namespace ignore {
-	#include "../../lib/geometry/SegmentDistance.h"
+	#include "../../src/geometry/SegmentDistance.h"
 }
-#include "../../lib/geometry/PointInsideHull.h"
-#include "../../lib/geometry/InsidePolygon.h"
+#include "../../src/geometry/PointInsideHull.h"
+#include "../../src/geometry/InsidePolygon.h"
 
 int main() {
 	rep(it,0,100000) {
