@@ -23,3 +23,7 @@ jobs:
     #   run: make test-compiles
     # - name: Run stress tests
     #   run: make test
+    - uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "Update kactl.pdf"
+        branch: main
