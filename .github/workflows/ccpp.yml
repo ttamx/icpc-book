@@ -10,17 +10,40 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    timeout-minutes: 20
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    # Verify code
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+        cache: 'pip'
+    
+    - name: Install dependencies
+      run: |
+        pip install -U pip
+        pip install -r requirements.txt
+
+    - run: oj-verify all
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_PAT: ${{ secrets.GH_PAT }}
+    
+    # Build PDF
+
     - name: Install pdflatex
       run: sudo apt-get install texlive-latex-base texlive-latex-recommended texlive-latex-extra
+
     - name: Build pdf
       run: make kactl
-    # no need to test :)
-    # - name: Run compiles
-    #   run: make test-compiles
-    # - name: Run stress tests
-    #   run: make test
-    - uses: stefanzweifel/git-auto-commit-action@v5
+
+    - name: Commit changes
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "build PDF"
+        branch: main
