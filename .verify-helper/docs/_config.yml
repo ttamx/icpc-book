@@ -1,2 +1,2 @@
-exclude: [doc]
+exclude: ["doc","src/tex"]
 title: ICPC Book
