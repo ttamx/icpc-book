@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/data-structures/Treap.h"
+#include "../../lib/data-structures/Treap.h"
 
 pair<Node*, Node*> split2(Node* n, int v) {
 	if (!n) return {};

@@ -2,9 +2,9 @@
 #include "../utilities/utils.h"
 #include "../utilities/random.h"
 
-#include "../../content/graph/WeightedMatching.h"
+#include "../../lib/graph/WeightedMatching.h"
 #include <bits/extc++.h> /// include-line, keep-include
-#include "../../content/graph/MinCostMaxFlow.h"
+#include "../../lib/graph/MinCostMaxFlow.h"
 
 void test(int N, int mxCost, int iters) {
 	for (int it = 0; it < iters; it++) {

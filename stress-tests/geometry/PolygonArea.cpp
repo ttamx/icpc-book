@@ -1,8 +1,8 @@
 #include "../utilities/template.h"
 
-#include "../../content/geometry/PolygonArea.h"
-#include "../../content/geometry/PolygonCenter.h"
-#include "../../content/geometry/InsidePolygon.h"
+#include "../../lib/geometry/PolygonArea.h"
+#include "../../lib/geometry/PolygonCenter.h"
+#include "../../lib/geometry/InsidePolygon.h"
 
 int main() {
 	srand(0);

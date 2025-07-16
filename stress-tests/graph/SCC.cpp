@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/graph/SCC.h"
+#include "../../lib/graph/SCC.h"
 
 namespace old {
 vi orig, low, comp, z;

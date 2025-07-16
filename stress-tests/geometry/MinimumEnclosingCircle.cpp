@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/geometry/MinimumEnclosingCircle.h"
+#include "../../lib/geometry/MinimumEnclosingCircle.h"
 
 int main() {
 	srand(2);

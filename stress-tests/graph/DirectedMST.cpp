@@ -21,7 +21,7 @@ struct Bumpalloc {
 #ifndef TEST_PERF
 #define new bumpalloc =
 #endif
-#include "../../content/graph/DirectedMST.h"
+#include "../../lib/graph/DirectedMST.h"
 #ifndef TEST_PERF
 #undef new
 #endif

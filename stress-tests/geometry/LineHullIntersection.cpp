@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/geometry/Point.h"
+#include "../../lib/geometry/Point.h"
 
 template<>
 struct Point<double> {
@@ -32,8 +32,8 @@ struct Point<double> {
 		return P(x*cos(a)-y*sin(a),x*sin(a)+y*cos(a)); }
 };
 
-#include "../../content/geometry/ConvexHull.h"
-#include "../../content/geometry/LineHullIntersection.h"
+#include "../../lib/geometry/ConvexHull.h"
+#include "../../lib/geometry/LineHullIntersection.h"
 
 int segmentIntersection(const P& s1, const P& e1,
 		const P& s2, const P& e2, Point<double>& r1, Point<double>& r2) {

@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/geometry/ClosestPair.h"
+#include "../../lib/geometry/ClosestPair.h"
 
 namespace old {
 template<class It>

@@ -1,7 +1,7 @@
 #include "../utilities/template.h"
 
-#include "../../content/graph/LinkCutTree.h"
-#include "../../content/data-structures/UnionFind.h"
+#include "../../lib/graph/LinkCutTree.h"
+#include "../../lib/data-structures/UnionFind.h"
 
 int main() {
 	srand(2);

@@ -3,7 +3,7 @@
 #include "../utilities/genGraph.h"
 #include "../utilities/random.h"
 
-#include "../../content/graph/EdgeColoring.h"
+#include "../../lib/graph/EdgeColoring.h"
 
 void test(int n, const vector<pii>& ed) {
 	vi deg(n);

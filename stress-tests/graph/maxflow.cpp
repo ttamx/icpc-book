@@ -1,8 +1,8 @@
 #include "../utilities/template.h"
 
-#include "../../content/graph/PushRelabel.h"
-#include "../../content/graph/Dinic.h"
-#include "../../content/graph/EdmondsKarp.h"
+#include "../../lib/graph/PushRelabel.h"
+#include "../../lib/graph/Dinic.h"
+#include "../../lib/graph/EdmondsKarp.h"
 
 // Bump allocator, to speed the test up and get rid of malloc performance noise
 static char buf[1 << 23];

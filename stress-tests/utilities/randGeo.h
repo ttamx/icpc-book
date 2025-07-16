@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../content/geometry/Point.h"
+#include "../../lib/geometry/Point.h"
 
 template <class T=double>
 Point<T> randIntPt(int lim) {

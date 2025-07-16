@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/data-structures/LineContainer.h"
+#include "../../lib/data-structures/LineContainer.h"
 
 namespace other {
 // source: https://github.com/niklasb/contest-algos/blob/master/convex_hull/dynamic.cpp

@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/number-theory/ModLog.h"
+#include "../../lib/number-theory/ModLog.h"
 
 int main() {
 	const int lim = 100;

@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/strings/Hashing.h"
+#include "../../lib/strings/Hashing.h"
 
 #include <sys/time.h>
 int main() {

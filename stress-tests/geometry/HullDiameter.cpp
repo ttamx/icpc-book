@@ -1,7 +1,7 @@
 #include "../utilities/template.h"
 
-#include "../../content/geometry/ConvexHull.h"
-#include "../../content/geometry/HullDiameter.h"
+#include "../../lib/geometry/ConvexHull.h"
+#include "../../lib/geometry/HullDiameter.h"
 
 int main() {
 	srand(2);

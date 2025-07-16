@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/number-theory/CRT.h"
+#include "../../lib/number-theory/CRT.h"
 
 ll rmod(ll a, ll b) { return (a % b + b) % b; }
 

@@ -9,7 +9,7 @@ int ra() {
 
 namespace maximum {
 
-#include "../../content/data-structures/SegmentTree.h"
+#include "../../lib/data-structures/SegmentTree.h"
 
 }
 

@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/various/FastMod.h"
+#include "../../lib/various/FastMod.h"
 
 typedef unsigned long long ull;
 struct OldBarrett {

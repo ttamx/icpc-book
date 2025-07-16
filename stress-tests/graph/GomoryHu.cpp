@@ -1,9 +1,9 @@
 #include "../utilities/template.h"
 #include "../utilities/utils.h"
 
-#include "../../content/graph/GlobalMinCut.h"
-#include "../../content/graph/GomoryHu.h"
-#include "../../content/graph/Dinic.h"
+#include "../../lib/graph/GlobalMinCut.h"
+#include "../../lib/graph/GomoryHu.h"
+#include "../../lib/graph/Dinic.h"
 
 
 void test(int N, int mxFlow, int iters) {

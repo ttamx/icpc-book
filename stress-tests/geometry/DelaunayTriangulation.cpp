@@ -1,11 +1,11 @@
 #include "../utilities/template.h"
 
-#include "../../content/geometry/DelaunayTriangulation.h"
+#include "../../lib/geometry/DelaunayTriangulation.h"
 #define ll double
-#include "../../content/geometry/ConvexHull.h"
+#include "../../lib/geometry/ConvexHull.h"
 #undef ll
-#include "../../content/geometry/PolygonArea.h"
-#include "../../content/geometry/circumcircle.h"
+#include "../../lib/geometry/PolygonArea.h"
+#include "../../lib/geometry/circumcircle.h"
 
 typedef Point<double> P;
 int main() {

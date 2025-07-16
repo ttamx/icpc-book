@@ -2,8 +2,8 @@
 
 // Translated from Python code posted here: https://codeforces.com/blog/entry/63058?#comment-472788
 // May generate polygons with colinear points. Won't generate polygons with duplicate points. No guarantee of the direction of the polygon.
-#include "../../content/geometry/Point.h"
-#include "../../content/geometry/PolygonArea.h"
+#include "../../lib/geometry/Point.h"
+#include "../../lib/geometry/PolygonArea.h"
 #include "random.h"
 
 template<class P> pair<bool, vector<P>> conquer(vector<P> pts, int depth) {

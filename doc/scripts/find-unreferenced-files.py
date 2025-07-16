@@ -1,6 +1,6 @@
 import os
 
-for (dirpath, dirnames, filenames) in os.walk('content'):
+for (dirpath, dirnames, filenames) in os.walk('lib'):
     try:
         with open(os.path.join(dirpath, 'chapter.tex')) as f:
             chapter_tex = f.read()

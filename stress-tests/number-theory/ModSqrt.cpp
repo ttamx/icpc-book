@@ -6,7 +6,7 @@ ll modpow(ll a, ll e, ll mod) {
 	return e & 1 ? x * a % mod : x;
 }
 
-#include "../../content/number-theory/ModSqrt.h"
+#include "../../lib/number-theory/ModSqrt.h"
 
 int main() {
 	rep(p,2,10000) {

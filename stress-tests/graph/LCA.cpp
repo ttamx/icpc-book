@@ -1,9 +1,9 @@
 #include "../utilities/template.h"
 #include "../utilities/genTree.h"
 
-#include "../../content/graph/LCA.h"
-#include "../../content/graph/BinaryLifting.h"
-#include "../../content/data-structures/RMQ.h"
+#include "../../lib/graph/LCA.h"
+#include "../../lib/graph/BinaryLifting.h"
+#include "../../lib/data-structures/RMQ.h"
 
 namespace old {
 typedef vector<pii> vpi;

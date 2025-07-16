@@ -1,6 +1,6 @@
 import glob
 
-for fname in glob.glob('content/*/*.h'):
+for fname in glob.glob('lib/*/*.h'):
     fname = fname.strip()
     with open(fname) as f:
         cont = list(f)

@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/number-theory/FracBinarySearch.h"
+#include "../../lib/number-theory/FracBinarySearch.h"
 
 int main() {
 	rep(n,1,300) {

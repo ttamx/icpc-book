@@ -1,5 +1,5 @@
 LATEXCMD = pdflatex -shell-escape -output-directory build/
-export TEXINPUTS=.:content/tex/:
+export TEXINPUTS=.:lib/tex/:
 export max_print_line = 1048576
 
 help:
@@ -18,11 +18,11 @@ help:
 	@echo "For more information see the file 'doc/README'"
 
 fast: | build
-	$(LATEXCMD) content/kactl.tex </dev/null
+	$(LATEXCMD) lib/kactl.tex </dev/null
 	cp build/kactl.pdf kactl.pdf
 
 kactl: test-session.pdf | build
-	$(LATEXCMD) content/kactl.tex && $(LATEXCMD) content/kactl.tex
+	$(LATEXCMD) lib/kactl.tex && $(LATEXCMD) lib/kactl.tex
 	cp build/kactl.pdf kactl.pdf
 
 clean:
@@ -42,10 +42,10 @@ test:
 test-compiles:
 	./doc/scripts/compile-all.sh .
 
-test-session.pdf: content/test-session/test-session.tex content/test-session/chapter.tex | build
-	$(LATEXCMD) content/test-session/test-session.tex
+test-session.pdf: lib/test-session/test-session.tex lib/test-session/chapter.tex | build
+	$(LATEXCMD) lib/test-session/test-session.tex
 	cp build/test-session.pdf test-session.pdf
 
 showexcluded: build
-	grep -RoPh '^\s*\\kactlimport{\K.*' content/ | sed 's/.$$//' > build/headers_included
-	find ./content -name "*.h" -o -name "*.py" -o -name "*.java" | grep -vFf build/headers_included
+	grep -RoPh '^\s*\\kactlimport{\K.*' lib/ | sed 's/.$$//' > build/headers_included
+	find ./lib -name "*.h" -o -name "*.py" -o -name "*.java" | grep -vFf build/headers_included

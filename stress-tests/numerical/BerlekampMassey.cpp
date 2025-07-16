@@ -9,11 +9,11 @@ ll modpow(ll a, ll e) {
 
 #define mod dummy
 #define modpow dummy2
-#include "../../content/number-theory/ModPow.h"
+#include "../../lib/number-theory/ModPow.h"
 #undef mod
 #undef modpow
 
-#include "../../content/numerical/BerlekampMassey.h"
+#include "../../lib/numerical/BerlekampMassey.h"
 
 template<class F>
 void gen(vector<ll>& v, int at, F f) {

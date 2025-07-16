@@ -1,7 +1,7 @@
 #include "../utilities/template.h"
 #include "../utilities/random.h"
 
-#include "../../content/graph/TopoSort.h"
+#include "../../lib/graph/TopoSort.h"
 
 int main() {
 	rep(it,0,50000) {

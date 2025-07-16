@@ -1,5 +1,5 @@
 
-#include "../../content/data-structures/SegmentTree.h"
+#include "../../lib/data-structures/SegmentTree.h"
 
 typedef vector<pii> vpi;
 

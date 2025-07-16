@@ -2,10 +2,10 @@
 
 typedef vector<ll> vl;
 namespace ignore {
-#include "../../content/number-theory/ModPow.h"
+#include "../../lib/number-theory/ModPow.h"
 }
 ll modpow(ll a, ll e);
-#include "../../content/numerical/NumberTheoreticTransform.h"
+#include "../../lib/numerical/NumberTheoreticTransform.h"
 ll modpow(ll a, ll e) {
 	if (e == 0)
 		return 1;

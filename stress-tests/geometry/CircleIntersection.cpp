@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/geometry/CircleIntersection.h"
+#include "../../lib/geometry/CircleIntersection.h"
 
 int main() {
 	cin.sync_with_stdio(0); cin.tie(0);
