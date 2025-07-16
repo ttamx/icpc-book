@@ -32,7 +32,9 @@ jobs:
     - run: oj-verify all
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GH_PAT: ${{ secrets.GH_PAT }}
+        GH_PAT: idk
+    
+    - run: git switch main
     
     # Build PDF
 
