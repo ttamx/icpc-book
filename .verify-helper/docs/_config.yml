@@ -1,1 +1,2 @@
-exclude: ["doc", "src/tex"]
+title: 'ICPC Notebook'
+exclude: ['doc', 'src/tex']
