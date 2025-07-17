@@ -1,4 +1,5 @@
+title: ICPC Codebook
 theme: jekyll-theme-hacker
 exclude:
   - doc
-  - src.tex
+  - src/tex
