@@ -1,6 +1,10 @@
 #pragma once
 #include "src/contest/template.hpp"
 
+/**
+ * Descripton: Link Cut Tree (1-indexed)
+ */
+
 template<int N,class T>
 struct LinkCutTree{
     int ch[N][2],par[N],lz[N],rev[N];
