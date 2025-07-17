@@ -49,3 +49,13 @@ jobs:
       with:
         commit_message: "build PDF"
         branch: main
+
+    - name: Copy PDF to pages
+      run: |
+        $DIR=$(mktemp -d)
+        cp kactl.pdf $DIR/kactl.pdf
+        git switch gh-pages
+        cp $DIR/kactl.pdf .
+        git add .
+        git commit -m "Update kactl.pdf"
+        git push
