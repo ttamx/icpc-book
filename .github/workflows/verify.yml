@@ -36,7 +36,14 @@ jobs:
     
     # clean up _config.yml by removing exclude section (idk why it broke when have exclude)
     - name: Clean up _config.yml
-      run: sed -i -e '/^exclude:/,/^[^[:space:]].*:/ { /^exclude:/d; /^[^[:space:]].*:/!d }' _config.yml
+      run: |
+        sed -i -e '/^exclude:/,/^[^[:space:]].*:/ { /^exclude:/d; /^[^[:space:]].*:/!d }' _config.yml
+    
+    - name: Commit changes
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "fix: clean up _config.yml"
+        branch: gh-pages
     
     - run: git switch main
     
