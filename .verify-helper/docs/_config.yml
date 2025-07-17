@@ -1,3 +1,2 @@
 exclude: ["doc", "src/tex"]
 title: ICPC Book
-theme: jekyll-theme-hacker
