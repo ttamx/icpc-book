@@ -1,6 +1,22 @@
 ---
 data:
   libraryCategories:
+  - name: doc
+    pages:
+    - icon: ':warning:'
+      path: doc/example.h
+      title: doc/example.h
+  - name: doc/scripts
+    pages:
+    - icon: ':warning:'
+      path: doc/scripts/add-cc0-license.py
+      title: doc/scripts/add-cc0-license.py
+    - icon: ':warning:'
+      path: doc/scripts/find-unreferenced-files.py
+      title: doc/scripts/find-unreferenced-files.py
+    - icon: ':warning:'
+      path: doc/scripts/fix-newlines.py
+      title: doc/scripts/fix-newlines.py
   - name: src/contest
     pages:
     - icon: ':heavy_check_mark:'
@@ -20,6 +36,11 @@ data:
     - icon: ':warning:'
       path: src/data-structures/Treap.h
       title: src/data-structures/Treap.h
+  - name: src/tex
+    pages:
+    - icon: ':warning:'
+      path: src/tex/preprocessor.py
+      title: src/tex/preprocessor.py
   verificationCategories:
   - name: .
     pages:
