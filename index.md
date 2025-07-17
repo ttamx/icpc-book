@@ -20,6 +20,11 @@ data:
     - icon: ':warning:'
       path: src/data-structures/Treap.h
       title: src/data-structures/Treap.h
+  - name: src/tex
+    pages:
+    - icon: ':warning:'
+      path: src/tex/preprocessor.py
+      title: src/tex/preprocessor.py
   verificationCategories:
   - name: .
     pages:
