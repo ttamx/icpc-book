@@ -42,7 +42,7 @@ jobs:
     - name: Commit changes
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
-        commit_message: "fix: clean up _config.yml"
+        commit_message: "clean up _config.yml"
         branch: gh-pages
     
     - run: git switch main
@@ -61,12 +61,12 @@ jobs:
         commit_message: "build PDF"
         branch: main
 
-    # - name: Copy PDF to pages
-    #   run: |
-    #     DIR=$(mktemp -d)
-    #     cp kactl.pdf $DIR/kactl.pdf
-    #     git switch gh-pages
-    #     cp $DIR/kactl.pdf .
-    #     git add .
-    #     git commit -m "Update kactl.pdf"
-    #     git push
+    - name: Copy PDF to pages
+      run: |
+        DIR=$(mktemp -d)
+        cp kactl.pdf $DIR/kactl.pdf
+        git switch gh-pages
+        cp $DIR/kactl.pdf .
+        git add .
+        git commit -m "Update kactl.pdf"
+        git push
