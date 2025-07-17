@@ -52,7 +52,7 @@ jobs:
 
     - name: Copy PDF to pages
       run: |
-        $DIR=$(mktemp -d)
+        DIR=$(mktemp -d)
         cp kactl.pdf $DIR/kactl.pdf
         git switch gh-pages
         cp $DIR/kactl.pdf .
