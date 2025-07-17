@@ -34,6 +34,10 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GH_PAT: idk
     
+    # clean up _config.yml by removing exclude section (idk why it broke when have exclude)
+    - name: Clean up _config.yml
+      run: sed -i -e '/^exclude:/,/^[^[:space:]].*:/ { /^exclude:/d; /^[^[:space:]].*:/!d }' _config.yml
+    
     - run: git switch main
     
     # Build PDF
