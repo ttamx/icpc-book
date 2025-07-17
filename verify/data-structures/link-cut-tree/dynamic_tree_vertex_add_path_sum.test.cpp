@@ -1,4 +1,5 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/dynamic_tree_vertex_add_path_sum"
+#include "src/contest/template.hpp"
 #include "src/data-structures/LinkCutTree.hpp"
 
 const int N=2e5+5;

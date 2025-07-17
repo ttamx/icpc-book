@@ -2,7 +2,8 @@
 #include "src/contest/template.hpp"
 
 /**
- * Descripton: Link Cut Tree (1-indexed)
+ * Author: Teetat T.
+ * Description: Link Cut Tree (1-indexed)
  */
 
 template<int N,class T>
