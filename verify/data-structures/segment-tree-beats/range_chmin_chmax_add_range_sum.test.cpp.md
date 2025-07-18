@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/contest/template.hpp
     title: src/contest/template.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/data-structures/SegmentTreeBeats.hpp
     title: src/data-structures/SegmentTreeBeats.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum
@@ -31,8 +31,8 @@ data:
     \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 3 \"src/data-structures/SegmentTreeBeats.hpp\"\
     \n\n/**\n * Author: Teetat T.\n * Date: 2025-07-18\n * Description: Segment Tree\
     \ Beats\n */\n\nstruct SegmentTreeBeats{\n    struct Node{\n        ll sum,add;\n\
-    \        ll mn,mn2,fn;\n        ll mx,mx2,fx;\n        Node(){\n            sum=add=fn=fx=0,mn=mn2=INF,mx=mx2=-INF;\n\
-    \        }\n        Node(ll v){\n            sum=mn=mx=v,add=0,mn2=INF,mx2=-INF,fn=fx=1;\n\
+    \        ll mn,mn2,fn;\n        ll mx,mx2,fx;\n        Node(){\n            sum=add=fn=fx=0,mn=mn2=LINF,mx=mx2=-LINF;\n\
+    \        }\n        Node(ll v){\n            sum=mn=mx=v,add=0,mn2=LINF,mx2=-LINF,fn=fx=1;\n\
     \        }\n        friend Node operator+(const Node &l,const Node &r){\n    \
     \        Node res;\n            res.sum=l.sum+r.sum;\n            res.add=0;\n\
     \            if(l.mx>r.mx){\n                res.mx=l.mx,res.fx=l.fx;\n      \
@@ -105,8 +105,8 @@ data:
   isVerificationFile: true
   path: verify/data-structures/segment-tree-beats/range_chmin_chmax_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2025-07-19 02:43:50+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2025-07-19 03:05:32+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/data-structures/segment-tree-beats/range_chmin_chmax_add_range_sum.test.cpp
 layout: document

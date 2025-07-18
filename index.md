@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: src/contest
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/contest/template.hpp
       title: src/contest/template.hpp
   - name: src/data-structures
@@ -14,7 +14,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/data-structures/LineContainer.hpp
       title: src/data-structures/LineContainer.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/data-structures/SegmentTreeBeats.hpp
       title: src/data-structures/SegmentTreeBeats.hpp
     - icon: ':warning:'
@@ -58,7 +58,7 @@ data:
       title: verify/data-structures/line-container/line_add_get_min.test.cpp
   - name: verify/data-structures/segment-tree-beats
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/data-structures/segment-tree-beats/range_chmin_chmax_add_range_sum.test.cpp
       title: verify/data-structures/segment-tree-beats/range_chmin_chmax_add_range_sum.test.cpp
   - name: verify/flows/hopcroft-karp
