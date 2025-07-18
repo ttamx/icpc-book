@@ -13,10 +13,10 @@ struct SegmentTreeBeats{
         ll mn,mn2,fn;
         ll mx,mx2,fx;
         Node(){
-            sum=add=fn=fx=0,mn=mn2=INF,mx=mx2=-INF;
+            sum=add=fn=fx=0,mn=mn2=LINF,mx=mx2=-LINF;
         }
         Node(ll v){
-            sum=mn=mx=v,add=0,mn2=INF,mx2=-INF,fn=fx=1;
+            sum=mn=mx=v,add=0,mn2=LINF,mx2=-LINF,fn=fx=1;
         }
         friend Node operator+(const Node &l,const Node &r){
             Node res;
