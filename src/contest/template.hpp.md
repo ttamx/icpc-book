@@ -8,6 +8,21 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/data-structures/LinkCutTree.hpp
     title: src/data-structures/LinkCutTree.hpp
+  - icon: ':warning:'
+    path: src/graph/flows/BinaryOptimization.hpp
+    title: src/graph/flows/BinaryOptimization.hpp
+  - icon: ':warning:'
+    path: src/graph/flows/Dinic.hpp
+    title: src/graph/flows/Dinic.hpp
+  - icon: ':heavy_check_mark:'
+    path: src/graph/flows/HopcroftKarp.hpp
+    title: src/graph/flows/HopcroftKarp.hpp
+  - icon: ':warning:'
+    path: src/graph/flows/K_aryOptimization.hpp
+    title: src/graph/flows/K_aryOptimization.hpp
+  - icon: ':warning:'
+    path: src/graph/flows/MinCostFlow.hpp
+    title: src/graph/flows/MinCostFlow.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: verify/data-structures/line-container/line_add_get_min.test.cpp
@@ -15,6 +30,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/data-structures/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
     title: verify/data-structures/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/graph/flows/hopcroft-karp/bipartitematching.test.cpp
+    title: verify/graph/flows/hopcroft-karp/bipartitematching.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -46,11 +64,17 @@ data:
   requiredBy:
   - src/data-structures/LinkCutTree.hpp
   - src/data-structures/LineContainer.hpp
+  - src/graph/flows/Dinic.hpp
+  - src/graph/flows/HopcroftKarp.hpp
+  - src/graph/flows/K_aryOptimization.hpp
+  - src/graph/flows/MinCostFlow.hpp
+  - src/graph/flows/BinaryOptimization.hpp
   timestamp: '2025-07-17 16:04:21+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/data-structures/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
   - verify/data-structures/line-container/line_add_get_min.test.cpp
+  - verify/graph/flows/hopcroft-karp/bipartitematching.test.cpp
 documentation_of: src/contest/template.hpp
 layout: document
 redirect_from:

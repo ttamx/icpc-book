@@ -20,6 +20,23 @@ data:
     - icon: ':warning:'
       path: src/data-structures/Treap.h
       title: src/data-structures/Treap.h
+  - name: src/graph/flows
+    pages:
+    - icon: ':warning:'
+      path: src/graph/flows/BinaryOptimization.hpp
+      title: src/graph/flows/BinaryOptimization.hpp
+    - icon: ':warning:'
+      path: src/graph/flows/Dinic.hpp
+      title: src/graph/flows/Dinic.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/graph/flows/HopcroftKarp.hpp
+      title: src/graph/flows/HopcroftKarp.hpp
+    - icon: ':warning:'
+      path: src/graph/flows/K_aryOptimization.hpp
+      title: src/graph/flows/K_aryOptimization.hpp
+    - icon: ':warning:'
+      path: src/graph/flows/MinCostFlow.hpp
+      title: src/graph/flows/MinCostFlow.hpp
   verificationCategories:
   - name: .
     pages:
@@ -36,6 +53,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/data-structures/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
       title: verify/data-structures/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
+  - name: verify/graph/flows/hopcroft-karp
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/graph/flows/hopcroft-karp/bipartitematching.test.cpp
+      title: verify/graph/flows/hopcroft-karp/bipartitematching.test.cpp
 layout: toppage
 ---
 Team Members
