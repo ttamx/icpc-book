@@ -1,5 +1,5 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/bipartitematching"
-#include "src/graph/flows/HopcroftKarp.hpp"
+#include "src/flows/HopcroftKarp.hpp"
 
 int main(){
     cin.tie(nullptr)->sync_with_stdio(false);
