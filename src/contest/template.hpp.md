@@ -9,11 +9,17 @@ data:
     path: src/data-structures/SegmentTreeBeats.hpp
     title: src/data-structures/SegmentTreeBeats.hpp
   - icon: ':warning:'
+    path: src/flows/BinaryOptimization.hpp
+    title: src/flows/BinaryOptimization.hpp
+  - icon: ':warning:'
     path: src/flows/Dinic.hpp
     title: src/flows/Dinic.hpp
   - icon: ':heavy_check_mark:'
     path: src/flows/HopcroftKarp.hpp
     title: src/flows/HopcroftKarp.hpp
+  - icon: ':warning:'
+    path: src/flows/KaryOptimization.hpp
+    title: src/flows/KaryOptimization.hpp
   - icon: ':warning:'
     path: src/flows/MinCostFlow.hpp
     title: src/flows/MinCostFlow.hpp
@@ -71,7 +77,9 @@ data:
   - src/tree/LinkCutTree.hpp
   - src/flows/Dinic.hpp
   - src/flows/HopcroftKarp.hpp
+  - src/flows/KaryOptimization.hpp
   - src/flows/MinCostFlow.hpp
+  - src/flows/BinaryOptimization.hpp
   timestamp: '2025-07-17 16:04:21+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

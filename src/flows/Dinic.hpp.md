@@ -4,7 +4,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/contest/template.hpp
     title: src/contest/template.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: src/flows/BinaryOptimization.hpp
+    title: src/flows/BinaryOptimization.hpp
+  - icon: ':warning:'
+    path: src/flows/KaryOptimization.hpp
+    title: src/flows/KaryOptimization.hpp
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
@@ -90,7 +96,9 @@ data:
   - src/contest/template.hpp
   isVerificationFile: false
   path: src/flows/Dinic.hpp
-  requiredBy: []
+  requiredBy:
+  - src/flows/KaryOptimization.hpp
+  - src/flows/BinaryOptimization.hpp
   timestamp: '2025-07-19 02:06:19+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []

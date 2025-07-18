@@ -32,8 +32,8 @@ data:
       path: src/flows/HopcroftKarp.hpp
       title: src/flows/HopcroftKarp.hpp
     - icon: ':warning:'
-      path: src/flows/K_aryOptimization.hpp
-      title: src/flows/K_aryOptimization.hpp
+      path: src/flows/KaryOptimization.hpp
+      title: src/flows/KaryOptimization.hpp
     - icon: ':warning:'
       path: src/flows/MinCostFlow.hpp
       title: src/flows/MinCostFlow.hpp
