@@ -1,5 +1,5 @@
 #pragma once
-#include "src/graph/flows/Dinic.hpp"
+#include "src/flows/Dinic.hpp"
 
 /**
  * Author: Teetat T.
