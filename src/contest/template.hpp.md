@@ -5,6 +5,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/data-structures/LineContainer.hpp
     title: src/data-structures/LineContainer.hpp
+  - icon: ':x:'
+    path: src/data-structures/SegmentTreeBeats.hpp
+    title: src/data-structures/SegmentTreeBeats.hpp
   - icon: ':warning:'
     path: src/flows/Dinic.hpp
     title: src/flows/Dinic.hpp
@@ -24,15 +27,18 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/data-structures/line-container/line_add_get_min.test.cpp
     title: verify/data-structures/line-container/line_add_get_min.test.cpp
+  - icon: ':x:'
+    path: verify/data-structures/segment-tree-beats/range_chmin_chmax_add_range_sum.test.cpp
+    title: verify/data-structures/segment-tree-beats/range_chmin_chmax_add_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/flows/hopcroft-karp/bipartitematching.test.cpp
     title: verify/flows/hopcroft-karp/bipartitematching.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
     title: verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/contest/template.hpp\"\n#include<bits/stdc++.h>\n#include<ext/pb_ds/assoc_container.hpp>\n\
@@ -59,6 +65,7 @@ data:
   isVerificationFile: false
   path: src/contest/template.hpp
   requiredBy:
+  - src/data-structures/SegmentTreeBeats.hpp
   - src/data-structures/LineContainer.hpp
   - src/tree/StaticTopTree.hpp
   - src/tree/LinkCutTree.hpp
@@ -66,8 +73,9 @@ data:
   - src/flows/HopcroftKarp.hpp
   - src/flows/MinCostFlow.hpp
   timestamp: '2025-07-17 16:04:21+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - verify/data-structures/segment-tree-beats/range_chmin_chmax_add_range_sum.test.cpp
   - verify/data-structures/line-container/line_add_get_min.test.cpp
   - verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
   - verify/flows/hopcroft-karp/bipartitematching.test.cpp
