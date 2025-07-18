@@ -14,29 +14,34 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/data-structures/LineContainer.hpp
       title: src/data-structures/LineContainer.hpp
-    - icon: ':heavy_check_mark:'
-      path: src/data-structures/LinkCutTree.hpp
-      title: src/data-structures/LinkCutTree.hpp
     - icon: ':warning:'
       path: src/data-structures/Treap.h
       title: src/data-structures/Treap.h
-  - name: src/graph/flows
+  - name: src/flows
     pages:
     - icon: ':warning:'
-      path: src/graph/flows/BinaryOptimization.hpp
-      title: src/graph/flows/BinaryOptimization.hpp
+      path: src/flows/BinaryOptimization.hpp
+      title: src/flows/BinaryOptimization.hpp
     - icon: ':warning:'
-      path: src/graph/flows/Dinic.hpp
-      title: src/graph/flows/Dinic.hpp
+      path: src/flows/Dinic.hpp
+      title: src/flows/Dinic.hpp
     - icon: ':heavy_check_mark:'
-      path: src/graph/flows/HopcroftKarp.hpp
-      title: src/graph/flows/HopcroftKarp.hpp
+      path: src/flows/HopcroftKarp.hpp
+      title: src/flows/HopcroftKarp.hpp
     - icon: ':warning:'
-      path: src/graph/flows/K_aryOptimization.hpp
-      title: src/graph/flows/K_aryOptimization.hpp
+      path: src/flows/K_aryOptimization.hpp
+      title: src/flows/K_aryOptimization.hpp
     - icon: ':warning:'
-      path: src/graph/flows/MinCostFlow.hpp
-      title: src/graph/flows/MinCostFlow.hpp
+      path: src/flows/MinCostFlow.hpp
+      title: src/flows/MinCostFlow.hpp
+  - name: src/tree
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: src/tree/LinkCutTree.hpp
+      title: src/tree/LinkCutTree.hpp
+    - icon: ':warning:'
+      path: src/tree/StaticTopTree.hpp
+      title: src/tree/StaticTopTree.hpp
   verificationCategories:
   - name: .
     pages:
@@ -48,16 +53,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/data-structures/line-container/line_add_get_min.test.cpp
       title: verify/data-structures/line-container/line_add_get_min.test.cpp
-  - name: verify/data-structures/link-cut-tree
+  - name: verify/flows/hopcroft-karp
     pages:
     - icon: ':heavy_check_mark:'
-      path: verify/data-structures/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
-      title: verify/data-structures/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
-  - name: verify/graph/flows/hopcroft-karp
+      path: verify/flows/hopcroft-karp/bipartitematching.test.cpp
+      title: verify/flows/hopcroft-karp/bipartitematching.test.cpp
+  - name: verify/tree/link-cut-tree
     pages:
     - icon: ':heavy_check_mark:'
-      path: verify/graph/flows/hopcroft-karp/bipartitematching.test.cpp
-      title: verify/graph/flows/hopcroft-karp/bipartitematching.test.cpp
+      path: verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
+      title: verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
 layout: toppage
 ---
 Team Members

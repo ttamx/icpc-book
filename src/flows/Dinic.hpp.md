@@ -4,13 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/contest/template.hpp
     title: src/contest/template.hpp
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: src/graph/flows/BinaryOptimization.hpp
-    title: src/graph/flows/BinaryOptimization.hpp
-  - icon: ':warning:'
-    path: src/graph/flows/K_aryOptimization.hpp
-    title: src/graph/flows/K_aryOptimization.hpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
@@ -26,7 +20,7 @@ data:
     const db EPS=1e-9;\nconst db PI=acos(db(-1));\n \ntemplate<class T>\nusing ordered_set\
     \ = tree<T,null_type,less<T>,rb_tree_tag,tree_order_statistics_node_update>;\n\
     \ \nmt19937 rng(chrono::steady_clock::now().time_since_epoch().count());\nmt19937_64\
-    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 3 \"src/graph/flows/Dinic.hpp\"\
+    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 3 \"src/flows/Dinic.hpp\"\
     \n\n/**\n * Author: Teetat T.\n * Date: 2024-07-15\n * Description: Dinic's Algorithm\
     \ for finding the maximum flow.\n * Time: O(V E \\log U) where U is the maximum\
     \ flow.\n */\n\ntemplate<class T,bool directed=true,bool scaling=true>\nstruct\
@@ -95,17 +89,15 @@ data:
   dependsOn:
   - src/contest/template.hpp
   isVerificationFile: false
-  path: src/graph/flows/Dinic.hpp
-  requiredBy:
-  - src/graph/flows/K_aryOptimization.hpp
-  - src/graph/flows/BinaryOptimization.hpp
-  timestamp: '2025-07-19 01:22:50+09:00'
+  path: src/flows/Dinic.hpp
+  requiredBy: []
+  timestamp: '2025-07-19 02:06:19+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: src/graph/flows/Dinic.hpp
+documentation_of: src/flows/Dinic.hpp
 layout: document
 redirect_from:
-- /library/src/graph/flows/Dinic.hpp
-- /library/src/graph/flows/Dinic.hpp.html
-title: src/graph/flows/Dinic.hpp
+- /library/src/flows/Dinic.hpp
+- /library/src/flows/Dinic.hpp.html
+title: src/flows/Dinic.hpp
 ---

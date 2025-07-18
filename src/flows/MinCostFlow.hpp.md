@@ -20,7 +20,7 @@ data:
     const db EPS=1e-9;\nconst db PI=acos(db(-1));\n \ntemplate<class T>\nusing ordered_set\
     \ = tree<T,null_type,less<T>,rb_tree_tag,tree_order_statistics_node_update>;\n\
     \ \nmt19937 rng(chrono::steady_clock::now().time_since_epoch().count());\nmt19937_64\
-    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 3 \"src/graph/flows/MinCostFlow.hpp\"\
+    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 3 \"src/flows/MinCostFlow.hpp\"\
     \n\n/**\n * Author: Teetat T.\n * Date: 2024-03-31\n * Description: minimum-cost\
     \ flow algorithm.\n * Time: $O(FE\\log{V})$ where $F$ is max flow.\n */\n\ntemplate<class\
     \ F,class C>\nstruct MinCostFlow{\n    struct Edge{\n        int to;\n       \
@@ -89,15 +89,15 @@ data:
   dependsOn:
   - src/contest/template.hpp
   isVerificationFile: false
-  path: src/graph/flows/MinCostFlow.hpp
+  path: src/flows/MinCostFlow.hpp
   requiredBy: []
-  timestamp: '2025-07-19 01:22:50+09:00'
+  timestamp: '2025-07-19 02:06:19+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: src/graph/flows/MinCostFlow.hpp
+documentation_of: src/flows/MinCostFlow.hpp
 layout: document
 redirect_from:
-- /library/src/graph/flows/MinCostFlow.hpp
-- /library/src/graph/flows/MinCostFlow.hpp.html
-title: src/graph/flows/MinCostFlow.hpp
+- /library/src/flows/MinCostFlow.hpp
+- /library/src/flows/MinCostFlow.hpp.html
+title: src/flows/MinCostFlow.hpp
 ---

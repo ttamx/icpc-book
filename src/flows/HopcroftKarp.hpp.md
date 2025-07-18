@@ -7,8 +7,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: verify/graph/flows/hopcroft-karp/bipartitematching.test.cpp
-    title: verify/graph/flows/hopcroft-karp/bipartitematching.test.cpp
+    path: verify/flows/hopcroft-karp/bipartitematching.test.cpp
+    title: verify/flows/hopcroft-karp/bipartitematching.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -23,7 +23,7 @@ data:
     const db EPS=1e-9;\nconst db PI=acos(db(-1));\n \ntemplate<class T>\nusing ordered_set\
     \ = tree<T,null_type,less<T>,rb_tree_tag,tree_order_statistics_node_update>;\n\
     \ \nmt19937 rng(chrono::steady_clock::now().time_since_epoch().count());\nmt19937_64\
-    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 3 \"src/graph/flows/HopcroftKarp.hpp\"\
+    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 3 \"src/flows/HopcroftKarp.hpp\"\
     \n\n/**\n * Author: Teetat T.\n * Date: 2024-03-31\n * Description: Fast bipartite\
     \ matching algorithm.\n * Time: $O(E\\sqrt{V})$\n */\n\nstruct HopcroftKarp{\n\
     \    int n,m;\n    vector<int> match,lv,ptr;\n    vector<vector<int>> adj;\n \
@@ -65,16 +65,16 @@ data:
   dependsOn:
   - src/contest/template.hpp
   isVerificationFile: false
-  path: src/graph/flows/HopcroftKarp.hpp
+  path: src/flows/HopcroftKarp.hpp
   requiredBy: []
-  timestamp: '2025-07-19 01:22:50+09:00'
+  timestamp: '2025-07-19 02:06:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/graph/flows/hopcroft-karp/bipartitematching.test.cpp
-documentation_of: src/graph/flows/HopcroftKarp.hpp
+  - verify/flows/hopcroft-karp/bipartitematching.test.cpp
+documentation_of: src/flows/HopcroftKarp.hpp
 layout: document
 redirect_from:
-- /library/src/graph/flows/HopcroftKarp.hpp
-- /library/src/graph/flows/HopcroftKarp.hpp.html
-title: src/graph/flows/HopcroftKarp.hpp
+- /library/src/flows/HopcroftKarp.hpp
+- /library/src/flows/HopcroftKarp.hpp.html
+title: src/flows/HopcroftKarp.hpp
 ---

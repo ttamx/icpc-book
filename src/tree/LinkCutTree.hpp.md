@@ -7,8 +7,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: verify/data-structures/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
-    title: verify/data-structures/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
+    path: verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
+    title: verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -23,7 +23,7 @@ data:
     const db EPS=1e-9;\nconst db PI=acos(db(-1));\n \ntemplate<class T>\nusing ordered_set\
     \ = tree<T,null_type,less<T>,rb_tree_tag,tree_order_statistics_node_update>;\n\
     \ \nmt19937 rng(chrono::steady_clock::now().time_since_epoch().count());\nmt19937_64\
-    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 3 \"src/data-structures/LinkCutTree.hpp\"\
+    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 3 \"src/tree/LinkCutTree.hpp\"\
     \n\n/**\n * Author: Teetat T.\n * Description: Link Cut Tree (1-indexed)\n */\n\
     \ntemplate<int N,class T>\nstruct LinkCutTree{\n    int ch[N][2],par[N],lz[N],rev[N];\n\
     \    T val[N],sum[N],rsum[N];\n    void toggle(int v){\n        if(!v)return;\n\
@@ -76,16 +76,16 @@ data:
   dependsOn:
   - src/contest/template.hpp
   isVerificationFile: false
-  path: src/data-structures/LinkCutTree.hpp
+  path: src/tree/LinkCutTree.hpp
   requiredBy: []
-  timestamp: '2025-07-17 17:33:48+09:00'
+  timestamp: '2025-07-19 02:06:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/data-structures/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
-documentation_of: src/data-structures/LinkCutTree.hpp
+  - verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
+documentation_of: src/tree/LinkCutTree.hpp
 layout: document
 redirect_from:
-- /library/src/data-structures/LinkCutTree.hpp
-- /library/src/data-structures/LinkCutTree.hpp.html
-title: src/data-structures/LinkCutTree.hpp
+- /library/src/tree/LinkCutTree.hpp
+- /library/src/tree/LinkCutTree.hpp.html
+title: src/tree/LinkCutTree.hpp
 ---
