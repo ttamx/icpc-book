@@ -37,6 +37,17 @@ data:
     - icon: ':warning:'
       path: src/flows/MinCostFlow.hpp
       title: src/flows/MinCostFlow.hpp
+  - name: src/number-theory
+    pages:
+    - icon: ':warning:'
+      path: src/number-theory/CRT.hpp
+      title: src/number-theory/CRT.hpp
+    - icon: ':warning:'
+      path: src/number-theory/Euclid.hpp
+      title: src/number-theory/Euclid.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/number-theory/FloorSum.hpp
+      title: src/number-theory/FloorSum.hpp
   - name: src/tree
     pages:
     - icon: ':heavy_check_mark:'
@@ -66,6 +77,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/flows/hopcroft-karp/bipartitematching.test.cpp
       title: verify/flows/hopcroft-karp/bipartitematching.test.cpp
+  - name: verify/number-theory/floor-sum
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/number-theory/floor-sum/sum_of_floor_of_linear.test.cpp
+      title: verify/number-theory/floor-sum/sum_of_floor_of_linear.test.cpp
   - name: verify/tree/link-cut-tree
     pages:
     - icon: ':heavy_check_mark:'

@@ -23,6 +23,15 @@ data:
   - icon: ':warning:'
     path: src/flows/MinCostFlow.hpp
     title: src/flows/MinCostFlow.hpp
+  - icon: ':warning:'
+    path: src/number-theory/CRT.hpp
+    title: src/number-theory/CRT.hpp
+  - icon: ':warning:'
+    path: src/number-theory/Euclid.hpp
+    title: src/number-theory/Euclid.hpp
+  - icon: ':heavy_check_mark:'
+    path: src/number-theory/FloorSum.hpp
+    title: src/number-theory/FloorSum.hpp
   - icon: ':heavy_check_mark:'
     path: src/tree/LinkCutTree.hpp
     title: src/tree/LinkCutTree.hpp
@@ -39,6 +48,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/flows/hopcroft-karp/bipartitematching.test.cpp
     title: verify/flows/hopcroft-karp/bipartitematching.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/number-theory/floor-sum/sum_of_floor_of_linear.test.cpp
+    title: verify/number-theory/floor-sum/sum_of_floor_of_linear.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
     title: verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
@@ -80,6 +92,9 @@ data:
   - src/flows/KaryOptimization.hpp
   - src/flows/MinCostFlow.hpp
   - src/flows/BinaryOptimization.hpp
+  - src/number-theory/CRT.hpp
+  - src/number-theory/Euclid.hpp
+  - src/number-theory/FloorSum.hpp
   timestamp: '2025-07-17 16:04:21+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
@@ -87,6 +102,7 @@ data:
   - verify/data-structures/line-container/line_add_get_min.test.cpp
   - verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
   - verify/flows/hopcroft-karp/bipartitematching.test.cpp
+  - verify/number-theory/floor-sum/sum_of_floor_of_linear.test.cpp
 documentation_of: src/contest/template.hpp
 layout: document
 redirect_from:
