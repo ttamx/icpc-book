@@ -57,6 +57,14 @@ data:
     - icon: ':warning:'
       path: src/flows/min-cost-flow.hpp
       title: src/flows/min-cost-flow.hpp
+  - name: src/miscellaneous
+    pages:
+    - icon: ':warning:'
+      path: src/miscellaneous/integrate.hpp
+      title: src/miscellaneous/integrate.hpp
+    - icon: ':warning:'
+      path: src/miscellaneous/range-xor.hpp
+      title: src/miscellaneous/range-xor.hpp
   - name: src/modular-arithmetic
     pages:
     - icon: ':warning:'
@@ -136,6 +144,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/flows/hopcroft-karp/bipartitematching.test.cpp
       title: verify/flows/hopcroft-karp/bipartitematching.test.cpp
+  - name: verify/miscellaneous
+    pages:
+    - icon: ':x:'
+      path: verify/miscellaneous/integral.test.cpp
+      title: verify/miscellaneous/integral.test.cpp
   - name: verify/number-theory/floor-sum
     pages:
     - icon: ':heavy_check_mark:'
