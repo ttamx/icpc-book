@@ -3,7 +3,7 @@
 /**
  * Author: Teetat T.
  * Date: 2025-07-19
- * Description: find definite integral with Simpson's method, error proportional to dx^4.
+ * Description: find definite integral with Simpson's method, error proportional to $dx^4$.
  */
 
 template<class F>
