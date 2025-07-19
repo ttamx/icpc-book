@@ -2,10 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/string/suffix-array/number_of_substrings.test.cpp
+    title: verify/string/suffix-array/number_of_substrings.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/string/suffix-array/suffixarray.test.cpp
+    title: verify/string/suffix-array/suffixarray.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/string/suffix-array.hpp\"\n\n/**\n * Author: Teetat\
@@ -47,8 +53,10 @@ data:
   path: src/string/suffix-array.hpp
   requiredBy: []
   timestamp: '2025-07-19 13:39:45+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/string/suffix-array/suffixarray.test.cpp
+  - verify/string/suffix-array/number_of_substrings.test.cpp
 documentation_of: src/string/suffix-array.hpp
 layout: document
 redirect_from:

@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/string/z-algorithm/zalgorithm.test.cpp
+    title: verify/string/z-algorithm/zalgorithm.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/string/z-algorithm.hpp\"\n\n/**\n * Author: Teetat T.\n\
@@ -26,8 +29,9 @@ data:
   path: src/string/z-algorithm.hpp
   requiredBy: []
   timestamp: '2025-07-19 13:39:45+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/string/z-algorithm/zalgorithm.test.cpp
 documentation_of: src/string/z-algorithm.hpp
 layout: document
 redirect_from:

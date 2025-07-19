@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/string/manacher/enumerate_palindromes.test.cpp
+    title: verify/string/manacher/enumerate_palindromes.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/string/manacher.hpp\"\n\n/**\n * Author: Teetat T.\n\
@@ -30,8 +33,9 @@ data:
   path: src/string/manacher.hpp
   requiredBy: []
   timestamp: '2025-07-19 13:39:45+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/string/manacher/enumerate_palindromes.test.cpp
 documentation_of: src/string/manacher.hpp
 layout: document
 redirect_from:
