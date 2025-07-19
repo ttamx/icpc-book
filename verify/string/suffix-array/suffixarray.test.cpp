@@ -1,5 +1,5 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/suffixarray"
-#include "template.hpp"
+#include "src/contest/template.hpp"
 #include "src/string/suffix-array.hpp"
 
 int main(){
