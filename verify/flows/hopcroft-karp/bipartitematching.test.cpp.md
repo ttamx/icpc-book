@@ -5,8 +5,8 @@ data:
     path: src/contest/template.hpp
     title: src/contest/template.hpp
   - icon: ':heavy_check_mark:'
-    path: src/flows/HopcroftKarp.hpp
-    title: src/flows/HopcroftKarp.hpp
+    path: src/flows/hopcroft-karp.hpp
+    title: src/flows/hopcroft-karp.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -28,7 +28,7 @@ data:
     const db EPS=1e-9;\nconst db PI=acos(db(-1));\n \ntemplate<class T>\nusing ordered_set\
     \ = tree<T,null_type,less<T>,rb_tree_tag,tree_order_statistics_node_update>;\n\
     \ \nmt19937 rng(chrono::steady_clock::now().time_since_epoch().count());\nmt19937_64\
-    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 3 \"src/flows/HopcroftKarp.hpp\"\
+    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 2 \"src/flows/hopcroft-karp.hpp\"\
     \n\n/**\n * Author: Teetat T.\n * Date: 2024-03-31\n * Description: Fast bipartite\
     \ matching algorithm.\n * Time: $O(E\\sqrt{V})$\n */\n\nstruct HopcroftKarp{\n\
     \    int n,m;\n    vector<int> match,lv,ptr;\n    vector<vector<int>> adj;\n \
@@ -47,7 +47,7 @@ data:
     \       int ans=0,cnt=0;\n        match.assign(n+m,-1);\n        do{\n       \
     \     ptr.assign(n,0);\n            bfs();\n            cnt=0;\n            for(int\
     \ i=0;i<n;i++)if(match[i]==-1&&dfs(i))cnt++;\n            ans+=cnt;\n        }while(cnt);\n\
-    \        return ans;\n    }\n};\n#line 3 \"verify/flows/hopcroft-karp/bipartitematching.test.cpp\"\
+    \        return ans;\n    }\n};\n#line 4 \"verify/flows/hopcroft-karp/bipartitematching.test.cpp\"\
     \n\nint main(){\n    cin.tie(nullptr)->sync_with_stdio(false);\n    int n,m,e;\n\
     \    cin >> n >> m >> e;\n    HopcroftKarp bm(n,m);\n    for(int i=0;i<e;i++){\n\
     \        int u,v;\n        cin >> u >> v;\n        bm.add_edge(u,v);\n    }\n\
@@ -55,19 +55,20 @@ data:
     \  if(bm.match[i]!=-1){\n            cout << i << \" \" << bm.match[i]-n << \"\
     \\n\";\n        }\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/bipartitematching\"\n#include\
-    \ \"src/flows/HopcroftKarp.hpp\"\n\nint main(){\n    cin.tie(nullptr)->sync_with_stdio(false);\n\
-    \    int n,m,e;\n    cin >> n >> m >> e;\n    HopcroftKarp bm(n,m);\n    for(int\
-    \ i=0;i<e;i++){\n        int u,v;\n        cin >> u >> v;\n        bm.add_edge(u,v);\n\
-    \    }\n    cout << bm.max_matching() << \"\\n\";\n    for(int i=0;i<n;i++){\n\
-    \        if(bm.match[i]!=-1){\n            cout << i << \" \" << bm.match[i]-n\
-    \ << \"\\n\";\n        }\n    }\n}"
+    \ \"src/contest/template.hpp\"\n#include \"src/flows/hopcroft-karp.hpp\"\n\nint\
+    \ main(){\n    cin.tie(nullptr)->sync_with_stdio(false);\n    int n,m,e;\n   \
+    \ cin >> n >> m >> e;\n    HopcroftKarp bm(n,m);\n    for(int i=0;i<e;i++){\n\
+    \        int u,v;\n        cin >> u >> v;\n        bm.add_edge(u,v);\n    }\n\
+    \    cout << bm.max_matching() << \"\\n\";\n    for(int i=0;i<n;i++){\n      \
+    \  if(bm.match[i]!=-1){\n            cout << i << \" \" << bm.match[i]-n << \"\
+    \\n\";\n        }\n    }\n}"
   dependsOn:
-  - src/flows/HopcroftKarp.hpp
   - src/contest/template.hpp
+  - src/flows/hopcroft-karp.hpp
   isVerificationFile: true
   path: verify/flows/hopcroft-karp/bipartitematching.test.cpp
   requiredBy: []
-  timestamp: '2025-07-19 02:06:19+09:00'
+  timestamp: '2025-07-19 14:29:34+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/flows/hopcroft-karp/bipartitematching.test.cpp

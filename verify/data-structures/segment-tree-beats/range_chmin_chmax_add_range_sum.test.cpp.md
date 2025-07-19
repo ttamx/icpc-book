@@ -5,8 +5,8 @@ data:
     path: src/contest/template.hpp
     title: src/contest/template.hpp
   - icon: ':heavy_check_mark:'
-    path: src/data-structures/SegmentTreeBeats.hpp
-    title: src/data-structures/SegmentTreeBeats.hpp
+    path: src/data-structures/segment-tree-beats.hpp
+    title: src/data-structures/segment-tree-beats.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -28,7 +28,7 @@ data:
     const db EPS=1e-9;\nconst db PI=acos(db(-1));\n \ntemplate<class T>\nusing ordered_set\
     \ = tree<T,null_type,less<T>,rb_tree_tag,tree_order_statistics_node_update>;\n\
     \ \nmt19937 rng(chrono::steady_clock::now().time_since_epoch().count());\nmt19937_64\
-    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 3 \"src/data-structures/SegmentTreeBeats.hpp\"\
+    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 2 \"src/data-structures/segment-tree-beats.hpp\"\
     \n\n/**\n * Author: Teetat T.\n * Date: 2025-07-18\n * Description: Segment Tree\
     \ Beats\n */\n\nstruct SegmentTreeBeats{\n    struct Node{\n        ll sum,add;\n\
     \        ll mn,mn2,fn;\n        ll mx,mx2,fx;\n        Node(){\n            sum=add=fn=fx=0,mn=mn2=LINF,mx=mx2=-LINF;\n\
@@ -79,7 +79,7 @@ data:
     \    void range_add(int x,int y,ll v){range_add(0,n-1,1,x,y,v);}\n    void range_chmin(int\
     \ x,int y,ll v){range_chmin(0,n-1,1,x,y,v);}\n    void range_chmax(int x,int y,ll\
     \ v){range_chmax(0,n-1,1,x,y,v);}\n    ll query(int x,int y){return query(0,n-1,1,x,y);}\n\
-    };\n#line 3 \"verify/data-structures/segment-tree-beats/range_chmin_chmax_add_range_sum.test.cpp\"\
+    };\n#line 4 \"verify/data-structures/segment-tree-beats/range_chmin_chmax_add_range_sum.test.cpp\"\
     \n\nint main(){\n    cin.tie(nullptr)->sync_with_stdio(false);\n    int n,q;\n\
     \    cin >> n >> q;\n    vector<ll> a(n);\n    for(auto &x:a)cin >> x;\n    SegmentTreeBeats\
     \ seg(n,[&](int i){return a[i];});\n    while(q--){\n        int op,l,r;\n   \
@@ -90,22 +90,23 @@ data:
     \       }else{\n                seg.range_add(l,r,v);\n            }\n       \
     \ }\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum\"\
-    \n#include \"src/data-structures/SegmentTreeBeats.hpp\"\n\nint main(){\n    cin.tie(nullptr)->sync_with_stdio(false);\n\
-    \    int n,q;\n    cin >> n >> q;\n    vector<ll> a(n);\n    for(auto &x:a)cin\
-    \ >> x;\n    SegmentTreeBeats seg(n,[&](int i){return a[i];});\n    while(q--){\n\
-    \        int op,l,r;\n        cin >> op >> l >> r;\n        r--;\n        if(op==3){\n\
-    \            cout << seg.query(l,r) << \"\\n\";\n        }else{\n            ll\
-    \ v;\n            cin >> v;\n            if(op==0){\n                seg.range_chmin(l,r,v);\n\
+    \n#include \"src/contest/template.hpp\"\n#include \"src/data-structures/segment-tree-beats.hpp\"\
+    \n\nint main(){\n    cin.tie(nullptr)->sync_with_stdio(false);\n    int n,q;\n\
+    \    cin >> n >> q;\n    vector<ll> a(n);\n    for(auto &x:a)cin >> x;\n    SegmentTreeBeats\
+    \ seg(n,[&](int i){return a[i];});\n    while(q--){\n        int op,l,r;\n   \
+    \     cin >> op >> l >> r;\n        r--;\n        if(op==3){\n            cout\
+    \ << seg.query(l,r) << \"\\n\";\n        }else{\n            ll v;\n         \
+    \   cin >> v;\n            if(op==0){\n                seg.range_chmin(l,r,v);\n\
     \            }else if(op==1){\n                seg.range_chmax(l,r,v);\n     \
     \       }else{\n                seg.range_add(l,r,v);\n            }\n       \
     \ }\n    }\n}"
   dependsOn:
-  - src/data-structures/SegmentTreeBeats.hpp
   - src/contest/template.hpp
+  - src/data-structures/segment-tree-beats.hpp
   isVerificationFile: true
   path: verify/data-structures/segment-tree-beats/range_chmin_chmax_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2025-07-19 03:05:32+09:00'
+  timestamp: '2025-07-19 14:29:34+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/data-structures/segment-tree-beats/range_chmin_chmax_add_range_sum.test.cpp

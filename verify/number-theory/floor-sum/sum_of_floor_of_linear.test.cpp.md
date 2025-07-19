@@ -5,8 +5,8 @@ data:
     path: src/contest/template.hpp
     title: src/contest/template.hpp
   - icon: ':heavy_check_mark:'
-    path: src/number-theory/FloorSum.hpp
-    title: src/number-theory/FloorSum.hpp
+    path: src/number-theory/floor-sum.hpp
+    title: src/number-theory/floor-sum.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -28,7 +28,7 @@ data:
     const db EPS=1e-9;\nconst db PI=acos(db(-1));\n \ntemplate<class T>\nusing ordered_set\
     \ = tree<T,null_type,less<T>,rb_tree_tag,tree_order_statistics_node_update>;\n\
     \ \nmt19937 rng(chrono::steady_clock::now().time_since_epoch().count());\nmt19937_64\
-    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 3 \"src/number-theory/FloorSum.hpp\"\
+    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 2 \"src/number-theory/floor-sum.hpp\"\
     \n\n/**\n * Author: Teetat T.\n * Date: 2024-09-21\n * Description: Floor sum\
     \ function.\n *  $f(a, b, c, n) = \\sum_{x=0}^n \\lfloor \\frac{ax+b}{c} \\rfloor$\n\
     \ *  becareful when a,b,c are negetive (use custom floor division and mod instead)\n\
@@ -39,17 +39,17 @@ data:
     \ cin >> t;\n    while(t--){\n        ll n,m,a,b;\n        cin >> n >> m >> a\
     \ >> b;\n        cout << floor_sum(a,b,m,n-1) << \"\\n\";\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sum_of_floor_of_linear\"\
-    \n#include \"src/contest/template.hpp\"\n#include \"src/number-theory/FloorSum.hpp\"\
+    \n#include \"src/contest/template.hpp\"\n#include \"src/number-theory/floor-sum.hpp\"\
     \n\nint main(){\n    cin.tie(nullptr)->sync_with_stdio(false);\n    int t;\n \
     \   cin >> t;\n    while(t--){\n        ll n,m,a,b;\n        cin >> n >> m >>\
     \ a >> b;\n        cout << floor_sum(a,b,m,n-1) << \"\\n\";\n    }\n}"
   dependsOn:
   - src/contest/template.hpp
-  - src/number-theory/FloorSum.hpp
+  - src/number-theory/floor-sum.hpp
   isVerificationFile: true
   path: verify/number-theory/floor-sum/sum_of_floor_of_linear.test.cpp
   requiredBy: []
-  timestamp: '2025-07-19 03:24:44+09:00'
+  timestamp: '2025-07-19 14:29:34+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/number-theory/floor-sum/sum_of_floor_of_linear.test.cpp

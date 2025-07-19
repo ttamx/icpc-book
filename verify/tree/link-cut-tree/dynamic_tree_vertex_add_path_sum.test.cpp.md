@@ -5,8 +5,8 @@ data:
     path: src/contest/template.hpp
     title: src/contest/template.hpp
   - icon: ':heavy_check_mark:'
-    path: src/tree/LinkCutTree.hpp
-    title: src/tree/LinkCutTree.hpp
+    path: src/tree/link-cut-tree.hpp
+    title: src/tree/link-cut-tree.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -28,7 +28,7 @@ data:
     const db EPS=1e-9;\nconst db PI=acos(db(-1));\n \ntemplate<class T>\nusing ordered_set\
     \ = tree<T,null_type,less<T>,rb_tree_tag,tree_order_statistics_node_update>;\n\
     \ \nmt19937 rng(chrono::steady_clock::now().time_since_epoch().count());\nmt19937_64\
-    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 3 \"src/tree/LinkCutTree.hpp\"\
+    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 2 \"src/tree/link-cut-tree.hpp\"\
     \n\n/**\n * Author: Teetat T.\n * Description: Link Cut Tree (1-indexed)\n */\n\
     \ntemplate<int N,class T>\nstruct LinkCutTree{\n    int ch[N][2],par[N],lz[N],rev[N];\n\
     \    T val[N],sum[N],rsum[N];\n    void toggle(int v){\n        if(!v)return;\n\
@@ -66,7 +66,7 @@ data:
     \ u++,v++;\n            cout << lct.aggregate(u,v) << \"\\n\";\n        }\n  \
     \  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/dynamic_tree_vertex_add_path_sum\"\
-    \n#include \"src/contest/template.hpp\"\n#include \"src/tree/LinkCutTree.hpp\"\
+    \n#include \"src/contest/template.hpp\"\n#include \"src/tree/link-cut-tree.hpp\"\
     \n\nconst int N=2e5+5;\n\nint n,q;\nll a[N];\nLinkCutTree<N,ll> lct;\n\nint main(){\n\
     \    cin.tie(nullptr)->sync_with_stdio(false);\n    cin >> n >> q;\n    for(int\
     \ i=1;i<=n;i++){\n        cin >> a[i];\n        lct.set(i,a[i]);\n    }\n    for(int\
@@ -81,11 +81,11 @@ data:
     \  }\n}"
   dependsOn:
   - src/contest/template.hpp
-  - src/tree/LinkCutTree.hpp
+  - src/tree/link-cut-tree.hpp
   isVerificationFile: true
   path: verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
   requiredBy: []
-  timestamp: '2025-07-19 02:06:19+09:00'
+  timestamp: '2025-07-19 14:29:34+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp

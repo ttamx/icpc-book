@@ -5,8 +5,8 @@ data:
     path: src/contest/template.hpp
     title: src/contest/template.hpp
   - icon: ':heavy_check_mark:'
-    path: src/data-structures/LineContainer.hpp
-    title: src/data-structures/LineContainer.hpp
+    path: src/data-structures/line-container.hpp
+    title: src/data-structures/line-container.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -28,7 +28,7 @@ data:
     const db EPS=1e-9;\nconst db PI=acos(db(-1));\n \ntemplate<class T>\nusing ordered_set\
     \ = tree<T,null_type,less<T>,rb_tree_tag,tree_order_statistics_node_update>;\n\
     \ \nmt19937 rng(chrono::steady_clock::now().time_since_epoch().count());\nmt19937_64\
-    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 3 \"src/data-structures/LineContainer.hpp\"\
+    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 2 \"src/data-structures/line-container.hpp\"\
     \n\n/**\n * Author: Teetat T.\n * Description: Line Container (Minimize).\n *\
     \ Time: O(\\log N)\n */\n\nstruct Line{\n\tstatic bool querymode;\n    ll m,c;\n\
     \    mutable ll p;\n    Line(ll m,ll c):m(m),c(c),p(0){}\n    Line(ll p):m(0),c(0),p(p){}\n\
@@ -51,7 +51,7 @@ data:
     \        cin >> p;\n            cout << cht.get(p) << \"\\n\";\n        }\n  \
     \  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/line_add_get_min\"\n#include\
-    \ \"src/contest/template.hpp\"\n#include \"src/data-structures/LineContainer.hpp\"\
+    \ \"src/contest/template.hpp\"\n#include \"src/data-structures/line-container.hpp\"\
     \n\nint n,q;\nLineContainer cht;\n\nint main(){\n    cin.tie(nullptr)->sync_with_stdio(false);\n\
     \    cin >> n >> q;\n    for(int i=0;i<n;i++){\n        ll a,b;\n        cin >>\
     \ a >> b;\n        cht.add(a,b);\n    }\n    while(q--){\n        int op;\n  \
@@ -61,11 +61,11 @@ data:
     \  }\n}"
   dependsOn:
   - src/contest/template.hpp
-  - src/data-structures/LineContainer.hpp
+  - src/data-structures/line-container.hpp
   isVerificationFile: true
   path: verify/data-structures/line-container/line_add_get_min.test.cpp
   requiredBy: []
-  timestamp: '2025-07-17 17:33:48+09:00'
+  timestamp: '2025-07-19 14:29:34+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/data-structures/line-container/line_add_get_min.test.cpp

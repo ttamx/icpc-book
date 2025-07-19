@@ -2,42 +2,9 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: src/data-structures/LineContainer.hpp
-    title: src/data-structures/LineContainer.hpp
-  - icon: ':heavy_check_mark:'
-    path: src/data-structures/SegmentTreeBeats.hpp
-    title: src/data-structures/SegmentTreeBeats.hpp
   - icon: ':warning:'
-    path: src/flows/BinaryOptimization.hpp
-    title: src/flows/BinaryOptimization.hpp
-  - icon: ':warning:'
-    path: src/flows/Dinic.hpp
-    title: src/flows/Dinic.hpp
-  - icon: ':heavy_check_mark:'
-    path: src/flows/HopcroftKarp.hpp
-    title: src/flows/HopcroftKarp.hpp
-  - icon: ':warning:'
-    path: src/flows/KaryOptimization.hpp
-    title: src/flows/KaryOptimization.hpp
-  - icon: ':warning:'
-    path: src/flows/MinCostFlow.hpp
-    title: src/flows/MinCostFlow.hpp
-  - icon: ':warning:'
-    path: src/number-theory/CRT.hpp
-    title: src/number-theory/CRT.hpp
-  - icon: ':warning:'
-    path: src/number-theory/Euclid.hpp
-    title: src/number-theory/Euclid.hpp
-  - icon: ':heavy_check_mark:'
-    path: src/number-theory/FloorSum.hpp
-    title: src/number-theory/FloorSum.hpp
-  - icon: ':heavy_check_mark:'
-    path: src/tree/LinkCutTree.hpp
-    title: src/tree/LinkCutTree.hpp
-  - icon: ':warning:'
-    path: src/tree/StaticTopTree.hpp
-    title: src/tree/StaticTopTree.hpp
+    path: src/tree/static-top-tree.hpp
+    title: src/tree/static-top-tree.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: verify/data-structures/line-container/line_add_get_min.test.cpp
@@ -98,18 +65,7 @@ data:
   isVerificationFile: false
   path: src/contest/template.hpp
   requiredBy:
-  - src/data-structures/SegmentTreeBeats.hpp
-  - src/data-structures/LineContainer.hpp
-  - src/tree/StaticTopTree.hpp
-  - src/tree/LinkCutTree.hpp
-  - src/flows/Dinic.hpp
-  - src/flows/HopcroftKarp.hpp
-  - src/flows/KaryOptimization.hpp
-  - src/flows/MinCostFlow.hpp
-  - src/flows/BinaryOptimization.hpp
-  - src/number-theory/CRT.hpp
-  - src/number-theory/Euclid.hpp
-  - src/number-theory/FloorSum.hpp
+  - src/tree/static-top-tree.hpp
   timestamp: '2025-07-17 16:04:21+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

@@ -11,43 +11,43 @@ data:
     - icon: ':warning:'
       path: src/data-structures/HashMap.h
       title: src/data-structures/HashMap.h
-    - icon: ':heavy_check_mark:'
-      path: src/data-structures/LineContainer.hpp
-      title: src/data-structures/LineContainer.hpp
-    - icon: ':heavy_check_mark:'
-      path: src/data-structures/SegmentTreeBeats.hpp
-      title: src/data-structures/SegmentTreeBeats.hpp
     - icon: ':warning:'
       path: src/data-structures/Treap.h
       title: src/data-structures/Treap.h
+    - icon: ':heavy_check_mark:'
+      path: src/data-structures/line-container.hpp
+      title: src/data-structures/line-container.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/data-structures/segment-tree-beats.hpp
+      title: src/data-structures/segment-tree-beats.hpp
   - name: src/flows
     pages:
     - icon: ':warning:'
-      path: src/flows/BinaryOptimization.hpp
-      title: src/flows/BinaryOptimization.hpp
+      path: src/flows/binary-optimization.hpp
+      title: src/flows/binary-optimization.hpp
     - icon: ':warning:'
-      path: src/flows/Dinic.hpp
-      title: src/flows/Dinic.hpp
+      path: src/flows/dinic.hpp
+      title: src/flows/dinic.hpp
     - icon: ':heavy_check_mark:'
-      path: src/flows/HopcroftKarp.hpp
-      title: src/flows/HopcroftKarp.hpp
+      path: src/flows/hopcroft-karp.hpp
+      title: src/flows/hopcroft-karp.hpp
     - icon: ':warning:'
-      path: src/flows/KaryOptimization.hpp
-      title: src/flows/KaryOptimization.hpp
+      path: src/flows/k-ary-optimization.hpp
+      title: src/flows/k-ary-optimization.hpp
     - icon: ':warning:'
-      path: src/flows/MinCostFlow.hpp
-      title: src/flows/MinCostFlow.hpp
+      path: src/flows/mine-cont-flow.hpp
+      title: src/flows/mine-cont-flow.hpp
   - name: src/number-theory
     pages:
     - icon: ':warning:'
-      path: src/number-theory/CRT.hpp
-      title: src/number-theory/CRT.hpp
+      path: src/number-theory/crt.hpp
+      title: src/number-theory/crt.hpp
     - icon: ':warning:'
-      path: src/number-theory/Euclid.hpp
-      title: src/number-theory/Euclid.hpp
+      path: src/number-theory/euclid.hpp
+      title: src/number-theory/euclid.hpp
     - icon: ':heavy_check_mark:'
-      path: src/number-theory/FloorSum.hpp
-      title: src/number-theory/FloorSum.hpp
+      path: src/number-theory/floor-sum.hpp
+      title: src/number-theory/floor-sum.hpp
   - name: src/string
     pages:
     - icon: ':heavy_check_mark:'
@@ -68,11 +68,11 @@ data:
   - name: src/tree
     pages:
     - icon: ':heavy_check_mark:'
-      path: src/tree/LinkCutTree.hpp
-      title: src/tree/LinkCutTree.hpp
+      path: src/tree/link-cut-tree.hpp
+      title: src/tree/link-cut-tree.hpp
     - icon: ':warning:'
-      path: src/tree/StaticTopTree.hpp
-      title: src/tree/StaticTopTree.hpp
+      path: src/tree/static-top-tree.hpp
+      title: src/tree/static-top-tree.hpp
   verificationCategories:
   - name: .
     pages:

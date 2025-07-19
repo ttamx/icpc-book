@@ -20,7 +20,7 @@ data:
     const db EPS=1e-9;\nconst db PI=acos(db(-1));\n \ntemplate<class T>\nusing ordered_set\
     \ = tree<T,null_type,less<T>,rb_tree_tag,tree_order_statistics_node_update>;\n\
     \ \nmt19937 rng(chrono::steady_clock::now().time_since_epoch().count());\nmt19937_64\
-    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 3 \"src/tree/StaticTopTree.hpp\"\
+    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 3 \"src/tree/static-top-tree.hpp\"\
     \n\n/**\n * Author: Teetat T.\n * Date: 2024-11-14\n * Description: Static Top\
     \ Tree.\n */\n\ntemplate<class G>\nstruct StaticTopTree{\n    using P = pair<int,int>;\n\
     \    enum Type{Compress,Rake,AddEdge,AddVertex,Vertex};\n    int n,root;\n   \
@@ -170,15 +170,15 @@ data:
   dependsOn:
   - src/contest/template.hpp
   isVerificationFile: false
-  path: src/tree/StaticTopTree.hpp
+  path: src/tree/static-top-tree.hpp
   requiredBy: []
-  timestamp: '2025-07-19 02:06:19+09:00'
+  timestamp: '2025-07-19 14:29:34+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: src/tree/StaticTopTree.hpp
+documentation_of: src/tree/static-top-tree.hpp
 layout: document
 redirect_from:
-- /library/src/tree/StaticTopTree.hpp
-- /library/src/tree/StaticTopTree.hpp.html
-title: src/tree/StaticTopTree.hpp
+- /library/src/tree/static-top-tree.hpp
+- /library/src/tree/static-top-tree.hpp.html
+title: src/tree/static-top-tree.hpp
 ---
