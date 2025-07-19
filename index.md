@@ -6,6 +6,26 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/contest/template.hpp
       title: src/contest/template.hpp
+  - name: src/convolution
+    pages:
+    - icon: ':warning:'
+      path: src/convolution/and-convolution.hpp
+      title: src/convolution/and-convolution.hpp
+    - icon: ':warning:'
+      path: src/convolution/gcd-convolution.hpp
+      title: src/convolution/gcd-convolution.hpp
+    - icon: ':warning:'
+      path: src/convolution/lcm-convolution.hpp
+      title: src/convolution/lcm-convolution.hpp
+    - icon: ':warning:'
+      path: src/convolution/max-plus-convolution.hpp
+      title: src/convolution/max-plus-convolution.hpp
+    - icon: ':warning:'
+      path: src/convolution/or-convolution.hpp
+      title: src/convolution/or-convolution.hpp
+    - icon: ':warning:'
+      path: src/convolution/xor-convolution.hpp
+      title: src/convolution/xor-convolution.hpp
   - name: src/data-structures
     pages:
     - icon: ':warning:'
@@ -50,6 +70,9 @@ data:
       title: src/number-theory/floor-sum.hpp
   - name: src/string
     pages:
+    - icon: ':warning:'
+      path: src/string/aho-corasick.hpp
+      title: src/string/aho-corasick.hpp
     - icon: ':heavy_check_mark:'
       path: src/string/manacher.hpp
       title: src/string/manacher.hpp
