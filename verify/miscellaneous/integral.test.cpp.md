@@ -29,7 +29,7 @@ data:
     \ \nmt19937 rng(chrono::steady_clock::now().time_since_epoch().count());\nmt19937_64\
     \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 2 \"src/miscellaneous/integrate.hpp\"\
     \n\n/**\n * Author: Teetat T.\n * Date: 2025-07-19\n * Description: find definite\
-    \ integral with Simpson's method, error proportional to dx^4.\n */\n\ntemplate<class\
+    \ integral with Simpson's method, error proportional to $dx^4$.\n */\n\ntemplate<class\
     \ F>\ndb quad(db a,db b,const F &f,int n){\n    db res=0;\n    db dx=(b-a)/n;\n\
     \    db fl=0,fr=f(a);\n    for(int i=0;i<n;i++){\n        db l=a+dx*i,r=l+dx;\n\
     \        fl=fr;\n        fr=f(r);\n        db fm=f((l+r)/2);\n        res+=fl+4*fm+fr;\n\
@@ -54,7 +54,7 @@ data:
   isVerificationFile: true
   path: verify/miscellaneous/integral.test.cpp
   requiredBy: []
-  timestamp: '2025-07-19 19:17:17+09:00'
+  timestamp: '2025-07-19 21:22:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/miscellaneous/integral.test.cpp
