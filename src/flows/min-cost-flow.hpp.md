@@ -8,7 +8,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/flows/mine-cont-flow.hpp\"\n\n/**\n * Author: Teetat\
+  bundledCode: "#line 2 \"src/flows/min-cost-flow.hpp\"\n\n/**\n * Author: Teetat\
     \ T.\n * Date: 2024-03-31\n * Description: minimum-cost flow algorithm.\n * Time:\
     \ $O(FE\\log{V})$ where $F$ is max flow.\n */\n\ntemplate<class F,class C>\nstruct\
     \ MinCostFlow{\n    struct Edge{\n        int to;\n        F flow,cap;\n     \
@@ -75,15 +75,15 @@ data:
     \    }\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/flows/mine-cont-flow.hpp
+  path: src/flows/min-cost-flow.hpp
   requiredBy: []
-  timestamp: '2025-07-19 14:29:34+09:00'
+  timestamp: '2025-07-19 14:35:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: src/flows/mine-cont-flow.hpp
+documentation_of: src/flows/min-cost-flow.hpp
 layout: document
 redirect_from:
-- /library/src/flows/mine-cont-flow.hpp
-- /library/src/flows/mine-cont-flow.hpp.html
-title: src/flows/mine-cont-flow.hpp
+- /library/src/flows/min-cost-flow.hpp
+- /library/src/flows/min-cost-flow.hpp.html
+title: src/flows/min-cost-flow.hpp
 ---

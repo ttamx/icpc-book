@@ -28,8 +28,8 @@ data:
     \ &adj):adj(adj){build();}\n    int dfs(int u){\n        int s=1,mx=0;\n     \
     \   for(auto v:adj[u]){\n            if(v==fa[u])continue;\n            fa[v]=u;\n\
     \            int t=dfs(v);\n            if(t>mx)mx=t,hv[u]=v;\n            s+=t;\n\
-    \        }\n        return s;\n    }\n    void build(){\n        n=hld.n;\n  \
-    \      hv=fa=lch=rch=par=vector<int>(n,-1);\n        type.assign(n,Compress);\n\
+    \        }\n        return s;\n    }\n    void build(){\n        n=adj.size();\n\
+    \        hv=fa=lch=rch=par=vector<int>(n,-1);\n        type.assign(n,Compress);\n\
     \        dfs(0,-1);\n        root=compress(0).second;\n    }\n    int add(int\
     \ i,int l,int r,Type t){\n        if(i==-1){\n            i=n++;\n           \
     \ lch.emplace_back(l);\n            rch.emplace_back(r);\n            par.emplace_back(-1);\n\
@@ -50,7 +50,7 @@ data:
     \       }else if(a.size()>=2&&a.end()[-2].first<=a.back().first){\n          \
     \          work();\n                }else break;\n            }\n        }\n \
     \       while(a.size()>=2)work();\n        return a[0];\n    }\n    P rake(int\
-    \ i){\n        priority_queue<P,vector<P>,greater<P>> pq;\n        for(int j:adj[i])if(j!=fa[i]&&j!=hld.hv[i])pq.emplace(add_edge(j));\n\
+    \ i){\n        priority_queue<P,vector<P>,greater<P>> pq;\n        for(int j:adj[i])if(j!=fa[i]&&j!=hv[i])pq.emplace(add_edge(j));\n\
     \        while(pq.size()>=2){\n            auto [si,i]=pq.top();pq.pop();\n  \
     \          auto [sj,j]=pq.top();pq.pop();\n            pq.emplace(max(si,sj)+1,add(-1,i,j,Rake));\n\
     \        }\n        return pq.empty()?make_pair(0,-1):pq.top();\n    }\n    P\
@@ -61,12 +61,12 @@ data:
     \      static Point unit();\n    };\n    static Path compress(Path l,Path r);\n\
     \    static Point rake(Point l,Point r);\n    static Point add_edge(Path p);\n\
     \    static Path add_vertex(Point p,int u);\n    static Path vertex(int u);\n\
-    };\n*/\n\ntemplate<class HLD,class TreeDP>\nstruct StaticTopTreeRerootingDP{\n\
-    \    using Path = typename TreeDP::Path;\n    using Point = typename TreeDP::Point;\n\
-    \    StaticTopTree<HLD> stt;\n    vector<Path> path,rpath;\n    vector<Point>\
-    \ point;\n    StaticTopTreeRerootingDP(HLD &hld):stt(hld){\n        int n=stt.n;\n\
-    \        path.resize(n);\n        point.resize(n);\n        rpath.resize(n);\n\
-    \        dfs(stt.root);\n    }\n    void _update(int u){\n        if(stt.type[u]==stt.Vertex){\n\
+    };\n*/\n\ntemplate<class G,class TreeDP>\nstruct StaticTopTreeRerootingDP{\n \
+    \   using Path = typename TreeDP::Path;\n    using Point = typename TreeDP::Point;\n\
+    \    StaticTopTree<G> stt;\n    vector<Path> path,rpath;\n    vector<Point> point;\n\
+    \    StaticTopTreeRerootingDP(G &adj):stt(adj){\n        int n=stt.n;\n      \
+    \  path.resize(n);\n        point.resize(n);\n        rpath.resize(n);\n     \
+    \   dfs(stt.root);\n    }\n    void _update(int u){\n        if(stt.type[u]==stt.Vertex){\n\
     \            path[u]=rpath[u]=TreeDP::vertex(u);\n        }else if(stt.type[u]==stt.Compress){\n\
     \            path[u]=TreeDP::compress(path[stt.lch[u]],path[stt.rch[u]]);\n  \
     \          rpath[u]=TreeDP::compress(rpath[stt.rch[u]],rpath[stt.lch[u]]);\n \
@@ -102,7 +102,7 @@ data:
     \       int s=1,mx=0;\n        for(auto v:adj[u]){\n            if(v==fa[u])continue;\n\
     \            fa[v]=u;\n            int t=dfs(v);\n            if(t>mx)mx=t,hv[u]=v;\n\
     \            s+=t;\n        }\n        return s;\n    }\n    void build(){\n \
-    \       n=hld.n;\n        hv=fa=lch=rch=par=vector<int>(n,-1);\n        type.assign(n,Compress);\n\
+    \       n=adj.size();\n        hv=fa=lch=rch=par=vector<int>(n,-1);\n        type.assign(n,Compress);\n\
     \        dfs(0,-1);\n        root=compress(0).second;\n    }\n    int add(int\
     \ i,int l,int r,Type t){\n        if(i==-1){\n            i=n++;\n           \
     \ lch.emplace_back(l);\n            rch.emplace_back(r);\n            par.emplace_back(-1);\n\
@@ -123,7 +123,7 @@ data:
     \       }else if(a.size()>=2&&a.end()[-2].first<=a.back().first){\n          \
     \          work();\n                }else break;\n            }\n        }\n \
     \       while(a.size()>=2)work();\n        return a[0];\n    }\n    P rake(int\
-    \ i){\n        priority_queue<P,vector<P>,greater<P>> pq;\n        for(int j:adj[i])if(j!=fa[i]&&j!=hld.hv[i])pq.emplace(add_edge(j));\n\
+    \ i){\n        priority_queue<P,vector<P>,greater<P>> pq;\n        for(int j:adj[i])if(j!=fa[i]&&j!=hv[i])pq.emplace(add_edge(j));\n\
     \        while(pq.size()>=2){\n            auto [si,i]=pq.top();pq.pop();\n  \
     \          auto [sj,j]=pq.top();pq.pop();\n            pq.emplace(max(si,sj)+1,add(-1,i,j,Rake));\n\
     \        }\n        return pq.empty()?make_pair(0,-1):pq.top();\n    }\n    P\
@@ -134,12 +134,12 @@ data:
     \      static Point unit();\n    };\n    static Path compress(Path l,Path r);\n\
     \    static Point rake(Point l,Point r);\n    static Point add_edge(Path p);\n\
     \    static Path add_vertex(Point p,int u);\n    static Path vertex(int u);\n\
-    };\n*/\n\ntemplate<class HLD,class TreeDP>\nstruct StaticTopTreeRerootingDP{\n\
-    \    using Path = typename TreeDP::Path;\n    using Point = typename TreeDP::Point;\n\
-    \    StaticTopTree<HLD> stt;\n    vector<Path> path,rpath;\n    vector<Point>\
-    \ point;\n    StaticTopTreeRerootingDP(HLD &hld):stt(hld){\n        int n=stt.n;\n\
-    \        path.resize(n);\n        point.resize(n);\n        rpath.resize(n);\n\
-    \        dfs(stt.root);\n    }\n    void _update(int u){\n        if(stt.type[u]==stt.Vertex){\n\
+    };\n*/\n\ntemplate<class G,class TreeDP>\nstruct StaticTopTreeRerootingDP{\n \
+    \   using Path = typename TreeDP::Path;\n    using Point = typename TreeDP::Point;\n\
+    \    StaticTopTree<G> stt;\n    vector<Path> path,rpath;\n    vector<Point> point;\n\
+    \    StaticTopTreeRerootingDP(G &adj):stt(adj){\n        int n=stt.n;\n      \
+    \  path.resize(n);\n        point.resize(n);\n        rpath.resize(n);\n     \
+    \   dfs(stt.root);\n    }\n    void _update(int u){\n        if(stt.type[u]==stt.Vertex){\n\
     \            path[u]=rpath[u]=TreeDP::vertex(u);\n        }else if(stt.type[u]==stt.Compress){\n\
     \            path[u]=TreeDP::compress(path[stt.lch[u]],path[stt.rch[u]]);\n  \
     \          rpath[u]=TreeDP::compress(rpath[stt.rch[u]],rpath[stt.lch[u]]);\n \
@@ -172,7 +172,7 @@ data:
   isVerificationFile: false
   path: src/tree/static-top-tree.hpp
   requiredBy: []
-  timestamp: '2025-07-19 14:29:34+09:00'
+  timestamp: '2025-07-19 14:35:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/tree/static-top-tree.hpp

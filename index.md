@@ -35,8 +35,8 @@ data:
       path: src/flows/k-ary-optimization.hpp
       title: src/flows/k-ary-optimization.hpp
     - icon: ':warning:'
-      path: src/flows/mine-cont-flow.hpp
-      title: src/flows/mine-cont-flow.hpp
+      path: src/flows/min-cost-flow.hpp
+      title: src/flows/min-cost-flow.hpp
   - name: src/number-theory
     pages:
     - icon: ':warning:'
