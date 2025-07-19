@@ -142,5 +142,3 @@ struct FormalPowerSeries:vector<mint>{
         return FPS(deg,mint(0));
     }
 };
-using FPS=FormalPowerSeries<mint>;
-
