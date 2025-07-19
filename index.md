@@ -164,11 +164,13 @@ data:
     - icon: ':warning:'
       path: src/geometry/sphericalDistance.h
       title: src/geometry/sphericalDistance.h
-  - name: src/miscellaneous
+  - name: src/linear-programming
     pages:
     - icon: ':warning:'
-      path: src/miscellaneous/Simplex.h
-      title: src/miscellaneous/Simplex.h
+      path: src/linear-programming/Simplex.h
+      title: src/linear-programming/Simplex.h
+  - name: src/miscellaneous
+    pages:
     - icon: ':heavy_check_mark:'
       path: src/miscellaneous/integrate.hpp
       title: src/miscellaneous/integrate.hpp

@@ -17,7 +17,8 @@ data:
     \ \"/opt/hostedtoolcache/Python/3.13.5/x64/lib/python3.13/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ src/miscellaneous/Simplex.h: line 16: #pragma once found in a non-first line\n"
+    \ src/linear-programming/Simplex.h: line 16: #pragma once found in a non-first\
+    \ line\n"
   code: "/**\n * Author: Stanford\n * Source: Stanford Notebook\n * License: MIT\n\
     \ * Description: Solves a general linear maximization problem: maximize $c^T x$\
     \ subject to $Ax \\le b$, $x \\ge 0$.\n * Returns -inf if there is no solution,\
@@ -55,15 +56,15 @@ data:
     \t\treturn ok ? D[m][n+1] : inf;\n\t}\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/miscellaneous/Simplex.h
+  path: src/linear-programming/Simplex.h
   requiredBy: []
-  timestamp: '2025-07-19 21:34:25+09:00'
+  timestamp: '2025-07-19 22:00:57+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: src/miscellaneous/Simplex.h
+documentation_of: src/linear-programming/Simplex.h
 layout: document
 redirect_from:
-- /library/src/miscellaneous/Simplex.h
-- /library/src/miscellaneous/Simplex.h.html
-title: src/miscellaneous/Simplex.h
+- /library/src/linear-programming/Simplex.h
+- /library/src/linear-programming/Simplex.h.html
+title: src/linear-programming/Simplex.h
 ---
