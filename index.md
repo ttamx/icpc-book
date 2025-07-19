@@ -48,6 +48,23 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/number-theory/FloorSum.hpp
       title: src/number-theory/FloorSum.hpp
+  - name: src/string
+    pages:
+    - icon: ':warning:'
+      path: src/string/manacher.hpp
+      title: src/string/manacher.hpp
+    - icon: ':warning:'
+      path: src/string/prefix-function.hpp
+      title: src/string/prefix-function.hpp
+    - icon: ':warning:'
+      path: src/string/suffix-array.hpp
+      title: src/string/suffix-array.hpp
+    - icon: ':warning:'
+      path: src/string/suffix-automaton.hpp
+      title: src/string/suffix-automaton.hpp
+    - icon: ':warning:'
+      path: src/string/z-algorithm.hpp
+      title: src/string/z-algorithm.hpp
   - name: src/tree
     pages:
     - icon: ':heavy_check_mark:'
@@ -82,6 +99,29 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/number-theory/floor-sum/sum_of_floor_of_linear.test.cpp
       title: verify/number-theory/floor-sum/sum_of_floor_of_linear.test.cpp
+  - name: verify/string/manacher
+    pages:
+    - icon: ':x:'
+      path: verify/string/manacher/enumerate_palindromes.test.cpp
+      title: verify/string/manacher/enumerate_palindromes.test.cpp
+  - name: verify/string/suffix-array
+    pages:
+    - icon: ':x:'
+      path: verify/string/suffix-array/number_of_substrings.test.cpp
+      title: verify/string/suffix-array/number_of_substrings.test.cpp
+    - icon: ':x:'
+      path: verify/string/suffix-array/suffixarray.test.cpp
+      title: verify/string/suffix-array/suffixarray.test.cpp
+  - name: verify/string/suffix-automaton
+    pages:
+    - icon: ':x:'
+      path: verify/string/suffix-automaton/number_of_substrings.test.cpp
+      title: verify/string/suffix-automaton/number_of_substrings.test.cpp
+  - name: verify/string/z-algorithm
+    pages:
+    - icon: ':x:'
+      path: verify/string/z-algorithm/zalgorithm.test.cpp
+      title: verify/string/z-algorithm/zalgorithm.test.cpp
   - name: verify/tree/link-cut-tree
     pages:
     - icon: ':heavy_check_mark:'
