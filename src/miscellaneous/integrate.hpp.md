@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/miscellaneous/integral.test.cpp
+    title: verify/miscellaneous/integral.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/miscellaneous/integrate.hpp\"\n\n/**\n * Author: Teetat\
@@ -26,8 +29,9 @@ data:
   path: src/miscellaneous/integrate.hpp
   requiredBy: []
   timestamp: '2025-07-19 19:14:53+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/miscellaneous/integral.test.cpp
 documentation_of: src/miscellaneous/integrate.hpp
 layout: document
 redirect_from:

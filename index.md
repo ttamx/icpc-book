@@ -59,7 +59,7 @@ data:
       title: src/flows/min-cost-flow.hpp
   - name: src/miscellaneous
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/miscellaneous/integrate.hpp
       title: src/miscellaneous/integrate.hpp
     - icon: ':warning:'
@@ -146,7 +146,7 @@ data:
       title: verify/flows/hopcroft-karp/bipartitematching.test.cpp
   - name: verify/miscellaneous
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/miscellaneous/integral.test.cpp
       title: verify/miscellaneous/integral.test.cpp
   - name: verify/number-theory/floor-sum

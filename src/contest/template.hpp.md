@@ -16,6 +16,9 @@ data:
     path: verify/flows/hopcroft-karp/bipartitematching.test.cpp
     title: verify/flows/hopcroft-karp/bipartitematching.test.cpp
   - icon: ':heavy_check_mark:'
+    path: verify/miscellaneous/integral.test.cpp
+    title: verify/miscellaneous/integral.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/number-theory/floor-sum/sum_of_floor_of_linear.test.cpp
     title: verify/number-theory/floor-sum/sum_of_floor_of_linear.test.cpp
   - icon: ':heavy_check_mark:'
@@ -76,6 +79,7 @@ data:
   - verify/string/z-algorithm/zalgorithm.test.cpp
   - verify/string/suffix-array/suffixarray.test.cpp
   - verify/string/suffix-array/number_of_substrings.test.cpp
+  - verify/miscellaneous/integral.test.cpp
   - verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
   - verify/flows/hopcroft-karp/bipartitematching.test.cpp
   - verify/number-theory/floor-sum/sum_of_floor_of_linear.test.cpp
