@@ -12,7 +12,7 @@
  */
 #pragma once
 
-#include "Point.h"
+#include "src/geometry/Point.h"
 
 template<class P>
 P lineProj(P a, P b, P p, bool refl=false) {

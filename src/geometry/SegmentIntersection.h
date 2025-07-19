@@ -12,7 +12,7 @@ The wrong position will be returned if P is Point<ll> and the intersection point
 Products of three coordinates are used in intermediate steps so watch out for overflow if using int or long long.
 \end{minipage}
 \begin{minipage}{15mm}
-\includegraphics[width=\textwidth]{content/geometry/SegmentIntersection}
+\includegraphics[width=\textwidth]{src/geometry/SegmentIntersection}
 \end{minipage}
  * Usage:
  * vector<P> inter = segInter(s1,e1,s2,e2);
@@ -22,8 +22,8 @@ Products of three coordinates are used in intermediate steps so watch out for ov
  */
 #pragma once
 
-#include "Point.h"
-#include "OnSegment.h"
+#include "src/geometry/Point.h"
+#include "src/geometry/OnSegment.h"
 
 template<class P> vector<P> segInter(P a, P b, P c, P d) {
 	auto oa = c.cross(d, a), ob = c.cross(d, b),

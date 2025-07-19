@@ -10,7 +10,7 @@ Points on the edge of the hull between two other points are not considered part 
 \end{minipage}
 \begin{minipage}{15mm}
 \vspace{-6mm}
-\includegraphics[width=\textwidth]{content/geometry/ConvexHull}
+\includegraphics[width=\textwidth]{src/geometry/ConvexHull}
 \vspace{-6mm}
 \end{minipage}
  * Time: O(n \log n)
@@ -18,7 +18,7 @@ Points on the edge of the hull between two other points are not considered part 
 */
 #pragma once
 
-#include "Point.h"
+#include "src/geometry/Point.h"
 
 typedef Point<ll> P;
 vector<P> convexHull(vector<P> pts) {

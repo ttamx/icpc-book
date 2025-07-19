@@ -9,14 +9,14 @@
 \end{minipage}
 \begin{minipage}{15mm}
 \vspace{-8mm}
-\includegraphics[width=\textwidth]{content/geometry/linearTransformation}
+\includegraphics[width=\textwidth]{src/geometry/linearTransformation}
 \vspace{-2mm}
 \end{minipage}
  * Status: not tested
  */
 #pragma once
 
-#include "Point.h"
+#include "src/geometry/Point.h"
 
 typedef Point<double> P;
 P linearTransformation(const P& p0, const P& p1,

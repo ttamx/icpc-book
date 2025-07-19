@@ -8,7 +8,7 @@
  */
 #pragma once
 
-#include "Point.h"
+#include "src/geometry/Point.h"
 
 typedef Point<double> P;
 bool circleInter(P a,P b,double r1,double r2,pair<P, P>* out) {

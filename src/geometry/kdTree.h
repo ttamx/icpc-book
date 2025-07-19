@@ -7,7 +7,7 @@
  */
 #pragma once
 
-#include "Point.h"
+#include "src/geometry/Point.h"
 
 typedef long long T;
 typedef Point<T> P;

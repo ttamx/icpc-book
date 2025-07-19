@@ -12,9 +12,9 @@
  */
 #pragma once
 
-#include "Point.h"
-#include "sideOf.h"
-#include "OnSegment.h"
+#include "src/geometry/Point.h"
+#include "src/geometry/sideOf.h"
+#include "src/geometry/OnSegment.h"
 
 typedef Point<ll> P;
 

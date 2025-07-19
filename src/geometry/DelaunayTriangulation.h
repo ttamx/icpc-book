@@ -10,8 +10,8 @@
  */
 #pragma once
 
-#include "Point.h"
-#include "3dHull.h"
+#include "src/geometry/Point.h"
+#include "src/geometry/3dHull.h"
 
 template<class P, class F>
 void delaunay(vector<P>& ps, F trifun) {

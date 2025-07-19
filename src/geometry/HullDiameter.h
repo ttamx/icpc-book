@@ -9,7 +9,7 @@
  * Time: O(n)
  */
 #pragma once
-#include "Point.h"
+#include "src/geometry/Point.h"
 
 typedef Point<ll> P;
 array<P, 2> hullDiameter(vector<P> S) {

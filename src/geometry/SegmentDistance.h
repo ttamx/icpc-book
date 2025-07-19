@@ -9,7 +9,7 @@ Returns the shortest distance between point p and the line segment from point s 
 \end{minipage}
 \begin{minipage}{15mm}
 \vspace{-10mm}
-\includegraphics[width=\textwidth]{content/geometry/SegmentDistance}
+\includegraphics[width=\textwidth]{src/geometry/SegmentDistance}
 \end{minipage}
  * Usage: 
  * 	Point<double> a, b(2,2), p(1,1);
@@ -18,7 +18,7 @@ Returns the shortest distance between point p and the line segment from point s 
  */
 #pragma once
 
-#include "Point.h"
+#include "src/geometry/Point.h"
 
 typedef Point<double> P;
 double segDist(P& s, P& e, P& p) {

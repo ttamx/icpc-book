@@ -14,7 +14,7 @@
  */
 #pragma once
 
-#include "Point.h"
+#include "src/geometry/Point.h"
 
 typedef Point<ll> P;
 typedef struct Quad* Q;

@@ -11,7 +11,7 @@
 
 #pragma once
 
-#include "Point.h"
+#include "src/geometry/Point.h"
 
 template<class P>
 vector<P> circleLine(P c, double r, P a, P b) {

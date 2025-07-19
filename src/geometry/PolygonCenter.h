@@ -9,7 +9,7 @@
  */
 #pragma once
 
-#include "Point.h"
+#include "src/geometry/Point.h"
 
 typedef Point<double> P;
 P polygonCenter(const vector<P>& v) {

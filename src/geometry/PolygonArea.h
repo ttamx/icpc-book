@@ -9,7 +9,7 @@
  */
 #pragma once
 
-#include "Point.h"
+#include "src/geometry/Point.h"
 
 template<class T>
 T polygonArea2(vector<Point<T>>& v) {

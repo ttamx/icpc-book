@@ -9,7 +9,7 @@
  */
 #pragma once
 
-#include "Point.h"
+#include "src/geometry/Point.h"
 
 typedef Point<ll> P;
 pair<P, P> closest(vector<P> v) {

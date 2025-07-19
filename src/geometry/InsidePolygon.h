@@ -14,9 +14,9 @@
  */
 #pragma once
 
-#include "Point.h"
-#include "OnSegment.h"
-#include "SegmentDistance.h"
+#include "src/geometry/Point.h"
+#include "src/geometry/OnSegment.h"
+#include "src/geometry/SegmentDistance.h"
 
 template<class P>
 bool inPolygon(vector<P> &p, P a, bool strict = true) {

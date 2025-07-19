@@ -12,7 +12,7 @@
  */
 #pragma once
 
-#include "Point.h"
+#include "src/geometry/Point.h"
 
 template<class P>
 vector<pair<P, P>> tangents(P c1, double r1, P c2, double r2) {

@@ -9,13 +9,13 @@ The circumcirle of a triangle is the circle intersecting all three vertices. ccR
 \end{minipage}
 \begin{minipage}{15mm}
 \vspace{-2mm}
-\includegraphics[width=\textwidth]{content/geometry/circumcircle}
+\includegraphics[width=\textwidth]{src/geometry/circumcircle}
 \end{minipage}
  * Status: tested
  */
 #pragma once
 
-#include "Point.h"
+#include "src/geometry/Point.h"
 
 typedef Point<double> P;
 double ccRadius(const P& A, const P& B, const P& C) {
