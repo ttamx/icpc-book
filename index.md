@@ -57,6 +57,14 @@ data:
     - icon: ':warning:'
       path: src/flows/min-cost-flow.hpp
       title: src/flows/min-cost-flow.hpp
+  - name: src/modular-arithmetic
+    pages:
+    - icon: ':warning:'
+      path: src/modular-arithmetic/binpow.hpp
+      title: src/modular-arithmetic/binpow.hpp
+    - icon: ':warning:'
+      path: src/modular-arithmetic/montgomery-modint.hpp
+      title: src/modular-arithmetic/montgomery-modint.hpp
   - name: src/number-theory
     pages:
     - icon: ':warning:'
@@ -68,6 +76,17 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/number-theory/floor-sum.hpp
       title: src/number-theory/floor-sum.hpp
+  - name: src/polynomials
+    pages:
+    - icon: ':warning:'
+      path: src/polynomials/fft.hpp
+      title: src/polynomials/fft.hpp
+    - icon: ':warning:'
+      path: src/polynomials/formal-power-series.hpp
+      title: src/polynomials/formal-power-series.hpp
+    - icon: ':warning:'
+      path: src/polynomials/ntt.hpp
+      title: src/polynomials/ntt.hpp
   - name: src/string
     pages:
     - icon: ':warning:'
