@@ -28,7 +28,7 @@ struct StaticTopTree{
         return s;
     }
     void build(){
-        n=hld.n;
+        n=adj.size();
         hv=fa=lch=rch=par=vector<int>(n,-1);
         type.assign(n,Compress);
         dfs(0,-1);
@@ -89,7 +89,7 @@ struct StaticTopTree{
     }
     P rake(int i){
         priority_queue<P,vector<P>,greater<P>> pq;
-        for(int j:adj[i])if(j!=fa[i]&&j!=hld.hv[i])pq.emplace(add_edge(j));
+        for(int j:adj[i])if(j!=fa[i]&&j!=hv[i])pq.emplace(add_edge(j));
         while(pq.size()>=2){
             auto [si,i]=pq.top();pq.pop();
             auto [sj,j]=pq.top();pq.pop();
@@ -123,14 +123,14 @@ struct TreeDP{
 };
 */
 
-template<class HLD,class TreeDP>
+template<class G,class TreeDP>
 struct StaticTopTreeRerootingDP{
     using Path = typename TreeDP::Path;
     using Point = typename TreeDP::Point;
-    StaticTopTree<HLD> stt;
+    StaticTopTree<G> stt;
     vector<Path> path,rpath;
     vector<Point> point;
-    StaticTopTreeRerootingDP(HLD &hld):stt(hld){
+    StaticTopTreeRerootingDP(G &adj):stt(adj){
         int n=stt.n;
         path.resize(n);
         point.resize(n);
