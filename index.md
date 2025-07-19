@@ -166,6 +166,9 @@ data:
       title: src/geometry/sphericalDistance.h
   - name: src/miscellaneous
     pages:
+    - icon: ':warning:'
+      path: src/miscellaneous/Simplex.h
+      title: src/miscellaneous/Simplex.h
     - icon: ':heavy_check_mark:'
       path: src/miscellaneous/integrate.hpp
       title: src/miscellaneous/integrate.hpp
@@ -199,6 +202,9 @@ data:
     - icon: ':warning:'
       path: src/polynomials/formal-power-series.hpp
       title: src/polynomials/formal-power-series.hpp
+    - icon: ':warning:'
+      path: src/polynomials/lagrange-interpolate.hpp
+      title: src/polynomials/lagrange-interpolate.hpp
     - icon: ':warning:'
       path: src/polynomials/ntt.hpp
       title: src/polynomials/ntt.hpp
