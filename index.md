@@ -52,11 +52,118 @@ data:
       path: src/flows/hopcroft-karp.hpp
       title: src/flows/hopcroft-karp.hpp
     - icon: ':warning:'
+      path: src/flows/hungarian-algorithm.hpp
+      title: src/flows/hungarian-algorithm.hpp
+    - icon: ':warning:'
       path: src/flows/k-ary-optimization.hpp
       title: src/flows/k-ary-optimization.hpp
     - icon: ':warning:'
       path: src/flows/min-cost-flow.hpp
       title: src/flows/min-cost-flow.hpp
+  - name: src/geometry
+    pages:
+    - icon: ':warning:'
+      path: src/geometry/3dHull.h
+      title: src/geometry/3dHull.h
+    - icon: ':warning:'
+      path: src/geometry/Angle.h
+      title: src/geometry/Angle.h
+    - icon: ':warning:'
+      path: src/geometry/CircleIntersection.h
+      title: src/geometry/CircleIntersection.h
+    - icon: ':warning:'
+      path: src/geometry/CircleLine.h
+      title: src/geometry/CircleLine.h
+    - icon: ':warning:'
+      path: src/geometry/CirclePolygonIntersection.h
+      title: src/geometry/CirclePolygonIntersection.h
+    - icon: ':warning:'
+      path: src/geometry/CircleTangents.h
+      title: src/geometry/CircleTangents.h
+    - icon: ':warning:'
+      path: src/geometry/ClosestPair.h
+      title: src/geometry/ClosestPair.h
+    - icon: ':warning:'
+      path: src/geometry/ConvexHull.h
+      title: src/geometry/ConvexHull.h
+    - icon: ':warning:'
+      path: src/geometry/DelaunayTriangulation.h
+      title: src/geometry/DelaunayTriangulation.h
+    - icon: ':warning:'
+      path: src/geometry/FastDelaunay.h
+      title: src/geometry/FastDelaunay.h
+    - icon: ':warning:'
+      path: src/geometry/HullDiameter.h
+      title: src/geometry/HullDiameter.h
+    - icon: ':warning:'
+      path: src/geometry/InsidePolygon.h
+      title: src/geometry/InsidePolygon.h
+    - icon: ':warning:'
+      path: src/geometry/LineHullIntersection.h
+      title: src/geometry/LineHullIntersection.h
+    - icon: ':warning:'
+      path: src/geometry/LineProjectionReflection.h
+      title: src/geometry/LineProjectionReflection.h
+    - icon: ':warning:'
+      path: src/geometry/ManhattanMST.h
+      title: src/geometry/ManhattanMST.h
+    - icon: ':warning:'
+      path: src/geometry/MinimumEnclosingCircle.h
+      title: src/geometry/MinimumEnclosingCircle.h
+    - icon: ':warning:'
+      path: src/geometry/OnSegment.h
+      title: src/geometry/OnSegment.h
+    - icon: ':warning:'
+      path: src/geometry/Point.h
+      title: src/geometry/Point.h
+    - icon: ':warning:'
+      path: src/geometry/Point3D.h
+      title: src/geometry/Point3D.h
+    - icon: ':warning:'
+      path: src/geometry/PointInsideHull.h
+      title: src/geometry/PointInsideHull.h
+    - icon: ':warning:'
+      path: src/geometry/PolygonArea.h
+      title: src/geometry/PolygonArea.h
+    - icon: ':warning:'
+      path: src/geometry/PolygonCenter.h
+      title: src/geometry/PolygonCenter.h
+    - icon: ':warning:'
+      path: src/geometry/PolygonCut.h
+      title: src/geometry/PolygonCut.h
+    - icon: ':warning:'
+      path: src/geometry/PolygonUnion.h
+      title: src/geometry/PolygonUnion.h
+    - icon: ':warning:'
+      path: src/geometry/PolyhedronVolume.h
+      title: src/geometry/PolyhedronVolume.h
+    - icon: ':warning:'
+      path: src/geometry/SegmentDistance.h
+      title: src/geometry/SegmentDistance.h
+    - icon: ':warning:'
+      path: src/geometry/SegmentIntersection.h
+      title: src/geometry/SegmentIntersection.h
+    - icon: ':warning:'
+      path: src/geometry/circumcircle.h
+      title: src/geometry/circumcircle.h
+    - icon: ':warning:'
+      path: src/geometry/kdTree.h
+      title: src/geometry/kdTree.h
+    - icon: ':warning:'
+      path: src/geometry/lineDistance.h
+      title: src/geometry/lineDistance.h
+    - icon: ':warning:'
+      path: src/geometry/lineIntersection.h
+      title: src/geometry/lineIntersection.h
+    - icon: ':warning:'
+      path: src/geometry/linearTransformation.h
+      title: src/geometry/linearTransformation.h
+    - icon: ':warning:'
+      path: src/geometry/sideOf.h
+      title: src/geometry/sideOf.h
+    - icon: ':warning:'
+      path: src/geometry/sphericalDistance.h
+      title: src/geometry/sphericalDistance.h
   - name: src/miscellaneous
     pages:
     - icon: ':heavy_check_mark:'
