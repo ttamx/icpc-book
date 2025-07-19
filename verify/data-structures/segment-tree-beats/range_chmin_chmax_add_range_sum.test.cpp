@@ -1,5 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum"
-#include "src/data-structures/SegmentTreeBeats.hpp"
+#include "src/contest/template.hpp"
+#include "src/data-structures/segment-tree-beats.hpp"
 
 int main(){
     cin.tie(nullptr)->sync_with_stdio(false);

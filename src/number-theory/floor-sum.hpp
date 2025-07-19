@@ -1,5 +1,4 @@
 #pragma once
-#include "src/contest/template.hpp"
 
 /**
  * Author: Teetat T.

@@ -1,6 +1,5 @@
 #pragma once
-#include "src/contest/template.hpp"
-#include "src/number-theory/Euclid.hpp" 
+#include "src/number-theory/euclid.hpp" 
 
 /**
  * Author: Simon Lindholm

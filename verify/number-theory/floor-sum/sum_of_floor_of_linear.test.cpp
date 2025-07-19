@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/sum_of_floor_of_linear"
 #include "src/contest/template.hpp"
-#include "src/number-theory/FloorSum.hpp"
+#include "src/number-theory/floor-sum.hpp"
 
 int main(){
     cin.tie(nullptr)->sync_with_stdio(false);
