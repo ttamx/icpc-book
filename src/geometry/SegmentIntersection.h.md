@@ -35,25 +35,25 @@ data:
     The wrong position will be returned if P is Point<ll> and the intersection point\
     \ does not have integer coordinates.\nProducts of three coordinates are used in\
     \ intermediate steps so watch out for overflow if using int or long long.\n\\\
-    end{minipage}\n\\begin{minipage}{15mm}\n\\includegraphics[width=\\textwidth]{content/geometry/SegmentIntersection}\n\
+    end{minipage}\n\\begin{minipage}{15mm}\n\\includegraphics[width=\\textwidth]{src/geometry/SegmentIntersection}\n\
     \\end{minipage}\n * Usage:\n * vector<P> inter = segInter(s1,e1,s2,e2);\n * if\
     \ (sz(inter)==1)\n *   cout << \"segments intersect at \" << inter[0] << endl;\n\
     \ * Status: stress-tested, tested on kattis:intersection\n */\n#pragma once\n\n\
-    #include \"Point.h\"\n#include \"OnSegment.h\"\n\ntemplate<class P> vector<P>\
-    \ segInter(P a, P b, P c, P d) {\n\tauto oa = c.cross(d, a), ob = c.cross(d, b),\n\
-    \t     oc = a.cross(b, c), od = a.cross(b, d);\n\t// Checks if intersection is\
-    \ single non-endpoint point.\n\tif (sgn(oa) * sgn(ob) < 0 && sgn(oc) * sgn(od)\
-    \ < 0)\n\t\treturn {(a * ob - b * oa) / (ob - oa)};\n\tset<P> s;\n\tif (onSegment(c,\
-    \ d, a)) s.insert(a);\n\tif (onSegment(c, d, b)) s.insert(b);\n\tif (onSegment(a,\
-    \ b, c)) s.insert(c);\n\tif (onSegment(a, b, d)) s.insert(d);\n\treturn {all(s)};\n\
-    }\n"
+    #include \"src/geometry/Point.h\"\n#include \"src/geometry/OnSegment.h\"\n\ntemplate<class\
+    \ P> vector<P> segInter(P a, P b, P c, P d) {\n\tauto oa = c.cross(d, a), ob =\
+    \ c.cross(d, b),\n\t     oc = a.cross(b, c), od = a.cross(b, d);\n\t// Checks\
+    \ if intersection is single non-endpoint point.\n\tif (sgn(oa) * sgn(ob) < 0 &&\
+    \ sgn(oc) * sgn(od) < 0)\n\t\treturn {(a * ob - b * oa) / (ob - oa)};\n\tset<P>\
+    \ s;\n\tif (onSegment(c, d, a)) s.insert(a);\n\tif (onSegment(c, d, b)) s.insert(b);\n\
+    \tif (onSegment(a, b, c)) s.insert(c);\n\tif (onSegment(a, b, d)) s.insert(d);\n\
+    \treturn {all(s)};\n}\n"
   dependsOn:
   - src/geometry/Point.h
   - src/geometry/OnSegment.h
   isVerificationFile: false
   path: src/geometry/SegmentIntersection.h
   requiredBy: []
-  timestamp: '2025-07-19 20:25:13+09:00'
+  timestamp: '2025-07-19 20:33:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/SegmentIntersection.h

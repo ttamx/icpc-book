@@ -29,21 +29,21 @@ data:
     \ will be returned.\n * Should work for doubles as well, though there may be precision\
     \ issues in 'circ'.\n * Returns triangles in order \\{t[0][0], t[0][1], t[0][2],\
     \ t[1][0], \\dots\\}, all counter-clockwise.\n * Time: O(n \\log n)\n * Status:\
-    \ stress-tested\n */\n#pragma once\n\n#include \"Point.h\"\n\ntypedef Point<ll>\
-    \ P;\ntypedef struct Quad* Q;\ntypedef __int128_t lll; // (can be ll if coords\
-    \ are < 2e4)\nP arb(LLONG_MAX,LLONG_MAX); // not equal to any other point\n\n\
-    struct Quad {\n\tQ rot, o; P p = arb; bool mark;\n\tP& F() { return r()->p; }\n\
-    \tQ& r() { return rot->rot; }\n\tQ prev() { return rot->o->rot; }\n\tQ next()\
-    \ { return r()->prev(); }\n} *H;\n\nbool circ(P p, P a, P b, P c) { // is p in\
-    \ the circumcircle?\n\tlll p2 = p.dist2(), A = a.dist2()-p2,\n\t    B = b.dist2()-p2,\
-    \ C = c.dist2()-p2;\n\treturn p.cross(a,b)*C + p.cross(b,c)*A + p.cross(c,a)*B\
-    \ > 0;\n}\nQ makeEdge(P orig, P dest) {\n\tQ r = H ? H : new Quad{new Quad{new\
-    \ Quad{new Quad{0}}}};\n\tH = r->o; r->r()->r() = r;\n\trep(i,0,4) r = r->rot,\
-    \ r->p = arb, r->o = i & 1 ? r : r->r();\n\tr->p = orig; r->F() = dest;\n\treturn\
-    \ r;\n}\nvoid splice(Q a, Q b) {\n\tswap(a->o->rot->o, b->o->rot->o); swap(a->o,\
-    \ b->o);\n}\nQ connect(Q a, Q b) {\n\tQ q = makeEdge(a->F(), b->p);\n\tsplice(q,\
-    \ a->next());\n\tsplice(q->r(), b);\n\treturn q;\n}\n\npair<Q,Q> rec(const vector<P>&\
-    \ s) {\n\tif (sz(s) <= 3) {\n\t\tQ a = makeEdge(s[0], s[1]), b = makeEdge(s[1],\
+    \ stress-tested\n */\n#pragma once\n\n#include \"src/geometry/Point.h\"\n\ntypedef\
+    \ Point<ll> P;\ntypedef struct Quad* Q;\ntypedef __int128_t lll; // (can be ll\
+    \ if coords are < 2e4)\nP arb(LLONG_MAX,LLONG_MAX); // not equal to any other\
+    \ point\n\nstruct Quad {\n\tQ rot, o; P p = arb; bool mark;\n\tP& F() { return\
+    \ r()->p; }\n\tQ& r() { return rot->rot; }\n\tQ prev() { return rot->o->rot; }\n\
+    \tQ next() { return r()->prev(); }\n} *H;\n\nbool circ(P p, P a, P b, P c) { //\
+    \ is p in the circumcircle?\n\tlll p2 = p.dist2(), A = a.dist2()-p2,\n\t    B\
+    \ = b.dist2()-p2, C = c.dist2()-p2;\n\treturn p.cross(a,b)*C + p.cross(b,c)*A\
+    \ + p.cross(c,a)*B > 0;\n}\nQ makeEdge(P orig, P dest) {\n\tQ r = H ? H : new\
+    \ Quad{new Quad{new Quad{new Quad{0}}}};\n\tH = r->o; r->r()->r() = r;\n\trep(i,0,4)\
+    \ r = r->rot, r->p = arb, r->o = i & 1 ? r : r->r();\n\tr->p = orig; r->F() =\
+    \ dest;\n\treturn r;\n}\nvoid splice(Q a, Q b) {\n\tswap(a->o->rot->o, b->o->rot->o);\
+    \ swap(a->o, b->o);\n}\nQ connect(Q a, Q b) {\n\tQ q = makeEdge(a->F(), b->p);\n\
+    \tsplice(q, a->next());\n\tsplice(q->r(), b);\n\treturn q;\n}\n\npair<Q,Q> rec(const\
+    \ vector<P>& s) {\n\tif (sz(s) <= 3) {\n\t\tQ a = makeEdge(s[0], s[1]), b = makeEdge(s[1],\
     \ s.back());\n\t\tif (sz(s) == 2) return { a, a->r() };\n\t\tsplice(a->r(), b);\n\
     \t\tauto side = s[0].cross(s[1], s[2]);\n\t\tQ c = side ? connect(b, a) : 0;\n\
     \t\treturn {side < 0 ? c->r() : a, side < 0 ? c : b->r() };\n\t}\n\n#define H(e)\
@@ -70,7 +70,7 @@ data:
   isVerificationFile: false
   path: src/geometry/FastDelaunay.h
   requiredBy: []
-  timestamp: '2025-07-19 20:25:13+09:00'
+  timestamp: '2025-07-19 20:33:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/FastDelaunay.h

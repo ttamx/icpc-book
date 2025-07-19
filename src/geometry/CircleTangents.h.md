@@ -31,18 +31,18 @@ data:
     \ is perpendicular to the line between the centers).\n * .first and .second give\
     \ the tangency points at circle 1 and 2 respectively.\n * To find the tangents\
     \ of a circle with a point set r2 to 0.\n * Status: tested\n */\n#pragma once\n\
-    \n#include \"Point.h\"\n\ntemplate<class P>\nvector<pair<P, P>> tangents(P c1,\
-    \ double r1, P c2, double r2) {\n\tP d = c2 - c1;\n\tdouble dr = r1 - r2, d2 =\
-    \ d.dist2(), h2 = d2 - dr * dr;\n\tif (d2 == 0 || h2 < 0)  return {};\n\tvector<pair<P,\
-    \ P>> out;\n\tfor (double sign : {-1, 1}) {\n\t\tP v = (d * dr + d.perp() * sqrt(h2)\
-    \ * sign) / d2;\n\t\tout.push_back({c1 + v * r1, c2 + v * r2});\n\t}\n\tif (h2\
-    \ == 0) out.pop_back();\n\treturn out;\n}\n"
+    \n#include \"src/geometry/Point.h\"\n\ntemplate<class P>\nvector<pair<P, P>> tangents(P\
+    \ c1, double r1, P c2, double r2) {\n\tP d = c2 - c1;\n\tdouble dr = r1 - r2,\
+    \ d2 = d.dist2(), h2 = d2 - dr * dr;\n\tif (d2 == 0 || h2 < 0)  return {};\n\t\
+    vector<pair<P, P>> out;\n\tfor (double sign : {-1, 1}) {\n\t\tP v = (d * dr +\
+    \ d.perp() * sqrt(h2) * sign) / d2;\n\t\tout.push_back({c1 + v * r1, c2 + v *\
+    \ r2});\n\t}\n\tif (h2 == 0) out.pop_back();\n\treturn out;\n}\n"
   dependsOn:
   - src/geometry/Point.h
   isVerificationFile: false
   path: src/geometry/CircleTangents.h
   requiredBy: []
-  timestamp: '2025-07-19 20:25:13+09:00'
+  timestamp: '2025-07-19 20:33:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/CircleTangents.h

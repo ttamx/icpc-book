@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':warning:'
+    path: src/geometry/Point.h
+    title: src/geometry/Point.h
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -24,7 +27,7 @@ data:
     \ CC0\n * Source: https://github.com/spaghetti-source/algorithm/blob/master/geometry/_geom.cc#L744\n\
     \ * Description: Returns the area of the intersection of a circle with a\n * ccw\
     \ polygon.\n * Time: O(n)\n * Status: Tested on GNYR 2019 Gerrymandering, stress-tested\n\
-    \ */\n#pragma once\n\n#include \"../../content/geometry/Point.h\"\n\ntypedef Point<double>\
+    \ */\n#pragma once\n\n#include \"src/geometry/Point.h\"\n\ntypedef Point<double>\
     \ P;\n#define arg(p, q) atan2(p.cross(q), p.dot(q))\ndouble circlePoly(P c, double\
     \ r, vector<P> ps) {\n\tauto tri = [&](P p, P q) {\n\t\tauto r2 = r * r / 2;\n\
     \t\tP d = q - p;\n\t\tauto a = d.dot(p)/d.dist2(), b = (p.dist2()-r*r)/d.dist2();\n\
@@ -33,11 +36,12 @@ data:
     \ s) return arg(p, q) * r2;\n\t\tP u = p + d * s, v = q + d * (t-1);\n\t\treturn\
     \ arg(p,u) * r2 + u.cross(v)/2 + arg(v,q) * r2;\n\t};\n\tauto sum = 0.0;\n\trep(i,0,sz(ps))\n\
     \t\tsum += tri(ps[i] - c, ps[(i + 1) % sz(ps)] - c);\n\treturn sum;\n}\n"
-  dependsOn: []
+  dependsOn:
+  - src/geometry/Point.h
   isVerificationFile: false
   path: src/geometry/CirclePolygonIntersection.h
   requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
+  timestamp: '2025-07-19 20:33:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/CirclePolygonIntersection.h

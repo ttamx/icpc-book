@@ -35,7 +35,7 @@ data:
     \ $(i, i+1)$.\n *  The points are returned in the same order as the line hits\
     \ the polygon.\n * \\texttt{extrVertex} returns the point of a hull with the max\
     \ projection onto a line.\n * Time: O(\\log n)\n * Status: stress-tested\n */\n\
-    #pragma once\n\n#include \"Point.h\"\n\n#define cmp(i,j) sgn(dir.perp().cross(poly[(i)%n]-poly[(j)%n]))\n\
+    #pragma once\n\n#include \"src/geometry/Point.h\"\n\n#define cmp(i,j) sgn(dir.perp().cross(poly[(i)%n]-poly[(j)%n]))\n\
     #define extr(i) cmp(i + 1, i) >= 0 && cmp(i, i - 1 + n) < 0\ntemplate <class P>\
     \ int extrVertex(vector<P>& poly, P dir) {\n\tint n = sz(poly), lo = 0, hi = n;\n\
     \tif (extr(0)) return 0;\n\twhile (lo + 1 < hi) {\n\t\tint m = (lo + hi) / 2;\n\
@@ -57,7 +57,7 @@ data:
   isVerificationFile: false
   path: src/geometry/LineHullIntersection.h
   requiredBy: []
-  timestamp: '2025-07-19 20:25:13+09:00'
+  timestamp: '2025-07-19 20:33:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/LineHullIntersection.h

@@ -41,7 +41,7 @@ data:
   isVerificationFile: false
   path: src/geometry/MinimumEnclosingCircle.h
   requiredBy: []
-  timestamp: '2025-07-19 20:25:13+09:00'
+  timestamp: '2025-07-19 20:33:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/MinimumEnclosingCircle.h

@@ -35,8 +35,8 @@ data:
     \ CC0\n * Source: https://vlecomte.github.io/cp-geo.pdf\n * Description: Returns\
     \ true iff p lies on the line segment from s to e.\n * Use \\texttt{(segDist(s,e,p)<=epsilon)}\
     \ instead when using Point<double>.\n * Status:\n */\n#pragma once\n\n#include\
-    \ \"Point.h\"\n\ntemplate<class P> bool onSegment(P s, P e, P p) {\n\treturn p.cross(s,\
-    \ e) == 0 && (s - p).dot(e - p) <= 0;\n}\n"
+    \ \"src/geometry/Point.h\"\n\ntemplate<class P> bool onSegment(P s, P e, P p)\
+    \ {\n\treturn p.cross(s, e) == 0 && (s - p).dot(e - p) <= 0;\n}\n"
   dependsOn:
   - src/geometry/Point.h
   isVerificationFile: false
@@ -45,7 +45,7 @@ data:
   - src/geometry/InsidePolygon.h
   - src/geometry/SegmentIntersection.h
   - src/geometry/PointInsideHull.h
-  timestamp: '2025-07-19 20:25:13+09:00'
+  timestamp: '2025-07-19 20:33:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/OnSegment.h

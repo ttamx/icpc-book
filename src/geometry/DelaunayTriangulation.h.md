@@ -32,8 +32,8 @@ data:
     \ in C\n * Description: Computes the Delaunay triangulation of a set of points.\n\
     \ *  Each circumcircle contains none of the input points.\n *  If any three points\
     \ are collinear or any four are on the same circle, behavior is undefined.\n *\
-    \ Time: O(n^2)\n * Status: stress-tested\n */\n#pragma once\n\n#include \"Point.h\"\
-    \n#include \"3dHull.h\"\n\ntemplate<class P, class F>\nvoid delaunay(vector<P>&\
+    \ Time: O(n^2)\n * Status: stress-tested\n */\n#pragma once\n\n#include \"src/geometry/Point.h\"\
+    \n#include \"src/geometry/3dHull.h\"\n\ntemplate<class P, class F>\nvoid delaunay(vector<P>&\
     \ ps, F trifun) {\n\tif (sz(ps) == 3) { int d = (ps[0].cross(ps[1], ps[2]) < 0);\n\
     \t\ttrifun(0,1+d,2-d); }\n\tvector<P3> p3;\n\tfor (P p : ps) p3.emplace_back(p.x,\
     \ p.y, p.dist2());\n\tif (sz(ps) > 3) for(auto t:hull3d(p3)) if ((p3[t.b]-p3[t.a]).\n\
@@ -46,7 +46,7 @@ data:
   isVerificationFile: false
   path: src/geometry/DelaunayTriangulation.h
   requiredBy: []
-  timestamp: '2025-07-19 20:25:13+09:00'
+  timestamp: '2025-07-19 20:33:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/DelaunayTriangulation.h

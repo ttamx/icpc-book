@@ -9,6 +9,9 @@ data:
     path: src/geometry/CircleLine.h
     title: src/geometry/CircleLine.h
   - icon: ':warning:'
+    path: src/geometry/CirclePolygonIntersection.h
+    title: src/geometry/CirclePolygonIntersection.h
+  - icon: ':warning:'
     path: src/geometry/CircleTangents.h
     title: src/geometry/CircleTangents.h
   - icon: ':warning:'
@@ -127,6 +130,7 @@ data:
   - src/geometry/LineHullIntersection.h
   - src/geometry/kdTree.h
   - src/geometry/linearTransformation.h
+  - src/geometry/CirclePolygonIntersection.h
   - src/geometry/PolygonCut.h
   - src/geometry/lineDistance.h
   - src/geometry/CircleLine.h

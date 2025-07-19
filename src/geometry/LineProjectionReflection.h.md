@@ -29,15 +29,15 @@ data:
     \ line ab instead. The wrong point will be returned if P is\n * an integer point\
     \ and the desired point doesn't have integer coordinates.\n * Products of three\
     \ coordinates are used in intermediate steps so watch out\n * for overflow.\n\
-    \ * Status: stress-tested\n */\n#pragma once\n\n#include \"Point.h\"\n\ntemplate<class\
-    \ P>\nP lineProj(P a, P b, P p, bool refl=false) {\n\tP v = b - a;\n\treturn p\
-    \ - v.perp()*(1+refl)*v.cross(p-a)/v.dist2();\n}\n"
+    \ * Status: stress-tested\n */\n#pragma once\n\n#include \"src/geometry/Point.h\"\
+    \n\ntemplate<class P>\nP lineProj(P a, P b, P p, bool refl=false) {\n\tP v = b\
+    \ - a;\n\treturn p - v.perp()*(1+refl)*v.cross(p-a)/v.dist2();\n}\n"
   dependsOn:
   - src/geometry/Point.h
   isVerificationFile: false
   path: src/geometry/LineProjectionReflection.h
   requiredBy: []
-  timestamp: '2025-07-19 20:25:13+09:00'
+  timestamp: '2025-07-19 20:33:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/LineProjectionReflection.h

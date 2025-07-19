@@ -23,17 +23,17 @@ data:
     \ src/geometry/PolygonCenter.h: line 10: #pragma once found in a non-first line\n"
   code: "/**\n * Author: Ulf Lundstrom\n * Date: 2009-04-08\n * License: CC0\n * Source:\n\
     \ * Description: Returns the center of mass for a polygon.\n * Time: O(n)\n *\
-    \ Status: Tested\n */\n#pragma once\n\n#include \"Point.h\"\n\ntypedef Point<double>\
-    \ P;\nP polygonCenter(const vector<P>& v) {\n\tP res(0, 0); double A = 0;\n\t\
-    for (int i = 0, j = sz(v) - 1; i < sz(v); j = i++) {\n\t\tres = res + (v[i] +\
-    \ v[j]) * v[j].cross(v[i]);\n\t\tA += v[j].cross(v[i]);\n\t}\n\treturn res / A\
-    \ / 3;\n}\n"
+    \ Status: Tested\n */\n#pragma once\n\n#include \"src/geometry/Point.h\"\n\ntypedef\
+    \ Point<double> P;\nP polygonCenter(const vector<P>& v) {\n\tP res(0, 0); double\
+    \ A = 0;\n\tfor (int i = 0, j = sz(v) - 1; i < sz(v); j = i++) {\n\t\tres = res\
+    \ + (v[i] + v[j]) * v[j].cross(v[i]);\n\t\tA += v[j].cross(v[i]);\n\t}\n\treturn\
+    \ res / A / 3;\n}\n"
   dependsOn:
   - src/geometry/Point.h
   isVerificationFile: false
   path: src/geometry/PolygonCenter.h
   requiredBy: []
-  timestamp: '2025-07-19 20:25:13+09:00'
+  timestamp: '2025-07-19 20:33:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/PolygonCenter.h

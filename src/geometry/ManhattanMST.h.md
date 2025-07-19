@@ -28,7 +28,7 @@ data:
     \ * to contain a minimum spanning tree for the graph with edge weights w(p, q)\
     \ =\n * |p.x - q.x| + |p.y - q.y|. Edges are in the form (distance, src, dst).\
     \ Use a\n * standard MST algorithm on the result to find the final MST.\n * Time:\
-    \ O(N \\log N)\n * Status: Stress-tested\n */\n#pragma once\n#include \"Point.h\"\
+    \ O(N \\log N)\n * Status: Stress-tested\n */\n#pragma once\n#include \"src/geometry/Point.h\"\
     \n\ntypedef Point<int> P;\nvector<array<int, 3>> manhattanMST(vector<P> ps) {\n\
     \tvi id(sz(ps));\n\tiota(all(id), 0);\n\tvector<array<int, 3>> edges;\n\trep(k,0,4)\
     \ {\n\t\tsort(all(id), [&](int i, int j) {\n\t\t     return (ps[i]-ps[j]).x <\
@@ -43,7 +43,7 @@ data:
   isVerificationFile: false
   path: src/geometry/ManhattanMST.h
   requiredBy: []
-  timestamp: '2025-07-19 20:25:13+09:00'
+  timestamp: '2025-07-19 20:33:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/ManhattanMST.h

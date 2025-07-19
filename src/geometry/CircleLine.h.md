@@ -26,17 +26,17 @@ data:
     \ CC0\n * Source: https://vlecomte.github.io/cp-geo.pdf\n * Description: Finds\
     \ the intersection between a circle and a line.\n * Returns a vector of either\
     \ 0, 1, or 2 intersection points.\n * P is intended to be Point<double>.\n * Status:\
-    \ unit tested\n */\n\n#pragma once\n\n#include \"Point.h\"\n\ntemplate<class P>\n\
-    vector<P> circleLine(P c, double r, P a, P b) {\n\tP ab = b - a, p = a + ab *\
-    \ (c-a).dot(ab) / ab.dist2();\n\tdouble s = a.cross(b, c), h2 = r*r - s*s / ab.dist2();\n\
-    \tif (h2 < 0) return {};\n\tif (h2 == 0) return {p};\n\tP h = ab.unit() * sqrt(h2);\n\
-    \treturn {p - h, p + h};\n}\n"
+    \ unit tested\n */\n\n#pragma once\n\n#include \"src/geometry/Point.h\"\n\ntemplate<class\
+    \ P>\nvector<P> circleLine(P c, double r, P a, P b) {\n\tP ab = b - a, p = a +\
+    \ ab * (c-a).dot(ab) / ab.dist2();\n\tdouble s = a.cross(b, c), h2 = r*r - s*s\
+    \ / ab.dist2();\n\tif (h2 < 0) return {};\n\tif (h2 == 0) return {p};\n\tP h =\
+    \ ab.unit() * sqrt(h2);\n\treturn {p - h, p + h};\n}\n"
   dependsOn:
   - src/geometry/Point.h
   isVerificationFile: false
   path: src/geometry/CircleLine.h
   requiredBy: []
-  timestamp: '2025-07-19 20:25:13+09:00'
+  timestamp: '2025-07-19 20:33:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/CircleLine.h
