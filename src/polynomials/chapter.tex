@@ -1,5 +1,25 @@
 \chapter{Polynomials}
 
+\section{Generating Functions}
+\subsection{Common Series}
+\[\frac{1}{1-x} = 1 + x + x^2 + x^3 + \dots = \sum_{n=0}^\infty x^n\]
+\[-\ln(1-x) = x + \frac{x^2}{2} + \frac{x^3}{3} + \dots = \sum_{n=1}^\infty \frac{x^n}{n}\]
+\[e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots = \sum_{n=0}^\infty \frac{x^n}{n!}\]
+\[(1-x)^{-k} = \sum_{n=0}^\infty \binom{n+k-1}{k-1} x^n\]
+
+\subsection{Famous Polynomials}
+Bell numbers $B_n$ are the number of partitions of $n$ distinct objects.
+let $B(x)$ be EGF of Bell numbers, then
+\[B(x) = e^{e^x - 1} = \sum_{n=0}^\infty B_n \frac{x^n}{n!}\]
+
+\section{Newton's Method}
+if $F(Q) = 0$, then $Q_{2n} \equiv Q_{n} - \frac{F(Q_{n})}{F'(Q_{n})}\;(\mathrm{mod} x^{2n})$ 
+\[Q = P^{-1}: Q_{2n} \equiv Q_{n} \cdot (2 - P \cdot Q_{n}^2)\;(\mathrm{mod}\; x^{2n}) \]
+\[Q = \ln{P} = \int\frac{P'}{P} \mathrm{d}x \]
+\[Q = e^{p}: Q_{2n} \equiv Q_{n}(1 + P - \ln{Q_n})\;(\mathrm{mod}\; x^{2n}) \]
+\[Q = \sqrt{P}: Q_{2n} \equiv \frac{1}{2}(Q_{n} + P \cdot Q_{n}^{-1})\;(\mathrm{mod}\; x^{2n}) \]
+\[Q = P^{k} = \alpha^{k}x^{kt}e^{k\ln{T}}; P = \alpha \cdot x^{t} \cdot T, T(0) = 1 \]
+
 \kactlimport{formal-power-series.hpp}
 \kactlimport{fft.hpp}
 \kactlimport{ntt.hpp}

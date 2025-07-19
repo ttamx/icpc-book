@@ -1,0 +1,31 @@
+\chapter{Linear Programming}
+
+\section{LP Duality}
+
+primal problem:
+\[\begin{aligned}
+\text{maximize} \quad & c^T x \\
+\text{subject to} \quad & Ax \le b \\
+& x \ge 0
+\end{aligned}\]
+dual problem:
+\[\begin{aligned}
+\text{minimize} \quad & b^T y \\
+\text{subject to} \quad & A^T y \ge c \\
+& y \ge 0
+\end{aligned}\]
+
+\begin{center}
+\begin{tabular}{c|c}
+Maximization & Minimization \\
+\hline
+Inequality constraint $\le$ & Nonnegative variable $\ge$ \\
+Inequality constraint $\ge$ & Nonpositive variable $\le$ \\
+Equality constraint $=$ & Free variable \\
+Nonnegative variable $\ge$ & Inequality constraint $\ge$ \\
+Nonpositive variable $\le$ & Inequality constraint $\le$ \\
+Free variable & Equality constraint $=$ \\
+\end{tabular}
+\end{center}
+
+\kactlimport{Simplex.h}
