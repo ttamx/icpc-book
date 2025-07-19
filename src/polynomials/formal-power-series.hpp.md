@@ -132,8 +132,7 @@ data:
     \ FPS(deg,mint(0));\n            if((*this)[i]==mint(0))continue;\n          \
     \  mint rev=mint(1)/(*this)[i];\n            FPS res=(((*this*rev)>>i).log(deg)*k).exp(deg);\n\
     \            res=((res*binpow((*this)[i],k))<<(i*k)).pre(deg);\n            return\
-    \ res;\n        }\n        return FPS(deg,mint(0));\n    }\n};\nusing FPS=FormalPowerSeries<mint>;\n\
-    \n"
+    \ res;\n        }\n        return FPS(deg,mint(0));\n    }\n};\n"
   code: "#pragma once\n#include \"src/polynomials/ntt.hpp\"\n\n/**\n * Author: Teetat\
     \ T.\n * Date: 2024-03-17\n * Description: basic operations of formal power series\n\
     \ */\n\ntemplate<class mint>\nstruct FormalPowerSeries:vector<mint>{\n    using\
@@ -188,8 +187,7 @@ data:
     \ FPS(deg,mint(0));\n            if((*this)[i]==mint(0))continue;\n          \
     \  mint rev=mint(1)/(*this)[i];\n            FPS res=(((*this*rev)>>i).log(deg)*k).exp(deg);\n\
     \            res=((res*binpow((*this)[i],k))<<(i*k)).pre(deg);\n            return\
-    \ res;\n        }\n        return FPS(deg,mint(0));\n    }\n};\nusing FPS=FormalPowerSeries<mint>;\n\
-    \n"
+    \ res;\n        }\n        return FPS(deg,mint(0));\n    }\n};"
   dependsOn:
   - src/polynomials/ntt.hpp
   - src/modular-arithmetic/binpow.hpp
@@ -197,7 +195,7 @@ data:
   isVerificationFile: false
   path: src/polynomials/formal-power-series.hpp
   requiredBy: []
-  timestamp: '2025-07-19 15:28:18+09:00'
+  timestamp: '2025-07-19 15:28:48+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/polynomials/formal-power-series.hpp
