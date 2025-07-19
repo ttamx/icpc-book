@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/aplusb"
 #include "src/contest/template.hpp"
-#include "src/numerical/integrate.hpp"
+#include "src/miscellaneous/integrate.hpp"
 
 int main(){
     for(int r=1;r<=20;r++){
