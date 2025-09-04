@@ -235,6 +235,9 @@ data:
       title: src/string/z-algorithm.hpp
   - name: src/tree
     pages:
+    - icon: ':warning:'
+      path: src/tree/dominator-tree.cpp
+      title: src/tree/dominator-tree.cpp
     - icon: ':heavy_check_mark:'
       path: src/tree/link-cut-tree.hpp
       title: src/tree/link-cut-tree.hpp
