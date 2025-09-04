@@ -2,3 +2,30 @@
 
 \kactlimport{link-cut-tree.hpp}
 \kactlimport{static-top-tree.hpp}
+
+\section{Dominator Tree}
+
+Time: $O((N + M) \log N)$\\
+Source: USACO\\
+
+\begin{itemize}
+    \item A node $u$ \textbf{strictly dominates} another node $v$ if $u$ dominates $v$ and $u \ne v$.
+    \item Let the \textbf{immediate dominator} of $u$, or $\texttt{idom}(u)$, be the unique node $v$ such that it strictly dominates node $u$ and every other dominator of node $u$ strictly dominates node $v$.
+    \item Let $e(u)$ be the entry time in node $u$ during a \href{/gold/tree-euler}{Euler tour}.
+    \item Let the \textbf{semi-dominator} of $u$, or $\texttt{sdom}(u)$, be a node $v$ such that there exists a path from $v$ to $u$ and $e(i) \ge e(u)$ for every intermediate node $i$ along the path from $u$ to $v$, excluding the ends.
+    If there are multiple nodes that satisfy this requirement, we take the node $v$ with the smallest $e(v)$.
+    \item Let the \textbf{relative dominator} of $u$, or $\texttt{rdom}(u)$, be the vertex $x \ne \texttt{sdom}(u)$ on the path from $\texttt{sdom}(u)$ to $u$ in the Euler tour tree with the lowest $\texttt{sdom}$ node number.
+    Unlike with the $\texttt{sdom}$, ties in this function can be broken arbitrarily.
+\end{itemize}
+
+\subsection*{Important properties}
+Proofs of these properties are located later in the module.  
+For all of these properties, let $u$ be a node that isn't the starting node.
+
+\begin{enumerate}
+    \item $\texttt{sdom}(u)$ is a proper ancestor of $u$ in the DFS tree.
+    \item If $\texttt{rdom}(u)=u$, then $\texttt{idom}(u)=\texttt{sdom}(u)$.
+    \item If not, then $\texttt{idom}(u)=\texttt{idom}(\texttt{rdom}(u))$.
+\end{enumerate}
+
+\kactlimport[-l rawcpp]{dominator-tree.cpp}
