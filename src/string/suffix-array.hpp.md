@@ -55,8 +55,8 @@ data:
   timestamp: '2025-07-19 13:39:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/string/suffix-array/suffixarray.test.cpp
   - verify/string/suffix-array/number_of_substrings.test.cpp
+  - verify/string/suffix-array/suffixarray.test.cpp
 documentation_of: src/string/suffix-array.hpp
 layout: document
 redirect_from:

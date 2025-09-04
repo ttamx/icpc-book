@@ -49,6 +49,9 @@ data:
       path: src/flows/dinic.hpp
       title: src/flows/dinic.hpp
     - icon: ':heavy_check_mark:'
+      path: src/flows/general-matching.hpp
+      title: src/flows/general-matching.hpp
+    - icon: ':heavy_check_mark:'
       path: src/flows/hopcroft-karp.hpp
       title: src/flows/hopcroft-karp.hpp
     - icon: ':warning:'
@@ -254,6 +257,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/data-structures/segment-tree-beats/range_chmin_chmax_add_range_sum.test.cpp
       title: verify/data-structures/segment-tree-beats/range_chmin_chmax_add_range_sum.test.cpp
+  - name: verify/flows/general-matching
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/flows/general-matching/general_matching.test.cpp
+      title: verify/flows/general-matching/general_matching.test.cpp
   - name: verify/flows/hopcroft-karp
     pages:
     - icon: ':heavy_check_mark:'

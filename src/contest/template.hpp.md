@@ -13,6 +13,9 @@ data:
     path: verify/data-structures/segment-tree-beats/range_chmin_chmax_add_range_sum.test.cpp
     title: verify/data-structures/segment-tree-beats/range_chmin_chmax_add_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: verify/flows/general-matching/general_matching.test.cpp
+    title: verify/flows/general-matching/general_matching.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/flows/hopcroft-karp/bipartitematching.test.cpp
     title: verify/flows/hopcroft-karp/bipartitematching.test.cpp
   - icon: ':heavy_check_mark:'
@@ -72,17 +75,18 @@ data:
   timestamp: '2025-07-17 16:04:21+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/data-structures/segment-tree-beats/range_chmin_chmax_add_range_sum.test.cpp
+  - verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
+  - verify/miscellaneous/integral.test.cpp
+  - verify/number-theory/floor-sum/sum_of_floor_of_linear.test.cpp
+  - verify/flows/hopcroft-karp/bipartitematching.test.cpp
+  - verify/flows/general-matching/general_matching.test.cpp
   - verify/data-structures/line-container/line_add_get_min.test.cpp
-  - verify/string/manacher/enumerate_palindromes.test.cpp
+  - verify/data-structures/segment-tree-beats/range_chmin_chmax_add_range_sum.test.cpp
   - verify/string/suffix-automaton/number_of_substrings.test.cpp
   - verify/string/z-algorithm/zalgorithm.test.cpp
-  - verify/string/suffix-array/suffixarray.test.cpp
   - verify/string/suffix-array/number_of_substrings.test.cpp
-  - verify/miscellaneous/integral.test.cpp
-  - verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
-  - verify/flows/hopcroft-karp/bipartitematching.test.cpp
-  - verify/number-theory/floor-sum/sum_of_floor_of_linear.test.cpp
+  - verify/string/suffix-array/suffixarray.test.cpp
+  - verify/string/manacher/enumerate_palindromes.test.cpp
 documentation_of: src/contest/template.hpp
 layout: document
 redirect_from:
