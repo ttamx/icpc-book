@@ -80,9 +80,9 @@
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}
 \headheight 25pt
-\lhead{\@unishort - \@teamname}
-\chead{\immediate\write18{python3 src/tex/preprocessor.py --print-header "\splitbotmarks\hdrmark|\botmarks\hdrmark" -o \@builddir/header2.tmp}\immediate\input{\@builddir/header2.tmp}}
-\rhead{\thepage}
+\fancyhead[L]{\makebox[0.2\textwidth][l]{\@unishort - \@teamname}}
+\fancyhead[C]{\makebox[0.7\textwidth][c]{\immediate\write18{python3 src/tex/preprocessor.py --print-header "\splitbotmarks\hdrmark|\botmarks\hdrmark" -o \@builddir/header2.tmp}\immediate\input{\@builddir/header2.tmp}}}
+\fancyhead[R]{\makebox[0.1\textwidth][r]{\thepage}}
 %\lhead{}\chead{\thepage}\rhead{}
 \lfoot{}\cfoot{}\rfoot{}
 \fancyheadoffset{0pt}
