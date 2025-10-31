@@ -193,19 +193,35 @@
 \renewcommand\cftchapfont{\large\bfseries}
 \renewcommand{\cftdotsep}{4.5}
 
-% Make table of contents work inside multicols and keep page numbers visible
-% Usage: call \kactltableofcontents instead of \tableofcontents when inside columns
+% Multi-column friendly custom TOC (does not call \tableofcontents)
+% Parses the .toc directly and formats entries with dotted leaders and page numbers.
+% Safe to use inside multicols.
 \newcommand{\kactltableofcontents}{%
   \begingroup
-    % Constrain the right margin for page numbers to the current column width
-    \cftsetrmarg{\linewidth}%
-    % Keep a compact page-number box (two–three digits)
-    \cftsetpnumwidth{1.8em}%
-    % Ensure chapters use dotted leaders and normal-sized fonts in TOC
-    \renewcommand\cftchapfont{\normalsize\bfseries}%
-    \renewcommand\cftchappagefont{\normalsize}%
-    \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}%
-    \tableofcontents
+    \parindent=0pt\parskip=0pt
+    % Chapter entries (bold), with dotted leaders and right-aligned page number
+    \def\l@chapter##1##2{%
+      \vspace{2pt}%
+      \leavevmode
+      {\bfseries\normalsize ##1}%
+      \nobreak\leaders\hbox to .6em{\hss.\hss}\hfill
+      \nobreak\hbox to 1.8em{\hfil ##2}\par}%
+    % Section entries (if tocdepth >= 1)
+    \def\l@section##1##2{%
+      \vspace{1pt}%
+      \leavevmode
+      {\normalsize ##1}%
+      \nobreak\leaders\hbox to .6em{\hss.\hss}\hfill
+      \nobreak\hbox to 1.8em{\hfil ##2}\par}%
+    % Subsection entries (compact)
+    \def\l@subsection##1##2{%
+      \vspace{1pt}%
+      \leavevmode\hspace*{1em}% indent
+      {\small ##1}%
+      \nobreak\leaders\hbox to .6em{\hss.\hss}\hfill
+      \nobreak\hbox to 1.8em{\hfil ##2}\par}%
+    % Read and typeset the .toc file without using \tableofcontents
+    \@starttoc{toc}%
   \endgroup
 }
 
