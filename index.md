@@ -214,6 +214,9 @@ data:
       path: src/polynomials/lagrange-interpolate.hpp
       title: src/polynomials/lagrange-interpolate.hpp
     - icon: ':warning:'
+      path: src/polynomials/multipoint-evaluation.hpp
+      title: Multipoint Evaluation
+    - icon: ':warning:'
       path: src/polynomials/ntt.hpp
       title: src/polynomials/ntt.hpp
   - name: src/string
