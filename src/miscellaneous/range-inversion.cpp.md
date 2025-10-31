@@ -4,11 +4,11 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: hpp
+  _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/miscellaneous/range-inversion.hpp\"\n\n/**\n * Author:\
+  bundledCode: "#line 2 \"src/miscellaneous/range-inversion.cpp\"\n\n/**\n * Author:\
     \ Teetat T.\n * Date: 2025-10-31\n * Description: Online range inversion count\
     \ in O(\\sqrt{N}).\n */\n\nconst int N=1e5+5;\nconst int K=320;\n\nint n,k;\n\
     int a[N];\npair<int,int> b[N],c[N];\nint block[N],l[K],r[K],pre[N],suf[N];\nll\
@@ -69,15 +69,15 @@ data:
     \t\t}\n\t}\n}"
   dependsOn: []
   isVerificationFile: false
-  path: src/miscellaneous/range-inversion.hpp
+  path: src/miscellaneous/range-inversion.cpp
   requiredBy: []
-  timestamp: '2025-11-01 00:50:37+07:00'
+  timestamp: '2025-11-01 02:08:13+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: src/miscellaneous/range-inversion.hpp
+documentation_of: src/miscellaneous/range-inversion.cpp
 layout: document
 redirect_from:
-- /library/src/miscellaneous/range-inversion.hpp
-- /library/src/miscellaneous/range-inversion.hpp.html
-title: src/miscellaneous/range-inversion.hpp
+- /library/src/miscellaneous/range-inversion.cpp
+- /library/src/miscellaneous/range-inversion.cpp.html
+title: src/miscellaneous/range-inversion.cpp
 ---
