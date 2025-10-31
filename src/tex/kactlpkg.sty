@@ -193,6 +193,22 @@
 \renewcommand\cftchapfont{\large\bfseries}
 \renewcommand{\cftdotsep}{4.5}
 
+% Make table of contents work inside multicols and keep page numbers visible
+% Usage: call \kactltableofcontents instead of \tableofcontents when inside columns
+\newcommand{\kactltableofcontents}{%
+  \begingroup
+    % Constrain the right margin for page numbers to the current column width
+    \cftsetrmarg{\linewidth}%
+    % Keep a compact page-number box (two–three digits)
+    \cftsetpnumwidth{1.8em}%
+    % Ensure chapters use dotted leaders and normal-sized fonts in TOC
+    \renewcommand\cftchapfont{\normalsize\bfseries}%
+    \renewcommand\cftchappagefont{\normalsize}%
+    \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}%
+    \tableofcontents
+  \endgroup
+}
+
 % Proper carets and tildes
 \newcommand*{\caret}{%
   \begingroup
