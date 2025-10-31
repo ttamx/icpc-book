@@ -199,14 +199,13 @@
 \newcommand{\kactltableofcontents}{%
   \begingroup
     \parindent=0pt\parskip=0pt
-    % Chapter entries (bold), no dotted leaders, right-aligned page number
-    \def\l@chapter##1##2{%
-      \vspace{2pt}%
-      \leavevmode
-      {\bfseries\normalsize ##1}%
-      \hfill
-      \nobreak\hbox to 1.8em{\hfil ##2}\par}%
-    % Section entries (if tocdepth >= 1), no dotted leaders
+    % Add space between the number and the title in entries
+    \makeatletter
+    \def\numberline#1{#1\hspace{0.4em}}%
+    \makeatother
+    % Hide chapters; show only sections in TOC
+    \def\l@chapter##1##2{}%
+    % Section entries (no dotted leaders), right-aligned page number
     \def\l@section##1##2{%
       \vspace{1pt}%
       \leavevmode
@@ -214,7 +213,7 @@
       \hfill
       \nobreak\hbox to 1.8em{\hfil ##2}\par}%
     % Suppress subsections entirely
-    \def\l@subsection##1##2{}
+    \def\l@subsection##1##2{}%
     % Read and typeset the .toc file without using \tableofcontents
     \@starttoc{toc}%
   \endgroup
