@@ -73,7 +73,7 @@ struct FFT{
 		return res;
 	}
 	vt operator()(const vt &a,const vt &b){
-		return mod>0?conv(a,b):convMod(a,b);
+		return mod>0?convMod(a,b):conv(a,b);
 	}
 };
 template<>
