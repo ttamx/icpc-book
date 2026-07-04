@@ -167,6 +167,11 @@ data:
     - icon: ':warning:'
       path: src/geometry/sphericalDistance.h
       title: src/geometry/sphericalDistance.h
+  - name: src/graph
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: src/graph/k-th-shortest-path.hpp
+      title: src/graph/k-th-shortest-path.hpp
   - name: src/linear-programming
     pages:
     - icon: ':warning:'
@@ -276,6 +281,14 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/flows/hopcroft-karp/bipartitematching.test.cpp
       title: verify/flows/hopcroft-karp/bipartitematching.test.cpp
+  - name: verify/graph/k-th-shortest-path
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/graph/k-th-shortest-path/k_shortest_walk.test.cpp
+      title: verify/graph/k-th-shortest-path/k_shortest_walk.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/graph/k-th-shortest-path/k_shortest_walk.test.expanded.cpp
+      title: verify/graph/k-th-shortest-path/k_shortest_walk.test.expanded.cpp
   - name: verify/miscellaneous
     pages:
     - icon: ':heavy_check_mark:'

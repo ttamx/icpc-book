@@ -37,7 +37,7 @@ data:
     for(int i=0;i<res.size();i++){\n\t\t\tll x=round(real(out1[i])),y=round(imag(out1[i]))+round(real(out2[i])),z=round(imag(out2[i]));\n\
     \t\t\tres[i]=((x%mod*cut+y)%mod*cut+z)%mod; // a1 * b1 * cut^2 + (a1 * b2 + a2\
     \ * b1) * cut + a2 * b2\n\t\t}\n\t\treturn res;\n\t}\n\tvt operator()(const vt\
-    \ &a,const vt &b){\n\t\treturn mod>0?conv(a,b):convMod(a,b);\n\t}\n};\ntemplate<>\n\
+    \ &a,const vt &b){\n\t\treturn mod>0?convMod(a,b):conv(a,b);\n\t}\n};\ntemplate<>\n\
     struct FFT<db>{\n\tstatic const bool INT=false;\n};\n\n"
   code: "#pragma once\n\n/**\n * Author: Teetat T.\n * Date: 2024-03-17\n * Description:\
     \ Fast Fourier Transform\n * Time: $O(N \\log N)$\n */\n\ntemplate<class T=ll,int\
@@ -67,13 +67,13 @@ data:
     for(int i=0;i<res.size();i++){\n\t\t\tll x=round(real(out1[i])),y=round(imag(out1[i]))+round(real(out2[i])),z=round(imag(out2[i]));\n\
     \t\t\tres[i]=((x%mod*cut+y)%mod*cut+z)%mod; // a1 * b1 * cut^2 + (a1 * b2 + a2\
     \ * b1) * cut + a2 * b2\n\t\t}\n\t\treturn res;\n\t}\n\tvt operator()(const vt\
-    \ &a,const vt &b){\n\t\treturn mod>0?conv(a,b):convMod(a,b);\n\t}\n};\ntemplate<>\n\
+    \ &a,const vt &b){\n\t\treturn mod>0?convMod(a,b):conv(a,b);\n\t}\n};\ntemplate<>\n\
     struct FFT<db>{\n\tstatic const bool INT=false;\n};\n\n"
   dependsOn: []
   isVerificationFile: false
   path: src/polynomials/fft.hpp
   requiredBy: []
-  timestamp: '2025-07-19 15:28:18+09:00'
+  timestamp: '2026-04-04 10:40:39+05:30'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/polynomials/fft.hpp
