@@ -1,0 +1,8 @@
+\subsection{Pick's Theorem}
+Given a simple polygon with vertices on an integer grid:
+$$A = I + \frac{B}{2} - 1 \implies I = A - \frac{B}{2} + 1$$
+Where $A$ is the area, $I$ is the number of strictly interior lattice points, and $B$ is the number of boundary lattice points.
+\begin{itemize}
+    \item $2A$ is computed via the Shoelace formula: $\sum (x_i y_{i+1} - x_{i+1} y_i)$.
+    \item $B = \sum \gcd(|x_{i+1} - x_i|, |y_{i+1} - y_i|)$.
+\end{itemize}
