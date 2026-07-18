@@ -52,6 +52,9 @@ data:
       path: src/flows/general-matching.hpp
       title: src/flows/general-matching.hpp
     - icon: ':heavy_check_mark:'
+      path: src/flows/general-weighted-matching.hpp
+      title: src/flows/general-weighted-matching.hpp
+    - icon: ':heavy_check_mark:'
       path: src/flows/hopcroft-karp.hpp
       title: src/flows/hopcroft-karp.hpp
     - icon: ':warning:'
@@ -276,6 +279,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/flows/general-matching/general_matching.test.cpp
       title: verify/flows/general-matching/general_matching.test.cpp
+  - name: verify/flows/general-weighted-matching
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/flows/general-weighted-matching/general_weighted_matching.test.cpp
+      title: verify/flows/general-weighted-matching/general_weighted_matching.test.cpp
   - name: verify/flows/hopcroft-karp
     pages:
     - icon: ':heavy_check_mark:'
