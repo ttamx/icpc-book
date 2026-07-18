@@ -19,6 +19,11 @@
 
 		 If $f(n)$ counts ``configurations'' (of some sort) of length $n$, we can ignore rotational symmetry using $G = \mathbb Z_n$ to get
 		 \[ g(n) = \frac 1 n \sum_{k=0}^{n-1}{f(\text{gcd}(n, k))} = \frac 1 n \sum_{k|n}{f(k)\phi(n/k)}. \]
+	
+	\subsection{Pólya's enumeration theorem}
+        Let $G$ be a group of permutations on a set of $n$ elements. The number of non-equivalent colorings of the set using $m$ colors is:
+        \[ \frac{1}{|G|} \sum_{g \in G} m^{c(g)} \]
+        where $c(g)$ is the number of cycles in the cycle decomposition of the permutation $g$.
 
 \section{Partitions and subsets}
 	\subsection{Partition function}
@@ -35,6 +40,25 @@
 
 	\subsection{Lucas' Theorem}
 		Let $n,m$ be non-negative integers and $p$ a prime. Write $n=n_kp^k+...+n_1p+n_0$ and $m=m_kp^k+...+m_1p+m_0$. Then $\binom{n}{m} \equiv \prod_{i=0}^k\binom{n_i}{m_i} \pmod{p}$.
+	
+	\subsection{The Twelvefold Way}
+        Ways to put $n$ items into $m$ boxes:
+        \begin{center}
+        \small
+        \begin{tabular}{c|c||c|c|c}
+        Items & Boxes & Any & $\le 1$ (inj) & $\ge 1$ (surj) \\ \hline
+        Dist & Dist & $m^n$ & $P(m,n)$ & $m! S(n,m)$ \\
+        Indist & Dist & $\binom{n+m-1}{m-1}$ & $\binom{m}{n}$ & $\binom{n-1}{m-1}$ \\
+        Dist & Indist & $\sum_{k=1}^m S(n,k)$ & $[n \le m]$ & $S(n,m)$ \\
+        Indist & Indist & $\sum_{k=1}^m p(n,k)$ & $[n \le m]$ & $p(n-m, m)$ \\
+        \end{tabular}
+        \normalsize
+        \end{center}
+	
+	\subsection{Hook Length Formula}
+        Number of Standard Young Tableaux of a partition shape $\lambda \vdash n$:
+        \[ f^\lambda = \frac{n!}{\prod_{(i, j) \in \lambda} h_\lambda(i, j)} \]
+        where the hook length $h_\lambda(i, j)$ is the number of cells directly to the right and directly below cell $(i,j)$, including itself.
 
 \section{General purpose numbers}
 	\subsection{Bernoulli numbers}
@@ -95,3 +119,21 @@
 			\item ways a convex polygon with $n+2$ sides can be cut into triangles by connecting vertices with straight lines.
 			\item permutations of $[n]$ with no 3-term increasing subseq.
 		\end{itemize}
+	
+	\subsection{Binomial Identities}
+        \begin{itemize}[noitemsep]
+            \item \textbf{Vandermonde's Identity:} $\sum_{k} \binom{r}{k}\binom{s}{n-k} = \binom{r+s}{n}$
+            \item \textbf{Hockey-stick Identity:} $\sum_{i=r}^n \binom{i}{r} = \binom{n+1}{r+1}$
+            \item \textbf{Row sum of squares:} $\sum_{k=0}^n \binom{n}{k}^2 = \binom{2n}{n}$
+        \end{itemize}
+	
+	\subsection{Min-Max Identity}
+        For any finite set of values $S$:
+        \[ \max(S) = \sum_{\emptyset \neq T \subseteq S} (-1)^{|T|-1} \min(T) \]
+        \[ \min(S) = \sum_{\emptyset \neq T \subseteq S} (-1)^{|T|-1} \max(T) \]
+        Also holds perfectly for expected values: $\mathbb{E}[\max(S)] = \sum (-1)^{|T|-1} \mathbb{E}[\min(T)]$.
+	
+	\subsection{Lagrange Inversion Formula}
+        If $A(x) = x \phi(A(x))$ where $\phi(0) \neq 0$, then the coefficients of $A(x)$ are given by:
+        \[ [x^n] A(x) = \frac{1}{n} [u^{n-1}] \big(\phi(u)\big)^n \]
+        More generally, for any function $H(x)$: $[x^n] H(A(x)) = \frac{1}{n} [u^{n-1}] H'(u) \big(\phi(u)\big)^n$.
