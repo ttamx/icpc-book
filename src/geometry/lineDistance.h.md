@@ -31,14 +31,14 @@ data:
     \ call .dist on the result of the cross product.\n\\end{minipage}\n\\begin{minipage}{15mm}\n\
     \\includegraphics[width=\\textwidth]{src/geometry/lineDistance}\n\\end{minipage}\n\
     \ * Status: tested\n */\n#pragma once\n\n#include \"src/geometry/Point.h\"\n\n\
-    template<class P>\ndouble lineDist(const P& a, const P& b, const P& p) {\n\treturn\
+    template<class P>\ndouble lineDist(const P& a,const P& b,const P& p){\n\treturn\
     \ (double)(b-a).cross(p-a)/(b-a).dist();\n}\n"
   dependsOn:
   - src/geometry/Point.h
   isVerificationFile: false
   path: src/geometry/lineDistance.h
   requiredBy: []
-  timestamp: '2025-07-19 20:33:24+09:00'
+  timestamp: '2026-10-03 23:15:31+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/lineDistance.h

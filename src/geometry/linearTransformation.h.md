@@ -28,16 +28,15 @@ data:
     \ line q0-q1 to point r.\n\\end{minipage}\n\\begin{minipage}{15mm}\n\\vspace{-8mm}\n\
     \\includegraphics[width=\\textwidth]{src/geometry/linearTransformation}\n\\vspace{-2mm}\n\
     \\end{minipage}\n * Status: not tested\n */\n#pragma once\n\n#include \"src/geometry/Point.h\"\
-    \n\ntypedef Point<double> P;\nP linearTransformation(const P& p0, const P& p1,\n\
-    \t\tconst P& q0, const P& q1, const P& r) {\n\tP dp = p1-p0, dq = q1-q0, num(dp.cross(dq),\
-    \ dp.dot(dq));\n\treturn q0 + P((r-p0).cross(num), (r-p0).dot(num))/dp.dist2();\n\
-    }\n"
+    \n\ntypedef Point<double> P;\nP linearTransformation(const P& p0,const P& p1,\n\
+    \t\tconst P& q0,const P& q1,const P& r){\n\tP dp=p1-p0,dq=q1-q0,num(dp.cross(dq),dp.dot(dq));\n\
+    \treturn q0+P((r-p0).cross(num),(r-p0).dot(num))/dp.dist2();\n}\n"
   dependsOn:
   - src/geometry/Point.h
   isVerificationFile: false
   path: src/geometry/linearTransformation.h
   requiredBy: []
-  timestamp: '2025-07-19 20:33:24+09:00'
+  timestamp: '2026-10-03 23:15:31+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/linearTransformation.h

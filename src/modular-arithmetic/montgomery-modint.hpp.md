@@ -2,19 +2,31 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/polynomials/formal-power-series.hpp
     title: src/polynomials/formal-power-series.hpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/polynomials/multipoint-evaluation.hpp
-    title: Multipoint Evaluation
-  - icon: ':warning:'
+    title: src/polynomials/multipoint-evaluation.hpp
+  - icon: ':heavy_check_mark:'
     path: src/polynomials/ntt.hpp
     title: src/polynomials/ntt.hpp
-  _extendedVerifiedWith: []
+  - icon: ':heavy_check_mark:'
+    path: src/polynomials/polynomial-interpolation.hpp
+    title: src/polynomials/polynomial-interpolation.hpp
+  - icon: ':heavy_check_mark:'
+    path: src/polynomials/subproduct-tree.hpp
+    title: src/polynomials/subproduct-tree.hpp
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
+    title: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
+    title: verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/modular-arithmetic/montgomery-modint.hpp\"\n\n/**\n\
@@ -108,12 +120,16 @@ data:
   isVerificationFile: false
   path: src/modular-arithmetic/montgomery-modint.hpp
   requiredBy:
+  - src/polynomials/polynomial-interpolation.hpp
+  - src/polynomials/subproduct-tree.hpp
   - src/polynomials/ntt.hpp
   - src/polynomials/formal-power-series.hpp
   - src/polynomials/multipoint-evaluation.hpp
   timestamp: '2025-07-19 15:28:18+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
+  - verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
 documentation_of: src/modular-arithmetic/montgomery-modint.hpp
 layout: document
 redirect_from:

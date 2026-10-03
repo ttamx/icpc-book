@@ -36,7 +36,7 @@ data:
   isVerificationFile: false
   path: src/geometry/CircleLine.h
   requiredBy: []
-  timestamp: '2025-07-19 20:33:24+09:00'
+  timestamp: '2026-10-03 23:15:31+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/CircleLine.h

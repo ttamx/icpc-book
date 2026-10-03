@@ -32,17 +32,17 @@ data:
     \ returns the center of the same circle.\n\\end{minipage}\n\\begin{minipage}{15mm}\n\
     \\vspace{-2mm}\n\\includegraphics[width=\\textwidth]{src/geometry/circumcircle}\n\
     \\end{minipage}\n * Status: tested\n */\n#pragma once\n\n#include \"src/geometry/Point.h\"\
-    \n\ntypedef Point<double> P;\ndouble ccRadius(const P& A, const P& B, const P&\
-    \ C) {\n\treturn (B-A).dist()*(C-B).dist()*(A-C).dist()/\n\t\t\tabs((B-A).cross(C-A))/2;\n\
-    }\nP ccCenter(const P& A, const P& B, const P& C) {\n\tP b = C-A, c = B-A;\n\t\
-    return A + (b*c.dist2()-c*b.dist2()).perp()/b.cross(c)/2;\n}\n"
+    \n\ntypedef Point<double> P;\ndouble ccRadius(const P& A,const P& B,const P& C){\n\
+    \treturn (B-A).dist()*(C-B).dist()*(A-C).dist()/\n\t\tabs((B-A).cross(C-A))/2;\n\
+    }\nP ccCenter(const P& A,const P& B,const P& C){\n\tP b=C-A,c=B-A;\n\treturn A+(b*c.dist2()-c*b.dist2()).perp()/b.cross(c)/2;\n\
+    }\n"
   dependsOn:
   - src/geometry/Point.h
   isVerificationFile: false
   path: src/geometry/circumcircle.h
   requiredBy:
   - src/geometry/MinimumEnclosingCircle.h
-  timestamp: '2025-07-19 20:33:24+09:00'
+  timestamp: '2026-10-03 23:15:31+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/circumcircle.h

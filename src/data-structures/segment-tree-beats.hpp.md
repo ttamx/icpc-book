@@ -58,7 +58,7 @@ data:
     \        range_chmax(m+1,r,i*2+1,x,y,v);\n        pull(i);\n    }\n    ll query(int\
     \ l,int r,int i,int x,int y){\n        if(y<l||r<x)return 0;\n        if(x<=l&&r<=y)return\
     \ t[i].sum;\n        int m=(l+r)/2;\n        push(l,r,i);\n        return query(l,m,i*2,x,y)+query(m+1,r,i*2+1,x,y);\n\
-    \    }\n    template<class F>\n    void build(const F &f){build(0,n-1,1,f);}\n\
+    \    }\n    template<class F>\n    void build(const F &f){if(n)build(0,n-1,1,f);}\n\
     \    void range_add(int x,int y,ll v){range_add(0,n-1,1,x,y,v);}\n    void range_chmin(int\
     \ x,int y,ll v){range_chmin(0,n-1,1,x,y,v);}\n    void range_chmax(int x,int y,ll\
     \ v){range_chmax(0,n-1,1,x,y,v);}\n    ll query(int x,int y){return query(0,n-1,1,x,y);}\n\
@@ -109,7 +109,7 @@ data:
     \        range_chmax(m+1,r,i*2+1,x,y,v);\n        pull(i);\n    }\n    ll query(int\
     \ l,int r,int i,int x,int y){\n        if(y<l||r<x)return 0;\n        if(x<=l&&r<=y)return\
     \ t[i].sum;\n        int m=(l+r)/2;\n        push(l,r,i);\n        return query(l,m,i*2,x,y)+query(m+1,r,i*2+1,x,y);\n\
-    \    }\n    template<class F>\n    void build(const F &f){build(0,n-1,1,f);}\n\
+    \    }\n    template<class F>\n    void build(const F &f){if(n)build(0,n-1,1,f);}\n\
     \    void range_add(int x,int y,ll v){range_add(0,n-1,1,x,y,v);}\n    void range_chmin(int\
     \ x,int y,ll v){range_chmin(0,n-1,1,x,y,v);}\n    void range_chmax(int x,int y,ll\
     \ v){range_chmax(0,n-1,1,x,y,v);}\n    ll query(int x,int y){return query(0,n-1,1,x,y);}\n\
@@ -118,7 +118,7 @@ data:
   isVerificationFile: false
   path: src/data-structures/segment-tree-beats.hpp
   requiredBy: []
-  timestamp: '2025-07-19 14:29:34+09:00'
+  timestamp: '2026-10-03 23:15:31+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/data-structures/segment-tree-beats/range_chmin_chmax_add_range_sum.test.cpp

@@ -29,15 +29,14 @@ data:
     \ two last rows. dx*radius is then the difference\n * between the two points in\
     \ the x direction and d*radius is the total distance between the points.\n * Status:\
     \ tested on kattis:airlinehub\n */\n#pragma once\n\ndouble sphericalDistance(double\
-    \ f1, double t1,\n\t\tdouble f2, double t2, double radius) {\n\tdouble dx = sin(t2)*cos(f2)\
-    \ - sin(t1)*cos(f1);\n\tdouble dy = sin(t2)*sin(f2) - sin(t1)*sin(f1);\n\tdouble\
-    \ dz = cos(t2) - cos(t1);\n\tdouble d = sqrt(dx*dx + dy*dy + dz*dz);\n\treturn\
-    \ radius*2*asin(d/2);\n}\n"
+    \ f1,double t1,\n\t\tdouble f2,double t2,double radius){\n\tdouble dx=sin(t2)*cos(f2)-sin(t1)*cos(f1);\n\
+    \tdouble dy=sin(t2)*sin(f2)-sin(t1)*sin(f1);\n\tdouble dz=cos(t2)-cos(t1);\n\t\
+    double d=sqrt(dx*dx+dy*dy+dz*dz);\n\treturn radius*2*asin(d/2);\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: src/geometry/sphericalDistance.h
   requiredBy: []
-  timestamp: '2025-07-19 20:25:13+09:00'
+  timestamp: '2026-10-03 23:15:31+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/sphericalDistance.h

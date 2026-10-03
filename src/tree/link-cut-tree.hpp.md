@@ -32,10 +32,10 @@ data:
     \   }\n        splay(v);\n    }\n    void evert(int v){\n        access(v),toggle(v);\n\
     \    }\n    void link(int u,int v){\n        evert(u);\n        access(v);\n \
     \       par[u]=v;\n    }\n    void cut(int u,int v){\n        evert(u);\n    \
-    \    access(v);\n        assert(par[u]==v);\n        ch[v][0]=par[u]=0;\n    \
-    \    pull(v);\n    }\n    T aggregate(int u,int v){\n        evert(u);\n     \
-    \   access(v);\n        return sum[v];\n    }\n    void set(int u,T v){\n    \
-    \    evert(u);\n        val[u]=v;\n        pull(u);\n    }\n};\n"
+    \    access(v);\n        assert(ch[v][0]==u&&!ch[u][0]&&!ch[u][1]);\n        ch[v][0]=par[u]=0;\n\
+    \        pull(v);\n    }\n    T aggregate(int u,int v){\n        evert(u);\n \
+    \       access(v);\n        return sum[v];\n    }\n    void set(int u,T v){\n\
+    \        evert(u);\n        val[u]=v;\n        pull(u);\n    }\n};\n"
   code: "#pragma once\n\n/**\n * Author: Teetat T.\n * Description: Link Cut Tree\
     \ (1-indexed)\n */\n\ntemplate<int N,class T>\nstruct LinkCutTree{\n    int ch[N][2],par[N],lz[N],rev[N];\n\
     \    T val[N],sum[N],rsum[N];\n    void toggle(int v){\n        if(!v)return;\n\
@@ -56,15 +56,15 @@ data:
     \    }\n        splay(v);\n    }\n    void evert(int v){\n        access(v),toggle(v);\n\
     \    }\n    void link(int u,int v){\n        evert(u);\n        access(v);\n \
     \       par[u]=v;\n    }\n    void cut(int u,int v){\n        evert(u);\n    \
-    \    access(v);\n        assert(par[u]==v);\n        ch[v][0]=par[u]=0;\n    \
-    \    pull(v);\n    }\n    T aggregate(int u,int v){\n        evert(u);\n     \
-    \   access(v);\n        return sum[v];\n    }\n    void set(int u,T v){\n    \
-    \    evert(u);\n        val[u]=v;\n        pull(u);\n    }\n};"
+    \    access(v);\n        assert(ch[v][0]==u&&!ch[u][0]&&!ch[u][1]);\n        ch[v][0]=par[u]=0;\n\
+    \        pull(v);\n    }\n    T aggregate(int u,int v){\n        evert(u);\n \
+    \       access(v);\n        return sum[v];\n    }\n    void set(int u,T v){\n\
+    \        evert(u);\n        val[u]=v;\n        pull(u);\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: src/tree/link-cut-tree.hpp
   requiredBy: []
-  timestamp: '2025-07-19 14:29:34+09:00'
+  timestamp: '2026-10-03 23:15:31+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp

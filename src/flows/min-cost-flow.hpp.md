@@ -35,12 +35,12 @@ data:
     \ t=0;t<n;t++)for(int i=0;i<e.size();i++)if(e[i].getcap()>0){\n            int\
     \ u=e[i^1].to,v=e[i].to;\n            pot[v]=min(pot[v],pot[u]+e[i].cost);\n \
     \       } // Bellman-Ford\n        while(dijkstra(s,t)){\n            for(int\
-    \ i=0;i<n;i++)pot[i]+=dist[i];\n            F aug=FINF;\n            for(int u=t;u!=s;u=e[pre[u]^1].to){\n\
-    \                aug=min(aug,e[pre[u]].getcap());\n            } // find bottleneck\n\
-    \            for(int u=t;u!=s;u=e[pre[u]^1].to){\n                e[pre[u]].flow+=aug;\n\
-    \                e[pre[u]^1].flow-=aug;\n            } // push flow\n        \
-    \    flow+=aug;\n            cost+=aug*pot[t];\n        }\n        return {flow,cost};\n\
-    \    }\n};\n"
+    \ i=0;i<n;i++)if(dist[i]<CINF)pot[i]+=dist[i];\n            F aug=FINF;\n    \
+    \        for(int u=t;u!=s;u=e[pre[u]^1].to){\n                aug=min(aug,e[pre[u]].getcap());\n\
+    \            } // find bottleneck\n            for(int u=t;u!=s;u=e[pre[u]^1].to){\n\
+    \                e[pre[u]].flow+=aug;\n                e[pre[u]^1].flow-=aug;\n\
+    \            } // push flow\n            flow+=aug;\n            cost+=aug*(pot[t]-pot[s]);\n\
+    \        }\n        return {flow,cost};\n    }\n};\n"
   code: "#pragma once\n\n/**\n * Author: Teetat T.\n * Date: 2024-03-31\n * Description:\
     \ minimum-cost flow algorithm.\n * Time: $O(FE\\log{V})$ where $F$ is max flow.\n\
     \ */\n\ntemplate<class F,class C>\nstruct MinCostFlow{\n    struct Edge{\n   \
@@ -67,17 +67,17 @@ data:
     \        pot.assign(n,0);\n        if(neg)for(int t=0;t<n;t++)for(int i=0;i<e.size();i++)if(e[i].getcap()>0){\n\
     \            int u=e[i^1].to,v=e[i].to;\n            pot[v]=min(pot[v],pot[u]+e[i].cost);\n\
     \        } // Bellman-Ford\n        while(dijkstra(s,t)){\n            for(int\
-    \ i=0;i<n;i++)pot[i]+=dist[i];\n            F aug=FINF;\n            for(int u=t;u!=s;u=e[pre[u]^1].to){\n\
-    \                aug=min(aug,e[pre[u]].getcap());\n            } // find bottleneck\n\
-    \            for(int u=t;u!=s;u=e[pre[u]^1].to){\n                e[pre[u]].flow+=aug;\n\
-    \                e[pre[u]^1].flow-=aug;\n            } // push flow\n        \
-    \    flow+=aug;\n            cost+=aug*pot[t];\n        }\n        return {flow,cost};\n\
-    \    }\n};\n"
+    \ i=0;i<n;i++)if(dist[i]<CINF)pot[i]+=dist[i];\n            F aug=FINF;\n    \
+    \        for(int u=t;u!=s;u=e[pre[u]^1].to){\n                aug=min(aug,e[pre[u]].getcap());\n\
+    \            } // find bottleneck\n            for(int u=t;u!=s;u=e[pre[u]^1].to){\n\
+    \                e[pre[u]].flow+=aug;\n                e[pre[u]^1].flow-=aug;\n\
+    \            } // push flow\n            flow+=aug;\n            cost+=aug*(pot[t]-pot[s]);\n\
+    \        }\n        return {flow,cost};\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: src/flows/min-cost-flow.hpp
   requiredBy: []
-  timestamp: '2025-07-19 14:35:24+09:00'
+  timestamp: '2026-10-03 23:15:31+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/flows/min-cost-flow.hpp

@@ -1,23 +1,35 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/modular-arithmetic/binpow.hpp
     title: src/modular-arithmetic/binpow.hpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/modular-arithmetic/montgomery-modint.hpp
     title: src/modular-arithmetic/montgomery-modint.hpp
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/polynomials/formal-power-series.hpp
     title: src/polynomials/formal-power-series.hpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/polynomials/multipoint-evaluation.hpp
-    title: Multipoint Evaluation
-  _extendedVerifiedWith: []
+    title: src/polynomials/multipoint-evaluation.hpp
+  - icon: ':heavy_check_mark:'
+    path: src/polynomials/polynomial-interpolation.hpp
+    title: src/polynomials/polynomial-interpolation.hpp
+  - icon: ':heavy_check_mark:'
+    path: src/polynomials/subproduct-tree.hpp
+    title: src/polynomials/subproduct-tree.hpp
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
+    title: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
+    title: verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/modular-arithmetic/binpow.hpp\"\n\n/**\n * Author: Teetat\
@@ -73,13 +85,13 @@ data:
     \ = 62). The last two are > 10^9.\n\ntemplate<class mint>\nstruct NTT{\n\tusing\
     \ vm = vector<mint>;\n\t\n\tstatic constexpr mint root=mint::get_root();\n   \
     \ static_assert(root!=0);\n\n\tstatic void ntt(vm &a){\n\t\tint n=a.size(),L=31-__builtin_clz(n);\n\
-    \t\tvm rt(n);\n\t\trt[1]=1;\n\t\tfor(int k=2,s=2;k<n;k*=2,s++){\n\t\t\tmint z[]={1,binpow(root,MOD>>s)};\n\
+    \t\tvm rt(n);\n\t\trt[1]=1;\n\t\tfor(int k=2,s=2;k<n;k*=2,s++){\n\t\t\tmint z[]={1,binpow(root,mint::get_mod()>>s)};\n\
     \t\t\tfor(int i=k;i<2*k;i++)rt[i]=rt[i/2]*z[i&1];\n\t\t}\n\t\tvector<int> rev(n);\n\
     \t\tfor(int i=1;i<n;i++)rev[i]=(rev[i/2]|(i&1)<<L)/2;\n\t\tfor(int i=1;i<n;i++)if(i<rev[i])swap(a[i],a[rev[i]]);\n\
     \t\tfor(int k=1;k<n;k*=2)for(int i=0;i<n;i+=2*k)for(int j=0;j<k;j++){\n\t\t\t\
     mint z=rt[j+k]*a[i+j+k];\n\t\t\ta[i+j+k]=a[i+j]-z;\n\t\t\ta[i+j]+=z;\n\t\t}\n\t\
     }\n\tstatic vm conv(const vm &a,const vm &b){\n\t\tif(a.empty()||b.empty())return\
-    \ {};\n\t\tint s=a.size()+b.size()-1,n=1<<(32-__builtin_clz(s));\n\t\tmint inv=mint(n).inv();\n\
+    \ {};\n\t\tint s=a.size()+b.size()-1,n=2;\n\t\twhile(n<s)n<<=1;\n\t\tmint inv=mint(n).inv();\n\
     \t\tvm in1(a),in2(b),out(n);\n\t\tin1.resize(n),in2.resize(n);\n\t\tntt(in1),ntt(in2);\n\
     \t\tfor(int i=0;i<n;i++)out[-i&(n-1)]=in1[i]*in2[i]*inv;\n\t\tntt(out);\n\t\t\
     return vm(out.begin(),out.begin()+s);\n\t}\n\tvm operator()(const vm &a,const\
@@ -91,13 +103,13 @@ data:
     \ 21 (same root = 62). The last two are > 10^9.\n\ntemplate<class mint>\nstruct\
     \ NTT{\n\tusing vm = vector<mint>;\n\t\n\tstatic constexpr mint root=mint::get_root();\n\
     \    static_assert(root!=0);\n\n\tstatic void ntt(vm &a){\n\t\tint n=a.size(),L=31-__builtin_clz(n);\n\
-    \t\tvm rt(n);\n\t\trt[1]=1;\n\t\tfor(int k=2,s=2;k<n;k*=2,s++){\n\t\t\tmint z[]={1,binpow(root,MOD>>s)};\n\
+    \t\tvm rt(n);\n\t\trt[1]=1;\n\t\tfor(int k=2,s=2;k<n;k*=2,s++){\n\t\t\tmint z[]={1,binpow(root,mint::get_mod()>>s)};\n\
     \t\t\tfor(int i=k;i<2*k;i++)rt[i]=rt[i/2]*z[i&1];\n\t\t}\n\t\tvector<int> rev(n);\n\
     \t\tfor(int i=1;i<n;i++)rev[i]=(rev[i/2]|(i&1)<<L)/2;\n\t\tfor(int i=1;i<n;i++)if(i<rev[i])swap(a[i],a[rev[i]]);\n\
     \t\tfor(int k=1;k<n;k*=2)for(int i=0;i<n;i+=2*k)for(int j=0;j<k;j++){\n\t\t\t\
     mint z=rt[j+k]*a[i+j+k];\n\t\t\ta[i+j+k]=a[i+j]-z;\n\t\t\ta[i+j]+=z;\n\t\t}\n\t\
     }\n\tstatic vm conv(const vm &a,const vm &b){\n\t\tif(a.empty()||b.empty())return\
-    \ {};\n\t\tint s=a.size()+b.size()-1,n=1<<(32-__builtin_clz(s));\n\t\tmint inv=mint(n).inv();\n\
+    \ {};\n\t\tint s=a.size()+b.size()-1,n=2;\n\t\twhile(n<s)n<<=1;\n\t\tmint inv=mint(n).inv();\n\
     \t\tvm in1(a),in2(b),out(n);\n\t\tin1.resize(n),in2.resize(n);\n\t\tntt(in1),ntt(in2);\n\
     \t\tfor(int i=0;i<n;i++)out[-i&(n-1)]=in1[i]*in2[i]*inv;\n\t\tntt(out);\n\t\t\
     return vm(out.begin(),out.begin()+s);\n\t}\n\tvm operator()(const vm &a,const\
@@ -108,11 +120,15 @@ data:
   isVerificationFile: false
   path: src/polynomials/ntt.hpp
   requiredBy:
+  - src/polynomials/polynomial-interpolation.hpp
+  - src/polynomials/subproduct-tree.hpp
   - src/polynomials/formal-power-series.hpp
   - src/polynomials/multipoint-evaluation.hpp
-  timestamp: '2026-10-03 20:48:26+07:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2026-10-03 23:15:31+07:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
+  - verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
 documentation_of: src/polynomials/ntt.hpp
 layout: document
 redirect_from:

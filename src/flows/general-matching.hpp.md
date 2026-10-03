@@ -39,7 +39,8 @@ data:
     \      break;\n        }\n    }\n    for(int u=1;u<=n;u++)if(!match[u])ans+=augment(u);\n\
     \    return ans;\n}\nvoid init(int _n){\n    n=_n;\n    for(int i=1;i<=n;i++)match[i]=0;\n\
     \    for(int i=1;i<=n;i++)adj[i].clear();\n}\nvoid add_edge(int u,int v){\n  \
-    \  adj[u].emplace_back(v);\n    adj[v].emplace_back(u);\n}\n\n};\n"
+    \  if(u==v)return;\n    adj[u].emplace_back(v);\n    adj[v].emplace_back(u);\n\
+    }\n\n};\n"
   code: "#pragma once\n\n/**\n * Author: Teetat T.\n * Date: 2025-09-03\n * Description:\
     \ General matching using blossom algorithm (1-indexed).\n * Time: O(EV \\alpha(V)).\n\
     \ */\n\ntemplate<int N>\nstruct GeneralMatching{\n\nint n,m;\nvector<int> adj[N+1];\n\
@@ -67,13 +68,13 @@ data:
     \   match[v]=u;\n            ans++;\n            break;\n        }\n    }\n  \
     \  for(int u=1;u<=n;u++)if(!match[u])ans+=augment(u);\n    return ans;\n}\nvoid\
     \ init(int _n){\n    n=_n;\n    for(int i=1;i<=n;i++)match[i]=0;\n    for(int\
-    \ i=1;i<=n;i++)adj[i].clear();\n}\nvoid add_edge(int u,int v){\n    adj[u].emplace_back(v);\n\
-    \    adj[v].emplace_back(u);\n}\n\n};"
+    \ i=1;i<=n;i++)adj[i].clear();\n}\nvoid add_edge(int u,int v){\n    if(u==v)return;\n\
+    \    adj[u].emplace_back(v);\n    adj[v].emplace_back(u);\n}\n\n};"
   dependsOn: []
   isVerificationFile: false
   path: src/flows/general-matching.hpp
   requiredBy: []
-  timestamp: '2026-07-18 18:19:44+07:00'
+  timestamp: '2026-10-03 23:15:31+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/flows/general-matching/general_matching.test.cpp

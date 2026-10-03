@@ -30,16 +30,16 @@ data:
     \\vspace{-10mm}\n\\includegraphics[width=\\textwidth]{src/geometry/SegmentDistance}\n\
     \\end{minipage}\n * Usage: \n * \tPoint<double> a, b(2,2), p(1,1);\n * \tbool\
     \ onSegment = segDist(a,b,p) < 1e-10;\n * Status: tested\n */\n#pragma once\n\n\
-    #include \"src/geometry/Point.h\"\n\ntypedef Point<double> P;\ndouble segDist(P&\
-    \ s, P& e, P& p) {\n\tif (s==e) return (p-s).dist();\n\tauto d = (e-s).dist2(),\
-    \ t = min(d,max(.0,(p-s).dot(e-s)));\n\treturn ((p-s)*d-(e-s)*t).dist()/d;\n}\n"
+    #include \"src/geometry/Point.h\"\n\ntypedef Point<double> P;\ndouble segDist(P\
+    \ s,P e,P p){\n\tif(s==e)return (p-s).dist();\n\tauto d=(e-s).dist2(),t=min(d,max(.0,(p-s).dot(e-s)));\n\
+    \treturn ((p-s)*d-(e-s)*t).dist()/d;\n}\n"
   dependsOn:
   - src/geometry/Point.h
   isVerificationFile: false
   path: src/geometry/SegmentDistance.h
   requiredBy:
   - src/geometry/InsidePolygon.h
-  timestamp: '2025-07-19 20:33:24+09:00'
+  timestamp: '2026-10-03 23:15:31+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/SegmentDistance.h

@@ -8,6 +8,9 @@ data:
     path: src/modular-arithmetic/montgomery-modint.hpp
     title: src/modular-arithmetic/montgomery-modint.hpp
   - icon: ':heavy_check_mark:'
+    path: src/polynomials/formal-power-series.hpp
+    title: src/polynomials/formal-power-series.hpp
+  - icon: ':heavy_check_mark:'
     path: src/polynomials/ntt.hpp
     title: src/polynomials/ntt.hpp
   _extendedRequiredBy:
@@ -17,9 +20,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/polynomials/polynomial-interpolation.hpp
     title: src/polynomials/polynomial-interpolation.hpp
-  - icon: ':heavy_check_mark:'
-    path: src/polynomials/subproduct-tree.hpp
-    title: src/polynomials/subproduct-tree.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
@@ -154,86 +154,43 @@ data:
     \ FPS(deg,mint(0));\n            if((*this)[i]==mint(0))continue;\n          \
     \  mint rev=mint(1)/(*this)[i];\n            FPS res=(((*this*rev)>>i).log(deg)*k).exp(deg);\n\
     \            res=((res*binpow((*this)[i],k))<<(i*k)).pre(deg);\n            return\
-    \ res;\n        }\n        return FPS(deg,mint(0));\n    }\n};\n"
-  code: "#pragma once\n#include \"src/polynomials/ntt.hpp\"\n\n/**\n * Author: Teetat\
-    \ T.\n * Date: 2024-03-17\n * Description: basic operations of formal power series\n\
-    \ */\n\ntemplate<class mint>\nstruct FormalPowerSeries:vector<mint>{\n    using\
-    \ vector<mint>::vector;\n    using FPS = FormalPowerSeries;\n\n    FPS &operator+=(const\
-    \ FPS &rhs){\n        if(rhs.size()>this->size())this->resize(rhs.size());\n \
-    \       for(int i=0;i<rhs.size();i++)(*this)[i]+=rhs[i];\n        return *this;\n\
-    \    }\n    FPS &operator+=(const mint &rhs){\n        if(this->empty())this->resize(1);\n\
-    \        (*this)[0]+=rhs;\n        return *this;\n    }\n    FPS &operator-=(const\
-    \ FPS &rhs){\n        if(rhs.size()>this->size())this->resize(rhs.size());\n \
-    \       for(int i=0;i<rhs.size();i++)(*this)[i]-=rhs[i];\n        return *this;\n\
-    \    }\n    FPS &operator-=(const mint &rhs){\n        if(this->empty())this->resize(1);\n\
-    \        (*this)[0]-=rhs;\n        return *this;\n    }\n    FPS &operator*=(const\
-    \ FPS &rhs){\n        auto res=NTT<mint>()(*this,rhs);\n        return *this=FPS(res.begin(),res.end());\n\
-    \    }\n    FPS &operator*=(const mint &rhs){\n        for(auto &a:*this)a*=rhs;\n\
-    \        return *this;\n    }\n    FPS &operator/=(const FPS &rhs){ // rhs.back()!=0\n\
-    \        if(this->size()<rhs.size())return *this=FPS();\n        int n=this->size()-rhs.size()+1;\n\
-    \        return *this=(rev().pre(n)*rhs.rev().inv(n)).pre(n).rev();\n    }\n \
-    \   FPS &operator%=(const FPS &rhs){\n        *this-=*this/rhs*rhs;\n        return\
-    \ *this=pre(rhs.size()-1).shrink();\n    }\n\n    friend FPS operator+(FPS lhs,const\
-    \ FPS &rhs){return lhs+=rhs;}\n    friend FPS operator+(FPS lhs,const mint &rhs){return\
-    \ lhs+=rhs;}\n    friend FPS operator+(const mint &lhs,FPS rhs){return rhs+=lhs;}\n\
-    \    friend FPS operator-(FPS lhs,const FPS &rhs){return lhs-=rhs;}\n    friend\
-    \ FPS operator-(FPS lhs,const mint &rhs){return lhs-=rhs;}\n    friend FPS operator-(const\
-    \ mint &lhs,FPS rhs){return -(rhs-lhs);}\n    friend FPS operator*(FPS lhs,const\
-    \ FPS &rhs){return lhs*=rhs;}\n    friend FPS operator*(FPS lhs,const mint &rhs){return\
-    \ lhs*=rhs;}\n    friend FPS operator*(const mint &lhs,FPS rhs){return rhs*=lhs;}\n\
-    \    friend FPS operator/(FPS lhs,const FPS &rhs){return lhs/=rhs;}\n    friend\
-    \ FPS operator%(FPS lhs,const FPS &rhs){return lhs%=rhs;}\n\n    FPS operator-()const{return\
-    \ (*this)*-1;}\n\n    FPS rev()const{\n        FPS res(*this);\n        reverse(res.begin(),res.end());\n\
-    \        return res;\n    }\n    FPS pre(int sz)const{\n        FPS res(this->begin(),this->begin()+min((int)this->size(),sz));\n\
-    \        if(res.size()<sz)res.resize(sz);\n        return res;\n    }\n    FPS\
-    \ shrink()const{\n        FPS res(*this);\n        while(!res.empty()&&res.back()==mint{})res.pop_back();\n\
-    \        return res;\n    }\n    FPS operator>>(int sz)const{\n        if(this->size()<=sz)return\
-    \ {};\n        FPS res(*this);\n        res.erase(res.begin(),res.begin()+sz);\n\
-    \        return res;\n    }\n    FPS operator<<(int sz)const{\n        FPS res(*this);\n\
-    \        res.insert(res.begin(),sz,mint{});\n        return res;\n    }\n    FPS\
-    \ diff()const{\n        const int n=this->size();\n        FPS res(max(0,n-1));\n\
-    \        for(int i=1;i<n;i++)res[i-1]=(*this)[i]*mint(i);\n        return res;\n\
-    \    }\n    FPS integral()const{\n        const int n=this->size();\n        FPS\
-    \ res(n+1);\n        res[0]=0;\n        if(n>0)res[1]=1;\n        ll mod=mint::get_mod();\n\
-    \        for(int i=2;i<=n;i++)res[i]=(-res[mod%i])*(mod/i);\n        for(int i=0;i<n;i++)res[i+1]*=(*this)[i];\n\
-    \        return res;\n    }\n    mint eval(const mint &x)const{\n        mint\
-    \ res=0,w=1;\n        for(auto &a:*this)res+=a*w,w*=x;\n        return res;\n\
-    \    }\n\n    FPS inv(int deg=-1)const{\n        assert(!this->empty()&&(*this)[0]!=mint(0));\n\
-    \        if(deg==-1)deg=this->size();\n        FPS res{mint(1)/(*this)[0]};\n\
-    \        for(int i=2;i>>1<deg;i<<=1){\n            res=(res*(mint(2)-res*pre(i))).pre(i);\n\
-    \        }\n        return res.pre(deg);\n    }\n    FPS log(int deg=-1)const{\n\
-    \        assert(!this->empty()&&(*this)[0]==mint(1));\n        if(deg==-1)deg=this->size();\n\
-    \        return (pre(deg).diff()*inv(deg)).pre(deg-1).integral();\n    }\n   \
-    \ FPS exp(int deg=-1)const{\n        assert(this->empty()||(*this)[0]==mint(0));\n\
-    \        if(deg==-1)deg=this->size();\n        FPS res{mint(1)};\n        for(int\
-    \ i=2;i>>1<deg;i<<=1){\n            res=(res*(pre(i)-res.log(i)+mint(1))).pre(i);\n\
-    \        }\n        return res.pre(deg);\n    }\n    FPS pow(ll k,int deg=-1)const{\n\
-    \        const int n=this->size();\n        if(deg==-1)deg=n;\n        if(k==0){\n\
-    \            FPS res(deg);\n            if(deg)res[0]=mint(1);\n            return\
-    \ res;\n        }\n        for(int i=0;i<n;i++){\n            if(__int128_t(i)*k>=deg)return\
-    \ FPS(deg,mint(0));\n            if((*this)[i]==mint(0))continue;\n          \
-    \  mint rev=mint(1)/(*this)[i];\n            FPS res=(((*this*rev)>>i).log(deg)*k).exp(deg);\n\
-    \            res=((res*binpow((*this)[i],k))<<(i*k)).pre(deg);\n            return\
-    \ res;\n        }\n        return FPS(deg,mint(0));\n    }\n};"
+    \ res;\n        }\n        return FPS(deg,mint(0));\n    }\n};\n#line 3 \"src/polynomials/subproduct-tree.hpp\"\
+    \n\n/**\n * Author: Teetat T.\n * Description: Subproduct tree of points $x_0,\
+    \ \\dots, x_{m-1}$.\n * Node $i$ covers $[l, r)$ and stores $\\prod_{l \\le j\
+    \ < r} (x - x_j)$, root is node $1$.\n * Time: $O(M \\log^2 M)$\n */\n\ntemplate<class\
+    \ mint>\nstruct SubproductTree{\n    int m;\n    vector<mint> xs;\n    vector<FormalPowerSeries<mint>>\
+    \ t;\n    SubproductTree(const vector<mint> &xs)\n        :m(xs.size()),xs(xs),t(4*m){if(m)build(1,0,m);}\n\
+    \    void build(int i,int l,int r){\n        if(r-l==1)return void(t[i]={-xs[l],1});\n\
+    \        int mid=(l+r)/2;\n        build(2*i,l,mid),build(2*i+1,mid,r);\n    \
+    \    t[i]=t[2*i]*t[2*i+1];\n    }\n};\n"
+  code: "#pragma once\n#include \"src/polynomials/formal-power-series.hpp\"\n\n/**\n\
+    \ * Author: Teetat T.\n * Description: Subproduct tree of points $x_0, \\dots,\
+    \ x_{m-1}$.\n * Node $i$ covers $[l, r)$ and stores $\\prod_{l \\le j < r} (x\
+    \ - x_j)$, root is node $1$.\n * Time: $O(M \\log^2 M)$\n */\n\ntemplate<class\
+    \ mint>\nstruct SubproductTree{\n    int m;\n    vector<mint> xs;\n    vector<FormalPowerSeries<mint>>\
+    \ t;\n    SubproductTree(const vector<mint> &xs)\n        :m(xs.size()),xs(xs),t(4*m){if(m)build(1,0,m);}\n\
+    \    void build(int i,int l,int r){\n        if(r-l==1)return void(t[i]={-xs[l],1});\n\
+    \        int mid=(l+r)/2;\n        build(2*i,l,mid),build(2*i+1,mid,r);\n    \
+    \    t[i]=t[2*i]*t[2*i+1];\n    }\n};\n"
   dependsOn:
+  - src/polynomials/formal-power-series.hpp
   - src/polynomials/ntt.hpp
   - src/modular-arithmetic/binpow.hpp
   - src/modular-arithmetic/montgomery-modint.hpp
   isVerificationFile: false
-  path: src/polynomials/formal-power-series.hpp
+  path: src/polynomials/subproduct-tree.hpp
   requiredBy:
   - src/polynomials/polynomial-interpolation.hpp
-  - src/polynomials/subproduct-tree.hpp
   - src/polynomials/multipoint-evaluation.hpp
   timestamp: '2026-10-03 23:15:31+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
   - verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
-documentation_of: src/polynomials/formal-power-series.hpp
+documentation_of: src/polynomials/subproduct-tree.hpp
 layout: document
 redirect_from:
-- /library/src/polynomials/formal-power-series.hpp
-- /library/src/polynomials/formal-power-series.hpp.html
-title: src/polynomials/formal-power-series.hpp
+- /library/src/polynomials/subproduct-tree.hpp
+- /library/src/polynomials/subproduct-tree.hpp.html
+title: src/polynomials/subproduct-tree.hpp
 ---

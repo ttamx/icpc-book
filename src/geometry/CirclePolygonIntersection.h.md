@@ -28,20 +28,19 @@ data:
     \ * Description: Returns the area of the intersection of a circle with a\n * ccw\
     \ polygon.\n * Time: O(n)\n * Status: Tested on GNYR 2019 Gerrymandering, stress-tested\n\
     \ */\n#pragma once\n\n#include \"src/geometry/Point.h\"\n\ntypedef Point<double>\
-    \ P;\n#define arg(p, q) atan2(p.cross(q), p.dot(q))\ndouble circlePoly(P c, double\
-    \ r, vector<P> ps) {\n\tauto tri = [&](P p, P q) {\n\t\tauto r2 = r * r / 2;\n\
-    \t\tP d = q - p;\n\t\tauto a = d.dot(p)/d.dist2(), b = (p.dist2()-r*r)/d.dist2();\n\
-    \t\tauto det = a * a - b;\n\t\tif (det <= 0) return arg(p, q) * r2;\n\t\tauto\
-    \ s = max(0., -a-sqrt(det)), t = min(1., -a+sqrt(det));\n\t\tif (t < 0 || 1 <=\
-    \ s) return arg(p, q) * r2;\n\t\tP u = p + d * s, v = q + d * (t-1);\n\t\treturn\
-    \ arg(p,u) * r2 + u.cross(v)/2 + arg(v,q) * r2;\n\t};\n\tauto sum = 0.0;\n\trep(i,0,sz(ps))\n\
-    \t\tsum += tri(ps[i] - c, ps[(i + 1) % sz(ps)] - c);\n\treturn sum;\n}\n"
+    \ P;\n#define ARG(p,q) atan2(p.cross(q),p.dot(q))\ndouble circlePoly(P c,double\
+    \ r,vector<P> ps){\n\tauto tri=[&](P p,P q){\n\t\tauto r2=r*r/2;P d=q-p;\n\t\t\
+    auto a=d.dot(p)/d.dist2(),b=(p.dist2()-r*r)/d.dist2();\n\t\tauto det=a*a-b;\n\t\
+    \tif(det<=0)return ARG(p,q)*r2;\n\t\tauto s=max(0.,-a-sqrt(det)),t=min(1.,-a+sqrt(det));\n\
+    \t\tif(t<0||1<=s)return ARG(p,q)*r2;\n\t\tP u=p+d*s,v=q+d*(t-1);\n\t\treturn ARG(p,u)*r2+u.cross(v)/2+ARG(v,q)*r2;\n\
+    \t};\n\tauto sum=0.0;\n\tfor(int i=0;i<SZ(ps);i++)\n\t\tsum+=tri(ps[i]-c,ps[(i+1)%SZ(ps)]-c);\n\
+    \treturn sum;\n}\n"
   dependsOn:
   - src/geometry/Point.h
   isVerificationFile: false
   path: src/geometry/CirclePolygonIntersection.h
   requiredBy: []
-  timestamp: '2025-07-19 20:33:24+09:00'
+  timestamp: '2026-10-03 23:15:31+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/CirclePolygonIntersection.h

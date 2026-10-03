@@ -30,18 +30,16 @@ data:
     \\begin{minipage}{15mm}\n\\vspace{-6mm}\n\\includegraphics[width=\\textwidth]{src/geometry/ConvexHull}\n\
     \\vspace{-6mm}\n\\end{minipage}\n * Time: O(n \\log n)\n * Status: stress-tested,\
     \ tested with kattis:convexhull\n*/\n#pragma once\n\n#include \"src/geometry/Point.h\"\
-    \n\ntypedef Point<ll> P;\nvector<P> convexHull(vector<P> pts) {\n\tif (sz(pts)\
-    \ <= 1) return pts;\n\tsort(all(pts));\n\tvector<P> h(sz(pts)+1);\n\tint s = 0,\
-    \ t = 0;\n\tfor (int it = 2; it--; s = --t, reverse(all(pts)))\n\t\tfor (P p :\
-    \ pts) {\n\t\t\twhile (t >= s + 2 && h[t-2].cross(h[t-1], p) <= 0) t--;\n\t\t\t\
-    h[t++] = p;\n\t\t}\n\treturn {h.begin(), h.begin() + t - (t == 2 && h[0] == h[1])};\n\
-    }\n"
+    \n\ntypedef Point<ll> P;\nvector<P> convexHull(vector<P> pts){\n\tif(SZ(pts)<=1)return\
+    \ pts;\n\tsort(ALL(pts));\n\tvector<P> h(SZ(pts)+1);int s=0,t=0;\n\tfor(int it=2;it--;s=--t,reverse(ALL(pts)))\n\
+    \t\tfor(P p:pts){\n\t\t\twhile(t>=s+2&&h[t-2].cross(h[t-1],p)<=0)t--;\n\t\t\t\
+    h[t++]=p;\n\t\t}\n\treturn {h.begin(),h.begin()+t-(t==2&&h[0]==h[1])};\n}\n"
   dependsOn:
   - src/geometry/Point.h
   isVerificationFile: false
   path: src/geometry/ConvexHull.h
   requiredBy: []
-  timestamp: '2025-07-19 20:33:24+09:00'
+  timestamp: '2026-10-03 23:15:31+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/ConvexHull.h

@@ -20,14 +20,14 @@ data:
     \ src/geometry/PolyhedronVolume.h: line 7: #pragma once found in a non-first line\n"
   code: "/**\n * Author: Mattias de Zalenski\n * Date: 2002-11-04\n * Description:\
     \ Magic formula for the volume of a polyhedron. Faces should point outwards.\n\
-    \ * Status: tested\n */\n#pragma once\n\ntemplate<class V, class L>\ndouble signedPolyVolume(const\
-    \ V& p, const L& trilist) {\n\tdouble v = 0;\n\tfor (auto i : trilist) v += p[i.a].cross(p[i.b]).dot(p[i.c]);\n\
-    \treturn v / 6;\n}\n"
+    \ * Status: tested\n */\n#pragma once\n\ntemplate<class V,class L>\ndouble signedPolyVolume(const\
+    \ V& p,const L& trilist){\n\tdouble v=0;\n\tfor(auto i:trilist)v+=p[i.a].cross(p[i.b]).dot(p[i.c]);\n\
+    \treturn v/6;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: src/geometry/PolyhedronVolume.h
   requiredBy: []
-  timestamp: '2025-07-19 20:25:13+09:00'
+  timestamp: '2026-10-03 23:15:31+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/PolyhedronVolume.h

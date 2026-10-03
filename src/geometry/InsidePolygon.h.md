@@ -36,11 +36,10 @@ data:
     \ P{1,2}, P{2,1}};\n * bool in = inPolygon(v, P{3, 3}, false);\n * Status: stress-tested\
     \ and tested on kattis:pointinpolygon\n */\n#pragma once\n\n#include \"src/geometry/Point.h\"\
     \n#include \"src/geometry/OnSegment.h\"\n#include \"src/geometry/SegmentDistance.h\"\
-    \n\ntemplate<class P>\nbool inPolygon(vector<P> &p, P a, bool strict = true) {\n\
-    \tint cnt = 0, n = sz(p);\n\trep(i,0,n) {\n\t\tP q = p[(i + 1) % n];\n\t\tif (onSegment(p[i],\
-    \ q, a)) return !strict;\n\t\t//or: if (segDist(p[i], q, a) <= eps) return !strict;\n\
-    \t\tcnt ^= ((a.y<p[i].y) - (a.y<q.y)) * a.cross(p[i], q) > 0;\n\t}\n\treturn cnt;\n\
-    }\n"
+    \n\ntemplate<class P>\nbool inPolygon(vector<P>& p,P a,bool strict=true){\n\t\
+    int cnt=0,n=SZ(p);\n\tfor(int i=0;i<n;i++){\n\t\tP q=p[(i+1)%n];\n\t\tif(onSegment(p[i],q,a))return\
+    \ !strict;\n\t\t//or: if(segDist(p[i],q,a)<=eps)return !strict;\n\t\tcnt^=((a.y<p[i].y)-(a.y<q.y))*a.cross(p[i],q)>0;\n\
+    \t}\n\treturn cnt;\n}\n"
   dependsOn:
   - src/geometry/Point.h
   - src/geometry/OnSegment.h
@@ -48,7 +47,7 @@ data:
   isVerificationFile: false
   path: src/geometry/InsidePolygon.h
   requiredBy: []
-  timestamp: '2025-07-19 20:33:24+09:00'
+  timestamp: '2026-10-03 23:15:31+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/InsidePolygon.h

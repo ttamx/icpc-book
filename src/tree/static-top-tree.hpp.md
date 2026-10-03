@@ -13,24 +13,21 @@ data:
     links: []
   bundledCode: "#line 2 \"src/contest/template.hpp\"\n#include<bits/stdc++.h>\n#include<ext/pb_ds/assoc_container.hpp>\n\
     #include<ext/pb_ds/tree_policy.hpp>\n \nusing namespace std;\nusing namespace\
-    \ __gnu_pbds;\n\n#define pb push_back\n#define eb emplace_back\n#define mp make_pair\n\
-    #define mt make_tuple\n#define fi first\n#define se second\n\n#define ALL(a) a.begin(),a.end()\n\
-    #define RALL(a) a.rbegin(),a.rend()\n#define SORT(a) sort(ALL(a))\n#define RSORT(a)\
-    \ sort(RALL(a))\n#define REV(a) reverse(ALL(a))\n#define UNI(a) a.erase(unique(ALL(a)),a.end())\n\
-    #define SZ(a) (int)(a.size())\n#define LB(a,x) (int)(lower_bound(ALL(a),x)-a.begin())\n\
-    #define UB(a,x) (int)(upper_bound(ALL(a),x)-a.begin())\n#define MIN(a) *min_element(ALL(a))\n\
-    #define MAX(a) *max_element(ALL(a))\n\nusing ll = long long;\nusing db = long\
-    \ double;\nusing i128 = __int128_t;\nusing u32 = uint32_t;\nusing u64 = uint64_t;\n\
-    \nconst int INF=INT_MAX/2;\nconst ll LINF=LLONG_MAX/4;\nconst db DINF=numeric_limits<db>::infinity();\n\
-    const int MOD=998244353;\nconst int MOD2=1000000007;\nconst db EPS=1e-9;\nconst\
-    \ db PI=acos(db(-1));\n\ntemplate<class T>\nusing PQ = priority_queue<T,vector<T>,greater<T>>;\n\
-    \n#define vv(T,a,n,...) vector<vector<T>> a(n,vector<T>(__VA_ARGS__))\n#define\
-    \ vvv(T,a,n,m,...) vector<vector<vector<T>>> a(n,vector<vector<T>>(m,vector<T>(__VA_ARGS__)))\n\
-    #define vvvv(T,a,n,m,k,...) vector<vector<vector<vector<T>>>> a(n,vector<vector<vector<T>>>(m,vector<vector<T>>(k,vector<T>(__VA_ARGS__))))\n\
-    \ntemplate<class T,class U>\nbool chmin(T &a,U b){return b<a?a=b,1:0;}\ntemplate<class\
-    \ T,class U>\nbool chmax(T &a,U b){return a<b?a=b,1:0;}\ntemplate<class T,class\
-    \ U>\nT SUM(const U &a){return accumulate(ALL(a),T{});}\n\ntemplate<class T>\n\
-    using ordered_set = tree<T,null_type,less<T>,rb_tree_tag,tree_order_statistics_node_update>;\n\
+    \ __gnu_pbds;\n\n#define pb push_back\n#define eb emplace_back\n\n#define ALL(a)\
+    \ a.begin(),a.end()\n#define RALL(a) a.rbegin(),a.rend()\n#define SORT(a) sort(ALL(a))\n\
+    #define RSORT(a) sort(RALL(a))\n#define REV(a) reverse(ALL(a))\n#define UNI(a)\
+    \ a.erase(unique(ALL(a)),a.end())\n#define SZ(a) (int)(a.size())\n#define LB(a,x)\
+    \ (int)(lower_bound(ALL(a),x)-a.begin())\n#define UB(a,x) (int)(upper_bound(ALL(a),x)-a.begin())\n\
+    #define MIN(a) *min_element(ALL(a))\n#define MAX(a) *max_element(ALL(a))\n\nusing\
+    \ ll = long long;\nusing db = long double;\nusing i128 = __int128_t;\nusing u32\
+    \ = uint32_t;\nusing u64 = uint64_t;\n\nconst int INF=INT_MAX/2;\nconst ll LINF=LLONG_MAX/4;\n\
+    const db DINF=numeric_limits<db>::infinity();\nconst int MOD=998244353;\nconst\
+    \ int MOD2=1000000007;\nconst db EPS=1e-9;\nconst db PI=acos(db(-1));\n\ntemplate<class\
+    \ T>\nusing PQ = priority_queue<T,vector<T>,greater<T>>;\n\ntemplate<class T,class\
+    \ U>\nbool chmin(T &a,U b){return b<a?a=b,1:0;}\ntemplate<class T,class U>\nbool\
+    \ chmax(T &a,U b){return a<b?a=b,1:0;}\ntemplate<class T,class U>\nT SUM(const\
+    \ U &a){return accumulate(ALL(a),T{});}\n\ntemplate<class T>\nusing ordered_set\
+    \ = tree<T,null_type,less<T>,rb_tree_tag,tree_order_statistics_node_update>;\n\
     \nmt19937 rng(chrono::steady_clock::now().time_since_epoch().count());\nmt19937_64\
     \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 3 \"src/tree/static-top-tree.hpp\"\
     \n\n/**\n * Author: Teetat T.\n * Date: 2024-11-14\n * Description: Static Top\
@@ -42,10 +39,10 @@ data:
     \            int t=dfs(v);\n            if(t>mx)mx=t,hv[u]=v;\n            s+=t;\n\
     \        }\n        return s;\n    }\n    void build(){\n        n=adj.size();\n\
     \        hv=fa=lch=rch=par=vector<int>(n,-1);\n        type.assign(n,Compress);\n\
-    \        dfs(0,-1);\n        root=compress(0).second;\n    }\n    int add(int\
-    \ i,int l,int r,Type t){\n        if(i==-1){\n            i=n++;\n           \
-    \ lch.emplace_back(l);\n            rch.emplace_back(r);\n            par.emplace_back(-1);\n\
-    \            type.emplace_back(t);\n        }else{\n            lch[i]=l,rch[i]=r,type[i]=t;\n\
+    \        dfs(0);\n        root=compress(0).second;\n    }\n    int add(int i,int\
+    \ l,int r,Type t){\n        if(i==-1){\n            i=n++;\n            lch.emplace_back(l);\n\
+    \            rch.emplace_back(r);\n            par.emplace_back(-1);\n       \
+    \     type.emplace_back(t);\n        }else{\n            lch[i]=l,rch[i]=r,type[i]=t;\n\
     \        }\n        if(l!=-1)par[l]=i;\n        if(r!=-1)par[r]=i;\n        return\
     \ i;\n    }\n    /*\n    pair<int,int> merge(vector<pair<int,int>> a,Type t){\n\
     \        if(a.size()==1)return a[0];\n        int tot=0;\n        vector<pair<int,int>>\
@@ -90,10 +87,10 @@ data:
     \        for(;u!=-1;u=stt.par[u])_update(u);\n    }\n    Path query_all(){\n \
     \       return path[stt.root];\n    }\n    Path query_subtree(int u){\n      \
     \  Path res=path[u];\n        while(true){\n            int p=stt.par[u];\n  \
-    \          if(p==-1||stt.type[p]!=stt.Compress)break;\n            if(stt.lch[p]==u)res=TreeDP::compress(path[stt.rch[p]],res);\n\
-    \        }\n        return res;\n    }\n    Path query_reroot(int u){\n      \
-    \  auto rec=[&](auto &&rec,int u)->Point {\n            int p=stt.par[u];\n  \
-    \          Path below=Path::unit(),above=Path::unit();\n            while(p!=-1&&stt.type[p]==stt.Compress){\n\
+    \          if(p==-1||stt.type[p]!=stt.Compress)break;\n            if(stt.lch[p]==u)res=TreeDP::compress(res,path[stt.rch[p]]);\n\
+    \            u=p;\n        }\n        return res;\n    }\n    Path query_reroot(int\
+    \ u){\n        auto rec=[&](auto &&rec,int u)->Point {\n            int p=stt.par[u];\n\
+    \            Path below=Path::unit(),above=Path::unit();\n            while(p!=-1&&stt.type[p]==stt.Compress){\n\
     \                int l=stt.lch[p],r=stt.rch[p];\n                if(l==u)below=TreeDP::compress(below,path[r]);\n\
     \                else above=TreeDP::compress(above,rpath[l]);\n              \
     \  u=p;\n                p=stt.par[u];\n            }\n            if(p!=-1){\n\
@@ -115,10 +112,10 @@ data:
     \            fa[v]=u;\n            int t=dfs(v);\n            if(t>mx)mx=t,hv[u]=v;\n\
     \            s+=t;\n        }\n        return s;\n    }\n    void build(){\n \
     \       n=adj.size();\n        hv=fa=lch=rch=par=vector<int>(n,-1);\n        type.assign(n,Compress);\n\
-    \        dfs(0,-1);\n        root=compress(0).second;\n    }\n    int add(int\
-    \ i,int l,int r,Type t){\n        if(i==-1){\n            i=n++;\n           \
-    \ lch.emplace_back(l);\n            rch.emplace_back(r);\n            par.emplace_back(-1);\n\
-    \            type.emplace_back(t);\n        }else{\n            lch[i]=l,rch[i]=r,type[i]=t;\n\
+    \        dfs(0);\n        root=compress(0).second;\n    }\n    int add(int i,int\
+    \ l,int r,Type t){\n        if(i==-1){\n            i=n++;\n            lch.emplace_back(l);\n\
+    \            rch.emplace_back(r);\n            par.emplace_back(-1);\n       \
+    \     type.emplace_back(t);\n        }else{\n            lch[i]=l,rch[i]=r,type[i]=t;\n\
     \        }\n        if(l!=-1)par[l]=i;\n        if(r!=-1)par[r]=i;\n        return\
     \ i;\n    }\n    /*\n    pair<int,int> merge(vector<pair<int,int>> a,Type t){\n\
     \        if(a.size()==1)return a[0];\n        int tot=0;\n        vector<pair<int,int>>\
@@ -163,10 +160,10 @@ data:
     \        for(;u!=-1;u=stt.par[u])_update(u);\n    }\n    Path query_all(){\n \
     \       return path[stt.root];\n    }\n    Path query_subtree(int u){\n      \
     \  Path res=path[u];\n        while(true){\n            int p=stt.par[u];\n  \
-    \          if(p==-1||stt.type[p]!=stt.Compress)break;\n            if(stt.lch[p]==u)res=TreeDP::compress(path[stt.rch[p]],res);\n\
-    \        }\n        return res;\n    }\n    Path query_reroot(int u){\n      \
-    \  auto rec=[&](auto &&rec,int u)->Point {\n            int p=stt.par[u];\n  \
-    \          Path below=Path::unit(),above=Path::unit();\n            while(p!=-1&&stt.type[p]==stt.Compress){\n\
+    \          if(p==-1||stt.type[p]!=stt.Compress)break;\n            if(stt.lch[p]==u)res=TreeDP::compress(res,path[stt.rch[p]]);\n\
+    \            u=p;\n        }\n        return res;\n    }\n    Path query_reroot(int\
+    \ u){\n        auto rec=[&](auto &&rec,int u)->Point {\n            int p=stt.par[u];\n\
+    \            Path below=Path::unit(),above=Path::unit();\n            while(p!=-1&&stt.type[p]==stt.Compress){\n\
     \                int l=stt.lch[p],r=stt.rch[p];\n                if(l==u)below=TreeDP::compress(below,path[r]);\n\
     \                else above=TreeDP::compress(above,rpath[l]);\n              \
     \  u=p;\n                p=stt.par[u];\n            }\n            if(p!=-1){\n\
@@ -184,7 +181,7 @@ data:
   isVerificationFile: false
   path: src/tree/static-top-tree.hpp
   requiredBy: []
-  timestamp: '2026-07-05 00:41:55+07:00'
+  timestamp: '2026-10-03 23:15:31+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/tree/static-top-tree.hpp

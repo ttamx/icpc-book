@@ -35,9 +35,9 @@ data:
     \ intermediate steps so watch out for overflow if using int or long long.\n *\
     \ Usage:\n * \tbool left = sideOf(p1,p2,q)==1;\n * Status: tested\n */\n#pragma\
     \ once\n\n#include \"src/geometry/Point.h\"\n\ntemplate<class P>\nint sideOf(P\
-    \ s, P e, P p) { return sgn(s.cross(e, p)); }\n\ntemplate<class P>\nint sideOf(const\
-    \ P& s, const P& e, const P& p, double eps) {\n\tauto a = (e-s).cross(p-s);\n\t\
-    double l = (e-s).dist()*eps;\n\treturn (a > l) - (a < -l);\n}\n"
+    \ s,P e,P p){return sgn(s.cross(e,p));}\ntemplate<class P>\nint sideOf(const P&\
+    \ s,const P& e,const P& p,double eps){\n\tauto a=(e-s).cross(p-s);\n\tdouble l=(e-s).dist()*eps;\n\
+    \treturn (a>l)-(a<-l);\n}\n"
   dependsOn:
   - src/geometry/Point.h
   isVerificationFile: false
@@ -45,7 +45,7 @@ data:
   requiredBy:
   - src/geometry/PointInsideHull.h
   - src/geometry/PolygonUnion.h
-  timestamp: '2025-07-19 20:33:24+09:00'
+  timestamp: '2026-10-03 23:15:31+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/sideOf.h

@@ -35,12 +35,11 @@ data:
     \ points on the boundary aren't included.\n * Usage:\n * Status: stress-tested\n\
     \ * Time: O(\\log N)\n */\n#pragma once\n\n#include \"src/geometry/Point.h\"\n\
     #include \"src/geometry/sideOf.h\"\n#include \"src/geometry/OnSegment.h\"\n\n\
-    typedef Point<ll> P;\n\nbool inHull(const vector<P>& l, P p, bool strict = true)\
-    \ {\n\tint a = 1, b = sz(l) - 1, r = !strict;\n\tif (sz(l) < 3) return r && onSegment(l[0],\
-    \ l.back(), p);\n\tif (sideOf(l[0], l[a], l[b]) > 0) swap(a, b);\n\tif (sideOf(l[0],\
-    \ l[a], p) >= r || sideOf(l[0], l[b], p)<= -r)\n\t\treturn false;\n\twhile (abs(a\
-    \ - b) > 1) {\n\t\tint c = (a + b) / 2;\n\t\t(sideOf(l[0], l[c], p) > 0 ? b :\
-    \ a) = c;\n\t}\n\treturn sgn(l[a].cross(l[b], p)) < r;\n}\n"
+    typedef Point<ll> P;\nbool inHull(const vector<P>& l,P p,bool strict=true){\n\t\
+    int a=1,b=SZ(l)-1,r=!strict;\n\tif(SZ(l)<3)return r&&onSegment(l[0],l.back(),p);\n\
+    \tif(sideOf(l[0],l[a],l[b])>0)swap(a,b);\n\tif(sideOf(l[0],l[a],p)>=r||sideOf(l[0],l[b],p)<=-r)\n\
+    \t\treturn false;\n\twhile(abs(a-b)>1){\n\t\tint c=(a+b)/2;\n\t\t(sideOf(l[0],l[c],p)>0?b:a)=c;\n\
+    \t}\n\treturn sgn(l[a].cross(l[b],p))<r;\n}\n"
   dependsOn:
   - src/geometry/Point.h
   - src/geometry/sideOf.h
@@ -48,7 +47,7 @@ data:
   isVerificationFile: false
   path: src/geometry/PointInsideHull.h
   requiredBy: []
-  timestamp: '2025-07-19 20:33:24+09:00'
+  timestamp: '2026-10-03 23:15:31+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/PointInsideHull.h
