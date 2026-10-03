@@ -194,6 +194,9 @@ data:
   - name: src/modular-arithmetic
     pages:
     - icon: ':warning:'
+      path: src/modular-arithmetic/barrett.hpp
+      title: src/modular-arithmetic/barrett.hpp
+    - icon: ':warning:'
       path: src/modular-arithmetic/binpow.hpp
       title: src/modular-arithmetic/binpow.hpp
     - icon: ':warning:'
@@ -210,6 +213,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/number-theory/floor-sum.hpp
       title: src/number-theory/floor-sum.hpp
+    - icon: ':warning:'
+      path: src/number-theory/primitive-root.hpp
+      title: src/number-theory/primitive-root.hpp
   - name: src/polynomials
     pages:
     - icon: ':warning:'

@@ -109,8 +109,8 @@ data:
   path: src/modular-arithmetic/montgomery-modint.hpp
   requiredBy:
   - src/polynomials/ntt.hpp
-  - src/polynomials/multipoint-evaluation.hpp
   - src/polynomials/formal-power-series.hpp
+  - src/polynomials/multipoint-evaluation.hpp
   timestamp: '2025-07-19 15:28:18+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []

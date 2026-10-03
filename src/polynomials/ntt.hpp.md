@@ -68,9 +68,11 @@ data:
     \ ostream &operator<<(ostream &os,const mint &o){\n        return os << o.val();\n\
     \    }\n};\nusing mint998 = MontgomeryModInt<998244353,3>;\nusing mint107 = MontgomeryModInt<1000000007>;\n\
     \n#line 4 \"src/polynomials/ntt.hpp\"\n\n/**\n * Author: Teetat T.\n * Description:\
-    \ Number Theoretic Transform\n * Time: $O(N \\log N)$\n */\n\ntemplate<class mint>\n\
-    struct NTT{\n\tusing vm = vector<mint>;\n\t\n\tstatic constexpr mint root=mint::get_root();\n\
-    \    static_assert(root!=0);\n\n\tstatic void ntt(vm &a){\n\t\tint n=a.size(),L=31-__builtin_clz(n);\n\
+    \ Number Theoretic Transform\n * Time: $O(N \\log N)$\n */\n\n// For p < 2^30\
+    \ there is also e.g. 5 << 25, 7 << 26, 479 << 21\n// and 483 << 21 (same root\
+    \ = 62). The last two are > 10^9.\n\ntemplate<class mint>\nstruct NTT{\n\tusing\
+    \ vm = vector<mint>;\n\t\n\tstatic constexpr mint root=mint::get_root();\n   \
+    \ static_assert(root!=0);\n\n\tstatic void ntt(vm &a){\n\t\tint n=a.size(),L=31-__builtin_clz(n);\n\
     \t\tvm rt(n);\n\t\trt[1]=1;\n\t\tfor(int k=2,s=2;k<n;k*=2,s++){\n\t\t\tmint z[]={1,binpow(root,MOD>>s)};\n\
     \t\t\tfor(int i=k;i<2*k;i++)rt[i]=rt[i/2]*z[i&1];\n\t\t}\n\t\tvector<int> rev(n);\n\
     \t\tfor(int i=1;i<n;i++)rev[i]=(rev[i/2]|(i&1)<<L)/2;\n\t\tfor(int i=1;i<n;i++)if(i<rev[i])swap(a[i],a[rev[i]]);\n\
@@ -85,11 +87,12 @@ data:
   code: "#pragma once\n#include \"src/modular-arithmetic/binpow.hpp\"\n#include \"\
     src/modular-arithmetic/montgomery-modint.hpp\"\n\n/**\n * Author: Teetat T.\n\
     \ * Description: Number Theoretic Transform\n * Time: $O(N \\log N)$\n */\n\n\
-    template<class mint>\nstruct NTT{\n\tusing vm = vector<mint>;\n\t\n\tstatic constexpr\
-    \ mint root=mint::get_root();\n    static_assert(root!=0);\n\n\tstatic void ntt(vm\
-    \ &a){\n\t\tint n=a.size(),L=31-__builtin_clz(n);\n\t\tvm rt(n);\n\t\trt[1]=1;\n\
-    \t\tfor(int k=2,s=2;k<n;k*=2,s++){\n\t\t\tmint z[]={1,binpow(root,MOD>>s)};\n\t\
-    \t\tfor(int i=k;i<2*k;i++)rt[i]=rt[i/2]*z[i&1];\n\t\t}\n\t\tvector<int> rev(n);\n\
+    // For p < 2^30 there is also e.g. 5 << 25, 7 << 26, 479 << 21\n// and 483 <<\
+    \ 21 (same root = 62). The last two are > 10^9.\n\ntemplate<class mint>\nstruct\
+    \ NTT{\n\tusing vm = vector<mint>;\n\t\n\tstatic constexpr mint root=mint::get_root();\n\
+    \    static_assert(root!=0);\n\n\tstatic void ntt(vm &a){\n\t\tint n=a.size(),L=31-__builtin_clz(n);\n\
+    \t\tvm rt(n);\n\t\trt[1]=1;\n\t\tfor(int k=2,s=2;k<n;k*=2,s++){\n\t\t\tmint z[]={1,binpow(root,MOD>>s)};\n\
+    \t\t\tfor(int i=k;i<2*k;i++)rt[i]=rt[i/2]*z[i&1];\n\t\t}\n\t\tvector<int> rev(n);\n\
     \t\tfor(int i=1;i<n;i++)rev[i]=(rev[i/2]|(i&1)<<L)/2;\n\t\tfor(int i=1;i<n;i++)if(i<rev[i])swap(a[i],a[rev[i]]);\n\
     \t\tfor(int k=1;k<n;k*=2)for(int i=0;i<n;i+=2*k)for(int j=0;j<k;j++){\n\t\t\t\
     mint z=rt[j+k]*a[i+j+k];\n\t\t\ta[i+j+k]=a[i+j]-z;\n\t\t\ta[i+j]+=z;\n\t\t}\n\t\
@@ -105,9 +108,9 @@ data:
   isVerificationFile: false
   path: src/polynomials/ntt.hpp
   requiredBy:
-  - src/polynomials/multipoint-evaluation.hpp
   - src/polynomials/formal-power-series.hpp
-  timestamp: '2025-07-19 15:28:18+09:00'
+  - src/polynomials/multipoint-evaluation.hpp
+  timestamp: '2026-10-03 20:48:26+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/polynomials/ntt.hpp
