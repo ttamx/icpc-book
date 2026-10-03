@@ -99,31 +99,30 @@ data:
     \n\n/**\n * Author: Teetat T.\n * Date: 2024-03-17\n * Description: basic operations\
     \ of formal power series\n */\n\ntemplate<class mint>\nstruct FormalPowerSeries:vector<mint>{\n\
     \    using vector<mint>::vector;\n    using FPS = FormalPowerSeries;\n\n    FPS\
-    \ &operator+=(const FPS &rhs){\n        if(rhs.size()>this->size())this->resize(rhs.size());\n\
-    \        for(int i=0;i<rhs.size();i++)(*this)[i]+=rhs[i];\n        return *this;\n\
-    \    }\n    FPS &operator+=(const mint &rhs){\n        if(this->empty())this->resize(1);\n\
-    \        (*this)[0]+=rhs;\n        return *this;\n    }\n    FPS &operator-=(const\
-    \ FPS &rhs){\n        if(rhs.size()>this->size())this->resize(rhs.size());\n \
-    \       for(int i=0;i<rhs.size();i++)(*this)[i]-=rhs[i];\n        return *this;\n\
-    \    }\n    FPS &operator-=(const mint &rhs){\n        if(this->empty())this->resize(1);\n\
-    \        (*this)[0]-=rhs;\n        return *this;\n    }\n    FPS &operator*=(const\
-    \ FPS &rhs){\n        auto res=NTT<mint>()(*this,rhs);\n        return *this=FPS(res.begin(),res.end());\n\
-    \    }\n    FPS &operator*=(const mint &rhs){\n        for(auto &a:*this)a*=rhs;\n\
-    \        return *this;\n    }\n    FPS &operator/=(const FPS &rhs){ // rhs.back()!=0\n\
-    \        if(this->size()<rhs.size())return *this=FPS();\n        int n=this->size()-rhs.size()+1;\n\
-    \        return *this=(rev().pre(n)*rhs.rev().inv(n)).pre(n).rev();\n    }\n \
-    \   FPS &operator%=(const FPS &rhs){\n        *this-=*this/rhs*rhs;\n        return\
-    \ *this=pre(rhs.size()-1).shrink();\n    }\n\n    friend FPS operator+(FPS lhs,const\
-    \ FPS &rhs){return lhs+=rhs;}\n    friend FPS operator+(FPS lhs,const mint &rhs){return\
-    \ lhs+=rhs;}\n    friend FPS operator+(const mint &lhs,FPS rhs){return rhs+=lhs;}\n\
-    \    friend FPS operator-(FPS lhs,const FPS &rhs){return lhs-=rhs;}\n    friend\
-    \ FPS operator-(FPS lhs,const mint &rhs){return lhs-=rhs;}\n    friend FPS operator-(const\
-    \ mint &lhs,FPS rhs){return -(rhs-lhs);}\n    friend FPS operator*(FPS lhs,const\
-    \ FPS &rhs){return lhs*=rhs;}\n    friend FPS operator*(FPS lhs,const mint &rhs){return\
-    \ lhs*=rhs;}\n    friend FPS operator*(const mint &lhs,FPS rhs){return rhs*=lhs;}\n\
-    \    friend FPS operator/(FPS lhs,const FPS &rhs){return lhs/=rhs;}\n    friend\
-    \ FPS operator%(FPS lhs,const FPS &rhs){return lhs%=rhs;}\n\n    FPS operator-()const{return\
-    \ (*this)*-1;}\n\n    FPS rev()const{\n        FPS res(*this);\n        reverse(res.begin(),res.end());\n\
+    \ &operator+=(const FPS &r){\n        if(r.size()>this->size())this->resize(r.size());\n\
+    \        for(int i=0;i<r.size();i++)(*this)[i]+=r[i];\n        return *this;\n\
+    \    }\n    FPS &operator+=(const mint &r){\n        if(this->empty())this->resize(1);\n\
+    \        (*this)[0]+=r;\n        return *this;\n    }\n    FPS &operator-=(const\
+    \ FPS &r){\n        if(r.size()>this->size())this->resize(r.size());\n       \
+    \ for(int i=0;i<r.size();i++)(*this)[i]-=r[i];\n        return *this;\n    }\n\
+    \    FPS &operator-=(const mint &r){\n        if(this->empty())this->resize(1);\n\
+    \        (*this)[0]-=r;\n        return *this;\n    }\n    FPS &operator*=(const\
+    \ FPS &r){\n        auto res=NTT<mint>()(*this,r);\n        return *this=FPS(res.begin(),res.end());\n\
+    \    }\n    FPS &operator*=(const mint &r){\n        for(auto &a:*this)a*=r;\n\
+    \        return *this;\n    }\n    FPS &operator/=(const FPS &r){ // r.back()!=0\n\
+    \        if(this->size()<r.size())return *this=FPS();\n        int n=this->size()-r.size()+1;\n\
+    \        return *this=(rev().pre(n)*r.rev().inv(n)).pre(n).rev();\n    }\n   \
+    \ FPS &operator%=(const FPS &r){\n        *this-=*this/r*r;\n        return *this=pre(r.size()-1).shrink();\n\
+    \    }\n\n    friend FPS operator+(FPS l,const FPS &r){return l+=r;}\n    friend\
+    \ FPS operator+(FPS l,const mint &r){return l+=r;}\n    friend FPS operator+(const\
+    \ mint &l,FPS r){return r+=l;}\n    friend FPS operator-(FPS l,const FPS &r){return\
+    \ l-=r;}\n    friend FPS operator-(FPS l,const mint &r){return l-=r;}\n    friend\
+    \ FPS operator-(const mint &l,FPS r){return -(r-l);}\n    friend FPS operator*(FPS\
+    \ l,const FPS &r){return l*=r;}\n    friend FPS operator*(FPS l,const mint &r){return\
+    \ l*=r;}\n    friend FPS operator*(const mint &l,FPS r){return r*=l;}\n    friend\
+    \ FPS operator/(FPS l,const FPS &r){return l/=r;}\n    friend FPS operator%(FPS\
+    \ l,const FPS &r){return l%=r;}\n\n    FPS operator-()const{return (*this)*-1;}\n\
+    \n    FPS rev()const{\n        FPS res(*this);\n        reverse(res.begin(),res.end());\n\
     \        return res;\n    }\n    FPS pre(int sz)const{\n        FPS res(this->begin(),this->begin()+min((int)this->size(),sz));\n\
     \        if(res.size()<sz)res.resize(sz);\n        return res;\n    }\n    FPS\
     \ shrink()const{\n        FPS res(*this);\n        while(!res.empty()&&res.back()==mint{})res.pop_back();\n\
@@ -196,7 +195,7 @@ data:
   path: src/polynomials/multipoint-evaluation.hpp
   requiredBy:
   - src/polynomials/polynomial-interpolation.hpp
-  timestamp: '2026-10-04 00:49:42+07:00'
+  timestamp: '2026-10-04 01:15:02+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp

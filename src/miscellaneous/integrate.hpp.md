@@ -15,20 +15,20 @@ data:
     \ T.\n * Date: 2025-07-19\n * Description: find definite integral with Simpson's\
     \ method, error proportional to $dx^4$.\n */\n\ntemplate<class F>\ndb quad(db\
     \ a,db b,const F &f,int n){\n    db res=0;\n    db dx=(b-a)/n;\n    db fl=0,fr=f(a);\n\
-    \    for(int i=0;i<n;i++){\n        db l=a+dx*i,r=l+dx;\n        fl=fr;\n    \
-    \    fr=f(r);\n        db fm=f((l+r)/2);\n        res+=fl+4*fm+fr;\n    }\n  \
-    \  return res*dx/6;\n}\n"
+    \    for(int i=0;i<n;i++){\n        db l=a+dx*i,r=l+dx;\n        fl=fr,fr=f(r);\n\
+    \        db fm=f((l+r)/2);\n        res+=fl+4*fm+fr;\n    }\n    return res*dx/6;\n\
+    }\n"
   code: "#pragma once\n\n/**\n * Author: Teetat T.\n * Date: 2025-07-19\n * Description:\
     \ find definite integral with Simpson's method, error proportional to $dx^4$.\n\
     \ */\n\ntemplate<class F>\ndb quad(db a,db b,const F &f,int n){\n    db res=0;\n\
     \    db dx=(b-a)/n;\n    db fl=0,fr=f(a);\n    for(int i=0;i<n;i++){\n       \
-    \ db l=a+dx*i,r=l+dx;\n        fl=fr;\n        fr=f(r);\n        db fm=f((l+r)/2);\n\
-    \        res+=fl+4*fm+fr;\n    }\n    return res*dx/6;\n}"
+    \ db l=a+dx*i,r=l+dx;\n        fl=fr,fr=f(r);\n        db fm=f((l+r)/2);\n   \
+    \     res+=fl+4*fm+fr;\n    }\n    return res*dx/6;\n}"
   dependsOn: []
   isVerificationFile: false
   path: src/miscellaneous/integrate.hpp
   requiredBy: []
-  timestamp: '2025-07-19 21:22:35+09:00'
+  timestamp: '2026-10-04 01:15:02+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/miscellaneous/integral.test.cpp

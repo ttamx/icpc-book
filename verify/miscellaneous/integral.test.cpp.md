@@ -41,7 +41,7 @@ data:
     \ integral with Simpson's method, error proportional to $dx^4$.\n */\n\ntemplate<class\
     \ F>\ndb quad(db a,db b,const F &f,int n){\n    db res=0;\n    db dx=(b-a)/n;\n\
     \    db fl=0,fr=f(a);\n    for(int i=0;i<n;i++){\n        db l=a+dx*i,r=l+dx;\n\
-    \        fl=fr;\n        fr=f(r);\n        db fm=f((l+r)/2);\n        res+=fl+4*fm+fr;\n\
+    \        fl=fr,fr=f(r);\n        db fm=f((l+r)/2);\n        res+=fl+4*fm+fr;\n\
     \    }\n    return res*dx/6;\n}\n#line 4 \"verify/miscellaneous/integral.test.cpp\"\
     \n\nint main(){\n    for(int r=1;r<=20;r++){\n        double out=quad(-r,r,[&](db\
     \ x){\n            return quad(-r,r,[&](db y){\n                return quad(-r,r,[&](db\
@@ -63,7 +63,7 @@ data:
   isVerificationFile: true
   path: verify/miscellaneous/integral.test.cpp
   requiredBy: []
-  timestamp: '2026-10-03 23:15:31+07:00'
+  timestamp: '2026-10-04 01:15:02+07:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/miscellaneous/integral.test.cpp
