@@ -186,8 +186,8 @@ data:
       path: src/miscellaneous/integrate.hpp
       title: src/miscellaneous/integrate.hpp
     - icon: ':warning:'
-      path: src/miscellaneous/range-inversion.cpp
-      title: src/miscellaneous/range-inversion.cpp
+      path: src/miscellaneous/range-inversion.hpp
+      title: src/miscellaneous/range-inversion.hpp
     - icon: ':warning:'
       path: src/miscellaneous/range-xor.hpp
       title: src/miscellaneous/range-xor.hpp

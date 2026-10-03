@@ -4,11 +4,11 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: cpp
+  _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/miscellaneous/range-inversion.cpp\"\n\n/**\n * Author:\
+  bundledCode: "#line 2 \"src/miscellaneous/range-inversion.hpp\"\n\n/**\n * Author:\
     \ Teetat T.\n * Date: 2025-10-31\n * Description: Online range inversion count.\
     \ Set n and a[1..n]\n * (compressed to values in 1..n), call build(), then query(L,R)\n\
     \ * counts inversions in a[L..R] (1-indexed, inclusive).\n * Needs n < N; K =\
@@ -75,15 +75,15 @@ data:
     \t\t}\n\t}\n}"
   dependsOn: []
   isVerificationFile: false
-  path: src/miscellaneous/range-inversion.cpp
+  path: src/miscellaneous/range-inversion.hpp
   requiredBy: []
-  timestamp: '2026-10-03 23:15:31+07:00'
+  timestamp: '2026-10-03 23:45:06+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: src/miscellaneous/range-inversion.cpp
+documentation_of: src/miscellaneous/range-inversion.hpp
 layout: document
 redirect_from:
-- /library/src/miscellaneous/range-inversion.cpp
-- /library/src/miscellaneous/range-inversion.cpp.html
-title: src/miscellaneous/range-inversion.cpp
+- /library/src/miscellaneous/range-inversion.hpp
+- /library/src/miscellaneous/range-inversion.hpp.html
+title: src/miscellaneous/range-inversion.hpp
 ---
