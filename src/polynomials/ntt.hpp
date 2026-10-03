@@ -1,6 +1,6 @@
 #pragma once
-#include "src/modular-arithmetic/binpow.hpp"
-#include "src/modular-arithmetic/montgomery-modint.hpp"
+#include "src/number-theory/binpow.hpp"
+#include "src/number-theory/montgomery-modint.hpp"
 
 /**
  * Author: Teetat T.

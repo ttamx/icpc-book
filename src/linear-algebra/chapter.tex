@@ -1,0 +1,75 @@
+\chapter{Linear Algebra}
+
+\section{Facts}
+
+\subsection{Linear systems and rank}
+$A\in F^{n\times m}$, $Ax=b$ ($m$ unknowns): solvable iff
+$\operatorname{rank}A=\operatorname{rank}[A\,|\,b]$.
+Solution set $=x_0+\ker A$, $\dim\ker A=m-\operatorname{rank}A$,
+so over $\mathbb{F}_q$ there are $q^{m-\operatorname{rank}A}$ solutions (or $0$).
+\begin{itemize}
+\item $\operatorname{rank}A=\operatorname{rank}A^T\le\min(n,m)$.
+\item $\operatorname{rank}AB\le\min(\operatorname{rank}A,\operatorname{rank}B)$.
+\item Rank-nullity: $\operatorname{rank}A+\dim\ker A=m$.
+\item $\operatorname{rank}(A+B)\le\operatorname{rank}A+\operatorname{rank}B$.
+\item Rank mod $p$ $\le$ rank over $\mathbb{Q}$ (equal w.h.p.\ for random large $p$).
+\end{itemize}
+
+\subsection{Determinant}
+\begin{itemize}
+\item $\det AB=\det A\det B$, $\det A^T=\det A$, $\det cA=c^n\det A$.
+\item $\det A=0$ iff $A$ singular; $\det A^{-1}=1/\det A$.
+\item Triangular: $\det=\prod a_{ii}$; block triangular: product of the diagonal blocks' dets.
+\item Row ops: swap $\to$ sign flips; scale row by $c$ $\to$ $\det\cdot c$;
+add multiple of a row $\to$ unchanged. Elimination gives
+$\det=(-1)^{\#\text{swaps}}\prod\text{pivots}$ (works mod $p$).
+\item $A^{-1}=\operatorname{adj}(A)/\det A$,
+$\operatorname{adj}(A)_{ij}=(-1)^{i+j}M_{ji}$ ($M_{ji}$: minor
+deleting row $j$, col $i$).
+\item Cofactor expansion: $\det A=\sum_j(-1)^{i+j}a_{ij}M_{ij}$.
+\item Mod composite $m$: run Euclid-like row elimination (swap and
+subtract $\lfloor a/b\rfloor$ times) instead of dividing.
+\end{itemize}
+
+\subsection{XOR basis (GF(2))}
+For a multiset $S$ of numbers with basis rank $r$:
+\begin{itemize}
+\item \#distinct subset xors $=2^r$.
+\item Each reachable value is the xor of exactly $2^{|S|-r}$ subsets;
+in particular $2^{|S|-r}$ subsets (incl.\ empty) xor to $0$.
+\item Max xor: greedy from top bit, $x\gets\max(x,x\oplus b_i)$.
+\item Reduced basis (each pivot bit appears only in its own vector),
+sorted ascending $c_0<\dots<c_{r-1}$: $k$-th smallest ($0$-indexed)
+value $=\bigoplus_{t:\,k_t=1}c_t$.
+\item Offline ``max xor in range $[l,r]$'': keep, per top bit,
+the vector with latest index (swap on insert); query uses only
+vectors with index $\ge l$.
+\end{itemize}
+
+\subsection{Matrix-tree theorem}
+Undirected multigraph, Laplacian $L=D-A$ ($A_{uv}$ = \#edges).
+\#spanning trees $=\det$ of $L$ with any row $i$ and col $i$
+removed $=\frac1n\prod_{i=2}^n\lambda_i$. Weighted: $A_{uv}=\sum w$
+gives $\sum_T\prod_{e\in T}w_e$. $K_n$: $n^{n-2}$; $K_{a,b}$: $a^{b-1}b^{a-1}$.
+
+Directed: \#arborescences rooted at $r$ with edges directed away
+from $r$ = $\det$ of $L_{in}=D_{in}-A$ with row/col $r$ removed.
+Towards $r$: use $L_{out}=D_{out}-A$.
+
+\textbf{BEST theorem.} Eulerian digraph (connected, in $=$ out degree):
+\#Eulerian circuits (as cyclic edge sequences)
+\[ec(G)=t_w(G)\prod_v(\deg v-1)!\]
+where $t_w$ = \#arborescences towards any fixed $w$.
+For circuits starting at a fixed vertex $s$ multiply by $\deg s$.
+
+\subsection{LGV lemma}
+DAG, sources $a_1..a_k$, sinks $b_1..b_k$, $e(a,b)$ = \#paths
+(or weighted sum). With $M_{ij}=e(a_i,b_j)$,
+\[\det M=\sum_{(P_1..P_k)}\operatorname{sgn}(\sigma)\]
+over vertex-disjoint path tuples $P_i:a_i\to b_{\sigma(i)}$.
+If only $\sigma=\mathrm{id}$ can be non-intersecting (e.g.\ planar
+grid, sources/sinks in order on the boundary), $\det M$ = \#non-intersecting path systems.
+
+% \kactlimport{gauss-mod.hpp}
+\kactlimport{gauss-double.hpp}
+\kactlimport{xor-basis.hpp}

@@ -28,4 +28,30 @@ Free variable & Equality constraint $=$ \\
 \end{tabular}
 \end{center}
 
+\textbf{Complementary slackness:} $x, y$ optimal iff feasible and
+$x_j > 0 \Rightarrow$ dual constraint $j$ is tight, $y_i > 0 \Rightarrow$ primal constraint $i$ is tight.
+
+\section{Well-known Duals}
+\subsection{Shortest path / difference constraints}
+Unit flow $s \to t$, $f \ge 0$: $\min \sum w_e f_e$ $\Leftrightarrow$
+\[ \max\ \pi_t - \pi_s \quad \text{s.t. } \pi_v - \pi_u \le w_{uv} \ \forall (u,v) \]
+Optimum $\pi_v = \mathrm{dist}(s,v)$. A system $x_v - x_u \le w_{uv}$ is feasible iff the graph has no negative cycle; a solution is $x_v = \mathrm{dist}$ from a virtual source with $0$-edges to all nodes (Bellman-Ford), and it maximizes $\sum x_v$ subject to $x_v \le 0$.
+Dijkstra potentials (Johnson) are dual feasible: $w_{uv} + h_u - h_v \ge 0$.
+
+\subsection{Max flow / min cut}
+$\max$ flow $\Leftrightarrow$ $\min \sum c_e z_e$ s.t.\ $z_{uv} \ge \pi_u - \pi_v$, $\pi_s - \pi_t \ge 1$, $z \ge 0$; an optimal $\pi \in \{0,1\}$ is a min cut ($\pi = 1$ on the $s$ side).
+
+\subsection{Min cost flow}
+Supplies $b_v = $ out $-$ in, $0 \le f_e \le u_e$, cost $c_e$, $\sum b_v = 0$:
+\[ \min \sum_e c_e f_e = \max_{\pi} \sum_v b_v \pi_v - \sum_{e=(u,v)} u_e \max(0, \pi_u - \pi_v - c_e) \]
+($\pi$ free; integral optimum for integral data; dual unbounded iff no feasible flow).
+\textbf{Contest use} (read right to left): to choose integers $x_v$ minimizing
+\[ \sum_{e=(u,v)} u_e \max(0, x_u - x_v - c_e) - \sum_v b_v x_v, \]
+the answer is $-$(min cost flow) with supplies $b_v$ and edges $u \to v$ (cap $u_e$, cost $c_e$).
+Hard constraint $x_u - x_v \le c$: cap $\infty$. To use constants / bounds ($l \le x_v \le r$) add a node $0$ with $x_0 = 0$ and give it supply $-\sum b_v$. Convex piecewise-linear costs: a sum of such $\max$ terms.
+
+\subsection{Assignment}
+$\max \sum w_{ij} x_{ij}$ (perfect matching) $\Leftrightarrow$ $\min \sum_i u_i + \sum_j v_j$ s.t.\ $u_i + v_j \ge w_{ij}$ (Hungarian potentials).
+Unweighted bipartite: max matching = min vertex cover (König).
+
 \kactlimport{Simplex.h}

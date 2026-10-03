@@ -37,7 +37,7 @@ Any possible division by 0? (mod 0 for example)
 Any possible infinite recursion?
 Invalidated pointers or iterators?
 Are you using too much memory?
-Debug with resubmits (e.g. remapped signals, see Various).
+Debug with resubmits (e.g. turn a crash into WA or TLE).
 
 Time limit exceeded:
 Do you have any possible infinite loops?

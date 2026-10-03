@@ -1,0 +1,82 @@
+\section{Multiplicative Functions}
+\subsection{Definitions}
+$f$ multiplicative: $f(1)=1$, $f(ab)=f(a)f(b)$ for $\gcd(a,b)=1$,
+so $f(n)=\prod f(p^e)$. Completely multiplicative: for all $a,b$.
+\begin{center}
+\small
+\begin{tabular}{l|l}
+$f$ & $f(p^e)$ \\ \hline
+$\mathbf 1(n)=1$ & $1$ \\
+$\mathrm{id}_k(n)=n^k$ & $p^{ek}$ \\
+$\varepsilon(n)=[n=1]$ & $0$ \\
+$\mu$ & $-1$ if $e=1$, else $0$ \\
+$\varphi$ & $p^{e-1}(p-1)$ \\
+$d=\sigma_0$ & $e+1$ \\
+$\sigma_k=\sum_{d|n}d^k$ & $\frac{p^{k(e+1)}-1}{p^k-1}$ \\
+$\lambda=(-1)^{\Omega}$ & $(-1)^e$ \\
+\end{tabular}
+\end{center}
+$\omega(n)$ = \#distinct primes, $\Omega(n)$ = \#primes with mult.\
+(additive, not mult.); $2^{\omega}$, $\lambda$ are mult.
+$\varphi(n)=n\prod_{p|n}(1-\frac1p)$, $\sum_{i\le n,\gcd(i,n)=1}i=\frac{n\varphi(n)+[n=1]}{2}$.
+
+\subsection{Dirichlet convolution}
+$(f*g)(n)=\sum_{d|n}f(d)g(\frac nd)$. Commutative, associative,
+identity $\varepsilon$; $f,g$ mult.\ $\Rightarrow f*g$ mult.
+$f^{-1}$ exists iff $f(1)\ne0$; for compl.\ mult.\ $f$: $f^{-1}=\mu f$.
+Computing $f*g$ for all $n\le N$: $O(N\log N)$ (loop $d$, multiples).
+\begin{align*}
+\mu*\mathbf 1&=\varepsilon & \varphi*\mathbf 1&=\mathrm{id}\\
+\mathbf 1*\mathbf 1&=d & \mathrm{id}_k*\mathbf 1&=\sigma_k\\
+\varphi&=\mu*\mathrm{id} & \lambda*\mathbf 1&=[n=\square]\\
+\mu^2*\mathbf 1&=2^{\omega} & \varphi*d&=\sigma_1\\
+|\mu|*\lambda&=\varepsilon & \mu*\mathrm{id}_k&=J_k
+\end{align*}
+($J_k$ Jordan totient, $J_1=\varphi$.) $d(n^2)=\sum_{d|n}2^{\omega(d)}$,
+$\sigma_0(ij)=\sum_{x|i,y|j}[\gcd(x,y)=1]$.
+
+\subsection{Möbius inversion}
+\[ g=f*\mathbf 1 \iff f=g*\mu \]
+\[ g(n)=\sum_{n|m\le N}f(m) \iff f(n)=\sum_{n|m\le N}\mu(\tfrac mn)g(m) \]
+Use: $[\gcd=1]=\sum_{d|\gcd}\mu(d)$. $g(d)$=\#tuples with $d|\gcd$ (easy),
+$f(d)$=\#tuples with $\gcd=d$: $f(d)=g(d)-\sum_{k\ge2}f(kd)$, $d$ descending.
+\[ \sum_{i\le n}\sum_{j\le m}[\gcd(i,j)=1]=\sum_{d}\mu(d)\lfloor\tfrac nd\rfloor\lfloor\tfrac md\rfloor \]
+\[ \sum_{i,j\le n}\gcd(i,j)=\sum_d\varphi(d)\lfloor\tfrac nd\rfloor^2 \]
+\[ \sum_{i=1}^n\gcd(i,n)=\sum_{d|n}d\,\varphi(\tfrac nd) \]
+\[ \sum_{i,j\le n}[\gcd(i,j)=1]=2\Phi(n)-1,\ \ \Phi(n)=\sum_{i\le n}\varphi(i) \]
+\[ \sum_{i\le n}\mathrm{lcm}(i,n)=\tfrac n2\Big(1+\sum_{d|n}d\,\varphi(d)\Big) \]
+
+\subsection{Floor blocks}
+$\lfloor n/i\rfloor$ takes $\le 2\sqrt n$ values; $\lfloor\lfloor n/a\rfloor/b\rfloor=\lfloor n/ab\rfloor$.
+Block with value $\lfloor n/i\rfloor$ is $[i,\lfloor n/\lfloor n/i\rfloor\rfloor]$:
+\texttt{for(l=1;l<=n;l=r+1)\{r=n/(n/l); ...\}}.
+Store values at $v=\lfloor n/i\rfloor$ in two arrays: \texttt{lo[v]} ($v\le\sqrt n$), \texttt{hi[n/v]}.
+
+\subsection{Prefix sums}
+$S_f(n)=\sum_{i\le n}f(i)$. Hyperbola, $h=f*g$, $m=\lfloor\sqrt n\rfloor$:
+\begin{align*}
+S_h(n)=&\textstyle\sum_{d\le m}\big(f(d)S_g(\lfloor\frac nd\rfloor)+g(d)S_f(\lfloor\frac nd\rfloor)\big)\\
+&-S_f(m)S_g(m)
+\end{align*}
+Simplest: $S_h(n)=\sum_{d\le n}f(d)S_g(\lfloor n/d\rfloor)$ over blocks.
+
+\textbf{Du's sieve}: pick $g$ with $S_g$, $S_{f*g}$ in $O(1)$:
+\[ g(1)S_f(n)=S_{f*g}(n)-\sum_{i=2}^{n}g(i)\,S_f(\lfloor\tfrac ni\rfloor) \]
+Precompute $S_f$ up to $n^{2/3}$ (linear sieve), memo rest (\texttt{hi[n/v]}):
+$O(n^{2/3})$. $\varphi$: $g=\mathbf 1$, $S_{f*g}=\frac{n(n+1)}2$. $\mu$: $g=\mathbf 1$, $S_{f*g}=1$.
+$\varphi\cdot\mathrm{id}_k$: $g=\mathrm{id}_k$, $f*g=\mathrm{id}_{k+1}$.
+
+\textbf{Linear sieve} for mult.\ $f$: keep \texttt{lp[i]} and \texttt{pw[i]} (power of
+lpf in $i$). For $i\cdot p$ with $p\le$ \texttt{lp[i]}: if $p<$ \texttt{lp[i]},
+$f(ip)=f(i)f(p)$; else with $q=$ \texttt{pw[i]}: $f(ip)=f(\frac iq)f(qp)$
+(need $f(p^e)$ directly, or use $\varphi(ip)=\varphi(i)p$, $\mu(ip)=0$).
+
+\subsection{Which method}
+\begin{itemize}
+\item $n\le10^7$: linear sieve.
+\item $\sum_{p\le n}p^k$, $\pi(n)$, $n\le10^{11}$: Lucy \texttt{prime-counting}.
+\item $\sum f$, $f(p)$ poly in $p$, $f(p^e)$ easy: \texttt{min25}, $n\le10^{11}$.
+\item $f*g$ and $g$ easy to sum (e.g.\ $\varphi,\mu$): Du, $n\le10^{11}$.
+\item $\sum f(i)g(\lfloor n/i\rfloor)$: floor blocks + $S_f$ at all $\lfloor n/i\rfloor$
+(Lucy and memoized Du give all of them).
+\end{itemize}

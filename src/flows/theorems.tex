@@ -1,0 +1,33 @@
+\section{Flow and Matching Theorems}
+	\subsection{Cuts and covers}
+		Max flow = min cut. Min cut: $S$ = nodes reachable from $s$ in the residual graph.\\
+		Bipartite $G=(L \cup R, E)$, $\nu$ = max matching, no isolated vertices for edge cover:
+		\begin{itemize}[noitemsep]
+			\item \textbf{König:} min vertex cover $= \nu$. Cover = ($L$ not reachable) $\cup$ ($R$ reachable) from $s$ in the residual graph.
+			\item Max independent set $= |V| - \nu$ (complement of a min vertex cover).
+			\item Min edge cover $= |V| - \nu$ (matching + one edge per unmatched vertex).
+			\item \textbf{Hall:} $L$ can be fully matched iff $|N(S)| \ge |S|$ for all $S \subseteq L$. In general $\nu = |L| - \max_{S \subseteq L}(|S| - |N(S)|)$.
+		\end{itemize}
+
+	\subsection{Path covers and Dilworth}
+		DAG, split $v$ into $v_{out} \in L$, $v_{in} \in R$, edge $u \to v$ becomes $u_{out} - v_{in}$:
+		min vertex-disjoint path cover $= n - \nu$.
+		Paths may share vertices: do the same on the transitive closure.\\
+		\textbf{Dilworth:} in a poset, min chain cover = max antichain = $n - \nu$ on the comparability DAG (closure).
+		Max antichain: $v$ with $v_{out}$ reachable and $v_{in}$ not reachable from $s$ in the residual graph.\\
+		\textbf{Mirsky:} min antichain cover = longest chain.
+
+	\subsection{Lower bounds and circulations}
+		Edge $u \to v$ with $l \le f \le r$: add edge with capacity $r - l$, set $ex[v] \mathrel{+}= l$, $ex[u] \mathrel{-}= l$.
+		New source $S'$, sink $T'$: $S' \to v$ (cap $ex[v]$) if $ex[v] > 0$, $v \to T'$ (cap $-ex[v]$) if $ex[v] < 0$.
+		\begin{itemize}[noitemsep]
+			\item \textbf{Feasible circulation} iff maxflow$(S',T')$ saturates all $S'$ edges. Real flow $= l +$ flow.
+			\item \textbf{$s$-$t$ flow:} add $t \to s$ with cap $\infty$, check feasibility as above. Let $f_0$ = flow on $t \to s$; remove that edge.
+			Max flow $= f_0 + $ maxflow$(s,t)$, min flow $= f_0 - $ maxflow$(t,s)$ (on the residual graph).
+			\item \textbf{Min cost circulation} (negative costs, no Bellman-Ford): saturate every negative edge ($f = cap$, update $ex$, its reverse edge gets cap $cap$, cost $-c$), then run min cost max flow $S' \to T'$. Add the saturated costs to the answer.
+		\end{itemize}
+
+	\subsection{Max weight closure}
+		Choose $X$ closed under $u \in X \Rightarrow v \in X$ for each dependency $u \to v$, maximize $\sum_{x \in X} w_x$:
+		$s \to v$ cap $w_v$ ($w_v > 0$), $v \to t$ cap $-w_v$ ($w_v < 0$), $u \to v$ cap $\infty$.
+		Answer $= \sum_{w_v > 0} w_v - $ mincut, $X$ = source side.

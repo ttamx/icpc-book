@@ -1,0 +1,16 @@
+\section{Game Theory}
+	\textbf{Sprague-Grundy:} for impartial games (normal play: no move = lose),
+	$g(x) = \mathrm{mex}\{g(y) : x \to y\}$, $x$ is losing iff $g(x) = 0$.
+	Sum of independent games: $g = g_1 \oplus \dots \oplus g_k$.
+	A move that splits a game into several adds their $g$ by xor.
+	\begin{itemize}[noitemsep]
+		\item \textbf{Nim:} $g(n) = n$, losing iff $\bigoplus a_i = 0$.
+		\item \textbf{Misère Nim:} if all $a_i \le 1$, first player wins iff the number of non-empty piles is even; otherwise same as normal Nim.
+		\item \textbf{Subtraction game} (take $1..k$): $g(n) = n \bmod (k+1)$. Any finite subtraction set: $g$ is eventually periodic, find the period by brute force.
+		\item \textbf{Staircase Nim} (move any coins from step $i$ to $i-1$, step $0$ is out): losing iff xor of piles on odd steps $= 0$.
+		\item \textbf{Moore's Nim$_k$} (take from up to $k$ piles at once): losing iff for every bit, the number of $a_i$ with that bit set is $\equiv 0 \pmod{k+1}$.
+		\item \textbf{Wythoff} (take any from one pile, or the same from both): losing positions are $(\lfloor k\varphi \rfloor, \lfloor k\varphi \rfloor + k)$, $\varphi = \frac{1+\sqrt 5}{2}$.
+		\item \textbf{Lasker's Nim} (take, or split a pile in two): $g(4k+1) = 4k+1$, $g(4k+2) = 4k+2$, $g(4k+3) = 4k+4$, $g(4k+4) = 4k+3$.
+		\item \textbf{Green Hackenbush} on a rooted tree (colon principle): $g(v) = \bigoplus_{c \text{ child}} (g(c) + 1)$. In general graphs, fuse each cycle: an even cycle becomes a single vertex, an odd cycle becomes a single edge (loop).
+		\item \textbf{Coin turning} (flip a set of coins whose rightmost goes heads to tails): $g$ of a position = xor of $g$ of each heads coin taken alone.
+	\end{itemize}
