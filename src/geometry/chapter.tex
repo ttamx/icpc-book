@@ -9,13 +9,13 @@
 	\kactlimport{sideOf.h}
 	\kactlimport{OnSegment.h}
 	\kactlimport{linearTransformation.h}
-	% \kactlimport{LineProjectionReflection.h}
+	\kactlimport{LineProjectionReflection.h}
 	\kactlimport{Angle.h}
 
 \section{Circles}
 	\kactlimport{CircleIntersection.h}
 	\kactlimport{CircleTangents.h}
-	% \kactlimport{CircleLine.h}
+	\kactlimport{CircleLine.h}
 	\kactlimport{CirclePolygonIntersection.h}
 	\kactlimport{circumcircle.h}
 	\kactlimport{MinimumEnclosingCircle.h}
@@ -25,19 +25,23 @@
 	\kactlimport{PolygonArea.h}
 	\kactlimport{PolygonCenter.h}
 	\kactlimport{PolygonCut.h}
-	% \kactlimport{PolygonUnion.h}
+	\kactlimport{PolygonUnion.h}
 	\kactlimport{ConvexHull.h}
 	\kactlimport{HullDiameter.h}
 	\kactlimport{PointInsideHull.h}
 	\kactlimport{LineHullIntersection.h}
 	\subsection{Pick's Theorem}
 		\import{picks-theorem.tex}
+	\subsection{Center of Mass}
+		For a simple polygon (convex or not) with signed area $A = \frac{1}{2}\sum_{i=0}^{n-1} c_i$, $c_i = x_i y_{i+1} - x_{i+1} y_i$, indices mod $n$:
+		\[ C_x = \frac{1}{6A}\sum_{i=0}^{n-1} (x_i + x_{i+1})\, c_i, \quad C_y = \frac{1}{6A}\sum_{i=0}^{n-1} (y_i + y_{i+1})\, c_i \]
+		Use the signed $A$ (orientation cancels out). See \texttt{polygonCenter}.
 
 \section{Misc. Point Set Problems}
 	\kactlimport{ClosestPair.h}
-	% \kactlimport{ManhattanMST.h}
+	\kactlimport{ManhattanMST.h}
 	\kactlimport{kdTree.h}
-	% \kactlimport{DelaunayTriangulation.h}
+	\kactlimport{DelaunayTriangulation.h}
 	\kactlimport{FastDelaunay.h}
 
 \section{3D}

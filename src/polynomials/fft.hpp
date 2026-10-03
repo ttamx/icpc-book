@@ -13,7 +13,7 @@ struct FFT{
 	using cd = complex<db>;
 	using vc = vector<cd> ;
 	
-	static const bool INT=true;
+	static const bool INT=is_integral<T>::value;
 
 	static void fft(vc &a){
 		int n=a.size(),L=31-__builtin_clz(n);
@@ -39,7 +39,8 @@ struct FFT{
 	static vt conv(const vt &a,const vt &b){
 		if(a.empty()||b.empty())return {};
 		vt res(a.size()+b.size()-1);
-		int L=32-__builtin_clz(res.size()),n=1<<L;
+		int n=2;
+		while(n<res.size())n<<=1;
 		vc in(n),out(n);
 		copy(a.begin(),a.end(),in.begin());
 		for(int i=0;i<b.size();i++)in[i].imag(b[i]);
@@ -50,11 +51,12 @@ struct FFT{
 		for(int i=0;i<res.size();i++)res[i]=norm(imag(out[i])/(4*n));
 		return res;
 	}
-	static vl convMod(const vl &a,const vl &b){
+	static vt convMod(const vt &a,const vt &b){
 		assert(mod>0);
 		if(a.empty()||b.empty())return {};
-		vl res(a.size()+b.size()-1);
-		int L=32-__builtin_clz(res.size()),n=1<<L;
+		vt res(a.size()+b.size()-1);
+		int n=2;
+		while(n<res.size())n<<=1;
 		ll cut=int(sqrt(mod));
 		vc in1(n),in2(n),out1(n),out2(n);
 		for(int i=0;i<a.size();i++)in1[i]=cd(ll(a[i])/cut,ll(a[i])%cut); // a1 + i * a2
@@ -75,9 +77,5 @@ struct FFT{
 	vt operator()(const vt &a,const vt &b){
 		return mod>0?convMod(a,b):conv(a,b);
 	}
-};
-template<>
-struct FFT<db>{
-	static const bool INT=false;
 };
 

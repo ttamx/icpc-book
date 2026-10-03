@@ -3,7 +3,11 @@
 /**
  * Author: Teetat T.
  * Date: 2025-10-31
- * Description: Online range inversion count in O(\sqrt{N}).
+ * Description: Online range inversion count. Set n and a[1..n]
+ * (compressed to values in 1..n), call build(), then query(L,R)
+ * counts inversions in a[L..R] (1-indexed, inclusive).
+ * Needs n < N; K = block size ($\sqrt{N}$).
+ * Time: build $O(N\sqrt{N})$, query $O(\sqrt{N})$
  */
 
 const int N=1e5+5;
@@ -13,9 +17,8 @@ int n,k;
 int a[N];
 pair<int,int> b[N],c[N];
 int block[N],l[K],r[K],pre[N],suf[N];
-ll dp[K][K],cnt[K][N];
-vector<tuple<int,int,int>> qr[N];
-int st=1,ed=0;
+ll dp[K][K];
+int cnt[K][N]; // prefix counts <= n*K, fits in int
  
 struct Fenwick{
 	int t[N];

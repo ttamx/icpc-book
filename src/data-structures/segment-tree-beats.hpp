@@ -134,7 +134,7 @@ struct SegmentTreeBeats{
         return query(l,m,i*2,x,y)+query(m+1,r,i*2+1,x,y);
     }
     template<class F>
-    void build(const F &f){build(0,n-1,1,f);}
+    void build(const F &f){if(n)build(0,n-1,1,f);}
     void range_add(int x,int y,ll v){range_add(0,n-1,1,x,y,v);}
     void range_chmin(int x,int y,ll v){range_chmin(0,n-1,1,x,y,v);}
     void range_chmax(int x,int y,ll v){range_chmax(0,n-1,1,x,y,v);}

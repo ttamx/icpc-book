@@ -1,5 +1,4 @@
 #pragma once
-#include "src/miscellaneous/range-xor.hpp"
 
 /**
  * Author: Teetat T.
@@ -9,8 +8,7 @@
 
 template<class F>
 void range_xor(ll p,ll l,ll r,const F &query){
-    for(int i=0;i<60;i++){
-        if(l==r)break;
+    for(int i=0;l<r;i++){
         ll b=1LL<<i;
         if(l&b){
             query(l^p,(l^p)+b);

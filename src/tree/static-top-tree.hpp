@@ -31,7 +31,7 @@ struct StaticTopTree{
         n=adj.size();
         hv=fa=lch=rch=par=vector<int>(n,-1);
         type.assign(n,Compress);
-        dfs(0,-1);
+        dfs(0);
         root=compress(0).second;
     }
     int add(int i,int l,int r,Type t){
@@ -168,7 +168,8 @@ struct StaticTopTreeRerootingDP{
         while(true){
             int p=stt.par[u];
             if(p==-1||stt.type[p]!=stt.Compress)break;
-            if(stt.lch[p]==u)res=TreeDP::compress(path[stt.rch[p]],res);
+            if(stt.lch[p]==u)res=TreeDP::compress(res,path[stt.rch[p]]);
+            u=p;
         }
         return res;
     }

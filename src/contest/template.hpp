@@ -8,10 +8,6 @@ using namespace __gnu_pbds;
 
 #define pb push_back
 #define eb emplace_back
-#define mp make_pair
-#define mt make_tuple
-#define fi first
-#define se second
 
 #define ALL(a) a.begin(),a.end()
 #define RALL(a) a.rbegin(),a.rend()
@@ -41,10 +37,6 @@ const db PI=acos(db(-1));
 
 template<class T>
 using PQ = priority_queue<T,vector<T>,greater<T>>;
-
-#define vv(T,a,n,...) vector<vector<T>> a(n,vector<T>(__VA_ARGS__))
-#define vvv(T,a,n,m,...) vector<vector<vector<T>>> a(n,vector<vector<T>>(m,vector<T>(__VA_ARGS__)))
-#define vvvv(T,a,n,m,k,...) vector<vector<vector<vector<T>>>> a(n,vector<vector<vector<T>>>(m,vector<vector<T>>(k,vector<T>(__VA_ARGS__))))
 
 template<class T,class U>
 bool chmin(T &a,U b){return b<a?a=b,1:0;}

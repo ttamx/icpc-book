@@ -13,15 +13,38 @@ let $B(x)$ be EGF of Bell numbers, then
 \[B(x) = e^{e^x - 1} = \sum_{n=0}^\infty B_n \frac{x^n}{n!}\]
 
 \section{Newton's Method}
-if $F(Q) = 0$, then $Q_{2n} \equiv Q_{n} - \frac{F(Q_{n})}{F'(Q_{n})}\;(\mathrm{mod} x^{2n})$ 
-\[Q = P^{-1}: Q_{2n} \equiv Q_{n} \cdot (2 - P \cdot Q_{n}^2)\;(\mathrm{mod}\; x^{2n}) \]
+If $F(Q) = 0$, then $Q_{2n} \equiv Q_{n} - \frac{F(Q_{n})}{F'(Q_{n})}\;(\mathrm{mod}\; x^{2n})$.
+To get $Q \bmod x^N$: start from $Q_1 = Q(0)$ (solve $F(Q_1) \equiv 0 \pmod x$), then apply the step for $n = 1, 2, 4, \dots$ until $n \ge N$.
+Step $n$ only needs $P \bmod x^{2n}$; truncate $Q_{2n}$ to $2n$ terms.
+Total $O(N \log N)$ since $T(N) = T(N/2) + O(N \log N)$.
+
+Pick $F$ with $F(Q) = 0$ such that $F, F'$ ($F'$ is w.r.t.\ $Q$) only use already-available ops, and $F'(Q)(0) \ne 0$:
+\begin{center}
+\begin{tabular}{c|c|c|c}
+Want & $F(Q)$ & $F'(Q)$ & $Q - F/F'$ \\ \hline
+$P^{-1}$ & $Q^{-1} - P$ & $-Q^{-2}$ & $Q(2 - PQ)$ \\
+$e^P$ & $\ln Q - P$ & $Q^{-1}$ & $Q(1 + P - \ln Q)$ \\
+$\sqrt{P}$ & $Q^2 - P$ & $2Q$ & $\frac{1}{2}(Q + P Q^{-1})$ \\
+\end{tabular}
+\end{center}
+Not $PQ - 1$ for $P^{-1}$: $F' = P$ would need $P^{-1}$ itself.
+Also works for functional equations, e.g.\ $Q = x e^Q$: $F = Q - x e^Q$, $F' = 1 - x e^Q$.
+\[Q = P^{-1}: Q_{2n} \equiv Q_{n} \cdot (2 - P \cdot Q_{n})\;(\mathrm{mod}\; x^{2n}) \]
 \[Q = \ln{P} = \int\frac{P'}{P} \mathrm{d}x \]
-\[Q = e^{p}: Q_{2n} \equiv Q_{n}(1 + P - \ln{Q_n})\;(\mathrm{mod}\; x^{2n}) \]
+\[Q = e^{P}: Q_{2n} \equiv Q_{n}(1 + P - \ln{Q_n})\;(\mathrm{mod}\; x^{2n}) \]
 \[Q = \sqrt{P}: Q_{2n} \equiv \frac{1}{2}(Q_{n} + P \cdot Q_{n}^{-1})\;(\mathrm{mod}\; x^{2n}) \]
 \[Q = P^{k} = \alpha^{k}x^{kt}e^{k\ln{T}}; P = \alpha \cdot x^{t} \cdot T, T(0) = 1 \]
+Starting values and requirements: \\
+$P^{-1}$: $Q_1 = P(0)^{-1}$, needs $P(0) \ne 0$. \\
+$\ln P$: no iteration (one inverse), needs $P(0) = 1$. \\
+$e^P$: $Q_1 = 1$, needs $P(0) = 0$. \\
+$\sqrt{P}$: $Q_1 = \sqrt{P(0)}$ (modular sqrt), compute $Q_n^{-1}$ to $2n$ terms; if $P(0) = 0$, factor out $x^{2t}$ first. \\
+$P^k$: find lowest nonzero term $\alpha x^t$; answer is $0$ if $kt \ge N$.
 
 \kactlimport{formal-power-series.hpp}
 \kactlimport{fft.hpp}
 \kactlimport{ntt.hpp}
 \kactlimport{lagrange-interpolate.hpp}
-\kactlimport[-l rawcpp]{multipoint-evaluation.hpp}
+\kactlimport{subproduct-tree.hpp}
+\kactlimport{multipoint-evaluation.hpp}
+\kactlimport{polynomial-interpolation.hpp}

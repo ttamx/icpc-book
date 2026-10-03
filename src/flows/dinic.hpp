@@ -4,7 +4,7 @@
  * Author: Teetat T.
  * Date: 2024-07-15
  * Description: Dinic's Algorithm for finding the maximum flow.
- * Time: O(V E \log U) where U is the maximum flow.
+ * Time: O(V E \log U) where U is the maximum capacity.
  */
 
 template<class T,bool directed=true,bool scaling=true>
@@ -76,7 +76,8 @@ struct Dinic{
         if(calculated)return max_flow;
         calculated=true;
         max_flow=0;
-        for(T scale=scaling?1LL<<(63-__builtin_clzll(U)):1LL;scale>0;scale>>=1){
+        T scale=scaling&&U?1LL<<(63-__builtin_clzll(U)):1LL;
+        for(;scale>0;scale>>=1){
             while(bfs(scale)){
                 ptr.assign(n,0);
                 while(true){

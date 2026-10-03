@@ -93,6 +93,7 @@ void init(int _n){
     for(int i=1;i<=n;i++)adj[i].clear();
 }
 void add_edge(int u,int v){
+    if(u==v)return;
     adj[u].emplace_back(v);
     adj[v].emplace_back(u);
 }

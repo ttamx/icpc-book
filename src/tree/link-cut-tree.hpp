@@ -68,7 +68,7 @@ struct LinkCutTree{
     void cut(int u,int v){
         evert(u);
         access(v);
-        assert(par[u]==v);
+        assert(ch[v][0]==u&&!ch[u][0]&&!ch[u][1]);
         ch[v][0]=par[u]=0;
         pull(v);
     }

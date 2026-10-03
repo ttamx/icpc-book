@@ -2,7 +2,7 @@
 
 /**
  * Author: Teetat T.
- * Description: Primitive root finder.
+ * Description: Smallest primitive root of a prime $p$.
  * Time: $O(Ans \log \phi(n) \log n)$
  */
 
@@ -26,7 +26,7 @@ int primitive_root(int p){
         }
     }
     if(n>1)fact.emplace_back(n);
-    for(int res=2;res<=p;res++){
+    for(int res=1;res<p;res++){
         bool ok=true;
         for(int i=0;i<fact.size()&&ok;i++){
             ok&=(modpow(res,phi/fact[i],p)!=1);

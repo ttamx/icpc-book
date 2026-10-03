@@ -23,7 +23,7 @@ struct NTT{
 		vm rt(n);
 		rt[1]=1;
 		for(int k=2,s=2;k<n;k*=2,s++){
-			mint z[]={1,binpow(root,MOD>>s)};
+			mint z[]={1,binpow(root,mint::get_mod()>>s)};
 			for(int i=k;i<2*k;i++)rt[i]=rt[i/2]*z[i&1];
 		}
 		vector<int> rev(n);
@@ -37,7 +37,8 @@ struct NTT{
 	}
 	static vm conv(const vm &a,const vm &b){
 		if(a.empty()||b.empty())return {};
-		int s=a.size()+b.size()-1,n=1<<(32-__builtin_clz(s));
+		int s=a.size()+b.size()-1,n=2;
+		while(n<s)n<<=1;
 		mint inv=mint(n).inv();
 		vm in1(a),in2(b),out(n);
 		in1.resize(n),in2.resize(n);

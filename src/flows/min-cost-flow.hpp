@@ -75,7 +75,7 @@ struct MinCostFlow{
             pot[v]=min(pot[v],pot[u]+e[i].cost);
         } // Bellman-Ford
         while(dijkstra(s,t)){
-            for(int i=0;i<n;i++)pot[i]+=dist[i];
+            for(int i=0;i<n;i++)if(dist[i]<CINF)pot[i]+=dist[i];
             F aug=FINF;
             for(int u=t;u!=s;u=e[pre[u]^1].to){
                 aug=min(aug,e[pre[u]].getcap());
@@ -85,7 +85,7 @@ struct MinCostFlow{
                 e[pre[u]^1].flow-=aug;
             } // push flow
             flow+=aug;
-            cost+=aug*pot[t];
+            cost+=aug*(pot[t]-pot[s]);
         }
         return {flow,cost};
     }

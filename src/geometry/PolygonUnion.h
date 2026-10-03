@@ -18,12 +18,12 @@ typedef Point<double> P;
 double rat(P a, P b) { return sgn(b.x) ? a.x/b.x : a.y/b.y; }
 double polyUnion(vector<vector<P>>& poly) {
 	double ret = 0;
-	rep(i,0,sz(poly)) rep(v,0,sz(poly[i])) {
-		P A = poly[i][v], B = poly[i][(v + 1) % sz(poly[i])];
+	for(int i=0;i<SZ(poly);i++) for(int v=0;v<SZ(poly[i]);v++) {
+		P A = poly[i][v], B = poly[i][(v + 1) % SZ(poly[i])];
 		vector<pair<double, int>> segs = {{0, 0}, {1, 0}};
-		rep(j,0,sz(poly)) if (i != j) {
-			rep(u,0,sz(poly[j])) {
-				P C = poly[j][u], D = poly[j][(u + 1) % sz(poly[j])];
+		for(int j=0;j<SZ(poly);j++) if (i != j) {
+			for(int u=0;u<SZ(poly[j]);u++) {
+				P C = poly[j][u], D = poly[j][(u + 1) % SZ(poly[j])];
 				int sc = sideOf(A, B, C), sd = sideOf(A, B, D);
 				if (sc != sd) {
 					double sa = C.cross(D, A), sb = C.cross(D, B);
@@ -35,11 +35,11 @@ double polyUnion(vector<vector<P>>& poly) {
 				}
 			}
 		}
-		sort(all(segs));
+		sort(ALL(segs));
 		for (auto& s : segs) s.first = min(max(s.first, 0.0), 1.0);
 		double sum = 0;
 		int cnt = segs[0].second;
-		rep(j,1,sz(segs)) {
+		for(int j=1;j<SZ(segs);j++) {
 			if (!cnt) sum += segs[j].first - segs[j - 1].first;
 			cnt += segs[j].second;
 		}
