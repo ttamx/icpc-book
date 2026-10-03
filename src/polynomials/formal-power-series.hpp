@@ -12,55 +12,55 @@ struct FormalPowerSeries:vector<mint>{
     using vector<mint>::vector;
     using FPS = FormalPowerSeries;
 
-    FPS &operator+=(const FPS &rhs){
-        if(rhs.size()>this->size())this->resize(rhs.size());
-        for(int i=0;i<rhs.size();i++)(*this)[i]+=rhs[i];
+    FPS &operator+=(const FPS &r){
+        if(r.size()>this->size())this->resize(r.size());
+        for(int i=0;i<r.size();i++)(*this)[i]+=r[i];
         return *this;
     }
-    FPS &operator+=(const mint &rhs){
+    FPS &operator+=(const mint &r){
         if(this->empty())this->resize(1);
-        (*this)[0]+=rhs;
+        (*this)[0]+=r;
         return *this;
     }
-    FPS &operator-=(const FPS &rhs){
-        if(rhs.size()>this->size())this->resize(rhs.size());
-        for(int i=0;i<rhs.size();i++)(*this)[i]-=rhs[i];
+    FPS &operator-=(const FPS &r){
+        if(r.size()>this->size())this->resize(r.size());
+        for(int i=0;i<r.size();i++)(*this)[i]-=r[i];
         return *this;
     }
-    FPS &operator-=(const mint &rhs){
+    FPS &operator-=(const mint &r){
         if(this->empty())this->resize(1);
-        (*this)[0]-=rhs;
+        (*this)[0]-=r;
         return *this;
     }
-    FPS &operator*=(const FPS &rhs){
-        auto res=NTT<mint>()(*this,rhs);
+    FPS &operator*=(const FPS &r){
+        auto res=NTT<mint>()(*this,r);
         return *this=FPS(res.begin(),res.end());
     }
-    FPS &operator*=(const mint &rhs){
-        for(auto &a:*this)a*=rhs;
+    FPS &operator*=(const mint &r){
+        for(auto &a:*this)a*=r;
         return *this;
     }
-    FPS &operator/=(const FPS &rhs){ // rhs.back()!=0
-        if(this->size()<rhs.size())return *this=FPS();
-        int n=this->size()-rhs.size()+1;
-        return *this=(rev().pre(n)*rhs.rev().inv(n)).pre(n).rev();
+    FPS &operator/=(const FPS &r){ // r.back()!=0
+        if(this->size()<r.size())return *this=FPS();
+        int n=this->size()-r.size()+1;
+        return *this=(rev().pre(n)*r.rev().inv(n)).pre(n).rev();
     }
-    FPS &operator%=(const FPS &rhs){
-        *this-=*this/rhs*rhs;
-        return *this=pre(rhs.size()-1).shrink();
+    FPS &operator%=(const FPS &r){
+        *this-=*this/r*r;
+        return *this=pre(r.size()-1).shrink();
     }
 
-    friend FPS operator+(FPS lhs,const FPS &rhs){return lhs+=rhs;}
-    friend FPS operator+(FPS lhs,const mint &rhs){return lhs+=rhs;}
-    friend FPS operator+(const mint &lhs,FPS rhs){return rhs+=lhs;}
-    friend FPS operator-(FPS lhs,const FPS &rhs){return lhs-=rhs;}
-    friend FPS operator-(FPS lhs,const mint &rhs){return lhs-=rhs;}
-    friend FPS operator-(const mint &lhs,FPS rhs){return -(rhs-lhs);}
-    friend FPS operator*(FPS lhs,const FPS &rhs){return lhs*=rhs;}
-    friend FPS operator*(FPS lhs,const mint &rhs){return lhs*=rhs;}
-    friend FPS operator*(const mint &lhs,FPS rhs){return rhs*=lhs;}
-    friend FPS operator/(FPS lhs,const FPS &rhs){return lhs/=rhs;}
-    friend FPS operator%(FPS lhs,const FPS &rhs){return lhs%=rhs;}
+    friend FPS operator+(FPS l,const FPS &r){return l+=r;}
+    friend FPS operator+(FPS l,const mint &r){return l+=r;}
+    friend FPS operator+(const mint &l,FPS r){return r+=l;}
+    friend FPS operator-(FPS l,const FPS &r){return l-=r;}
+    friend FPS operator-(FPS l,const mint &r){return l-=r;}
+    friend FPS operator-(const mint &l,FPS r){return -(r-l);}
+    friend FPS operator*(FPS l,const FPS &r){return l*=r;}
+    friend FPS operator*(FPS l,const mint &r){return l*=r;}
+    friend FPS operator*(const mint &l,FPS r){return r*=l;}
+    friend FPS operator/(FPS l,const FPS &r){return l/=r;}
+    friend FPS operator%(FPS l,const FPS &r){return l%=r;}
 
     FPS operator-()const{return (*this)*-1;}
 

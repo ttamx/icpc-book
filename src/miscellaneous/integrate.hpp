@@ -13,8 +13,7 @@ db quad(db a,db b,const F &f,int n){
     db fl=0,fr=f(a);
     for(int i=0;i<n;i++){
         db l=a+dx*i,r=l+dx;
-        fl=fr;
-        fr=f(r);
+        fl=fr,fr=f(r);
         db fm=f((l+r)/2);
         res+=fl+4*fm+fr;
     }

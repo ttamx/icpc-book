@@ -7,7 +7,7 @@
  * probability proportional to size, so no priorities are stored and
  * subtrees can be shared: with P=true every write clones the node
  * first (persistent treap, old roots stay valid). The instance must be
- * global; N must cover all clones (about $O(\log n)$ per op if P).
+ * global; N must cover all clones (about $2\ln n$ per op if P).
  * Usage:
  *  Treap<N,ll> T; int root=0; // or Treap<N,ll,true> (persistent)
  *  root=T.merge(root,T.make(x)); // push back x
@@ -31,7 +31,7 @@ struct Treap{
         sz=t[l].sz+1+t[r].sz;
         sum=t[l].sum+val+t[r].sum;
     }
-    void flip(int &u){ // lazily reverse subtree u
+    void flip(int &u){
         if(!u)return;
         u=cp(u),swap(t[u].l,t[u].r),t[u].rev^=1;
     }
@@ -39,7 +39,6 @@ struct Treap{
         if(t[u].rev)flip(t[u].l),flip(t[u].r),t[u].rev=0;
     }
     // first k elements | rest
-    // (BST by value: go left iff val>=k, recurse right with k)
     pair<int,int> split(int u,int k){
         if(!u)return {0,0};
         u=cp(u),push(u);
@@ -62,19 +61,5 @@ struct Treap{
         b=cp(b),push(b);
         t[b].l=merge(a,t[b].l),pull(b);
         return b;
-    }
-    // examples: reverse / sum of [l,r), return new root
-    int reverse(int u,int l,int r){
-        auto [a,bc]=split(u,l);
-        auto [b,c]=split(bc,r-l);
-        flip(b);
-        return merge(a,merge(b,c));
-    }
-    T query(int &u,int l,int r){
-        auto [a,bc]=split(u,l);
-        auto [b,c]=split(bc,r-l);
-        T res=t[b].sum;
-        u=merge(a,merge(b,c));
-        return res;
     }
 };

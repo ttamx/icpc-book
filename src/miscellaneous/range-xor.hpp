@@ -8,18 +8,9 @@
 
 template<class F>
 void range_xor(ll p,ll l,ll r,const F &query){
-    for(int i=0;l<r;i++){
-        ll b=1LL<<i;
-        if(l&b){
-            query(l^p,(l^p)+b);
-            l+=b;
-        }
-        if(r&b){
-            r-=b;
-            query(r^p,(r^p)+b);
-        }
-        if(p&b){
-            p^=b;
-        }
+    for(ll b=1;l<r;b<<=1){
+        if(l&b)query(l^p,(l^p)+b),l+=b;
+        if(r&b)r-=b,query(r^p,(r^p)+b);
+        if(p&b)p^=b;
     }
 }
