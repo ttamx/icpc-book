@@ -2,72 +2,67 @@ name: verify
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
+
+permissions:
+  contents: write
+
+env:
+  GIT_AUTHOR_NAME: github-actions[bot]
+  GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+  GIT_COMMITTER_NAME: github-actions[bot]
+  GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+  # save FILE MSG BRANCH: commit FILE if changed, push with retries
+  SAVE: |
+    save() {
+      git add "$1" && git commit -qm "$2" || return 0
+      for i in 1 2 3 4 5; do
+        git pull -q --rebase origin "$3" && git push -q origin "HEAD:$3" && return
+        sleep $((5*i))
+      done
+      return 1
+    }
 
 jobs:
-  build:
-
+  pdf:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
+    - run: sudo apt-get update && sudo apt-get install -y texlive-latex-extra texlive-fonts-recommended
+    - run: make kactl
+    - uses: actions/upload-artifact@v4
+      with: {name: pdf, path: kactl.pdf}
+    - if: github.event_name == 'push'
+      run: eval "$SAVE"; save kactl.pdf "build PDF" main
 
-    # Verify code
-
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.x'
-        cache: 'pip'
-    
-    - name: Install dependencies
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with: {fetch-depth: 0}
+    - uses: actions/setup-python@v5
+      with: {python-version: '3.x', cache: pip}
+    - run: pip install -r requirements.txt "setuptools<81"
+    - run: oj-verify run  # no GITHUB_TOKEN, so it doesn't push by itself
+    - if: always() && github.event_name == 'push'
+      env: {GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}', GH_PAT: idk}
       run: |
-        pip install -U pip
-        pip install -r requirements.txt
-        pip install "setuptools<81"
+        eval "$SAVE"
+        save .verify-helper/timestamps.remote.json "[auto-verifier] verify commit $GITHUB_SHA" main
+        oj-verify docs  # rewrites gh-pages and leaves it checked out
+        sed -i '/^exclude:/,/^[^[:space:]].*:/{/^exclude:/d;/^[^[:space:]].*:/!d}' _config.yml
+        save _config.yml "clean up _config.yml" gh-pages
 
-    - run: oj-verify all
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GH_PAT: idk
-    
-    # clean up _config.yml by removing exclude section (idk why it broke when have exclude)
-    - name: Clean up _config.yml
-      run: |
-        sed -i -e '/^exclude:/,/^[^[:space:]].*:/ { /^exclude:/d; /^[^[:space:]].*:/!d }' _config.yml
-    
-    - name: Commit changes
-      uses: stefanzweifel/git-auto-commit-action@v5
-      with:
-        commit_message: "clean up _config.yml"
-        branch: gh-pages
-    
-    - run: git switch main
-    
-    # Build PDF
-
-    - name: Install pdflatex
-      run: sudo apt-get install texlive-latex-base texlive-latex-recommended texlive-latex-extra
-
-    - name: Build pdf
-      run: make kactl
-
-    - name: Commit changes
-      uses: stefanzweifel/git-auto-commit-action@v5
-      with:
-        commit_message: "build PDF"
-        branch: main
-
-    - name: Copy PDF to pages
-      run: |
-        DIR=$(mktemp -d)
-        cp kactl.pdf $DIR/kactl.pdf
-        git switch gh-pages
-        cp $DIR/kactl.pdf .
-        git add .
-        git commit -m "Update kactl.pdf"
-        git push
+  # after docs, which wipe gh-pages
+  pages:
+    needs: [pdf, verify]
+    if: always() && needs.pdf.result == 'success' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with: {ref: gh-pages}
+    - uses: actions/download-artifact@v4
+      with: {name: pdf}
+    - run: eval "$SAVE"; save kactl.pdf "Update kactl.pdf" gh-pages
