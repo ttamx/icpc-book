@@ -7,38 +7,14 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/number-theory/montgomery-modint.hpp
     title: src/number-theory/montgomery-modint.hpp
-  _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: src/polynomials/formal-power-series.hpp
-    title: src/polynomials/formal-power-series.hpp
-  - icon: ':heavy_check_mark:'
-    path: src/polynomials/linear-recurrence.hpp
-    title: src/polynomials/linear-recurrence.hpp
-  - icon: ':heavy_check_mark:'
-    path: src/polynomials/multipoint-evaluation.hpp
-    title: src/polynomials/multipoint-evaluation.hpp
-  - icon: ':heavy_check_mark:'
-    path: src/polynomials/polynomial-interpolation.hpp
-    title: src/polynomials/polynomial-interpolation.hpp
-  - icon: ':heavy_check_mark:'
-    path: src/polynomials/subproduct-tree.hpp
-    title: src/polynomials/subproduct-tree.hpp
-  - icon: ':heavy_check_mark:'
-    path: src/polynomials/taylor-shift.hpp
-    title: src/polynomials/taylor-shift.hpp
+    path: src/polynomials/ntt.hpp
+    title: src/polynomials/ntt.hpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
-    title: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
-    title: verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
-    title: verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -107,48 +83,53 @@ data:
     \t\tvm in1(a),in2(b),out(n);\n\t\tin1.resize(n),in2.resize(n);\n\t\tntt(in1),ntt(in2);\n\
     \t\tfor(int i=0;i<n;i++)out[-i&(n-1)]=in1[i]*in2[i]*inv;\n\t\tntt(out);\n\t\t\
     return vm(out.begin(),out.begin()+s);\n\t}\n\tvm operator()(const vm &a,const\
-    \ vm &b){\n\t\treturn conv(a,b);\n\t}\n};\n\n"
-  code: "#pragma once\n#include \"src/number-theory/binpow.hpp\"\n#include \"src/number-theory/montgomery-modint.hpp\"\
-    \n\n/**\n * Author: Teetat T.\n * Description: Number Theoretic Transform\n *\
-    \ Time: $O(N \\log N)$\n */\n\n// For p < 2^30 there is also e.g. 5 << 25, 7 <<\
-    \ 26, 479 << 21\n// and 483 << 21 (same root = 62). The last two are > 10^9.\n\
-    \ntemplate<class mint>\nstruct NTT{\n\tusing vm = vector<mint>;\n\t\n\tstatic\
-    \ constexpr mint root=mint::get_root();\n    static_assert(root!=0);\n\n\tstatic\
-    \ void ntt(vm &a){\n\t\tint n=a.size(),L=31-__builtin_clz(n);\n\t\tvm rt(n);\n\
-    \t\trt[1]=1;\n\t\tfor(int k=2,s=2;k<n;k*=2,s++){\n\t\t\tmint z[]={1,binpow(root,mint::get_mod()>>s)};\n\
-    \t\t\tfor(int i=k;i<2*k;i++)rt[i]=rt[i/2]*z[i&1];\n\t\t}\n\t\tvector<int> rev(n);\n\
-    \t\tfor(int i=1;i<n;i++)rev[i]=(rev[i/2]|(i&1)<<L)/2;\n\t\tfor(int i=1;i<n;i++)if(i<rev[i])swap(a[i],a[rev[i]]);\n\
-    \t\tfor(int k=1;k<n;k*=2)for(int i=0;i<n;i+=2*k)for(int j=0;j<k;j++){\n\t\t\t\
-    mint z=rt[j+k]*a[i+j+k];\n\t\t\ta[i+j+k]=a[i+j]-z;\n\t\t\ta[i+j]+=z;\n\t\t}\n\t\
-    }\n\tstatic vm conv(const vm &a,const vm &b){\n\t\tif(a.empty()||b.empty())return\
-    \ {};\n\t\tint s=a.size()+b.size()-1,n=2;\n\t\twhile(n<s)n<<=1;\n\t\tmint inv=mint(n).inv();\n\
-    \t\tvm in1(a),in2(b),out(n);\n\t\tin1.resize(n),in2.resize(n);\n\t\tntt(in1),ntt(in2);\n\
-    \t\tfor(int i=0;i<n;i++)out[-i&(n-1)]=in1[i]*in2[i]*inv;\n\t\tntt(out);\n\t\t\
-    return vm(out.begin(),out.begin()+s);\n\t}\n\tvm operator()(const vm &a,const\
-    \ vm &b){\n\t\treturn conv(a,b);\n\t}\n};\n\n"
+    \ vm &b){\n\t\treturn conv(a,b);\n\t}\n};\n\n#line 3 \"src/polynomials/linear-recurrence.hpp\"\
+    \n\n/**\n * Author: Teetat T.\n * Description: $k$-th term of $a_i = \\sum_{j=1}^{L}\
+    \ c_{j-1} a_{i-j}$\n * given $a_0, \\dots, a_{L-1}$ (Bostan-Mori, $a_k = [x^k]\
+    \ P/Q$).\n * Given only the first $2L$ terms $s$, combine with Berlekamp-Massey.\n\
+    \ * Usage: linear_recurrence<mint>({0,1},{1,1},10) // 55\n * linear_recurrence(s,berlekamp_massey(s),k)\n\
+    \ * Time: $O(L \\log L \\log k)$\n */\n\ntemplate<class mint>\nmint linear_recurrence(const\
+    \ vector<mint> &a,\n    const vector<mint> &c,ll k){\n    if(k<SZ(a))return a[k];\n\
+    \    int L=SZ(c),n=2,h;\n    if(!L)return 0;\n    while(n<=2*L)n*=2;\n    h=n/2;\n\
+    \    vector<mint> P(n),Q(n),A(n),B(n);\n    Q[0]=1;\n    for(int i=0;i<L;i++)Q[i+1]=-c[i];\n\
+    \    auto t=NTT<mint>::conv(vector<mint>(a.begin(),\n        a.begin()+L),vector<mint>(Q.begin(),Q.begin()+L+1));\n\
+    \    copy(t.begin(),t.begin()+L,P.begin());\n    mint iv=mint(n).inv();\n    for(;k;k>>=1){\n\
+    \        NTT<mint>::ntt(P),NTT<mint>::ntt(Q);\n        for(int i=0;i<n;i++){ //\
+    \ Q(-x) <-> index i^h\n            A[-i&(n-1)]=P[i]*Q[i^h]*iv;\n            B[-i&(n-1)]=Q[i]*Q[i^h]*iv;\n\
+    \        }\n        NTT<mint>::ntt(A),NTT<mint>::ntt(B);\n        fill(ALL(P),0),fill(ALL(Q),0);\n\
+    \        for(int i=0;i<L;i++)P[i]=A[2*i+(k&1)];\n        for(int i=0;i<=L;i++)Q[i]=B[2*i];\n\
+    \    }\n    return P[0];\n}\n"
+  code: "#pragma once\n#include \"src/polynomials/ntt.hpp\"\n\n/**\n * Author: Teetat\
+    \ T.\n * Description: $k$-th term of $a_i = \\sum_{j=1}^{L} c_{j-1} a_{i-j}$\n\
+    \ * given $a_0, \\dots, a_{L-1}$ (Bostan-Mori, $a_k = [x^k] P/Q$).\n * Given only\
+    \ the first $2L$ terms $s$, combine with Berlekamp-Massey.\n * Usage: linear_recurrence<mint>({0,1},{1,1},10)\
+    \ // 55\n * linear_recurrence(s,berlekamp_massey(s),k)\n * Time: $O(L \\log L\
+    \ \\log k)$\n */\n\ntemplate<class mint>\nmint linear_recurrence(const vector<mint>\
+    \ &a,\n    const vector<mint> &c,ll k){\n    if(k<SZ(a))return a[k];\n    int\
+    \ L=SZ(c),n=2,h;\n    if(!L)return 0;\n    while(n<=2*L)n*=2;\n    h=n/2;\n  \
+    \  vector<mint> P(n),Q(n),A(n),B(n);\n    Q[0]=1;\n    for(int i=0;i<L;i++)Q[i+1]=-c[i];\n\
+    \    auto t=NTT<mint>::conv(vector<mint>(a.begin(),\n        a.begin()+L),vector<mint>(Q.begin(),Q.begin()+L+1));\n\
+    \    copy(t.begin(),t.begin()+L,P.begin());\n    mint iv=mint(n).inv();\n    for(;k;k>>=1){\n\
+    \        NTT<mint>::ntt(P),NTT<mint>::ntt(Q);\n        for(int i=0;i<n;i++){ //\
+    \ Q(-x) <-> index i^h\n            A[-i&(n-1)]=P[i]*Q[i^h]*iv;\n            B[-i&(n-1)]=Q[i]*Q[i^h]*iv;\n\
+    \        }\n        NTT<mint>::ntt(A),NTT<mint>::ntt(B);\n        fill(ALL(P),0),fill(ALL(Q),0);\n\
+    \        for(int i=0;i<L;i++)P[i]=A[2*i+(k&1)];\n        for(int i=0;i<=L;i++)Q[i]=B[2*i];\n\
+    \    }\n    return P[0];\n}\n"
   dependsOn:
+  - src/polynomials/ntt.hpp
   - src/number-theory/binpow.hpp
   - src/number-theory/montgomery-modint.hpp
   isVerificationFile: false
-  path: src/polynomials/ntt.hpp
-  requiredBy:
-  - src/polynomials/taylor-shift.hpp
-  - src/polynomials/polynomial-interpolation.hpp
-  - src/polynomials/subproduct-tree.hpp
-  - src/polynomials/formal-power-series.hpp
-  - src/polynomials/linear-recurrence.hpp
-  - src/polynomials/multipoint-evaluation.hpp
+  path: src/polynomials/linear-recurrence.hpp
+  requiredBy: []
   timestamp: '2026-10-04 00:49:42+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
   - verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
-  - verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
-documentation_of: src/polynomials/ntt.hpp
+documentation_of: src/polynomials/linear-recurrence.hpp
 layout: document
 redirect_from:
-- /library/src/polynomials/ntt.hpp
-- /library/src/polynomials/ntt.hpp.html
-title: src/polynomials/ntt.hpp
+- /library/src/polynomials/linear-recurrence.hpp
+- /library/src/polynomials/linear-recurrence.hpp.html
+title: src/polynomials/linear-recurrence.hpp
 ---

@@ -13,20 +13,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/polynomials/ntt.hpp
     title: src/polynomials/ntt.hpp
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: src/polynomials/multipoint-evaluation.hpp
-    title: src/polynomials/multipoint-evaluation.hpp
-  - icon: ':heavy_check_mark:'
-    path: src/polynomials/polynomial-interpolation.hpp
-    title: src/polynomials/polynomial-interpolation.hpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
-    title: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
-    title: verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
+    path: verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
+    title: verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -154,43 +145,40 @@ data:
     \ FPS(deg,mint(0));\n            if((*this)[i]==mint(0))continue;\n          \
     \  mint rev=mint(1)/(*this)[i];\n            FPS res=(((*this*rev)>>i).log(deg)*k).exp(deg);\n\
     \            res=((res*binpow((*this)[i],k))<<(i*k)).pre(deg);\n            return\
-    \ res;\n        }\n        return FPS(deg,mint(0));\n    }\n};\n#line 3 \"src/polynomials/subproduct-tree.hpp\"\
-    \n\n/**\n * Author: Teetat T.\n * Description: Subproduct tree of points $x_0,\
-    \ \\dots, x_{m-1}$.\n * Node $i$ covers $[l, r)$ and stores $\\prod_{l \\le j\
-    \ < r} (x - x_j)$, root is node $1$.\n * Time: $O(M \\log^2 M)$\n */\n\ntemplate<class\
-    \ mint>\nstruct SubproductTree{\n    int m;\n    vector<mint> xs;\n    vector<FormalPowerSeries<mint>>\
-    \ t;\n    SubproductTree(const vector<mint> &xs)\n        :m(xs.size()),xs(xs),t(4*m){if(m)build(1,0,m);}\n\
-    \    void build(int i,int l,int r){\n        if(r-l==1)return void(t[i]={-xs[l],1});\n\
-    \        int mid=(l+r)/2;\n        build(2*i,l,mid),build(2*i+1,mid,r);\n    \
-    \    t[i]=t[2*i]*t[2*i+1];\n    }\n};\n"
+    \ res;\n        }\n        return FPS(deg,mint(0));\n    }\n};\n#line 3 \"src/polynomials/taylor-shift.hpp\"\
+    \n\n/**\n * Author: Teetat T.\n * Description: Given $f(x)$, returns $f(x+c)$.\
+    \ Needs $N < $ mod.\n * Time: $O(N \\log N)$\n */\n\ntemplate<class mint>\nFormalPowerSeries<mint>\
+    \ taylor_shift(\n    FormalPowerSeries<mint> f,mint c){\n    int n=SZ(f);\n  \
+    \  if(!n)return f;\n    vector<mint> fac(n,1),ifac(n),b(n);\n    for(int i=1;i<n;i++)fac[i]=fac[i-1]*mint(i);\n\
+    \    ifac[n-1]=fac[n-1].inv();\n    for(int i=n-1;i>0;i--)ifac[i-1]=ifac[i]*mint(i);\n\
+    \    mint p=1;\n    for(int i=0;i<n;i++){\n        f[i]*=fac[i],b[i]=p*ifac[i],p*=c;\n\
+    \    }\n    reverse(ALL(f));\n    auto g=NTT<mint>::conv(f,b);\n    for(int i=0;i<n;i++)f[i]=g[n-1-i]*ifac[i];\n\
+    \    return f;\n}\n"
   code: "#pragma once\n#include \"src/polynomials/formal-power-series.hpp\"\n\n/**\n\
-    \ * Author: Teetat T.\n * Description: Subproduct tree of points $x_0, \\dots,\
-    \ x_{m-1}$.\n * Node $i$ covers $[l, r)$ and stores $\\prod_{l \\le j < r} (x\
-    \ - x_j)$, root is node $1$.\n * Time: $O(M \\log^2 M)$\n */\n\ntemplate<class\
-    \ mint>\nstruct SubproductTree{\n    int m;\n    vector<mint> xs;\n    vector<FormalPowerSeries<mint>>\
-    \ t;\n    SubproductTree(const vector<mint> &xs)\n        :m(xs.size()),xs(xs),t(4*m){if(m)build(1,0,m);}\n\
-    \    void build(int i,int l,int r){\n        if(r-l==1)return void(t[i]={-xs[l],1});\n\
-    \        int mid=(l+r)/2;\n        build(2*i,l,mid),build(2*i+1,mid,r);\n    \
-    \    t[i]=t[2*i]*t[2*i+1];\n    }\n};\n"
+    \ * Author: Teetat T.\n * Description: Given $f(x)$, returns $f(x+c)$. Needs $N\
+    \ < $ mod.\n * Time: $O(N \\log N)$\n */\n\ntemplate<class mint>\nFormalPowerSeries<mint>\
+    \ taylor_shift(\n    FormalPowerSeries<mint> f,mint c){\n    int n=SZ(f);\n  \
+    \  if(!n)return f;\n    vector<mint> fac(n,1),ifac(n),b(n);\n    for(int i=1;i<n;i++)fac[i]=fac[i-1]*mint(i);\n\
+    \    ifac[n-1]=fac[n-1].inv();\n    for(int i=n-1;i>0;i--)ifac[i-1]=ifac[i]*mint(i);\n\
+    \    mint p=1;\n    for(int i=0;i<n;i++){\n        f[i]*=fac[i],b[i]=p*ifac[i],p*=c;\n\
+    \    }\n    reverse(ALL(f));\n    auto g=NTT<mint>::conv(f,b);\n    for(int i=0;i<n;i++)f[i]=g[n-1-i]*ifac[i];\n\
+    \    return f;\n}\n"
   dependsOn:
   - src/polynomials/formal-power-series.hpp
   - src/polynomials/ntt.hpp
   - src/number-theory/binpow.hpp
   - src/number-theory/montgomery-modint.hpp
   isVerificationFile: false
-  path: src/polynomials/subproduct-tree.hpp
-  requiredBy:
-  - src/polynomials/polynomial-interpolation.hpp
-  - src/polynomials/multipoint-evaluation.hpp
+  path: src/polynomials/taylor-shift.hpp
+  requiredBy: []
   timestamp: '2026-10-04 00:49:42+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
-  - verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
-documentation_of: src/polynomials/subproduct-tree.hpp
+  - verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
+documentation_of: src/polynomials/taylor-shift.hpp
 layout: document
 redirect_from:
-- /library/src/polynomials/subproduct-tree.hpp
-- /library/src/polynomials/subproduct-tree.hpp.html
-title: src/polynomials/subproduct-tree.hpp
+- /library/src/polynomials/taylor-shift.hpp
+- /library/src/polynomials/taylor-shift.hpp.html
+title: src/polynomials/taylor-shift.hpp
 ---

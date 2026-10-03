@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: src/contest/template.hpp
+    title: src/contest/template.hpp
+  - icon: ':heavy_check_mark:'
     path: src/number-theory/binpow.hpp
     title: src/number-theory/binpow.hpp
   - icon: ':heavy_check_mark:'
@@ -13,43 +16,57 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/polynomials/ntt.hpp
     title: src/polynomials/ntt.hpp
-  _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: src/polynomials/multipoint-evaluation.hpp
-    title: src/polynomials/multipoint-evaluation.hpp
-  - icon: ':heavy_check_mark:'
-    path: src/polynomials/polynomial-interpolation.hpp
-    title: src/polynomials/polynomial-interpolation.hpp
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
-    title: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
-    title: verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
+    path: src/polynomials/taylor-shift.hpp
+    title: src/polynomials/taylor-shift.hpp
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: hpp
+  _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links: []
-  bundledCode: "#line 2 \"src/number-theory/binpow.hpp\"\n\n/**\n * Author: Teetat\
-    \ T.\n * Date: 2024-01-15\n * Description: n-th power using divide and conquer\n\
-    \ * Time: $O(\\log b)$\n */\n\ntemplate<class T>\nconstexpr T binpow(T a,ll b){\n\
-    \    T res=1;\n    for(;b>0;b>>=1,a*=a)if(b&1)res*=a;\n    return res;\n}\n\n\
-    #line 2 \"src/number-theory/montgomery-modint.hpp\"\n\n/**\n * Author: Teetat\
-    \ T.\n * Date: 2024-03-17\n * Description: modular arithmetic operators using\
-    \ Montgomery space\n */\n\ntemplate<uint32_t mod,uint32_t root=0>\nstruct MontgomeryModInt{\n\
-    \    using mint = MontgomeryModInt;\n    using i32 = int32_t;\n    using u32 =\
-    \ uint32_t;\n    using u64 = uint64_t;\n\n    static constexpr u32 get_r(){\n\
-    \        u32 res=1;\n        for(i32 i=0;i<5;i++)res*=2-mod*res;\n        return\
-    \ res;\n    }\n\n    static const u32 r=get_r();\n    static const u32 n2=-u64(mod)%mod;\n\
-    \    static_assert(mod<(1<<30));\n    static_assert((mod&1)==1);\n    static_assert(r*mod==1);\n\
-    \n    u32 x;\n\n    constexpr MontgomeryModInt():x(0){}\n    constexpr MontgomeryModInt(const\
-    \ int64_t &v):x(reduce(u64(v%mod+mod)*n2)){}\n\n    static constexpr u32 get_mod(){return\
-    \ mod;}\n    static constexpr mint get_root(){return mint(root);}\n    explicit\
-    \ constexpr operator int64_t()const{return val();}\n\n    static constexpr u32\
-    \ reduce(const u64 &v){\n        return (v+u64(u32(v)*u32(-r))*mod)>>32;\n   \
-    \ }\n\n    constexpr u32 val()const{\n        u32 res=reduce(x);\n        return\
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/polynomial_taylor_shift
+    links:
+    - https://judge.yosupo.jp/problem/polynomial_taylor_shift
+  bundledCode: "#line 1 \"verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/polynomial_taylor_shift\"\n\
+    #line 2 \"src/contest/template.hpp\"\n#include<bits/stdc++.h>\n#include<ext/pb_ds/assoc_container.hpp>\n\
+    #include<ext/pb_ds/tree_policy.hpp>\n \nusing namespace std;\nusing namespace\
+    \ __gnu_pbds;\n\n#define pb push_back\n#define eb emplace_back\n\n#define ALL(a)\
+    \ a.begin(),a.end()\n#define RALL(a) a.rbegin(),a.rend()\n#define SORT(a) sort(ALL(a))\n\
+    #define RSORT(a) sort(RALL(a))\n#define REV(a) reverse(ALL(a))\n#define UNI(a)\
+    \ a.erase(unique(ALL(a)),a.end())\n#define SZ(a) (int)(a.size())\n#define LB(a,x)\
+    \ (int)(lower_bound(ALL(a),x)-a.begin())\n#define UB(a,x) (int)(upper_bound(ALL(a),x)-a.begin())\n\
+    #define MIN(a) *min_element(ALL(a))\n#define MAX(a) *max_element(ALL(a))\n\nusing\
+    \ ll = long long;\nusing db = long double;\nusing i128 = __int128_t;\nusing u32\
+    \ = uint32_t;\nusing u64 = uint64_t;\n\nconst int INF=INT_MAX/2;\nconst ll LINF=LLONG_MAX/4;\n\
+    const db DINF=numeric_limits<db>::infinity();\nconst int MOD=998244353;\nconst\
+    \ int MOD2=1000000007;\nconst db EPS=1e-9;\nconst db PI=acos(db(-1));\n\ntemplate<class\
+    \ T>\nusing PQ = priority_queue<T,vector<T>,greater<T>>;\n\ntemplate<class T,class\
+    \ U>\nbool chmin(T &a,U b){return b<a?a=b,1:0;}\ntemplate<class T,class U>\nbool\
+    \ chmax(T &a,U b){return a<b?a=b,1:0;}\ntemplate<class T,class U>\nT SUM(const\
+    \ U &a){return accumulate(ALL(a),T{});}\n\ntemplate<class T>\nusing ordered_set\
+    \ = tree<T,null_type,less<T>,rb_tree_tag,tree_order_statistics_node_update>;\n\
+    \nmt19937 rng(chrono::steady_clock::now().time_since_epoch().count());\nmt19937_64\
+    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 2 \"src/number-theory/binpow.hpp\"\
+    \n\n/**\n * Author: Teetat T.\n * Date: 2024-01-15\n * Description: n-th power\
+    \ using divide and conquer\n * Time: $O(\\log b)$\n */\n\ntemplate<class T>\n\
+    constexpr T binpow(T a,ll b){\n    T res=1;\n    for(;b>0;b>>=1,a*=a)if(b&1)res*=a;\n\
+    \    return res;\n}\n\n#line 2 \"src/number-theory/montgomery-modint.hpp\"\n\n\
+    /**\n * Author: Teetat T.\n * Date: 2024-03-17\n * Description: modular arithmetic\
+    \ operators using Montgomery space\n */\n\ntemplate<uint32_t mod,uint32_t root=0>\n\
+    struct MontgomeryModInt{\n    using mint = MontgomeryModInt;\n    using i32 =\
+    \ int32_t;\n    using u32 = uint32_t;\n    using u64 = uint64_t;\n\n    static\
+    \ constexpr u32 get_r(){\n        u32 res=1;\n        for(i32 i=0;i<5;i++)res*=2-mod*res;\n\
+    \        return res;\n    }\n\n    static const u32 r=get_r();\n    static const\
+    \ u32 n2=-u64(mod)%mod;\n    static_assert(mod<(1<<30));\n    static_assert((mod&1)==1);\n\
+    \    static_assert(r*mod==1);\n\n    u32 x;\n\n    constexpr MontgomeryModInt():x(0){}\n\
+    \    constexpr MontgomeryModInt(const int64_t &v):x(reduce(u64(v%mod+mod)*n2)){}\n\
+    \n    static constexpr u32 get_mod(){return mod;}\n    static constexpr mint get_root(){return\
+    \ mint(root);}\n    explicit constexpr operator int64_t()const{return val();}\n\
+    \n    static constexpr u32 reduce(const u64 &v){\n        return (v+u64(u32(v)*u32(-r))*mod)>>32;\n\
+    \    }\n\n    constexpr u32 val()const{\n        u32 res=reduce(x);\n        return\
     \ res>=mod?res-mod:res;\n    }\n\n    constexpr mint inv()const{\n        int\
     \ a=val(),b=mod,u=1,v=0,q=0;\n        while(b>0){\n            q=a/b;\n      \
     \      a-=q*b;\n            u-=q*v;\n            swap(a,b);\n            swap(u,v);\n\
@@ -154,43 +171,42 @@ data:
     \ FPS(deg,mint(0));\n            if((*this)[i]==mint(0))continue;\n          \
     \  mint rev=mint(1)/(*this)[i];\n            FPS res=(((*this*rev)>>i).log(deg)*k).exp(deg);\n\
     \            res=((res*binpow((*this)[i],k))<<(i*k)).pre(deg);\n            return\
-    \ res;\n        }\n        return FPS(deg,mint(0));\n    }\n};\n#line 3 \"src/polynomials/subproduct-tree.hpp\"\
-    \n\n/**\n * Author: Teetat T.\n * Description: Subproduct tree of points $x_0,\
-    \ \\dots, x_{m-1}$.\n * Node $i$ covers $[l, r)$ and stores $\\prod_{l \\le j\
-    \ < r} (x - x_j)$, root is node $1$.\n * Time: $O(M \\log^2 M)$\n */\n\ntemplate<class\
-    \ mint>\nstruct SubproductTree{\n    int m;\n    vector<mint> xs;\n    vector<FormalPowerSeries<mint>>\
-    \ t;\n    SubproductTree(const vector<mint> &xs)\n        :m(xs.size()),xs(xs),t(4*m){if(m)build(1,0,m);}\n\
-    \    void build(int i,int l,int r){\n        if(r-l==1)return void(t[i]={-xs[l],1});\n\
-    \        int mid=(l+r)/2;\n        build(2*i,l,mid),build(2*i+1,mid,r);\n    \
-    \    t[i]=t[2*i]*t[2*i+1];\n    }\n};\n"
-  code: "#pragma once\n#include \"src/polynomials/formal-power-series.hpp\"\n\n/**\n\
-    \ * Author: Teetat T.\n * Description: Subproduct tree of points $x_0, \\dots,\
-    \ x_{m-1}$.\n * Node $i$ covers $[l, r)$ and stores $\\prod_{l \\le j < r} (x\
-    \ - x_j)$, root is node $1$.\n * Time: $O(M \\log^2 M)$\n */\n\ntemplate<class\
-    \ mint>\nstruct SubproductTree{\n    int m;\n    vector<mint> xs;\n    vector<FormalPowerSeries<mint>>\
-    \ t;\n    SubproductTree(const vector<mint> &xs)\n        :m(xs.size()),xs(xs),t(4*m){if(m)build(1,0,m);}\n\
-    \    void build(int i,int l,int r){\n        if(r-l==1)return void(t[i]={-xs[l],1});\n\
-    \        int mid=(l+r)/2;\n        build(2*i,l,mid),build(2*i+1,mid,r);\n    \
-    \    t[i]=t[2*i]*t[2*i+1];\n    }\n};\n"
+    \ res;\n        }\n        return FPS(deg,mint(0));\n    }\n};\n#line 3 \"src/polynomials/taylor-shift.hpp\"\
+    \n\n/**\n * Author: Teetat T.\n * Description: Given $f(x)$, returns $f(x+c)$.\
+    \ Needs $N < $ mod.\n * Time: $O(N \\log N)$\n */\n\ntemplate<class mint>\nFormalPowerSeries<mint>\
+    \ taylor_shift(\n    FormalPowerSeries<mint> f,mint c){\n    int n=SZ(f);\n  \
+    \  if(!n)return f;\n    vector<mint> fac(n,1),ifac(n),b(n);\n    for(int i=1;i<n;i++)fac[i]=fac[i-1]*mint(i);\n\
+    \    ifac[n-1]=fac[n-1].inv();\n    for(int i=n-1;i>0;i--)ifac[i-1]=ifac[i]*mint(i);\n\
+    \    mint p=1;\n    for(int i=0;i<n;i++){\n        f[i]*=fac[i],b[i]=p*ifac[i],p*=c;\n\
+    \    }\n    reverse(ALL(f));\n    auto g=NTT<mint>::conv(f,b);\n    for(int i=0;i<n;i++)f[i]=g[n-1-i]*ifac[i];\n\
+    \    return f;\n}\n#line 4 \"verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp\"\
+    \n\nusing mint = mint998;\nusing FPS = FormalPowerSeries<mint>;\n\nint main(){\n\
+    \    cin.tie(nullptr)->sync_with_stdio(false);\n    int n;\n    mint c;\n    cin\
+    \ >> n >> c;\n    FPS f(n);\n    for(auto &x:f)cin >> x;\n    auto g=taylor_shift(f,c);\n\
+    \    for(int i=0;i<n;i++)cout << g[i] << \" \\n\"[i==n-1];\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/polynomial_taylor_shift\"\
+    \n#include \"src/contest/template.hpp\"\n#include \"src/polynomials/taylor-shift.hpp\"\
+    \n\nusing mint = mint998;\nusing FPS = FormalPowerSeries<mint>;\n\nint main(){\n\
+    \    cin.tie(nullptr)->sync_with_stdio(false);\n    int n;\n    mint c;\n    cin\
+    \ >> n >> c;\n    FPS f(n);\n    for(auto &x:f)cin >> x;\n    auto g=taylor_shift(f,c);\n\
+    \    for(int i=0;i<n;i++)cout << g[i] << \" \\n\"[i==n-1];\n}\n"
   dependsOn:
+  - src/contest/template.hpp
+  - src/polynomials/taylor-shift.hpp
   - src/polynomials/formal-power-series.hpp
   - src/polynomials/ntt.hpp
   - src/number-theory/binpow.hpp
   - src/number-theory/montgomery-modint.hpp
-  isVerificationFile: false
-  path: src/polynomials/subproduct-tree.hpp
-  requiredBy:
-  - src/polynomials/polynomial-interpolation.hpp
-  - src/polynomials/multipoint-evaluation.hpp
+  isVerificationFile: true
+  path: verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
+  requiredBy: []
   timestamp: '2026-10-04 00:49:42+07:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
-  - verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
-documentation_of: src/polynomials/subproduct-tree.hpp
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
 layout: document
 redirect_from:
-- /library/src/polynomials/subproduct-tree.hpp
-- /library/src/polynomials/subproduct-tree.hpp.html
-title: src/polynomials/subproduct-tree.hpp
+- /verify/verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
+- /verify/verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp.html
+title: verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
 ---

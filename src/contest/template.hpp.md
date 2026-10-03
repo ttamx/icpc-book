@@ -25,17 +25,53 @@ data:
     path: verify/graph/k-th-shortest-path/k_shortest_walk.test.cpp
     title: verify/graph/k-th-shortest-path/k_shortest_walk.test.cpp
   - icon: ':heavy_check_mark:'
+    path: verify/linear-algebra/gauss-mod/inverse_matrix.test.cpp
+    title: verify/linear-algebra/gauss-mod/inverse_matrix.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/linear-algebra/gauss-mod/matrix_det.test.cpp
+    title: verify/linear-algebra/gauss-mod/matrix_det.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
+    title: verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
+    title: verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/miscellaneous/integral.test.cpp
     title: verify/miscellaneous/integral.test.cpp
   - icon: ':heavy_check_mark:'
+    path: verify/number-theory/discrete-log/discrete_logarithm_mod.test.cpp
+    title: verify/number-theory/discrete-log/discrete_logarithm_mod.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/number-theory/factorization/factorize.test.cpp
+    title: verify/number-theory/factorization/factorize.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/number-theory/floor-sum/sum_of_floor_of_linear.test.cpp
     title: verify/number-theory/floor-sum/sum_of_floor_of_linear.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
+    title: verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/number-theory/mod-sqrt/sqrt_mod.test.cpp
+    title: verify/number-theory/mod-sqrt/sqrt_mod.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/number-theory/prime-counting/counting_primes.test.cpp
+    title: verify/number-theory/prime-counting/counting_primes.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp
+    title: verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
+    title: verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
     title: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
     title: verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
+    title: verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/string/manacher/enumerate_palindromes.test.cpp
     title: verify/string/manacher/enumerate_palindromes.test.cpp
@@ -109,12 +145,24 @@ data:
   - verify/data-structures/line-container/line_add_get_min.test.cpp
   - verify/graph/k-th-shortest-path/k_shortest_walk.test.cpp
   - verify/miscellaneous/integral.test.cpp
+  - verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
+  - verify/linear-algebra/gauss-mod/inverse_matrix.test.cpp
+  - verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
+  - verify/linear-algebra/gauss-mod/matrix_det.test.cpp
   - verify/flows/general-weighted-matching/general_weighted_matching.test.cpp
   - verify/flows/general-matching/general_matching.test.cpp
   - verify/flows/hopcroft-karp/bipartitematching.test.cpp
+  - verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
+  - verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp
+  - verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
   - verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
   - verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
+  - verify/number-theory/discrete-log/discrete_logarithm_mod.test.cpp
   - verify/number-theory/floor-sum/sum_of_floor_of_linear.test.cpp
+  - verify/number-theory/prime-counting/counting_primes.test.cpp
+  - verify/number-theory/factorization/factorize.test.cpp
+  - verify/number-theory/mod-sqrt/sqrt_mod.test.cpp
+  - verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
   - verify/string/manacher/enumerate_palindromes.test.cpp
   - verify/string/z-algorithm/zalgorithm.test.cpp
   - verify/string/suffix-array/number_of_substrings.test.cpp

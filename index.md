@@ -99,6 +99,9 @@ data:
       path: src/geometry/FastDelaunay.h
       title: src/geometry/FastDelaunay.h
     - icon: ':warning:'
+      path: src/geometry/HalfPlane.h
+      title: src/geometry/HalfPlane.h
+    - icon: ':warning:'
       path: src/geometry/HullDiameter.h
       title: src/geometry/HullDiameter.h
     - icon: ':warning:'
@@ -113,6 +116,9 @@ data:
     - icon: ':warning:'
       path: src/geometry/ManhattanMST.h
       title: src/geometry/ManhattanMST.h
+    - icon: ':warning:'
+      path: src/geometry/MaxTriangle.h
+      title: src/geometry/MaxTriangle.h
     - icon: ':warning:'
       path: src/geometry/MinimumEnclosingCircle.h
       title: src/geometry/MinimumEnclosingCircle.h
@@ -175,6 +181,17 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/graph/k-th-shortest-path.hpp
       title: src/graph/k-th-shortest-path.hpp
+  - name: src/linear-algebra
+    pages:
+    - icon: ':warning:'
+      path: src/linear-algebra/gauss-double.hpp
+      title: src/linear-algebra/gauss-double.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/linear-algebra/gauss-mod.hpp
+      title: src/linear-algebra/gauss-mod.hpp
+    - icon: ':warning:'
+      path: src/linear-algebra/xor-basis.hpp
+      title: src/linear-algebra/xor-basis.hpp
   - name: src/linear-programming
     pages:
     - icon: ':warning:'
@@ -191,33 +208,49 @@ data:
     - icon: ':warning:'
       path: src/miscellaneous/range-xor.hpp
       title: src/miscellaneous/range-xor.hpp
-  - name: src/modular-arithmetic
-    pages:
-    - icon: ':warning:'
-      path: src/modular-arithmetic/barrett.hpp
-      title: src/modular-arithmetic/barrett.hpp
-    - icon: ':heavy_check_mark:'
-      path: src/modular-arithmetic/binpow.hpp
-      title: src/modular-arithmetic/binpow.hpp
-    - icon: ':heavy_check_mark:'
-      path: src/modular-arithmetic/montgomery-modint.hpp
-      title: src/modular-arithmetic/montgomery-modint.hpp
   - name: src/number-theory
     pages:
     - icon: ':warning:'
+      path: src/number-theory/barrett.hpp
+      title: src/number-theory/barrett.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/number-theory/binpow.hpp
+      title: src/number-theory/binpow.hpp
+    - icon: ':warning:'
       path: src/number-theory/crt.hpp
       title: src/number-theory/crt.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/number-theory/discrete-log.hpp
+      title: src/number-theory/discrete-log.hpp
     - icon: ':warning:'
       path: src/number-theory/euclid.hpp
       title: src/number-theory/euclid.hpp
     - icon: ':heavy_check_mark:'
+      path: src/number-theory/factorization.hpp
+      title: src/number-theory/factorization.hpp
+    - icon: ':heavy_check_mark:'
       path: src/number-theory/floor-sum.hpp
       title: src/number-theory/floor-sum.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/number-theory/min25-sieve.hpp
+      title: src/number-theory/min25-sieve.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/number-theory/mod-sqrt.hpp
+      title: src/number-theory/mod-sqrt.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/number-theory/montgomery-modint.hpp
+      title: src/number-theory/montgomery-modint.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/number-theory/prime-counting.hpp
+      title: src/number-theory/prime-counting.hpp
     - icon: ':warning:'
       path: src/number-theory/primitive-root.hpp
       title: src/number-theory/primitive-root.hpp
   - name: src/polynomials
     pages:
+    - icon: ':heavy_check_mark:'
+      path: src/polynomials/berlekamp-massey.hpp
+      title: src/polynomials/berlekamp-massey.hpp
     - icon: ':warning:'
       path: src/polynomials/fft.hpp
       title: src/polynomials/fft.hpp
@@ -227,6 +260,9 @@ data:
     - icon: ':warning:'
       path: src/polynomials/lagrange-interpolate.hpp
       title: src/polynomials/lagrange-interpolate.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/polynomials/linear-recurrence.hpp
+      title: src/polynomials/linear-recurrence.hpp
     - icon: ':heavy_check_mark:'
       path: src/polynomials/multipoint-evaluation.hpp
       title: src/polynomials/multipoint-evaluation.hpp
@@ -239,6 +275,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/polynomials/subproduct-tree.hpp
       title: src/polynomials/subproduct-tree.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/polynomials/taylor-shift.hpp
+      title: src/polynomials/taylor-shift.hpp
   - name: src/string
     pages:
     - icon: ':warning:'
@@ -306,16 +345,65 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/graph/k-th-shortest-path/k_shortest_walk.test.cpp
       title: verify/graph/k-th-shortest-path/k_shortest_walk.test.cpp
+  - name: verify/linear-algebra/gauss-mod
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/linear-algebra/gauss-mod/inverse_matrix.test.cpp
+      title: verify/linear-algebra/gauss-mod/inverse_matrix.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/linear-algebra/gauss-mod/matrix_det.test.cpp
+      title: verify/linear-algebra/gauss-mod/matrix_det.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
+      title: verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
+      title: verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
   - name: verify/miscellaneous
     pages:
     - icon: ':heavy_check_mark:'
       path: verify/miscellaneous/integral.test.cpp
       title: verify/miscellaneous/integral.test.cpp
+  - name: verify/number-theory/discrete-log
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/number-theory/discrete-log/discrete_logarithm_mod.test.cpp
+      title: verify/number-theory/discrete-log/discrete_logarithm_mod.test.cpp
+  - name: verify/number-theory/factorization
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/number-theory/factorization/factorize.test.cpp
+      title: verify/number-theory/factorization/factorize.test.cpp
   - name: verify/number-theory/floor-sum
     pages:
     - icon: ':heavy_check_mark:'
       path: verify/number-theory/floor-sum/sum_of_floor_of_linear.test.cpp
       title: verify/number-theory/floor-sum/sum_of_floor_of_linear.test.cpp
+  - name: verify/number-theory/min25-sieve
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
+      title: verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
+  - name: verify/number-theory/mod-sqrt
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/number-theory/mod-sqrt/sqrt_mod.test.cpp
+      title: verify/number-theory/mod-sqrt/sqrt_mod.test.cpp
+  - name: verify/number-theory/prime-counting
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/number-theory/prime-counting/counting_primes.test.cpp
+      title: verify/number-theory/prime-counting/counting_primes.test.cpp
+  - name: verify/polynomials/berlekamp-massey
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp
+      title: verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp
+  - name: verify/polynomials/linear-recurrence
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
+      title: verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
   - name: verify/polynomials/multipoint-evaluation
     pages:
     - icon: ':heavy_check_mark:'
@@ -326,6 +414,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
       title: verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
+  - name: verify/polynomials/taylor-shift
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
+      title: verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
   - name: verify/string/manacher
     pages:
     - icon: ':heavy_check_mark:'

@@ -27,6 +27,9 @@ data:
     path: src/geometry/FastDelaunay.h
     title: src/geometry/FastDelaunay.h
   - icon: ':warning:'
+    path: src/geometry/HalfPlane.h
+    title: src/geometry/HalfPlane.h
+  - icon: ':warning:'
     path: src/geometry/HullDiameter.h
     title: src/geometry/HullDiameter.h
   - icon: ':warning:'
@@ -41,6 +44,9 @@ data:
   - icon: ':warning:'
     path: src/geometry/ManhattanMST.h
     title: src/geometry/ManhattanMST.h
+  - icon: ':warning:'
+    path: src/geometry/MaxTriangle.h
+    title: src/geometry/MaxTriangle.h
   - icon: ':warning:'
     path: src/geometry/MinimumEnclosingCircle.h
     title: src/geometry/MinimumEnclosingCircle.h
@@ -138,6 +144,7 @@ data:
   - src/geometry/SegmentDistance.h
   - src/geometry/OnSegment.h
   - src/geometry/lineIntersection.h
+  - src/geometry/HalfPlane.h
   - src/geometry/LineHullIntersection.h
   - src/geometry/LineProjectionReflection.h
   - src/geometry/circumcircle.h
@@ -152,6 +159,7 @@ data:
   - src/geometry/MinimumEnclosingCircle.h
   - src/geometry/linearTransformation.h
   - src/geometry/lineDistance.h
+  - src/geometry/MaxTriangle.h
   - src/geometry/CircleIntersection.h
   timestamp: '2026-10-03 23:15:31+07:00'
   verificationStatus: LIBRARY_NO_TESTS

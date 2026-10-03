@@ -2,11 +2,11 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: src/modular-arithmetic/binpow.hpp
-    title: src/modular-arithmetic/binpow.hpp
+    path: src/number-theory/binpow.hpp
+    title: src/number-theory/binpow.hpp
   - icon: ':heavy_check_mark:'
-    path: src/modular-arithmetic/montgomery-modint.hpp
-    title: src/modular-arithmetic/montgomery-modint.hpp
+    path: src/number-theory/montgomery-modint.hpp
+    title: src/number-theory/montgomery-modint.hpp
   - icon: ':heavy_check_mark:'
     path: src/polynomials/formal-power-series.hpp
     title: src/polynomials/formal-power-series.hpp
@@ -32,11 +32,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/modular-arithmetic/binpow.hpp\"\n\n/**\n * Author: Teetat\
+  bundledCode: "#line 2 \"src/number-theory/binpow.hpp\"\n\n/**\n * Author: Teetat\
     \ T.\n * Date: 2024-01-15\n * Description: n-th power using divide and conquer\n\
     \ * Time: $O(\\log b)$\n */\n\ntemplate<class T>\nconstexpr T binpow(T a,ll b){\n\
     \    T res=1;\n    for(;b>0;b>>=1,a*=a)if(b&1)res*=a;\n    return res;\n}\n\n\
-    #line 2 \"src/modular-arithmetic/montgomery-modint.hpp\"\n\n/**\n * Author: Teetat\
+    #line 2 \"src/number-theory/montgomery-modint.hpp\"\n\n/**\n * Author: Teetat\
     \ T.\n * Date: 2024-03-17\n * Description: modular arithmetic operators using\
     \ Montgomery space\n */\n\ntemplate<uint32_t mod,uint32_t root=0>\nstruct MontgomeryModInt{\n\
     \    using mint = MontgomeryModInt;\n    using i32 = int32_t;\n    using u32 =\
@@ -190,13 +190,13 @@ data:
   - src/polynomials/subproduct-tree.hpp
   - src/polynomials/formal-power-series.hpp
   - src/polynomials/ntt.hpp
-  - src/modular-arithmetic/binpow.hpp
-  - src/modular-arithmetic/montgomery-modint.hpp
+  - src/number-theory/binpow.hpp
+  - src/number-theory/montgomery-modint.hpp
   isVerificationFile: false
   path: src/polynomials/multipoint-evaluation.hpp
   requiredBy:
   - src/polynomials/polynomial-interpolation.hpp
-  timestamp: '2026-10-03 23:15:31+07:00'
+  timestamp: '2026-10-04 00:49:42+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp

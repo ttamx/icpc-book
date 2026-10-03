@@ -5,11 +5,11 @@ data:
     path: src/contest/template.hpp
     title: src/contest/template.hpp
   - icon: ':heavy_check_mark:'
-    path: src/modular-arithmetic/binpow.hpp
-    title: src/modular-arithmetic/binpow.hpp
+    path: src/number-theory/binpow.hpp
+    title: src/number-theory/binpow.hpp
   - icon: ':heavy_check_mark:'
-    path: src/modular-arithmetic/montgomery-modint.hpp
-    title: src/modular-arithmetic/montgomery-modint.hpp
+    path: src/number-theory/montgomery-modint.hpp
+    title: src/number-theory/montgomery-modint.hpp
   - icon: ':heavy_check_mark:'
     path: src/polynomials/formal-power-series.hpp
     title: src/polynomials/formal-power-series.hpp
@@ -52,12 +52,12 @@ data:
     \ U &a){return accumulate(ALL(a),T{});}\n\ntemplate<class T>\nusing ordered_set\
     \ = tree<T,null_type,less<T>,rb_tree_tag,tree_order_statistics_node_update>;\n\
     \nmt19937 rng(chrono::steady_clock::now().time_since_epoch().count());\nmt19937_64\
-    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 2 \"src/modular-arithmetic/binpow.hpp\"\
+    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 2 \"src/number-theory/binpow.hpp\"\
     \n\n/**\n * Author: Teetat T.\n * Date: 2024-01-15\n * Description: n-th power\
     \ using divide and conquer\n * Time: $O(\\log b)$\n */\n\ntemplate<class T>\n\
     constexpr T binpow(T a,ll b){\n    T res=1;\n    for(;b>0;b>>=1,a*=a)if(b&1)res*=a;\n\
-    \    return res;\n}\n\n#line 2 \"src/modular-arithmetic/montgomery-modint.hpp\"\
-    \n\n/**\n * Author: Teetat T.\n * Date: 2024-03-17\n * Description: modular arithmetic\
+    \    return res;\n}\n\n#line 2 \"src/number-theory/montgomery-modint.hpp\"\n\n\
+    /**\n * Author: Teetat T.\n * Date: 2024-03-17\n * Description: modular arithmetic\
     \ operators using Montgomery space\n */\n\ntemplate<uint32_t mod,uint32_t root=0>\n\
     struct MontgomeryModInt{\n    using mint = MontgomeryModInt;\n    using i32 =\
     \ int32_t;\n    using u32 = uint32_t;\n    using u64 = uint64_t;\n\n    static\
@@ -212,12 +212,12 @@ data:
   - src/polynomials/subproduct-tree.hpp
   - src/polynomials/formal-power-series.hpp
   - src/polynomials/ntt.hpp
-  - src/modular-arithmetic/binpow.hpp
-  - src/modular-arithmetic/montgomery-modint.hpp
+  - src/number-theory/binpow.hpp
+  - src/number-theory/montgomery-modint.hpp
   isVerificationFile: true
   path: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
   requiredBy: []
-  timestamp: '2026-10-03 23:15:31+07:00'
+  timestamp: '2026-10-04 00:49:42+07:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp

@@ -4,7 +4,10 @@ data:
   - icon: ':warning:'
     path: src/geometry/Point.h
     title: src/geometry/Point.h
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: src/geometry/MaxTriangle.h
+    title: src/geometry/MaxTriangle.h
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: h
@@ -38,7 +41,8 @@ data:
   - src/geometry/Point.h
   isVerificationFile: false
   path: src/geometry/ConvexHull.h
-  requiredBy: []
+  requiredBy:
+  - src/geometry/MaxTriangle.h
   timestamp: '2026-10-03 23:15:31+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
