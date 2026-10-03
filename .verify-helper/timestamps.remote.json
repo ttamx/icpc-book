@@ -13,7 +13,7 @@
 "verify/string/manacher/enumerate_palindromes.test.cpp": "2026-10-03 23:15:31 +0700",
 "verify/string/suffix-array/number_of_substrings.test.cpp": "2026-10-03 23:15:31 +0700",
 "verify/string/suffix-array/suffixarray.test.cpp": "2026-10-03 23:15:31 +0700",
-"verify/string/suffix-automaton/number_of_substrings.test.cpp": "2026-10-03 23:15:31 +0700",
+"verify/string/suffix-automaton/number_of_substrings.test.cpp": "2026-10-03 23:41:23 +0700",
 "verify/string/z-algorithm/zalgorithm.test.cpp": "2026-10-03 23:15:31 +0700",
 "verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp": "2026-10-03 23:15:31 +0700"
 }
