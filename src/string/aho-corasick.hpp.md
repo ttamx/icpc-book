@@ -9,50 +9,40 @@ data:
   attributes:
     links: []
   bundledCode: "#line 2 \"src/string/aho-corasick.hpp\"\n\n/**\n * Author: Teetat\
-    \ T.\n * Date: 2025-07-19\n * Description: Aho-Corasick.\n */\n\ntemplate<class\
-    \ T>\nstruct AhoCorasick{\n    struct Node{\n        array<int,26> ch;\n     \
-    \   int fail;\n        T val;\n        Node(){\n            fill(ch.begin(),ch.end(),-1);\n\
-    \            fail=-1;\n            val=0;\n        }\n    };\n    vector<Node>\
-    \ nodes;\n    AhoCorasick(){new_node();}\n    int new_node(){\n        nodes.emplace_back(Node());\n\
-    \        return nodes.size()-1;\n    }\n    void insert(const string &s,const\
-    \ T &val){\n        int u=0;\n        for(auto x:s){\n            int c=x-'a';\n\
-    \            if(nodes[u].ch[c]==-1)nodes[u].ch[c]=new_node();\n            u=nodes[u].ch[c];\n\
-    \        }\n        nodes[u].val+=val;\n    }\n    void build(){\n        vector<int>\
-    \ q{0};\n        for(int i=0;i<q.size();i++){\n            int u=q[i];\n     \
-    \       int v;\n            for(int c=0;c<26;c++){\n                if((v=nodes[u].ch[c])!=-1){\n\
-    \                    int p=nodes[u].fail;\n                    while(p!=-1&&nodes[p].ch[c]==-1)p=nodes[p].fail;\n\
-    \                    p=p!=-1?nodes[p].ch[c]:0;\n                    nodes[v].fail=p;\n\
-    \                    nodes[v].val+=nodes[p].val;\n                    q.emplace_back(v);\n\
-    \                }\n            }\n        }\n        for(auto u:q){\n       \
-    \     for(int c=0;c<26;c++){\n                if(nodes[u].ch[c]==-1){\n      \
-    \              int p=nodes[u].fail;\n                    while(p!=-1&&nodes[p].ch[c]==-1)p=nodes[p].fail;\n\
-    \                    nodes[u].ch[c]=p!=-1?nodes[p].ch[c]:0;\n                }\n\
-    \            }\n        }\n    }\n};\n"
+    \ T.\n * Date: 2025-07-19\n * Description: Aho-Corasick on a node pool (root =\
+    \ 1, 0 = sentinel).\n * insert() returns the end node of a pattern. After build(),\
+    \ ch is the\n * full automaton and val[u] = sum of val over all patterns that\
+    \ are\n * suffixes of u. Instance must be global; N > total pattern length.\n\
+    \ * Time: $O(A \\cdot N)$ build\n */\n\ntemplate<int N,class T,int A=26>\nstruct\
+    \ AhoCorasick{\n    int ch[N][A],fail[N],cnt=1;\n    T val[N];\n    int insert(const\
+    \ string &s,T v){\n        int u=1;\n        for(char x:s){\n            int &w=ch[u][x-'a'];\n\
+    \            if(!w)w=++cnt;\n            u=w;\n        }\n        val[u]+=v;\n\
+    \        return u;\n    }\n    void build(){\n        fill(ch[0],ch[0]+A,1); //\
+    \ sentinel: every edge to root\n        vector<int> q{1};\n        for(int i=0;i<SZ(q);i++){\n\
+    \            int u=q[i];\n            for(int c=0;c<A;c++){\n                int\
+    \ &v=ch[u][c];\n                if(!v)v=ch[fail[u]][c];\n                else{\n\
+    \                    fail[v]=ch[fail[u]][c];\n                    val[v]+=val[fail[v]],q.pb(v);\n\
+    \                }\n            }\n        }\n    }\n};\n"
   code: "#pragma once\n\n/**\n * Author: Teetat T.\n * Date: 2025-07-19\n * Description:\
-    \ Aho-Corasick.\n */\n\ntemplate<class T>\nstruct AhoCorasick{\n    struct Node{\n\
-    \        array<int,26> ch;\n        int fail;\n        T val;\n        Node(){\n\
-    \            fill(ch.begin(),ch.end(),-1);\n            fail=-1;\n           \
-    \ val=0;\n        }\n    };\n    vector<Node> nodes;\n    AhoCorasick(){new_node();}\n\
-    \    int new_node(){\n        nodes.emplace_back(Node());\n        return nodes.size()-1;\n\
-    \    }\n    void insert(const string &s,const T &val){\n        int u=0;\n   \
-    \     for(auto x:s){\n            int c=x-'a';\n            if(nodes[u].ch[c]==-1)nodes[u].ch[c]=new_node();\n\
-    \            u=nodes[u].ch[c];\n        }\n        nodes[u].val+=val;\n    }\n\
-    \    void build(){\n        vector<int> q{0};\n        for(int i=0;i<q.size();i++){\n\
-    \            int u=q[i];\n            int v;\n            for(int c=0;c<26;c++){\n\
-    \                if((v=nodes[u].ch[c])!=-1){\n                    int p=nodes[u].fail;\n\
-    \                    while(p!=-1&&nodes[p].ch[c]==-1)p=nodes[p].fail;\n      \
-    \              p=p!=-1?nodes[p].ch[c]:0;\n                    nodes[v].fail=p;\n\
-    \                    nodes[v].val+=nodes[p].val;\n                    q.emplace_back(v);\n\
-    \                }\n            }\n        }\n        for(auto u:q){\n       \
-    \     for(int c=0;c<26;c++){\n                if(nodes[u].ch[c]==-1){\n      \
-    \              int p=nodes[u].fail;\n                    while(p!=-1&&nodes[p].ch[c]==-1)p=nodes[p].fail;\n\
-    \                    nodes[u].ch[c]=p!=-1?nodes[p].ch[c]:0;\n                }\n\
-    \            }\n        }\n    }\n};"
+    \ Aho-Corasick on a node pool (root = 1, 0 = sentinel).\n * insert() returns the\
+    \ end node of a pattern. After build(), ch is the\n * full automaton and val[u]\
+    \ = sum of val over all patterns that are\n * suffixes of u. Instance must be\
+    \ global; N > total pattern length.\n * Time: $O(A \\cdot N)$ build\n */\n\ntemplate<int\
+    \ N,class T,int A=26>\nstruct AhoCorasick{\n    int ch[N][A],fail[N],cnt=1;\n\
+    \    T val[N];\n    int insert(const string &s,T v){\n        int u=1;\n     \
+    \   for(char x:s){\n            int &w=ch[u][x-'a'];\n            if(!w)w=++cnt;\n\
+    \            u=w;\n        }\n        val[u]+=v;\n        return u;\n    }\n \
+    \   void build(){\n        fill(ch[0],ch[0]+A,1); // sentinel: every edge to root\n\
+    \        vector<int> q{1};\n        for(int i=0;i<SZ(q);i++){\n            int\
+    \ u=q[i];\n            for(int c=0;c<A;c++){\n                int &v=ch[u][c];\n\
+    \                if(!v)v=ch[fail[u]][c];\n                else{\n            \
+    \        fail[v]=ch[fail[u]][c];\n                    val[v]+=val[fail[v]],q.pb(v);\n\
+    \                }\n            }\n        }\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: src/string/aho-corasick.hpp
   requiredBy: []
-  timestamp: '2025-07-19 14:52:18+09:00'
+  timestamp: '2026-10-03 23:41:23+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/string/aho-corasick.hpp
