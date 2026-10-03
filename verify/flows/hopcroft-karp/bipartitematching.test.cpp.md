@@ -39,24 +39,21 @@ data:
     \nmt19937 rng(chrono::steady_clock::now().time_since_epoch().count());\nmt19937_64\
     \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 2 \"src/flows/hopcroft-karp.hpp\"\
     \n\n/**\n * Author: Teetat T.\n * Date: 2024-03-31\n * Description: Fast bipartite\
-    \ matching algorithm.\n * Time: $O(E\\sqrt{V})$\n */\n\nstruct HopcroftKarp{\n\
-    \    int n,m;\n    vector<int> match,lv,ptr;\n    vector<vector<int>> adj;\n \
-    \   HopcroftKarp(){}\n    HopcroftKarp(int _n,int _m){init(_n,_m);}\n    void\
-    \ init(int _n,int _m){\n        n=_n,m=_m;\n        adj.assign(n+m,vector<int>{});\n\
-    \    }\n    void add_edge(int u,int v){\n        adj[u].emplace_back(v+n);\n \
-    \   }\n    void bfs(){\n        lv.assign(n,-1);\n        queue<int> q;\n    \
-    \    for(int i=0;i<n;i++)if(match[i]==-1){\n            lv[i]=0;\n           \
-    \ q.emplace(i);\n        }\n        while(!q.empty()){\n            int u=q.front();\n\
-    \            q.pop();\n            for(int v:adj[u])if(match[v]!=-1&&lv[match[v]]==-1){\n\
-    \                lv[match[v]]=lv[u]+1;\n                q.emplace(match[v]);\n\
-    \            }\n        }\n    }\n    bool dfs(int u){\n        for(int &i=ptr[u];i<adj[u].size();i++){\n\
-    \            int v=adj[u][i];\n            if(match[v]==-1||(lv[match[v]]==lv[u]+1&&dfs(match[v]))){\n\
-    \                match[u]=v,match[v]=u;\n                return true;\n      \
-    \      }\n        }\n        return false;\n    }\n    int max_matching(){\n \
-    \       int ans=0,cnt=0;\n        match.assign(n+m,-1);\n        do{\n       \
-    \     ptr.assign(n,0);\n            bfs();\n            cnt=0;\n            for(int\
-    \ i=0;i<n;i++)if(match[i]==-1&&dfs(i))cnt++;\n            ans+=cnt;\n        }while(cnt);\n\
-    \        return ans;\n    }\n};\n#line 4 \"verify/flows/hopcroft-karp/bipartitematching.test.cpp\"\
+    \ matching algorithm. Left $[0,n)$,\n * right $[0,m)$; after max\\_matching(),\
+    \ match[i] ($i<n$) is\n * $n+$(matched right vertex) or -1.\n * Time: $O(E\\sqrt{V})$\n\
+    \ */\n\nstruct HopcroftKarp{\n    int n,m;\n    vector<int> match,lv,ptr;\n  \
+    \  vector<vector<int>> adj;\n    HopcroftKarp(){}\n    HopcroftKarp(int _n,int\
+    \ _m){init(_n,_m);}\n    void init(int _n,int _m){n=_n,m=_m,adj.assign(n+m,{});}\n\
+    \    void add_edge(int u,int v){adj[u].pb(v+n);}\n    void bfs(){\n        lv.assign(n,-1);\n\
+    \        vector<int> q;\n        for(int i=0;i<n;i++)if(match[i]==-1)lv[i]=0,q.pb(i);\n\
+    \        for(int i=0;i<SZ(q);i++)for(int v:adj[q[i]])\n            if(int w=match[v];w!=-1&&lv[w]==-1)\n\
+    \                lv[w]=lv[q[i]]+1,q.pb(w);\n    }\n    bool dfs(int u){\n    \
+    \    for(int &i=ptr[u];i<SZ(adj[u]);i++){\n            int v=adj[u][i],w=match[v];\n\
+    \            if(w==-1||(lv[w]==lv[u]+1&&dfs(w)))\n                return match[u]=v,match[v]=u,true;\n\
+    \        }\n        return false;\n    }\n    int max_matching(){\n        int\
+    \ ans=0,c=1;\n        match.assign(n+m,-1);\n        while(c){\n            ptr.assign(n,0),bfs(),c=0;\n\
+    \            for(int i=0;i<n;i++)c+=match[i]==-1&&dfs(i);\n            ans+=c;\n\
+    \        }\n        return ans;\n    }\n};\n#line 4 \"verify/flows/hopcroft-karp/bipartitematching.test.cpp\"\
     \n\nint main(){\n    cin.tie(nullptr)->sync_with_stdio(false);\n    int n,m,e;\n\
     \    cin >> n >> m >> e;\n    HopcroftKarp bm(n,m);\n    for(int i=0;i<e;i++){\n\
     \        int u,v;\n        cin >> u >> v;\n        bm.add_edge(u,v);\n    }\n\
@@ -77,7 +74,7 @@ data:
   isVerificationFile: true
   path: verify/flows/hopcroft-karp/bipartitematching.test.cpp
   requiredBy: []
-  timestamp: '2026-10-03 23:15:31+07:00'
+  timestamp: '2026-10-04 01:45:10+07:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/flows/hopcroft-karp/bipartitematching.test.cpp

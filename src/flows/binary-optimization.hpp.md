@@ -13,57 +13,50 @@ data:
     links: []
   bundledCode: "#line 2 \"src/flows/dinic.hpp\"\n\n/**\n * Author: Teetat T.\n * Date:\
     \ 2024-07-15\n * Description: Dinic's Algorithm for finding the maximum flow.\n\
-    \ * Time: O(V E \\log U) where U is the maximum capacity.\n */\n\ntemplate<class\
-    \ T,bool directed=true,bool scaling=true>\nstruct Dinic{\n    static constexpr\
-    \ T INF=numeric_limits<T>::max()/2;\n    struct Edge{\n        int to;\n     \
-    \   T flow,cap;\n        Edge(int _to,T _cap):to(_to),flow(0),cap(_cap){}\n  \
-    \      T remain(){return cap-flow;}\n    };\n    int n,s,t;\n    T U;\n    vector<Edge>\
-    \ e;\n    vector<vector<int>> g;\n    vector<int> ptr,lv;\n    bool calculated;\n\
-    \    T max_flow;\n    Dinic(){}\n    Dinic(int n,int s,int t){init(n,s,t);}\n\
-    \    void init(int _n,int _s,int _t){\n        n=_n,s=_s,t=_t;\n        U=0;\n\
-    \        e.clear();\n        g.assign(n,{});\n        calculated=false;\n    }\n\
-    \    void add_edge(int from,int to,T cap){\n        assert(0<=from&&from<n&&0<=to&&to<n);\n\
-    \        g[from].emplace_back(e.size());\n        e.emplace_back(to,cap);\n  \
-    \      g[to].emplace_back(e.size());\n        e.emplace_back(from,directed?0:cap);\n\
-    \        U=max(U,cap);\n    }\n    bool bfs(T scale){\n        lv.assign(n,-1);\n\
-    \        vector<int> q{s};\n        lv[s]=0;\n        for(int i=0;i<(int)q.size();i++){\n\
-    \            int u=q[i];\n            for(int j:g[u]){\n                int v=e[j].to;\n\
-    \                if(lv[v]==-1&&e[j].remain()>=scale){\n                    q.emplace_back(v);\n\
-    \                    lv[v]=lv[u]+1;\n                }\n            }\n      \
-    \  }\n        return lv[t]!=-1;\n    }\n    T dfs(int u,int t,T f){\n        if(u==t||f==0)return\
-    \ f;\n        for(int &i=ptr[u];i<(int)g[u].size();i++){\n            int j=g[u][i];\n\
-    \            int v=e[j].to;\n            if(lv[v]==lv[u]+1){\n               \
-    \ T res=dfs(v,t,min(f,e[j].remain()));\n                if(res>0){\n         \
-    \           e[j].flow+=res;\n                    e[j^1].flow-=res;\n         \
-    \           return res;\n                }\n            }\n        }\n       \
-    \ return 0;\n    }\n    T flow(){\n        if(calculated)return max_flow;\n  \
-    \      calculated=true;\n        max_flow=0;\n        T scale=scaling&&U?1LL<<(63-__builtin_clzll(U)):1LL;\n\
-    \        for(;scale>0;scale>>=1){\n            while(bfs(scale)){\n          \
-    \      ptr.assign(n,0);\n                while(true){\n                    T f=dfs(s,t,INF);\n\
-    \                    if(f==0)break;\n                    max_flow+=f;\n      \
-    \          }\n            }\n        }\n        return max_flow;\n    }\n    pair<T,vector<int>>\
-    \ cut(){\n        flow();\n        vector<int> res(n);\n        for(int i=0;i<n;i++)res[i]=(lv[i]==-1);\n\
-    \        return {max_flow,res};\n    }\n};\n#line 3 \"src/flows/binary-optimization.hpp\"\
-    \n\n/**\n * Author: Teetat T.\n * Date: 2024-07-16\n * Description: Binary Optimization.\n\
-    \ *  minimize $\\kappa + \\sum_i \\theta_i(x_i) + \\sum_{i<j} \\phi_{ij}(x_i,x_j)\
-    \ + \\sum_{i<j<k} \\psi_{ijk}(x_i,x_j,x_k)$\n *  where $x_i \\in \\{0,1\\}$ and\
-    \ $\\phi_{ij},\\psi_{ijk}$ are submodular functions.\n *  a set function $f$ is\
-    \ submodular if $f(S) + f(T) \\geq f(S \\cap T) + f(S \\cup T)$ for all $S,T$.\n\
-    \ *  $\\phi_{ij}(0,1) + \\phi_{ij}(1,0) \\geq \\phi_{ij}(1,1) + \\phi_{ij}(0,0)$.\n\
-    \ */\n\ntemplate<class T,bool minimize=true>\nstruct BinaryOptimization{\n   \
-    \ static constexpr T INF=numeric_limits<T>::max()/2;\n    int n,s,t,buf;\n   \
-    \ T base;\n    map<pair<int,int>,T> edges;\n    BinaryOptimization(int _n):n(_n),s(n),t(n+1),buf(n+2),base(0){}\n\
-    \    void add_edge(int u,int v,T w){\n        assert(w>=0);\n        if(u==v||w==0)return;\n\
-    \        auto &e=edges[{u,v}];\n        e=min(e+w,INF);\n    }\n    void add0(T\
-    \ w){\n        base+=w;\n    }\n    void _add1(int i,T a,T b){\n        if(a<=b){\n\
-    \            add0(a);\n            add_edge(s,i,b-a);\n        }else{\n      \
-    \      add0(b);\n            add_edge(i,t,a-b);\n        }\n    }\n    void add1(int\
-    \ i,T x0,T x1){\n        assert(0<=i&&i<n);\n        if(!minimize)x0=-x0,x1=-x1;\n\
-    \        _add1(i,x0,x1);\n    }\n    void _add2(int i,int j,T a,T b,T c,T d){\n\
-    \        assert(b+c>=a+d);\n        add0(a);\n        _add1(i,0,c-a);\n      \
-    \  _add1(j,0,d-c);\n        add_edge(i,j,b+c-a-d);\n    }\n    void add2(int i,int\
-    \ j,T x00,T x01,T x10,T x11){\n        assert(i!=j&&0<=i&&i<n&&0<=j&&j<n);\n \
-    \       if(!minimize)x00=-x00,x01=-x01,x10=-x10,x11=-x11;\n        _add2(i,j,x00,x01,x10,x11);\n\
+    \ * cut() returns the flow and res[i]=1 iff i is on the sink side.\n * Time: $O(V^2E)$\
+    \ in general, $O(VE\\log U)$ with scaling\n * where $U$ is the maximum capacity.\n\
+    \ */\n\ntemplate<class T,bool directed=true,bool scaling=true>\nstruct Dinic{\n\
+    \    static constexpr T INF=numeric_limits<T>::max()/2;\n    struct Edge{\n  \
+    \      int to;T flow,cap;\n        T remain(){return cap-flow;}\n    };\n    int\
+    \ n,s,t;T U;\n    vector<Edge> e;\n    vector<vector<int>> g;\n    vector<int>\
+    \ ptr,lv;\n    bool calculated;T max_flow;\n    Dinic(){}\n    Dinic(int n,int\
+    \ s,int t){init(n,s,t);}\n    void init(int _n,int _s,int _t){\n        n=_n,s=_s,t=_t,U=0,calculated=false;\n\
+    \        e.clear(),g.assign(n,{});\n    }\n    void add_edge(int from,int to,T\
+    \ cap){\n        assert(0<=from&&from<n&&0<=to&&to<n);\n        g[from].pb(SZ(e)),e.pb({to,0,cap});\n\
+    \        g[to].pb(SZ(e)),e.pb({from,0,directed?0:cap});\n        U=max(U,cap);\n\
+    \    }\n    bool bfs(T scale){\n        lv.assign(n,-1),lv[s]=0;\n        vector<int>\
+    \ q{s};\n        for(int i=0;i<SZ(q);i++)for(int j:g[q[i]]){\n            int\
+    \ v=e[j].to;\n            if(lv[v]==-1&&e[j].remain()>=scale)\n              \
+    \  lv[v]=lv[q[i]]+1,q.pb(v);\n        }\n        return lv[t]!=-1;\n    }\n  \
+    \  T dfs(int u,int t,T f){\n        if(u==t||f==0)return f;\n        for(int &i=ptr[u];i<SZ(g[u]);i++){\n\
+    \            int j=g[u][i],v=e[j].to;\n            if(lv[v]!=lv[u]+1)continue;\n\
+    \            T r=dfs(v,t,min(f,e[j].remain()));\n            if(r>0)return e[j].flow+=r,e[j^1].flow-=r,r;\n\
+    \        }\n        return 0;\n    }\n    T flow(){\n        if(calculated)return\
+    \ max_flow;\n        calculated=true,max_flow=0;\n        T scale=scaling&&U?1LL<<(63-__builtin_clzll(U)):1LL;\n\
+    \        for(;scale>0;scale>>=1)while(bfs(scale)){\n            ptr.assign(n,0);\n\
+    \            while(T f=dfs(s,t,INF))max_flow+=f;\n        }\n        return max_flow;\n\
+    \    }\n    pair<T,vector<int>> cut(){\n        flow();\n        vector<int> res(n);\n\
+    \        for(int i=0;i<n;i++)res[i]=lv[i]==-1;\n        return {max_flow,res};\n\
+    \    }\n};\n#line 3 \"src/flows/binary-optimization.hpp\"\n\n/**\n * Author: Teetat\
+    \ T.\n * Date: 2024-07-16\n * Description: Binary Optimization.\n *  minimize\
+    \ $\\kappa + \\sum_i \\theta_i(x_i) + \\sum_{i<j} \\phi_{ij}(x_i,x_j) + \\sum_{i<j<k}\
+    \ \\psi_{ijk}(x_i,x_j,x_k)$\n *  where $x_i \\in \\{0,1\\}$ and $\\phi_{ij},\\\
+    psi_{ijk}$ are submodular functions.\n *  a set function $f$ is submodular if\
+    \ $f(S) + f(T) \\geq f(S \\cap T) + f(S \\cup T)$ for all $S,T$.\n *  $\\phi_{ij}(0,1)\
+    \ + \\phi_{ij}(1,0) \\geq \\phi_{ij}(1,1) + \\phi_{ij}(0,0)$.\n */\n\ntemplate<class\
+    \ T,bool minimize=true>\nstruct BinaryOptimization{\n    static constexpr T INF=numeric_limits<T>::max()/2;\n\
+    \    int n,s,t,buf;\n    T base;\n    map<pair<int,int>,T> edges;\n    BinaryOptimization(int\
+    \ _n):n(_n),s(n),t(n+1),buf(n+2),base(0){}\n    void add_edge(int u,int v,T w){\n\
+    \        assert(w>=0);\n        if(u==v||w==0)return;\n        auto &e=edges[{u,v}];\n\
+    \        e=min(e+w,INF);\n    }\n    void add0(T w){\n        base+=w;\n    }\n\
+    \    void _add1(int i,T a,T b){\n        if(a<=b){\n            add0(a);\n   \
+    \         add_edge(s,i,b-a);\n        }else{\n            add0(b);\n         \
+    \   add_edge(i,t,a-b);\n        }\n    }\n    void add1(int i,T x0,T x1){\n  \
+    \      assert(0<=i&&i<n);\n        if(!minimize)x0=-x0,x1=-x1;\n        _add1(i,x0,x1);\n\
+    \    }\n    void _add2(int i,int j,T a,T b,T c,T d){\n        assert(b+c>=a+d);\n\
+    \        add0(a);\n        _add1(i,0,c-a);\n        _add1(j,0,d-c);\n        add_edge(i,j,b+c-a-d);\n\
+    \    }\n    void add2(int i,int j,T x00,T x01,T x10,T x11){\n        assert(i!=j&&0<=i&&i<n&&0<=j&&j<n);\n\
+    \        if(!minimize)x00=-x00,x01=-x01,x10=-x10,x11=-x11;\n        _add2(i,j,x00,x01,x10,x11);\n\
     \    }\n    void _add3(int i,int j,int k,T a,T b,T c,T d,T e,T f,T g,T h){\n \
     \       T p=a+d+f+g-b-c-e-h;\n        if(p>=0){\n            add0(a);\n      \
     \      _add1(i,0,f-b);\n            _add1(j,0,g-e);\n            _add1(k,0,d-c);\n\
@@ -131,7 +124,7 @@ data:
   isVerificationFile: false
   path: src/flows/binary-optimization.hpp
   requiredBy: []
-  timestamp: '2026-10-03 23:15:31+07:00'
+  timestamp: '2026-10-04 01:45:10+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/flows/binary-optimization.hpp
