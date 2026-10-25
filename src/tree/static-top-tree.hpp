@@ -80,7 +80,7 @@ struct StaticTopTreeRerootingDP:StaticTopTree{
         path=rvpath=vector<Path>(cnt+1),point.resize(cnt+1);
         calc(root);
     }
-    void _update(int u){
+    void pull(int u){
         int lc=l[u],rc=r[u];
         if(t[u]==Vertex)path[u]=rvpath[u]=D::vertex(u);
         else if(t[u]==Compress){
@@ -92,8 +92,8 @@ struct StaticTopTreeRerootingDP:StaticTopTree{
     }
     Point pt(int c){
         return t[c]==Rake?point[c]:D::add_edge(path[c]);}
-    void calc(int u){if(u)calc(l[u]),calc(r[u]),_update(u);}
-    void update(int u){for(;u;u=par[u])_update(u);}
+    void calc(int u){if(u)calc(l[u]),calc(r[u]),pull(u);}
+    void update(int u){for(;u;u=par[u])pull(u);}
     Path query_all(){return path[root];}
     Path query_subtree(int u){
         Path res=path[u];
