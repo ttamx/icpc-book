@@ -13,8 +13,8 @@
  */
 
 struct StaticTopTree{
-    using P=pair<int,int>;
-    using G=vector<vector<int>>;
+    using P = pair<int,int>;
+    using G = vector<vector<int>>;
     enum Type{Compress,Rake,AddVertex,Vertex};
     int n,cnt,root;
     G &adj;
@@ -63,7 +63,6 @@ struct StaticTopTree{
         return {add(i,j,0,j?AddVertex:Vertex),s+1};
     }
 };
-
 /* struct D{
     struct Path{static Path unit();};
     struct Point{static Point unit();};
