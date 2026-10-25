@@ -4,205 +4,129 @@
 /**
  * Author: Teetat T.
  * Date: 2024-11-14
- * Description: Static Top Tree.
+ * Description: Static top tree of a tree with vertices $1..n$ (adj has size $n+1$, root $1$).
+ * Node pool is 1-indexed, 0 = null, at most $2n-1$ nodes; vertex $v$ is its own Vertex/AddVertex node.
+ * Balanced by subtree size, height $O(\log n)$.
+ * StaticTopTreeRerootingDP takes a DP struct D (interface in the code).
+ * After changing the data of $v$, call update($v$).
+ * Time: build $O(n \log n)$, update / query\_subtree / query\_reroot $O(\log n)$, query\_all $O(1)$
  */
 
-template<class G>
 struct StaticTopTree{
-    using P = pair<int,int>;
-    enum Type{Compress,Rake,AddEdge,AddVertex,Vertex};
-    int n,root;
+    using P=pair<int,int>;
+    using G=vector<vector<int>>;
+    enum Type{Compress,Rake,AddVertex,Vertex};
+    int n,cnt,root;
     G &adj;
-    vector<int> hv,fa,lch,rch,par;
-    vector<Type> type;
-    StaticTopTree(G &adj):adj(adj){build();}
-    int dfs(int u){
-        int s=1,mx=0;
-        for(auto v:adj[u]){
-            if(v==fa[u])continue;
-            fa[v]=u;
-            int t=dfs(v);
-            if(t>mx)mx=t,hv[u]=v;
-            s+=t;
+    vector<int> hv,fa,l,r,par,t;
+    StaticTopTree(G &g):adj(g){ // 1-indexed
+        n=cnt=SZ(g)-1;
+        hv=fa=l=r=par=t=vector<int>(2*n+1);
+        vector<int> o{1},s(n+1,1);s[0]=0; // BFS order, sizes
+        for(int i=0;i<SZ(o);i++){
+            int u=o[i];
+            for(int v:adj[u])if(v!=fa[u])fa[v]=u,o.pb(v);
         }
-        return s;
-    }
-    void build(){
-        n=adj.size();
-        hv=fa=lch=rch=par=vector<int>(n,-1);
-        type.assign(n,Compress);
-        dfs(0);
-        root=compress(0).second;
-    }
-    int add(int i,int l,int r,Type t){
-        if(i==-1){
-            i=n++;
-            lch.emplace_back(l);
-            rch.emplace_back(r);
-            par.emplace_back(-1);
-            type.emplace_back(t);
-        }else{
-            lch[i]=l,rch[i]=r,type[i]=t;
+        for(int i=n-1;i>0;i--){
+            int u=o[i],p=fa[u];s[p]+=s[u];
+            if(s[u]>s[hv[p]])hv[p]=u;
         }
-        if(l!=-1)par[l]=i;
-        if(r!=-1)par[r]=i;
+        root=compress(1).first;
+    }
+    int add(int i,int a,int b,Type ty){
+        if(!i)i=++cnt;
+        l[i]=a,r[i]=b,t[i]=ty,par[a]=par[b]=i;
         return i;
     }
-    /*
-    pair<int,int> merge(vector<pair<int,int>> a,Type t){
-        if(a.size()==1)return a[0];
-        int tot=0;
-        vector<pair<int,int>> l,r;
-        for(auto [i,s]:a)tot+=s;
-        for(auto [i,s]:a){
-            (tot>s?l:r).emplace_back(i,s);
-            tot-=s*2;
-        }
-        auto [i,si]=merge(l,t);
-        auto [j,sj]=merge(r,t);
-        return {add(-1,i,j,t),si+sj};
+    P merge(const vector<P> &a,int x,int y,Type ty){
+        if(y-x==1)return a[x];
+        int tot=0,m=x;
+        for(int k=x;k<y;k++)tot+=a[k].second;
+        while(tot>a[m].second)tot-=2*a[m++].second;
+        auto [i,si]=merge(a,x,m,ty);
+        auto [j,sj]=merge(a,m,y,ty);
+        return {add(0,i,j,ty),si+sj};
     }
-    */
     P compress(int i){
         vector<P> a{add_vertex(i)};
-        auto work=[&](){
-            auto [sj,j]=a.back();
-            a.pop_back();
-            auto [si,i]=a.back();
-            a.back()={max(si,sj)+1,add(-1,i,j,Compress)};
-        };
-        while(hv[i]!=-1){
-            a.emplace_back(add_vertex(i=hv[i]));
-            while(true){
-                if(a.size()>=3&&(a.end()[-3].first==a.end()[-2].first||a.end()[-3].first<=a.back().first)){
-                    P tmp=a.back();
-                    a.pop_back();
-                    work();
-                    a.emplace_back(tmp);
-                }else if(a.size()>=2&&a.end()[-2].first<=a.back().first){
-                    work();
-                }else break;
-            }
-        }
-        while(a.size()>=2)work();
-        return a[0];
+        while(hv[i])a.eb(add_vertex(i=hv[i]));
+        return merge(a,0,SZ(a),Compress);
     }
     P rake(int i){
-        priority_queue<P,vector<P>,greater<P>> pq;
-        for(int j:adj[i])if(j!=fa[i]&&j!=hv[i])pq.emplace(add_edge(j));
-        while(pq.size()>=2){
-            auto [si,i]=pq.top();pq.pop();
-            auto [sj,j]=pq.top();pq.pop();
-            pq.emplace(max(si,sj)+1,add(-1,i,j,Rake));
-        }
-        return pq.empty()?make_pair(0,-1):pq.top();
-    }
-    P add_edge(int i){
-        auto [sj,j]=compress(i);
-        return {sj+1,add(-1,j,-1,AddEdge)};
+        vector<P> a;
+        for(int j:adj[i])
+            if(j!=fa[i]&&j!=hv[i])a.eb(compress(j));
+        return a.empty()?P(0,0):merge(a,0,SZ(a),Rake);
     }
     P add_vertex(int i){
-        auto [sj,j]=rake(i);
-        return {sj+1,add(i,j,-1,j==-1?Vertex:AddVertex)};
+        auto [j,s]=rake(i);
+        return {add(i,j,0,j?AddVertex:Vertex),s+1};
     }
 };
 
-/*
-struct TreeDP{
-    struct Path{
-        static Path unit();
-    };
-    struct Point{
-        static Point unit();
-    };
-    static Path compress(Path l,Path r);
-    static Point rake(Point l,Point r);
-    static Point add_edge(Path p);
-    static Path add_vertex(Point p,int u);
-    static Path vertex(int u);
-};
-*/
-
-template<class G,class TreeDP>
-struct StaticTopTreeRerootingDP{
-    using Path = typename TreeDP::Path;
-    using Point = typename TreeDP::Point;
-    StaticTopTree<G> stt;
-    vector<Path> path,rpath;
+/* struct D{
+    struct Path{static Path unit();};
+    struct Point{static Point unit();};
+    static Path vertex(int v),add_vertex(Point p,int v),
+        compress(Path up,Path down);
+    static Point add_edge(Path p),rake(Point a,Point b);
+}; */
+template<class D>
+struct StaticTopTreeRerootingDP:StaticTopTree{
+    using Path=typename D::Path;
+    using Point=typename D::Point;
+    vector<Path> path,rvpath;
     vector<Point> point;
-    StaticTopTreeRerootingDP(G &adj):stt(adj){
-        int n=stt.n;
-        path.resize(n);
-        point.resize(n);
-        rpath.resize(n);
-        dfs(stt.root);
+    StaticTopTreeRerootingDP(G &g):StaticTopTree(g){
+        path=rvpath=vector<Path>(cnt+1),point.resize(cnt+1);
+        calc(root);
     }
     void _update(int u){
-        if(stt.type[u]==stt.Vertex){
-            path[u]=rpath[u]=TreeDP::vertex(u);
-        }else if(stt.type[u]==stt.Compress){
-            path[u]=TreeDP::compress(path[stt.lch[u]],path[stt.rch[u]]);
-            rpath[u]=TreeDP::compress(rpath[stt.rch[u]],rpath[stt.lch[u]]);
-        }else if(stt.type[u]==stt.Rake){
-            point[u]=TreeDP::rake(point[stt.lch[u]],point[stt.rch[u]]);
-        }else if(stt.type[u]==stt.AddEdge){
-            point[u]=TreeDP::add_edge(path[stt.lch[u]]);
-        }else{
-            path[u]=rpath[u]=TreeDP::add_vertex(point[stt.lch[u]],u);
+        int lc=l[u],rc=r[u];
+        if(t[u]==Vertex)path[u]=rvpath[u]=D::vertex(u);
+        else if(t[u]==Compress){
+            path[u]=D::compress(path[lc],path[rc]);
+            rvpath[u]=D::compress(rvpath[rc],rvpath[lc]);
         }
+        else if(t[u]==Rake)point[u]=D::rake(pt(lc),pt(rc));
+        else path[u]=rvpath[u]=D::add_vertex(pt(lc),u);
     }
-    void dfs(int u){
-        if(u==-1)return;
-        dfs(stt.lch[u]);
-        dfs(stt.rch[u]);
-        _update(u);
-    }
-    void update(int u){
-        for(;u!=-1;u=stt.par[u])_update(u);
-    }
-    Path query_all(){
-        return path[stt.root];
-    }
+    Point pt(int c){
+        return t[c]==Rake?point[c]:D::add_edge(path[c]);}
+    void calc(int u){if(u)calc(l[u]),calc(r[u]),_update(u);}
+    void update(int u){for(;u;u=par[u])_update(u);}
+    Path query_all(){return path[root];}
     Path query_subtree(int u){
         Path res=path[u];
-        while(true){
-            int p=stt.par[u];
-            if(p==-1||stt.type[p]!=stt.Compress)break;
-            if(stt.lch[p]==u)res=TreeDP::compress(res,path[stt.rch[p]]);
-            u=p;
-        }
+        for(int p;(p=par[u])&&t[p]==Compress;u=p)
+            if(l[p]==u)res=D::compress(res,path[r[p]]);
         return res;
     }
-    Path query_reroot(int u){
-        auto rec=[&](auto &&rec,int u)->Point {
-            int p=stt.par[u];
-            Path below=Path::unit(),above=Path::unit();
-            while(p!=-1&&stt.type[p]==stt.Compress){
-                int l=stt.lch[p],r=stt.rch[p];
-                if(l==u)below=TreeDP::compress(below,path[r]);
-                else above=TreeDP::compress(above,rpath[l]);
-                u=p;
-                p=stt.par[u];
-            }
-            if(p!=-1){
-                u=p;
-                p=stt.par[u];
-                Point sum=Point::unit();
-                while(stt.type[p]==stt.Rake){
-                    int l=stt.lch[p],r=stt.rch[p];
-                    sum=TreeDP::rake(sum,u==r?point[l]:point[r]);
-                    u=p;
-                    p=stt.par[u];
-                }
-                sum=TreeDP::rake(sum,rec(rec,p));
-                above=TreeDP::compress(above,TreeDP::add_vertex(sum,p));
-            }
-            return TreeDP::rake(TreeDP::add_edge(below),TreeDP::add_edge(above));
-        };
-        Point res=rec(rec,u);
-        if(stt.type[u]==stt.AddVertex){
-            res=TreeDP::rake(res,point[stt.lch[u]]);
+    pair<Path,Path> around(int u){ // {below u, rest of tree}
+        Path dn=Path::unit(),up=dn;
+        int p=par[u];
+        for(;p&&t[p]==Compress;p=par[u=p])
+            if(l[p]==u)dn=D::compress(dn,path[r[p]]);
+            else up=D::compress(up,rvpath[l[p]]);
+        if(p){
+            Point s=Point::unit();
+            for(;t[p]==Rake;p=par[u=p])
+                s=D::rake(s,pt(l[p]^r[p]^u));
+            s=D::rake(s,out(p));
+            up=D::compress(up,D::add_vertex(s,p));
         }
-        return TreeDP::add_vertex(res,u);
+        return {dn,up};
+    }
+    Point out(int u){
+        auto [dn,up]=around(u);
+        return D::rake(D::add_edge(dn),D::add_edge(up));
+    }
+    Path query_reroot(int u){
+        Point s=out(u);
+        if(t[u]==AddVertex)s=D::rake(s,pt(l[u]));
+        return D::add_vertex(s,u);
+    }
+    Path query_side(int v,int w){// remove (v,w) then query(v)
+        return fa[v]==w?query_subtree(v):around(w).second;
     }
 };
