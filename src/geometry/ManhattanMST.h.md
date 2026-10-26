@@ -12,13 +12,13 @@ data:
   attributes:
     links:
     - https://github.com/spaghetti-source/algorithm/blob/master/geometry/rectilinear_mst.cc
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
     \         ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
-    \  File \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n    ~~~~~~~~~~~~~~^^^^^^\n  File\
-    \ \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ src/geometry/ManhattanMST.h: line 13: #pragma once found in a non-first line\n"
@@ -29,21 +29,20 @@ data:
     \ =\n * |p.x - q.x| + |p.y - q.y|. Edges are in the form (distance, src, dst).\
     \ Use a\n * standard MST algorithm on the result to find the final MST.\n * Time:\
     \ O(N \\log N)\n * Status: Stress-tested\n */\n#pragma once\n#include \"src/geometry/Point.h\"\
-    \n\ntypedef Point<int> P;\nvector<array<int, 3>> manhattanMST(vector<P> ps) {\n\
-    \tvector<int> id(SZ(ps));\n\tiota(ALL(id), 0);\n\tvector<array<int, 3>> edges;\n\
-    \tfor(int k=0;k<4;k++) {\n\t\tsort(ALL(id), [&](int i, int j) {\n\t\t     return\
-    \ (ps[i]-ps[j]).x < (ps[j]-ps[i]).y;});\n\t\tmap<int, int> sweep;\n\t\tfor (int\
-    \ i : id) {\n\t\t\tfor (auto it = sweep.lower_bound(-ps[i].y);\n\t\t\t\t     \
-    \   it != sweep.end(); sweep.erase(it++)) {\n\t\t\t\tint j = it->second;\n\t\t\
-    \t\tP d = ps[i] - ps[j];\n\t\t\t\tif (d.y > d.x) break;\n\t\t\t\tedges.push_back({d.y\
-    \ + d.x, i, j});\n\t\t\t}\n\t\t\tsweep[-ps[i].y] = i;\n\t\t}\n\t\tfor (P& p :\
-    \ ps) if (k & 1) p.x = -p.x; else swap(p.x, p.y);\n\t}\n\treturn edges;\n}\n"
+    \n\nusing P = Point<ll>;\nvector<array<ll,3>> manhattanMST(vector<P> ps){\n\t\
+    vector<int> id(SZ(ps));iota(ALL(id),0);\n\tvector<array<ll,3>> edges;\n\tfor(int\
+    \ k=0;k<4;k++){\n\t\tsort(ALL(id),[&](int i,int j){\n\t\t\treturn (ps[i]-ps[j]).x<(ps[j]-ps[i]).y;});\n\
+    \t\tmap<ll,int> sweep;\n\t\tfor(int i:id){\n\t\t\tfor(auto it=sweep.lower_bound(-ps[i].y);\n\
+    \t\t\t\t\tit!=sweep.end();sweep.erase(it++)){\n\t\t\t\tint j=it->second;P d=ps[i]-ps[j];\n\
+    \t\t\t\tif(d.y>d.x)break;\n\t\t\t\tedges.push_back({d.y+d.x,i,j});\n\t\t\t}\n\t\
+    \t\tsweep[-ps[i].y]=i;\n\t\t}\n\t\tfor(P &p:ps)if(k&1)p.x=-p.x;else swap(p.x,p.y);\n\
+    \t}\n\treturn edges;\n}\n"
   dependsOn:
   - src/geometry/Point.h
   isVerificationFile: false
   path: src/geometry/ManhattanMST.h
   requiredBy: []
-  timestamp: '2026-10-03 23:15:31+07:00'
+  timestamp: '2026-10-26 18:23:08+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/ManhattanMST.h

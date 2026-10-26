@@ -12,13 +12,13 @@ data:
   attributes:
     links:
     - https://github.com/Bathlamos/delaunay-triangulation/
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
     \         ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
-    \  File \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n    ~~~~~~~~~~~~~~^^^^^^\n  File\
-    \ \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ src/geometry/FastDelaunay.h: line 15: #pragma once found in a non-first line\n"
@@ -29,9 +29,9 @@ data:
     \ will be returned.\n * Should work for doubles as well, though there may be precision\
     \ issues in 'circ'.\n * Returns triangles in order \\{t[0][0], t[0][1], t[0][2],\
     \ t[1][0], \\dots\\}, all counter-clockwise.\n * Time: O(n \\log n)\n * Status:\
-    \ stress-tested\n */\n#pragma once\n\n#include \"src/geometry/Point.h\"\n\ntypedef\
-    \ Point<ll> P;\ntypedef struct Quad* Q;\ntypedef __int128_t lll; // (can be ll\
-    \ if coords are < 2e4)\nP arb(LLONG_MAX,LLONG_MAX); // not equal to any other\
+    \ stress-tested\n */\n#pragma once\n\n#include \"src/geometry/Point.h\"\n\nusing\
+    \ P = Point<ll>;\nusing Q = struct Quad*;\nusing lll = __int128_t; // (can be\
+    \ ll if coords are < 2e4)\nP arb(LLONG_MAX,LLONG_MAX); // not equal to any other\
     \ point\n\nstruct Quad{\n\tQ rot,o;P p=arb;bool mark;\n\tP& F(){return r()->p;}\n\
     \tQ& r(){return rot->rot;}\n\tQ prev(){return rot->o->rot;}\n\tQ next(){return\
     \ r()->prev();}\n}*H;\n\nbool circ(P p,P a,P b,P c){ // is p in the circumcircle?\n\
@@ -63,7 +63,7 @@ data:
   isVerificationFile: false
   path: src/geometry/FastDelaunay.h
   requiredBy: []
-  timestamp: '2026-10-03 23:15:31+07:00'
+  timestamp: '2026-10-26 18:23:08+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/FastDelaunay.h

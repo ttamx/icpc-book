@@ -2,61 +2,61 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/polynomials/formal-power-series.hpp
     title: src/polynomials/formal-power-series.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/polynomials/linear-recurrence.hpp
     title: src/polynomials/linear-recurrence.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/polynomials/multipoint-evaluation.hpp
     title: src/polynomials/multipoint-evaluation.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/polynomials/ntt.hpp
     title: src/polynomials/ntt.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/polynomials/polynomial-interpolation.hpp
     title: src/polynomials/polynomial-interpolation.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/polynomials/subproduct-tree.hpp
     title: src/polynomials/subproduct-tree.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/polynomials/taylor-shift.hpp
     title: src/polynomials/taylor-shift.hpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/linear-algebra/gauss-mod/inverse_matrix.test.cpp
     title: verify/linear-algebra/gauss-mod/inverse_matrix.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/linear-algebra/gauss-mod/matrix_det.test.cpp
     title: verify/linear-algebra/gauss-mod/matrix_det.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
     title: verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
     title: verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
     title: verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp
     title: verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
     title: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
     title: verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
     title: verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/number-theory/montgomery-modint.hpp\"\n\n/**\n * Author:\
@@ -101,8 +101,7 @@ data:
     \    }\n\n    friend istream &operator>>(istream &is,mint &o){\n        int64_t\
     \ v;\n        is >> v;\n        o=mint(v);\n        return is;\n    }\n    friend\
     \ ostream &operator<<(ostream &os,const mint &o){\n        return os << o.val();\n\
-    \    }\n};\nusing mint998 = MontgomeryModInt<998244353,3>;\nusing mint107 = MontgomeryModInt<1000000007>;\n\
-    \n"
+    \    }\n};\n"
   code: "#pragma once\n\n/**\n * Author: Teetat T.\n * Date: 2024-03-17\n * Description:\
     \ modular arithmetic operators using Montgomery space\n */\n\ntemplate<uint32_t\
     \ mod,uint32_t root=0>\nstruct MontgomeryModInt{\n    using mint = MontgomeryModInt;\n\
@@ -144,30 +143,29 @@ data:
     \    }\n\n    friend istream &operator>>(istream &is,mint &o){\n        int64_t\
     \ v;\n        is >> v;\n        o=mint(v);\n        return is;\n    }\n    friend\
     \ ostream &operator<<(ostream &os,const mint &o){\n        return os << o.val();\n\
-    \    }\n};\nusing mint998 = MontgomeryModInt<998244353,3>;\nusing mint107 = MontgomeryModInt<1000000007>;\n\
-    \n"
+    \    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: src/number-theory/montgomery-modint.hpp
   requiredBy:
-  - src/polynomials/taylor-shift.hpp
-  - src/polynomials/polynomial-interpolation.hpp
-  - src/polynomials/subproduct-tree.hpp
   - src/polynomials/ntt.hpp
-  - src/polynomials/formal-power-series.hpp
   - src/polynomials/linear-recurrence.hpp
   - src/polynomials/multipoint-evaluation.hpp
-  timestamp: '2026-10-04 00:49:42+07:00'
-  verificationStatus: LIBRARY_ALL_AC
+  - src/polynomials/polynomial-interpolation.hpp
+  - src/polynomials/taylor-shift.hpp
+  - src/polynomials/formal-power-series.hpp
+  - src/polynomials/subproduct-tree.hpp
+  timestamp: '2026-10-26 04:09:11+07:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
   - verify/linear-algebra/gauss-mod/inverse_matrix.test.cpp
-  - verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
   - verify/linear-algebra/gauss-mod/matrix_det.test.cpp
+  - verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
+  - verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
+  - verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
   - verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
   - verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp
   - verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
   - verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
   - verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
 documentation_of: src/number-theory/montgomery-modint.hpp

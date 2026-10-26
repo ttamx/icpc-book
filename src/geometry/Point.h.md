@@ -9,8 +9,8 @@ data:
     path: src/geometry/CircleLine.h
     title: src/geometry/CircleLine.h
   - icon: ':warning:'
-    path: src/geometry/CirclePolygonIntersection.h
-    title: src/geometry/CirclePolygonIntersection.h
+    path: src/geometry/CirclePolyInter.h
+    title: src/geometry/CirclePolyInter.h
   - icon: ':warning:'
     path: src/geometry/CircleTangents.h
     title: src/geometry/CircleTangents.h
@@ -27,20 +27,20 @@ data:
     path: src/geometry/FastDelaunay.h
     title: src/geometry/FastDelaunay.h
   - icon: ':warning:'
+    path: src/geometry/GeoUtils.h
+    title: src/geometry/GeoUtils.h
+  - icon: ':warning:'
     path: src/geometry/HalfPlane.h
     title: src/geometry/HalfPlane.h
   - icon: ':warning:'
     path: src/geometry/HullDiameter.h
     title: src/geometry/HullDiameter.h
   - icon: ':warning:'
-    path: src/geometry/InsidePolygon.h
-    title: src/geometry/InsidePolygon.h
+    path: src/geometry/InsidePoly.h
+    title: src/geometry/InsidePoly.h
   - icon: ':warning:'
     path: src/geometry/LineHullIntersection.h
     title: src/geometry/LineHullIntersection.h
-  - icon: ':warning:'
-    path: src/geometry/LineProjectionReflection.h
-    title: src/geometry/LineProjectionReflection.h
   - icon: ':warning:'
     path: src/geometry/ManhattanMST.h
     title: src/geometry/ManhattanMST.h
@@ -48,63 +48,33 @@ data:
     path: src/geometry/MaxTriangle.h
     title: src/geometry/MaxTriangle.h
   - icon: ':warning:'
-    path: src/geometry/MinimumEnclosingCircle.h
-    title: src/geometry/MinimumEnclosingCircle.h
-  - icon: ':warning:'
-    path: src/geometry/OnSegment.h
-    title: src/geometry/OnSegment.h
+    path: src/geometry/MinEnclosingCircle.h
+    title: src/geometry/MinEnclosingCircle.h
   - icon: ':warning:'
     path: src/geometry/PointInsideHull.h
     title: src/geometry/PointInsideHull.h
   - icon: ':warning:'
-    path: src/geometry/PolygonArea.h
-    title: src/geometry/PolygonArea.h
+    path: src/geometry/PolyCut.h
+    title: src/geometry/PolyCut.h
   - icon: ':warning:'
-    path: src/geometry/PolygonCenter.h
-    title: src/geometry/PolygonCenter.h
-  - icon: ':warning:'
-    path: src/geometry/PolygonCut.h
-    title: src/geometry/PolygonCut.h
-  - icon: ':warning:'
-    path: src/geometry/PolygonUnion.h
-    title: src/geometry/PolygonUnion.h
-  - icon: ':warning:'
-    path: src/geometry/SegmentDistance.h
-    title: src/geometry/SegmentDistance.h
-  - icon: ':warning:'
-    path: src/geometry/SegmentIntersection.h
-    title: src/geometry/SegmentIntersection.h
-  - icon: ':warning:'
-    path: src/geometry/circumcircle.h
-    title: src/geometry/circumcircle.h
+    path: src/geometry/PolyUnion.h
+    title: src/geometry/PolyUnion.h
   - icon: ':warning:'
     path: src/geometry/kdTree.h
     title: src/geometry/kdTree.h
-  - icon: ':warning:'
-    path: src/geometry/lineDistance.h
-    title: src/geometry/lineDistance.h
-  - icon: ':warning:'
-    path: src/geometry/lineIntersection.h
-    title: src/geometry/lineIntersection.h
-  - icon: ':warning:'
-    path: src/geometry/linearTransformation.h
-    title: src/geometry/linearTransformation.h
-  - icon: ':warning:'
-    path: src/geometry/sideOf.h
-    title: src/geometry/sideOf.h
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: h
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
     \         ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
-    \  File \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n    ~~~~~~~~~~~~~~^^^^^^\n  File\
-    \ \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ src/geometry/Point.h: line 10: #pragma once found in a non-first line\n"
@@ -112,7 +82,7 @@ data:
     \ My head with inspiration from tinyKACTL\n * Description: Class to handle points\
     \ in the plane.\n * \tT can be e.g. double or long long. (Avoid int.)\n * Status:\
     \ Works fine, used a lot\n */\n#pragma once\n\ntemplate<class T> int sgn(T x){return\
-    \ (x>0)-(x<0);}\ntemplate<class T>\nstruct Point{\n\ttypedef Point P;\n\tT x,y;\n\
+    \ (x>0)-(x<0);}\ntemplate<class T>\nstruct Point{\n\tusing P = Point;\n\tT x,y;\n\
     \texplicit Point(T x=0,T y=0):x(x),y(y){}\n\tbool operator<(P p)const{return tie(x,y)<tie(p.x,p.y);}\n\
     \tbool operator==(P p)const{return tie(x,y)==tie(p.x,p.y);}\n\tP operator+(P p)const{return\
     \ P(x+p.x,y+p.y);}\n\tP operator-(P p)const{return P(x-p.x,y-p.y);}\n\tP operator*(T\
@@ -131,37 +101,27 @@ data:
   isVerificationFile: false
   path: src/geometry/Point.h
   requiredBy:
-  - src/geometry/sideOf.h
-  - src/geometry/HullDiameter.h
-  - src/geometry/PolygonArea.h
-  - src/geometry/CircleLine.h
-  - src/geometry/PolygonCenter.h
-  - src/geometry/PointInsideHull.h
-  - src/geometry/kdTree.h
-  - src/geometry/ClosestPair.h
-  - src/geometry/SegmentIntersection.h
-  - src/geometry/DelaunayTriangulation.h
-  - src/geometry/SegmentDistance.h
-  - src/geometry/OnSegment.h
-  - src/geometry/lineIntersection.h
-  - src/geometry/HalfPlane.h
-  - src/geometry/LineHullIntersection.h
-  - src/geometry/LineProjectionReflection.h
-  - src/geometry/circumcircle.h
-  - src/geometry/PolygonCut.h
   - src/geometry/CircleTangents.h
-  - src/geometry/ConvexHull.h
-  - src/geometry/PolygonUnion.h
-  - src/geometry/ManhattanMST.h
-  - src/geometry/InsidePolygon.h
-  - src/geometry/CirclePolygonIntersection.h
-  - src/geometry/FastDelaunay.h
-  - src/geometry/MinimumEnclosingCircle.h
-  - src/geometry/linearTransformation.h
-  - src/geometry/lineDistance.h
-  - src/geometry/MaxTriangle.h
+  - src/geometry/PolyUnion.h
+  - src/geometry/CirclePolyInter.h
+  - src/geometry/DelaunayTriangulation.h
+  - src/geometry/PolyCut.h
   - src/geometry/CircleIntersection.h
-  timestamp: '2026-10-03 23:15:31+07:00'
+  - src/geometry/InsidePoly.h
+  - src/geometry/ConvexHull.h
+  - src/geometry/FastDelaunay.h
+  - src/geometry/MinEnclosingCircle.h
+  - src/geometry/ManhattanMST.h
+  - src/geometry/HullDiameter.h
+  - src/geometry/MaxTriangle.h
+  - src/geometry/LineHullIntersection.h
+  - src/geometry/HalfPlane.h
+  - src/geometry/ClosestPair.h
+  - src/geometry/PointInsideHull.h
+  - src/geometry/GeoUtils.h
+  - src/geometry/CircleLine.h
+  - src/geometry/kdTree.h
+  timestamp: '2026-10-26 18:23:08+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/Point.h

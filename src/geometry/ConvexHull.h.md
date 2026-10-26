@@ -15,13 +15,13 @@ data:
   attributes:
     links:
     - https://github.com/stjepang/snippets/blob/master/convex_hull.cpp
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
     \         ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
-    \  File \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n    ~~~~~~~~~~~~~~^^^^^^\n  File\
-    \ \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ src/geometry/ConvexHull.h: line 19: #pragma once found in a non-first line\n"
@@ -33,7 +33,7 @@ data:
     \\begin{minipage}{15mm}\n\\vspace{-6mm}\n\\includegraphics[width=\\textwidth]{src/geometry/ConvexHull}\n\
     \\vspace{-6mm}\n\\end{minipage}\n * Time: O(n \\log n)\n * Status: stress-tested,\
     \ tested with kattis:convexhull\n*/\n#pragma once\n\n#include \"src/geometry/Point.h\"\
-    \n\ntypedef Point<ll> P;\nvector<P> convexHull(vector<P> pts){\n\tif(SZ(pts)<=1)return\
+    \n\nusing P = Point<ll>;\nvector<P> convexHull(vector<P> pts){\n\tif(SZ(pts)<=1)return\
     \ pts;\n\tsort(ALL(pts));\n\tvector<P> h(SZ(pts)+1);int s=0,t=0;\n\tfor(int it=2;it--;s=--t,reverse(ALL(pts)))\n\
     \t\tfor(P p:pts){\n\t\t\twhile(t>=s+2&&h[t-2].cross(h[t-1],p)<=0)t--;\n\t\t\t\
     h[t++]=p;\n\t\t}\n\treturn {h.begin(),h.begin()+t-(t==2&&h[0]==h[1])};\n}\n"
@@ -43,7 +43,7 @@ data:
   path: src/geometry/ConvexHull.h
   requiredBy:
   - src/geometry/MaxTriangle.h
-  timestamp: '2026-10-03 23:15:31+07:00'
+  timestamp: '2026-10-26 18:23:08+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/ConvexHull.h

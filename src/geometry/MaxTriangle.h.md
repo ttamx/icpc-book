@@ -14,13 +14,13 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
     \         ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
-    \  File \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n    ~~~~~~~~~~~~~~^^^^^^\n  File\
-    \ \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ src/geometry/MaxTriangle.h: line 15: #pragma once found in a non-first line\n"
@@ -33,7 +33,7 @@ data:
     \ * Time: O(n \\log n)\n * Status: stress-tested\n */\n#pragma once\n#include\
     \ \"src/geometry/ConvexHull.h\"\n\npair<ll,array<P,3>> maxTriangle(vector<P> pts){\n\
     \tvector<P> h=convexHull(pts);\n\tint n=SZ(h);\n\tpair<ll,array<P,3>> res{};\n\
-    \tif(n<3)return res;\n\ttypedef array<int,2> J;\n\tauto at=[&](int i){return h[i%n];};\n\
+    \tif(n<3)return res;\n\tusing J = array<int,2>;\n\tauto at=[&](int i){return h[i%n];};\n\
     \tauto A=[&](int a,int b,int c){\n\t\treturn at(a).cross(at(b),at(c));};\n\t//\
     \ best (r,j,k) with j in [jl,jr], k in [kl,kr], j<k\n\tauto rooted=[&](int r,int\
     \ jl,int jr,int kl,int kr){\n\t\tJ t{jl,kl};ll mx=-1;\n\t\tfor(int j=jl,k=kl;j<=jr;j++){\n\
@@ -50,7 +50,7 @@ data:
   isVerificationFile: false
   path: src/geometry/MaxTriangle.h
   requiredBy: []
-  timestamp: '2026-10-04 00:49:42+07:00'
+  timestamp: '2026-10-26 18:23:08+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/MaxTriangle.h

@@ -20,8 +20,8 @@ data:
     \    MinCostFlow(){}\n    MinCostFlow(int _n){init(_n);}\n    void init(int _n){n=_n,neg=0,e.clear(),adj.assign(n,{});}\n\
     \    void addEdge(int u,int v,F cap,C cost){\n        adj[u].pb(SZ(e)),e.pb({v,0,cap,cost});\n\
     \        adj[v].pb(SZ(e)),e.pb({u,0,0,-cost});\n        if(cost<0)neg=true;\n\
-    \    }\n    bool dijkstra(int s,int t){\n        using P=pair<C,int>;\n      \
-    \  dist.assign(n,CINF),pre.assign(n,-1);\n        PQ<P> pq;\n        dist[s]=0,pq.emplace(0,s);\n\
+    \    }\n    bool dijkstra(int s,int t){\n        using P = pair<C,int>;\n    \
+    \    dist.assign(n,CINF),pre.assign(n,-1);\n        PQ<P> pq;\n        dist[s]=0,pq.emplace(0,s);\n\
     \        while(!pq.empty()){\n            auto [d,u]=pq.top();pq.pop();\n    \
     \        if(dist[u]<d)continue;\n            for(int i:adj[u]){\n            \
     \    C nd=d+pot[u]-pot[e[i].to]+e[i].cost;\n                if(e[i].getcap()>0&&chmin(dist[e[i].to],nd))\n\
@@ -46,8 +46,8 @@ data:
     \    MinCostFlow(){}\n    MinCostFlow(int _n){init(_n);}\n    void init(int _n){n=_n,neg=0,e.clear(),adj.assign(n,{});}\n\
     \    void addEdge(int u,int v,F cap,C cost){\n        adj[u].pb(SZ(e)),e.pb({v,0,cap,cost});\n\
     \        adj[v].pb(SZ(e)),e.pb({u,0,0,-cost});\n        if(cost<0)neg=true;\n\
-    \    }\n    bool dijkstra(int s,int t){\n        using P=pair<C,int>;\n      \
-    \  dist.assign(n,CINF),pre.assign(n,-1);\n        PQ<P> pq;\n        dist[s]=0,pq.emplace(0,s);\n\
+    \    }\n    bool dijkstra(int s,int t){\n        using P = pair<C,int>;\n    \
+    \    dist.assign(n,CINF),pre.assign(n,-1);\n        PQ<P> pq;\n        dist[s]=0,pq.emplace(0,s);\n\
     \        while(!pq.empty()){\n            auto [d,u]=pq.top();pq.pop();\n    \
     \        if(dist[u]<d)continue;\n            for(int i:adj[u]){\n            \
     \    C nd=d+pot[u]-pot[e[i].to]+e[i].cost;\n                if(e[i].getcap()>0&&chmin(dist[e[i].to],nd))\n\
@@ -65,7 +65,7 @@ data:
   isVerificationFile: false
   path: src/flows/min-cost-flow.hpp
   requiredBy: []
-  timestamp: '2026-10-04 01:45:10+07:00'
+  timestamp: '2026-10-26 18:23:08+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/flows/min-cost-flow.hpp

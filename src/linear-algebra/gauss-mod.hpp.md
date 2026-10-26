@@ -3,21 +3,21 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/linear-algebra/gauss-mod/inverse_matrix.test.cpp
     title: verify/linear-algebra/gauss-mod/inverse_matrix.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/linear-algebra/gauss-mod/matrix_det.test.cpp
     title: verify/linear-algebra/gauss-mod/matrix_det.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
     title: verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
     title: verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/linear-algebra/gauss-mod.hpp\"\n\n/**\n * Author: Teetat\
@@ -29,7 +29,7 @@ data:
     \ of $\\{x : Ax=0\\}$ ($|K|=m-$rank).\n * \\texttt{mat\\_inv} returns false if\
     \ singular (then $a$ is garbage).\n * Usage: Mat<mint> A(n,vector<mint>(m)); int\
     \ r=solve(A,b,m,x,K);\n * Time: $O(nm\\cdot\\min(n,m))$; $500\\times 500$ det\
-    \ takes 60ms.\n */\n\ntemplate<class T>\nusing Mat=vector<vector<T>>;\n\ntemplate<class\
+    \ takes 60ms.\n */\n\ntemplate<class T>\nusing Mat = vector<vector<T>>;\n\ntemplate<class\
     \ T>\nvector<int> gauss(Mat<T> &a,int c,T &d){\n    int n=SZ(a),r=0;\n    vector<int>\
     \ piv;d=1;\n    for(int j=0;j<c&&r<n;j++){\n        int p=r;\n        while(p<n&&a[p][j]==0)p++;\n\
     \        if(p==n)continue;\n        if(p!=r)swap(a[p],a[r]),d=-d;\n        auto\
@@ -55,7 +55,7 @@ data:
     \ vars $=0$) and a basis $K$ of $\\{x : Ax=0\\}$ ($|K|=m-$rank).\n * \\texttt{mat\\\
     _inv} returns false if singular (then $a$ is garbage).\n * Usage: Mat<mint> A(n,vector<mint>(m));\
     \ int r=solve(A,b,m,x,K);\n * Time: $O(nm\\cdot\\min(n,m))$; $500\\times 500$\
-    \ det takes 60ms.\n */\n\ntemplate<class T>\nusing Mat=vector<vector<T>>;\n\n\
+    \ det takes 60ms.\n */\n\ntemplate<class T>\nusing Mat = vector<vector<T>>;\n\n\
     template<class T>\nvector<int> gauss(Mat<T> &a,int c,T &d){\n    int n=SZ(a),r=0;\n\
     \    vector<int> piv;d=1;\n    for(int j=0;j<c&&r<n;j++){\n        int p=r;\n\
     \        while(p<n&&a[p][j]==0)p++;\n        if(p==n)continue;\n        if(p!=r)swap(a[p],a[r]),d=-d;\n\
@@ -77,13 +77,13 @@ data:
   isVerificationFile: false
   path: src/linear-algebra/gauss-mod.hpp
   requiredBy: []
-  timestamp: '2026-10-04 00:49:42+07:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2026-10-26 18:23:08+07:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
   - verify/linear-algebra/gauss-mod/inverse_matrix.test.cpp
-  - verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
   - verify/linear-algebra/gauss-mod/matrix_det.test.cpp
+  - verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
+  - verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
 documentation_of: src/linear-algebra/gauss-mod.hpp
 layout: document
 redirect_from:

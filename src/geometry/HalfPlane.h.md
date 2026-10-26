@@ -12,13 +12,13 @@ data:
   attributes:
     links:
     - https://cp-algorithms.com/geometry/halfplane-intersection.html
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
     \         ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
-    \  File \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n    ~~~~~~~~~~~~~~^^^^^^\n  File\
-    \ \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ src/geometry/HalfPlane.h: line 21: #pragma once found in a non-first line\n"
@@ -33,9 +33,9 @@ data:
     \ double B=1e5;\n * \tP c[4]={P(-B,-B),P(B,-B),P(B,B),P(-B,B)};\n * \tfor(int\
     \ i=0;i<4;i++)h.pb({c[i],c[(i+1)%4]});\n * \tvector<P> poly=halfPlane(h);\n *\
     \ Time: $O(n \\log n)$\n * Status: stress-tested against repeated polygonCut\n\
-    \ */\n#pragma once\n\n#include \"src/geometry/Point.h\"\n\ntypedef Point<double>\
-    \ P;\ntypedef array<P,2> L;\nP hpInter(L a,L b){\n\tP d=a[1]-a[0],e=b[1]-b[0];\n\
-    \treturn a[0]+d*((b[0]-a[0]).cross(e)/d.cross(e));\n}\nvector<P> halfPlane(vector<L>\
+    \ */\n#pragma once\n\n#include \"src/geometry/Point.h\"\n\nusing P = Point<double>;\n\
+    using L = array<P,2>;\nP hpInter(L a,L b){\n\tP d=a[1]-a[0],e=b[1]-b[0];\n\treturn\
+    \ a[0]+d*((b[0]-a[0]).cross(e)/d.cross(e));\n}\nvector<P> halfPlane(vector<L>\
     \ h){\n\tauto dir=[](L l){return l[1]-l[0];};\n\tauto out=[](L l,P p){return l[0].cross(l[1],p)<-EPS;};\n\
     \tauto hf=[&](L l){P d=dir(l);return d.y<0||(!d.y&&d.x<0);};\n\tauto cr=[&](L\
     \ a,L b){return dir(a).cross(dir(b));};\n\tsort(ALL(h),[&](L a,L b){\n\t\tif(hf(a)!=hf(b))return\
@@ -54,7 +54,7 @@ data:
   isVerificationFile: false
   path: src/geometry/HalfPlane.h
   requiredBy: []
-  timestamp: '2026-10-04 00:49:42+07:00'
+  timestamp: '2026-10-26 18:23:08+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/HalfPlane.h

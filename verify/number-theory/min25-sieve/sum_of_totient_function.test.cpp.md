@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/contest/template.hpp
     title: src/contest/template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/number-theory/min25-sieve.hpp
     title: src/number-theory/min25-sieve.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/number-theory/montgomery-modint.hpp
     title: src/number-theory/montgomery-modint.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/number-theory/prime-counting.hpp
     title: src/number-theory/prime-counting.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/sum_of_totient_function
@@ -85,13 +85,12 @@ data:
     \    }\n\n    friend istream &operator>>(istream &is,mint &o){\n        int64_t\
     \ v;\n        is >> v;\n        o=mint(v);\n        return is;\n    }\n    friend\
     \ ostream &operator<<(ostream &os,const mint &o){\n        return os << o.val();\n\
-    \    }\n};\nusing mint998 = MontgomeryModInt<998244353,3>;\nusing mint107 = MontgomeryModInt<1000000007>;\n\
-    \n#line 2 \"src/number-theory/prime-counting.hpp\"\n\n/**\n * Author: Teetat T.\n\
-    \ * Date: 2026-10-03\n * Description: Lucy\\_Hedgehog sieve. For a completely\
-    \ multiplicative\n *  $f$ and every $v=\\lfloor n/i \\rfloor$ computes $G(v)=\\\
-    sum_{p\\le v,\\,p \\text{ prime}} f(p)$.\n *  \\texttt{pre(v)} must return $\\\
-    sum_{x=2}^{v} f(x)$ as \\texttt{T}\n *  (e.g. $v-1$ for $\\pi$, $v(v+1)/2-1$ for\
-    \ sum of primes).\n *  Read with \\texttt{g(v)} for $v=\\lfloor n/i \\rfloor$\
+    \    }\n};\n#line 2 \"src/number-theory/prime-counting.hpp\"\n\n/**\n * Author:\
+    \ Teetat T.\n * Date: 2026-10-03\n * Description: Lucy\\_Hedgehog sieve. For a\
+    \ completely multiplicative\n *  $f$ and every $v=\\lfloor n/i \\rfloor$ computes\
+    \ $G(v)=\\sum_{p\\le v,\\,p \\text{ prime}} f(p)$.\n *  \\texttt{pre(v)} must\
+    \ return $\\sum_{x=2}^{v} f(x)$ as \\texttt{T}\n *  (e.g. $v-1$ for $\\pi$, $v(v+1)/2-1$\
+    \ for sum of primes).\n *  Read with \\texttt{g(v)} for $v=\\lfloor n/i \\rfloor$\
     \ (any $v\\le\\sqrt n$ works).\n *  Use \\texttt{T=ll} for $\\pi$, \\texttt{i128}\
     \ for $\\sum p$ ($n\\le 10^{12}$) or a modint.\n *  For a polynomial $f(p)=\\\
     sum c_k p^k$ run once per $k$ and combine.\n * Usage: Lucy<ll> pi(n,[](ll v){return\
@@ -144,8 +143,8 @@ data:
   isVerificationFile: true
   path: verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
   requiredBy: []
-  timestamp: '2026-10-04 00:49:42+07:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-26 04:09:11+07:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
 layout: document

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/contest/template.hpp
     title: src/contest/template.hpp
   - icon: ':heavy_check_mark:'
@@ -39,31 +39,30 @@ data:
     \nmt19937 rng(chrono::steady_clock::now().time_since_epoch().count());\nmt19937_64\
     \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 2 \"src/tree/link-cut-tree.hpp\"\
     \n\n/**\n * Author: Teetat T.\n * Description: Link Cut Tree (1-indexed)\n */\n\
-    \ntemplate<int N,class T>\nstruct LinkCutTree{\n    int ch[N][2],par[N],lz[N],rev[N];\n\
-    \    T val[N],sum[N],rsum[N];\n    void toggle(int v){\n        if(!v)return;\n\
-    \        swap(ch[v][0],ch[v][1]);\n        swap(sum[v],rsum[v]);\n        rev[v]^=1;\n\
-    \    }\n    void push(int v){\n        if(!v||!rev[v])return;\n        toggle(ch[v][0]);\n\
-    \        toggle(ch[v][1]);\n        rev[v]=0;\n    }\n    void pull(int v){\n\
-    \        if(!v)return;\n        sum[v]=sum[ch[v][0]]+val[v]+sum[ch[v][1]];\n \
-    \       rsum[v]=rsum[ch[v][0]]+val[v]+rsum[ch[v][1]];\n    }\n    bool is_root(int\
-    \ v){\n        return ch[par[v]][0]!=v&&ch[par[v]][1]!=v;\n    }\n    bool pos(int\
-    \ v){\n        return ch[par[v]][1]==v;\n    }\n    void rotate(int v){\n    \
-    \    int u=par[v],g=par[u];\n        bool x=pos(v);\n        if(!is_root(u))ch[g][pos(u)]=v;\n\
-    \        ch[u][x]=ch[v][!x];\n        if(ch[u][x])par[ch[u][x]]=u;\n        ch[v][!x]=u,par[u]=v,par[v]=g;\n\
-    \        pull(u),pull(v);\n    }\n    void splay(int v){\n        if(!v)return;\n\
-    \        for(push(v);!is_root(v);rotate(v)){\n            int u=par[v];\n    \
-    \        if(is_root(u))push(u),push(v);\n            else push(par[u]),push(u),push(v),rotate(pos(u)==pos(v)?u:v);\n\
-    \        }\n    }\n    void access(int v){\n        for(int u=v,c=0;u;u=par[u]){\n\
-    \            splay(u);\n            ch[u][1]=c;\n            pull(c=u);\n    \
-    \    }\n        splay(v);\n    }\n    void evert(int v){\n        access(v),toggle(v);\n\
-    \    }\n    void link(int u,int v){\n        evert(u);\n        access(v);\n \
-    \       par[u]=v;\n    }\n    void cut(int u,int v){\n        evert(u);\n    \
-    \    access(v);\n        assert(ch[v][0]==u&&!ch[u][0]&&!ch[u][1]);\n        ch[v][0]=par[u]=0;\n\
-    \        pull(v);\n    }\n    T aggregate(int u,int v){\n        evert(u);\n \
-    \       access(v);\n        return sum[v];\n    }\n    void set(int u,T v){\n\
-    \        evert(u);\n        val[u]=v;\n        pull(u);\n    }\n};\n#line 4 \"\
-    verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp\"\n\nconst\
-    \ int N=2e5+5;\n\nint n,q;\nll a[N];\nLinkCutTree<N,ll> lct;\n\nint main(){\n\
+    \ntemplate<int N,class T>\nstruct LinkCutTree{\n    int ch[N][2],par[N],rev[N];\n\
+    \    T val[N],sum[N],rsum[N],lz[N];\n    void toggle(int v){\n        if(!v)return;\n\
+    \        swap(ch[v][0],ch[v][1]),swap(sum[v],rsum[v]),rev[v]^=1;\n    }\n    void\
+    \ apply(int v,T x){\n        if(!v)return;\n        val[v]=val[v]+x,lz[v]=lz[v]+x;\n\
+    \        sum[v]=sum[v]+x,rsum[v]=rsum[v]+x;\n    }\n    void push(int v){\n  \
+    \      if(rev[v])toggle(ch[v][0]),toggle(ch[v][1]),rev[v]=0;\n        apply(ch[v][0],lz[v]),apply(ch[v][1],lz[v]),lz[v]=T();\n\
+    \    }\n    void pull(int v){\n        sum[v]=sum[ch[v][0]]+val[v]+sum[ch[v][1]];\n\
+    \        rsum[v]=rsum[ch[v][1]]+val[v]+rsum[ch[v][0]];\n    }\n    bool pos(int\
+    \ v){return ch[par[v]][1]==v;}\n    bool is_root(int v){return ch[par[v]][pos(v)]!=v;}\n\
+    \    void rotate(int v){\n        int u=par[v],g=par[u],x=pos(v);\n        if(!is_root(u))ch[g][pos(u)]=v;\n\
+    \        if((ch[u][x]=ch[v][!x]))par[ch[u][x]]=u;\n        ch[v][!x]=u,par[u]=v,par[v]=g,pull(u),pull(v);\n\
+    \    }\n    void splay(int v){\n        for(push(v);!is_root(v);rotate(v)){\n\
+    \            int u=par[v],r=is_root(u);\n            if(!r)push(par[u]);\n   \
+    \         push(u),push(v);\n            if(!r)rotate(pos(u)==pos(v)?u:v);\n  \
+    \      }\n    }\n    void access(int v){\n        for(int u=v,c=0;u;c=u,u=par[u])\n\
+    \            splay(u),ch[u][1]=c,pull(u);\n        splay(v);\n    }\n    void\
+    \ reroot(int v){access(v),toggle(v);}\n    bool connected(int u,int v){\n    \
+    \    reroot(u),access(v);return u==v||par[u];}\n    void link(int u,int v){\n\
+    \        reroot(u),access(v);\n        assert(u!=v&&!par[u]);par[u]=v;}\n    void\
+    \ cut(int u,int v){\n        reroot(u),access(v);\n        assert(ch[v][0]==u&&!ch[u][0]&&!ch[u][1]);\n\
+    \        ch[v][0]=par[u]=0,pull(v);\n    }\n    T aggregate(int u,int v){\n  \
+    \      reroot(u),access(v);return sum[v];}\n    void add(int u,int v,T x){reroot(u),access(v),apply(v,x);}\n\
+    \    void set(int u,T v){reroot(u),val[u]=v,pull(u);}\n};\n#line 4 \"verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp\"\
+    \n\nconst int N=2e5+5;\n\nint n,q;\nll a[N];\nLinkCutTree<N,ll> lct;\n\nint main(){\n\
     \    cin.tie(nullptr)->sync_with_stdio(false);\n    cin >> n >> q;\n    for(int\
     \ i=1;i<=n;i++){\n        cin >> a[i];\n        lct.set(i,a[i]);\n    }\n    for(int\
     \ i=0;i<n-1;i++){\n        int u,v;\n        cin >> u >> v;\n        u++,v++;\n\
@@ -95,7 +94,7 @@ data:
   isVerificationFile: true
   path: verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
   requiredBy: []
-  timestamp: '2026-10-03 23:15:31+07:00'
+  timestamp: '2026-10-26 16:18:54+07:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp

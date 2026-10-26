@@ -14,13 +14,13 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
     \         ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
-    \  File \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n    ~~~~~~~~~~~~~~^^^^^^\n  File\
-    \ \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ src/geometry/Point3D.h: line 11: #pragma once found in a non-first line\n"
@@ -28,7 +28,7 @@ data:
     \ * License: CC0\n * Source:\n * Description: Class to handle points in 3D space.\n\
     \ * \tT can be e.g. double or long long.\n * Usage:\n * Status: tested, except\
     \ for phi and theta\n */\n#pragma once\n\ntemplate<class T> struct Point3D{\n\t\
-    typedef Point3D P;\n\ttypedef const P& R;\n\tT x,y,z;\n\texplicit Point3D(T x=0,T\
+    using P = Point3D;\n\tusing R = const P&;\n\tT x,y,z;\n\texplicit Point3D(T x=0,T\
     \ y=0,T z=0):x(x),y(y),z(z){}\n\tbool operator<(R p)const{return tie(x,y,z)<tie(p.x,p.y,p.z);}\n\
     \tbool operator==(R p)const{\n\t\treturn tie(x,y,z)==tie(p.x,p.y,p.z);}\n\tP operator+(R\
     \ p)const{return P(x+p.x,y+p.y,z+p.z);}\n\tP operator-(R p)const{return P(x-p.x,y-p.y,z-p.z);}\n\
@@ -47,9 +47,9 @@ data:
   isVerificationFile: false
   path: src/geometry/Point3D.h
   requiredBy:
-  - src/geometry/3dHull.h
   - src/geometry/DelaunayTriangulation.h
-  timestamp: '2026-10-03 23:15:31+07:00'
+  - src/geometry/3dHull.h
+  timestamp: '2026-10-26 18:23:08+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/Point3D.h

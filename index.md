@@ -3,29 +3,20 @@ data:
   libraryCategories:
   - name: src/contest
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: src/contest/template.hpp
       title: src/contest/template.hpp
   - name: src/convolution
     pages:
     - icon: ':warning:'
-      path: src/convolution/and-convolution.hpp
-      title: src/convolution/and-convolution.hpp
+      path: src/convolution/bitwise-conv.hpp
+      title: src/convolution/bitwise-conv.hpp
     - icon: ':warning:'
-      path: src/convolution/gcd-convolution.hpp
-      title: src/convolution/gcd-convolution.hpp
-    - icon: ':warning:'
-      path: src/convolution/lcm-convolution.hpp
-      title: src/convolution/lcm-convolution.hpp
+      path: src/convolution/gcd-lcm-conv.hpp
+      title: src/convolution/gcd-lcm-conv.hpp
     - icon: ':warning:'
       path: src/convolution/max-plus-convolution.hpp
       title: src/convolution/max-plus-convolution.hpp
-    - icon: ':warning:'
-      path: src/convolution/or-convolution.hpp
-      title: src/convolution/or-convolution.hpp
-    - icon: ':warning:'
-      path: src/convolution/xor-convolution.hpp
-      title: src/convolution/xor-convolution.hpp
   - name: src/data-structures
     pages:
     - icon: ':warning:'
@@ -37,7 +28,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/data-structures/segment-tree-beats.hpp
       title: src/data-structures/segment-tree-beats.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/data-structures/treap.hpp
       title: src/data-structures/treap.hpp
   - name: src/flows
@@ -81,8 +72,8 @@ data:
       path: src/geometry/CircleLine.h
       title: src/geometry/CircleLine.h
     - icon: ':warning:'
-      path: src/geometry/CirclePolygonIntersection.h
-      title: src/geometry/CirclePolygonIntersection.h
+      path: src/geometry/CirclePolyInter.h
+      title: src/geometry/CirclePolyInter.h
     - icon: ':warning:'
       path: src/geometry/CircleTangents.h
       title: src/geometry/CircleTangents.h
@@ -99,20 +90,20 @@ data:
       path: src/geometry/FastDelaunay.h
       title: src/geometry/FastDelaunay.h
     - icon: ':warning:'
+      path: src/geometry/GeoUtils.h
+      title: src/geometry/GeoUtils.h
+    - icon: ':warning:'
       path: src/geometry/HalfPlane.h
       title: src/geometry/HalfPlane.h
     - icon: ':warning:'
       path: src/geometry/HullDiameter.h
       title: src/geometry/HullDiameter.h
     - icon: ':warning:'
-      path: src/geometry/InsidePolygon.h
-      title: src/geometry/InsidePolygon.h
+      path: src/geometry/InsidePoly.h
+      title: src/geometry/InsidePoly.h
     - icon: ':warning:'
       path: src/geometry/LineHullIntersection.h
       title: src/geometry/LineHullIntersection.h
-    - icon: ':warning:'
-      path: src/geometry/LineProjectionReflection.h
-      title: src/geometry/LineProjectionReflection.h
     - icon: ':warning:'
       path: src/geometry/ManhattanMST.h
       title: src/geometry/ManhattanMST.h
@@ -120,11 +111,8 @@ data:
       path: src/geometry/MaxTriangle.h
       title: src/geometry/MaxTriangle.h
     - icon: ':warning:'
-      path: src/geometry/MinimumEnclosingCircle.h
-      title: src/geometry/MinimumEnclosingCircle.h
-    - icon: ':warning:'
-      path: src/geometry/OnSegment.h
-      title: src/geometry/OnSegment.h
+      path: src/geometry/MinEnclosingCircle.h
+      title: src/geometry/MinEnclosingCircle.h
     - icon: ':warning:'
       path: src/geometry/Point.h
       title: src/geometry/Point.h
@@ -135,44 +123,17 @@ data:
       path: src/geometry/PointInsideHull.h
       title: src/geometry/PointInsideHull.h
     - icon: ':warning:'
-      path: src/geometry/PolygonArea.h
-      title: src/geometry/PolygonArea.h
+      path: src/geometry/PolyCut.h
+      title: src/geometry/PolyCut.h
     - icon: ':warning:'
-      path: src/geometry/PolygonCenter.h
-      title: src/geometry/PolygonCenter.h
-    - icon: ':warning:'
-      path: src/geometry/PolygonCut.h
-      title: src/geometry/PolygonCut.h
-    - icon: ':warning:'
-      path: src/geometry/PolygonUnion.h
-      title: src/geometry/PolygonUnion.h
+      path: src/geometry/PolyUnion.h
+      title: src/geometry/PolyUnion.h
     - icon: ':warning:'
       path: src/geometry/PolyhedronVolume.h
       title: src/geometry/PolyhedronVolume.h
     - icon: ':warning:'
-      path: src/geometry/SegmentDistance.h
-      title: src/geometry/SegmentDistance.h
-    - icon: ':warning:'
-      path: src/geometry/SegmentIntersection.h
-      title: src/geometry/SegmentIntersection.h
-    - icon: ':warning:'
-      path: src/geometry/circumcircle.h
-      title: src/geometry/circumcircle.h
-    - icon: ':warning:'
       path: src/geometry/kdTree.h
       title: src/geometry/kdTree.h
-    - icon: ':warning:'
-      path: src/geometry/lineDistance.h
-      title: src/geometry/lineDistance.h
-    - icon: ':warning:'
-      path: src/geometry/lineIntersection.h
-      title: src/geometry/lineIntersection.h
-    - icon: ':warning:'
-      path: src/geometry/linearTransformation.h
-      title: src/geometry/linearTransformation.h
-    - icon: ':warning:'
-      path: src/geometry/sideOf.h
-      title: src/geometry/sideOf.h
     - icon: ':warning:'
       path: src/geometry/sphericalDistance.h
       title: src/geometry/sphericalDistance.h
@@ -186,7 +147,7 @@ data:
     - icon: ':warning:'
       path: src/linear-algebra/gauss-double.hpp
       title: src/linear-algebra/gauss-double.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: src/linear-algebra/gauss-mod.hpp
       title: src/linear-algebra/gauss-mod.hpp
     - icon: ':warning:'
@@ -213,7 +174,7 @@ data:
     - icon: ':warning:'
       path: src/number-theory/barrett.hpp
       title: src/number-theory/barrett.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: src/number-theory/binpow.hpp
       title: src/number-theory/binpow.hpp
     - icon: ':warning:'
@@ -231,16 +192,19 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/number-theory/floor-sum.hpp
       title: src/number-theory/floor-sum.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: src/number-theory/min25-sieve.hpp
       title: src/number-theory/min25-sieve.hpp
     - icon: ':heavy_check_mark:'
       path: src/number-theory/mod-sqrt.hpp
       title: src/number-theory/mod-sqrt.hpp
     - icon: ':heavy_check_mark:'
+      path: src/number-theory/modint.hpp
+      title: src/number-theory/modint.hpp
+    - icon: ':x:'
       path: src/number-theory/montgomery-modint.hpp
       title: src/number-theory/montgomery-modint.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: src/number-theory/prime-counting.hpp
       title: src/number-theory/prime-counting.hpp
     - icon: ':warning:'
@@ -248,34 +212,34 @@ data:
       title: src/number-theory/primitive-root.hpp
   - name: src/polynomials
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: src/polynomials/berlekamp-massey.hpp
       title: src/polynomials/berlekamp-massey.hpp
     - icon: ':warning:'
       path: src/polynomials/fft.hpp
       title: src/polynomials/fft.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: src/polynomials/formal-power-series.hpp
       title: src/polynomials/formal-power-series.hpp
     - icon: ':warning:'
       path: src/polynomials/lagrange-interpolate.hpp
       title: src/polynomials/lagrange-interpolate.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: src/polynomials/linear-recurrence.hpp
       title: src/polynomials/linear-recurrence.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: src/polynomials/multipoint-evaluation.hpp
       title: src/polynomials/multipoint-evaluation.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: src/polynomials/ntt.hpp
       title: src/polynomials/ntt.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: src/polynomials/polynomial-interpolation.hpp
       title: src/polynomials/polynomial-interpolation.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: src/polynomials/subproduct-tree.hpp
       title: src/polynomials/subproduct-tree.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: src/polynomials/taylor-shift.hpp
       title: src/polynomials/taylor-shift.hpp
   - name: src/string
@@ -304,9 +268,12 @@ data:
       path: src/tree/dominator-tree.hpp
       title: src/tree/dominator-tree.hpp
     - icon: ':heavy_check_mark:'
+      path: src/tree/euler-tour-tree.hpp
+      title: src/tree/euler-tour-tree.hpp
+    - icon: ':heavy_check_mark:'
       path: src/tree/link-cut-tree.hpp
       title: src/tree/link-cut-tree.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/tree/static-top-tree.hpp
       title: src/tree/static-top-tree.hpp
   verificationCategories:
@@ -347,16 +314,16 @@ data:
       title: verify/graph/k-th-shortest-path/k_shortest_walk.test.cpp
   - name: verify/linear-algebra/gauss-mod
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/linear-algebra/gauss-mod/inverse_matrix.test.cpp
       title: verify/linear-algebra/gauss-mod/inverse_matrix.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/linear-algebra/gauss-mod/matrix_det.test.cpp
       title: verify/linear-algebra/gauss-mod/matrix_det.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
       title: verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
       title: verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
   - name: verify/miscellaneous
@@ -381,7 +348,7 @@ data:
       title: verify/number-theory/floor-sum/sum_of_floor_of_linear.test.cpp
   - name: verify/number-theory/min25-sieve
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
       title: verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
   - name: verify/number-theory/mod-sqrt
@@ -396,27 +363,27 @@ data:
       title: verify/number-theory/prime-counting/counting_primes.test.cpp
   - name: verify/polynomials/berlekamp-massey
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp
       title: verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp
   - name: verify/polynomials/linear-recurrence
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
       title: verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
   - name: verify/polynomials/multipoint-evaluation
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
       title: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
   - name: verify/polynomials/polynomial-interpolation
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
       title: verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
   - name: verify/polynomials/taylor-shift
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
       title: verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
   - name: verify/string/manacher
@@ -442,11 +409,27 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/string/z-algorithm/zalgorithm.test.cpp
       title: verify/string/z-algorithm/zalgorithm.test.cpp
+  - name: verify/tree/euler-tour-tree
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/tree/euler-tour-tree/dynamic_tree_subtree_add_subtree_sum.test.cpp
+      title: verify/tree/euler-tour-tree/dynamic_tree_subtree_add_subtree_sum.test.cpp
   - name: verify/tree/link-cut-tree
     pages:
     - icon: ':heavy_check_mark:'
       path: verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
       title: verify/tree/link-cut-tree/dynamic_tree_vertex_add_path_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/tree/link-cut-tree/dynamic_tree_vertex_set_path_composite.test.cpp
+      title: verify/tree/link-cut-tree/dynamic_tree_vertex_set_path_composite.test.cpp
+  - name: verify/tree/static-top-tree
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/tree/static-top-tree/point_set_tree_path_composite_sum.test.cpp
+      title: verify/tree/static-top-tree/point_set_tree_path_composite_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/tree/static-top-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
+      title: verify/tree/static-top-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
 layout: toppage
 ---
 <!-- Team Members

@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/number-theory/binpow.hpp
     title: src/number-theory/binpow.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/number-theory/montgomery-modint.hpp
     title: src/number-theory/montgomery-modint.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/polynomials/ntt.hpp
     title: src/polynomials/ntt.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/number-theory/binpow.hpp\"\n\n/**\n * Author: Teetat\
@@ -66,13 +66,12 @@ data:
     \    }\n\n    friend istream &operator>>(istream &is,mint &o){\n        int64_t\
     \ v;\n        is >> v;\n        o=mint(v);\n        return is;\n    }\n    friend\
     \ ostream &operator<<(ostream &os,const mint &o){\n        return os << o.val();\n\
-    \    }\n};\nusing mint998 = MontgomeryModInt<998244353,3>;\nusing mint107 = MontgomeryModInt<1000000007>;\n\
-    \n#line 4 \"src/polynomials/ntt.hpp\"\n\n/**\n * Author: Teetat T.\n * Description:\
-    \ Number Theoretic Transform\n * Time: $O(N \\log N)$\n */\n\n// For p < 2^30\
-    \ there is also e.g. 5 << 25, 7 << 26, 479 << 21\n// and 483 << 21 (same root\
-    \ = 62). The last two are > 10^9.\n\ntemplate<class mint>\nstruct NTT{\n\tusing\
-    \ vm = vector<mint>;\n\t\n\tstatic constexpr mint root=mint::get_root();\n   \
-    \ static_assert(root!=0);\n\n\tstatic void ntt(vm &a){\n\t\tint n=a.size(),L=31-__builtin_clz(n);\n\
+    \    }\n};\n#line 4 \"src/polynomials/ntt.hpp\"\n\n/**\n * Author: Teetat T.\n\
+    \ * Description: Number Theoretic Transform\n * Time: $O(N \\log N)$\n */\n\n\
+    // For p < 2^30 there is also e.g. 5 << 25, 7 << 26, 479 << 21\n// and 483 <<\
+    \ 21 (same root = 62). The last two are > 10^9.\n\ntemplate<class mint>\nstruct\
+    \ NTT{\n\tusing vm = vector<mint>;\n\t\n\tstatic constexpr mint root=mint::get_root();\n\
+    \    static_assert(root!=0);\n\n\tstatic void ntt(vm &a){\n\t\tint n=a.size(),L=31-__builtin_clz(n);\n\
     \t\tvm rt(n);\n\t\trt[1]=1;\n\t\tfor(int k=2,s=2;k<n;k*=2,s++){\n\t\t\tmint z[]={1,binpow(root,mint::get_mod()>>s)};\n\
     \t\t\tfor(int i=k;i<2*k;i++)rt[i]=rt[i/2]*z[i&1];\n\t\t}\n\t\tvector<int> rev(n);\n\
     \t\tfor(int i=1;i<n;i++)rev[i]=(rev[i/2]|(i&1)<<L)/2;\n\t\tfor(int i=1;i<n;i++)if(i<rev[i])swap(a[i],a[rev[i]]);\n\
@@ -122,8 +121,8 @@ data:
   isVerificationFile: false
   path: src/polynomials/linear-recurrence.hpp
   requiredBy: []
-  timestamp: '2026-10-04 00:49:42+07:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2026-10-26 04:09:11+07:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
 documentation_of: src/polynomials/linear-recurrence.hpp

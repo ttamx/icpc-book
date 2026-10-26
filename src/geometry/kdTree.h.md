@@ -11,21 +11,21 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
     \         ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
-    \  File \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n    ~~~~~~~~~~~~~~^^^^^^\n  File\
-    \ \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ src/geometry/kdTree.h: line 8: #pragma once found in a non-first line\n"
   code: "/**\n * Author: Stanford\n * Date: Unknown\n * Source: Stanford Notebook\n\
     \ * Description: KD-tree (2d, can be extended to 3d)\n * Status: Tested on excellentengineers\n\
-    \ */\n#pragma once\n\n#include \"src/geometry/Point.h\"\n\ntypedef long long T;\n\
-    typedef Point<T> P;\nconst T KINF=numeric_limits<T>::max();\n\nbool on_x(const\
-    \ P& a,const P& b){return a.x<b.x;}\nbool on_y(const P& a,const P& b){return a.y<b.y;}\n\
+    \ */\n#pragma once\n\n#include \"src/geometry/Point.h\"\n\nusing T = ll;\nusing\
+    \ P = Point<T>;\nconst T KINF=numeric_limits<T>::max();\n\nbool on_x(const P&\
+    \ a,const P& b){return a.x<b.x;}\nbool on_y(const P& a,const P& b){return a.y<b.y;}\n\
     \nstruct Node{\n\tP pt; // if this is a leaf, the single point in it\n\tT x0=KINF,x1=-KINF,y0=KINF,y1=-KINF;\
     \ // bounds\n\tNode *first=0,*second=0;\n\tT distance(const P& p){ // min squared\
     \ distance to a point\n\t\tT x=(p.x<x0?x0:p.x>x1?x1:p.x);\n\t\tT y=(p.y<y0?y0:p.y>y1?y1:p.y);\n\
@@ -51,7 +51,7 @@ data:
   isVerificationFile: false
   path: src/geometry/kdTree.h
   requiredBy: []
-  timestamp: '2026-10-03 23:15:31+07:00'
+  timestamp: '2026-10-26 18:23:08+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/kdTree.h

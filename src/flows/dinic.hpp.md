@@ -72,8 +72,8 @@ data:
   isVerificationFile: false
   path: src/flows/dinic.hpp
   requiredBy:
-  - src/flows/binary-optimization.hpp
   - src/flows/k-ary-optimization.hpp
+  - src/flows/binary-optimization.hpp
   timestamp: '2026-10-04 01:45:10+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []

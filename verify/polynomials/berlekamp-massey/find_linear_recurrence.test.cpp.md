@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/contest/template.hpp
     title: src/contest/template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/number-theory/montgomery-modint.hpp
     title: src/number-theory/montgomery-modint.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/polynomials/berlekamp-massey.hpp
     title: src/polynomials/berlekamp-massey.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/find_linear_recurrence
@@ -93,8 +93,7 @@ data:
     \    }\n\n    friend istream &operator>>(istream &is,mint &o){\n        int64_t\
     \ v;\n        is >> v;\n        o=mint(v);\n        return is;\n    }\n    friend\
     \ ostream &operator<<(ostream &os,const mint &o){\n        return os << o.val();\n\
-    \    }\n};\nusing mint998 = MontgomeryModInt<998244353,3>;\nusing mint107 = MontgomeryModInt<1000000007>;\n\
-    \n#line 5 \"verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp\"\
+    \    }\n};\n#line 5 \"verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp\"\
     \n\nusing mint = mint998;\n\nint main(){\n    cin.tie(nullptr)->sync_with_stdio(false);\n\
     \    int n;\n    cin >> n;\n    vector<mint> a(n);\n    for(auto &x:a)cin >> x;\n\
     \    auto c=berlekamp_massey(a);\n    int d=c.size();\n    cout << d << \"\\n\"\
@@ -113,8 +112,8 @@ data:
   isVerificationFile: true
   path: verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp
   requiredBy: []
-  timestamp: '2026-10-04 00:49:42+07:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-10-26 04:09:11+07:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp
 layout: document

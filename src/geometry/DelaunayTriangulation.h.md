@@ -17,13 +17,13 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
     \         ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
-    \  File \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n    ~~~~~~~~~~~~~~^^^^^^\n  File\
-    \ \"/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ src/geometry/DelaunayTriangulation.h: line 11: #pragma once found in a non-first\
@@ -33,12 +33,11 @@ data:
     \ *  Each circumcircle contains none of the input points.\n *  If any three points\
     \ are collinear or any four are on the same circle, behavior is undefined.\n *\
     \ Time: O(n^2)\n * Status: stress-tested\n */\n#pragma once\n\n#include \"src/geometry/Point.h\"\
-    \n#include \"src/geometry/3dHull.h\"\n\ntemplate<class P, class F>\nvoid delaunay(vector<P>&\
-    \ ps, F trifun) {\n\tif (SZ(ps) == 3) { int d = (ps[0].cross(ps[1], ps[2]) < 0);\n\
-    \t\ttrifun(0,1+d,2-d); }\n\tvector<P3> p3;\n\tfor (P p : ps) p3.emplace_back(p.x,\
-    \ p.y, p.dist2());\n\tif (SZ(ps) > 3) for(auto t:hull3d(p3)) if ((p3[t.b]-p3[t.a]).\n\
-    \t\t\tcross(p3[t.c]-p3[t.a]).dot(P3(0,0,1)) < 0)\n\t\ttrifun(t.a, t.c, t.b);\n\
-    }\n"
+    \n#include \"src/geometry/3dHull.h\"\n\ntemplate<class P,class F>\nvoid delaunay(vector<P>&\
+    \ ps,F trifun){\n\tif(SZ(ps)==3){int d=(ps[0].cross(ps[1],ps[2])<0);\n\t\ttrifun(0,1+d,2-d);}\n\
+    \tvector<P3> p3;\n\tfor(P p:ps)p3.emplace_back(p.x,p.y,p.dist2());\n\tif(SZ(ps)>3)for(auto\
+    \ t:hull3d(p3))\n\t\tif((p3[t.b]-p3[t.a]).cross(p3[t.c]-p3[t.a]).z<0)\n\t\t\t\
+    trifun(t.a,t.c,t.b);\n}\n"
   dependsOn:
   - src/geometry/Point.h
   - src/geometry/3dHull.h
@@ -46,7 +45,7 @@ data:
   isVerificationFile: false
   path: src/geometry/DelaunayTriangulation.h
   requiredBy: []
-  timestamp: '2026-10-03 23:15:31+07:00'
+  timestamp: '2026-10-26 18:23:08+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/DelaunayTriangulation.h
