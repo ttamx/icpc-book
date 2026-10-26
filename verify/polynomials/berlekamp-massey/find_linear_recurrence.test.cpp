@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/find_linear_recurrence"
 #include "src/contest/template.hpp"
 #include "src/polynomials/berlekamp-massey.hpp"
-#include "src/number-theory/montgomery-modint.hpp"
+#include "src/number-theory/modint.hpp"
 
 using mint = mint998;
 

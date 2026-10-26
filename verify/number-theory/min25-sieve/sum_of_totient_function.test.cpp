@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/sum_of_totient_function"
 #include "src/contest/template.hpp"
-#include "src/number-theory/montgomery-modint.hpp"
+#include "src/number-theory/modint.hpp"
 #include "src/number-theory/min25-sieve.hpp"
 
 using mint = mint998;
