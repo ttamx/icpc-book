@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/ConvexHull.h
     title: src/geometry/ConvexHull.h
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/Point.h
     title: src/geometry/Point.h
   _extendedRequiredBy: []

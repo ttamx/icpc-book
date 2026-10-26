@@ -1,14 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/Point.h
     title: src/geometry/Point.h
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/circle-line/circle_line_cross_points.test.cpp
+    title: verify/geometry/circle-line/circle_line_cross_points.test.cpp
   _isVerificationFailed: false
   _pathExtension: h
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://vlecomte.github.io/cp-geo.pdf
@@ -36,8 +39,9 @@ data:
   path: src/geometry/CircleLine.h
   requiredBy: []
   timestamp: '2026-10-26 18:23:08+07:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/geometry/circle-line/circle_line_cross_points.test.cpp
 documentation_of: src/geometry/CircleLine.h
 layout: document
 redirect_from:

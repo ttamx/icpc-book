@@ -1,62 +1,11 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':x:'
-    path: src/polynomials/formal-power-series.hpp
-    title: src/polynomials/formal-power-series.hpp
-  - icon: ':x:'
-    path: src/polynomials/linear-recurrence.hpp
-    title: src/polynomials/linear-recurrence.hpp
-  - icon: ':x:'
-    path: src/polynomials/multipoint-evaluation.hpp
-    title: src/polynomials/multipoint-evaluation.hpp
-  - icon: ':x:'
-    path: src/polynomials/ntt.hpp
-    title: src/polynomials/ntt.hpp
-  - icon: ':x:'
-    path: src/polynomials/polynomial-interpolation.hpp
-    title: src/polynomials/polynomial-interpolation.hpp
-  - icon: ':x:'
-    path: src/polynomials/subproduct-tree.hpp
-    title: src/polynomials/subproduct-tree.hpp
-  - icon: ':x:'
-    path: src/polynomials/taylor-shift.hpp
-    title: src/polynomials/taylor-shift.hpp
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: verify/linear-algebra/gauss-mod/inverse_matrix.test.cpp
-    title: verify/linear-algebra/gauss-mod/inverse_matrix.test.cpp
-  - icon: ':x:'
-    path: verify/linear-algebra/gauss-mod/matrix_det.test.cpp
-    title: verify/linear-algebra/gauss-mod/matrix_det.test.cpp
-  - icon: ':x:'
-    path: verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
-    title: verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
-  - icon: ':x:'
-    path: verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
-    title: verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
-  - icon: ':x:'
-    path: verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
-    title: verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
-  - icon: ':x:'
-    path: verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp
-    title: verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp
-  - icon: ':x:'
-    path: verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
-    title: verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - icon: ':x:'
-    path: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
-    title: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
-  - icon: ':x:'
-    path: verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
-    title: verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
-  - icon: ':x:'
-    path: verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
-    title: verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
-  _isVerificationFailed: true
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/number-theory/montgomery-modint.hpp\"\n\n/**\n * Author:\
@@ -147,27 +96,10 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: src/number-theory/montgomery-modint.hpp
-  requiredBy:
-  - src/polynomials/ntt.hpp
-  - src/polynomials/linear-recurrence.hpp
-  - src/polynomials/multipoint-evaluation.hpp
-  - src/polynomials/polynomial-interpolation.hpp
-  - src/polynomials/taylor-shift.hpp
-  - src/polynomials/formal-power-series.hpp
-  - src/polynomials/subproduct-tree.hpp
+  requiredBy: []
   timestamp: '2026-10-26 04:09:11+07:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - verify/linear-algebra/gauss-mod/inverse_matrix.test.cpp
-  - verify/linear-algebra/gauss-mod/matrix_det.test.cpp
-  - verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
-  - verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
-  - verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
-  - verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
-  - verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp
-  - verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
-  - verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: src/number-theory/montgomery-modint.hpp
 layout: document
 redirect_from:

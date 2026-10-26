@@ -1,17 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/GeoUtils.h
     title: src/geometry/GeoUtils.h
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/Point.h
     title: src/geometry/Point.h
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/inside-poly/polygon_point_containment.test.cpp
+    title: verify/geometry/inside-poly/polygon_point_containment.test.cpp
   _isVerificationFailed: false
   _pathExtension: h
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://vlecomte.github.io/cp-geo.pdf
@@ -44,8 +47,9 @@ data:
   path: src/geometry/InsidePoly.h
   requiredBy: []
   timestamp: '2026-10-26 18:23:08+07:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/geometry/inside-poly/polygon_point_containment.test.cpp
 documentation_of: src/geometry/InsidePoly.h
 layout: document
 redirect_from:

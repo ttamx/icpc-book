@@ -4,20 +4,20 @@ data:
   - icon: ':question:'
     path: src/contest/template.hpp
     title: src/contest/template.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/number-theory/min25-sieve.hpp
     title: src/number-theory/min25-sieve.hpp
-  - icon: ':x:'
-    path: src/number-theory/montgomery-modint.hpp
-    title: src/number-theory/montgomery-modint.hpp
   - icon: ':question:'
+    path: src/number-theory/modint.hpp
+    title: src/number-theory/modint.hpp
+  - icon: ':heavy_check_mark:'
     path: src/number-theory/prime-counting.hpp
     title: src/number-theory/prime-counting.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/sum_of_totient_function
@@ -43,58 +43,47 @@ data:
     \ U &a){return accumulate(ALL(a),T{});}\n\ntemplate<class T>\nusing ordered_set\
     \ = tree<T,null_type,less<T>,rb_tree_tag,tree_order_statistics_node_update>;\n\
     \nmt19937 rng(chrono::steady_clock::now().time_since_epoch().count());\nmt19937_64\
-    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 2 \"src/number-theory/montgomery-modint.hpp\"\
-    \n\n/**\n * Author: Teetat T.\n * Date: 2024-03-17\n * Description: modular arithmetic\
-    \ operators using Montgomery space\n */\n\ntemplate<uint32_t mod,uint32_t root=0>\n\
-    struct MontgomeryModInt{\n    using mint = MontgomeryModInt;\n    using i32 =\
-    \ int32_t;\n    using u32 = uint32_t;\n    using u64 = uint64_t;\n\n    static\
-    \ constexpr u32 get_r(){\n        u32 res=1;\n        for(i32 i=0;i<5;i++)res*=2-mod*res;\n\
-    \        return res;\n    }\n\n    static const u32 r=get_r();\n    static const\
-    \ u32 n2=-u64(mod)%mod;\n    static_assert(mod<(1<<30));\n    static_assert((mod&1)==1);\n\
-    \    static_assert(r*mod==1);\n\n    u32 x;\n\n    constexpr MontgomeryModInt():x(0){}\n\
-    \    constexpr MontgomeryModInt(const int64_t &v):x(reduce(u64(v%mod+mod)*n2)){}\n\
-    \n    static constexpr u32 get_mod(){return mod;}\n    static constexpr mint get_root(){return\
-    \ mint(root);}\n    explicit constexpr operator int64_t()const{return val();}\n\
-    \n    static constexpr u32 reduce(const u64 &v){\n        return (v+u64(u32(v)*u32(-r))*mod)>>32;\n\
-    \    }\n\n    constexpr u32 val()const{\n        u32 res=reduce(x);\n        return\
-    \ res>=mod?res-mod:res;\n    }\n\n    constexpr mint inv()const{\n        int\
-    \ a=val(),b=mod,u=1,v=0,q=0;\n        while(b>0){\n            q=a/b;\n      \
-    \      a-=q*b;\n            u-=q*v;\n            swap(a,b);\n            swap(u,v);\n\
-    \        }\n        return mint(u);\n    }\n\n    constexpr mint &operator+=(const\
-    \ mint &rhs){\n        if(i32(x+=rhs.x-2*mod)<0)x+=2*mod;\n        return *this;\n\
-    \    }\n    constexpr mint &operator-=(const mint &rhs){\n        if(i32(x-=rhs.x)<0)x+=2*mod;\n\
-    \        return *this;\n    }\n    constexpr mint &operator*=(const mint &rhs){\n\
-    \        x=reduce(u64(x)*rhs.x);\n        return *this;\n    }\n    constexpr\
-    \ mint &operator/=(const mint &rhs){\n        return *this*=rhs.inv();\n    }\n\
-    \n    constexpr mint &operator++(){return *this+=mint(1);}\n    constexpr mint\
-    \ &operator--(){return *this-=mint(1);}\n    constexpr mint operator++(int){\n\
-    \        mint res=*this;\n        return *this+=mint(1),res;\n    }\n    constexpr\
-    \ mint operator--(int){\n        mint res=*this;\n        return *this-=mint(1),res;\n\
-    \    }\n\n    constexpr mint operator-()const{return mint()-mint(*this);};\n \
-    \   constexpr mint operator+()const{return mint(*this);};\n\n    friend constexpr\
-    \ mint operator+(const mint &lhs,const mint &rhs){return mint(lhs)+=rhs;}\n  \
-    \  friend constexpr mint operator-(const mint &lhs,const mint &rhs){return mint(lhs)-=rhs;}\n\
-    \    friend constexpr mint operator*(const mint &lhs,const mint &rhs){return mint(lhs)*=rhs;}\n\
-    \    friend constexpr mint operator/(const mint &lhs,const mint &rhs){return mint(lhs)/=rhs;}\n\
-    \    friend constexpr bool operator==(const mint &lhs,const mint &rhs){\n    \
-    \    return (lhs.x>=mod?lhs.x-mod:lhs.x)==(rhs.x>=mod?rhs.x-mod:rhs.x);\n    }\n\
-    \    friend constexpr bool operator!=(const mint &lhs,const mint &rhs){\n    \
-    \    return (lhs.x>=mod?lhs.x-mod:lhs.x)!=(rhs.x>=mod?rhs.x-mod:rhs.x);\n    }\n\
-    \    friend constexpr bool operator<(const mint &lhs,const mint &rhs){\n     \
-    \   return (lhs.x>=mod?lhs.x-mod:lhs.x)<(rhs.x>=mod?rhs.x-mod:rhs.x); // for std::map\n\
-    \    }\n\n    friend istream &operator>>(istream &is,mint &o){\n        int64_t\
-    \ v;\n        is >> v;\n        o=mint(v);\n        return is;\n    }\n    friend\
-    \ ostream &operator<<(ostream &os,const mint &o){\n        return os << o.val();\n\
-    \    }\n};\n#line 2 \"src/number-theory/prime-counting.hpp\"\n\n/**\n * Author:\
-    \ Teetat T.\n * Date: 2026-10-03\n * Description: Lucy\\_Hedgehog sieve. For a\
-    \ completely multiplicative\n *  $f$ and every $v=\\lfloor n/i \\rfloor$ computes\
-    \ $G(v)=\\sum_{p\\le v,\\,p \\text{ prime}} f(p)$.\n *  \\texttt{pre(v)} must\
-    \ return $\\sum_{x=2}^{v} f(x)$ as \\texttt{T}\n *  (e.g. $v-1$ for $\\pi$, $v(v+1)/2-1$\
-    \ for sum of primes).\n *  Read with \\texttt{g(v)} for $v=\\lfloor n/i \\rfloor$\
-    \ (any $v\\le\\sqrt n$ works).\n *  Use \\texttt{T=ll} for $\\pi$, \\texttt{i128}\
-    \ for $\\sum p$ ($n\\le 10^{12}$) or a modint.\n *  For a polynomial $f(p)=\\\
-    sum c_k p^k$ run once per $k$ and combine.\n * Usage: Lucy<ll> pi(n,[](ll v){return\
-    \ v-1;}); pi(n/3);\n *  Lucy<i128> sp(n,[](ll v){return (i128)v*(v+1)/2-1;});\n\
+    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 2 \"src/number-theory/modint.hpp\"\
+    \n\n/**\n * Author: Teetat T.\n * Date: 2026-04-15\n * Description: modular arithmetic\
+    \ operations\n */\n\ntemplate<int mod,int root=0>\nstruct ModInt{\n    using mint\
+    \ = ModInt;\n    \n\tstatic_assert(mod>0,\"mod must be positive\");\n\n    int\
+    \ x;\n\n    constexpr ModInt():x(0){}\n    constexpr ModInt(ll x):x((x%=mod)<0?x+mod:x){}\n\
+    \    constexpr explicit operator int()const{return x;}\n    constexpr int val()const{return\
+    \ x;}\n    constexpr static int get_mod(){return mod;}\n    constexpr static mint\
+    \ get_root(){return mint(root);}\n    \n    constexpr mint operator-()const{\n\
+    \        mint res;\n        res.x=x?mod-x:0;\n        return res;\n    }\n   \
+    \ constexpr mint operator+()const{return *this;}\n\n    constexpr mint inv()const{\n\
+    \        int a=x,b=mod,u=1,v=0,q=0;\n        while(b>0){\n            q=a/b;\n\
+    \            swap(a-=q*b,b);\n            swap(u-=q*v,v);\n        }\n       \
+    \ return mint(u);\n    }\n    constexpr mint pow(ll n)const{\n        mint res=1,a=*this;\n\
+    \        for(;n>0;a*=a,n>>=1)if(n&1)res*=a;\n        return res;\n    }\n    constexpr\
+    \ mint &operator+=(const mint &o){\n        if((x+=o.x)>=mod)x-=mod;\n       \
+    \ return *this;\n    }\n    constexpr mint &operator-=(const mint &o){\n     \
+    \   if((x-=o.x)<0)x+=mod;\n        return *this;\n    }\n    constexpr mint &operator*=(const\
+    \ mint &o){\n        x=(ll(x)*o.x)%mod;\n        return *this;\n    }\n    constexpr\
+    \ mint &operator/=(const mint &o){\n        return *this*=o.inv();\n    }\n\n\
+    \    constexpr mint operator+(const mint &o)const{return mint(*this)+=o;}\n  \
+    \  constexpr mint operator-(const mint &o)const{return mint(*this)-=o;}\n    constexpr\
+    \ mint operator*(const mint &o)const{return mint(*this)*=o;}\n    constexpr mint\
+    \ operator/(const mint &o)const{return mint(*this)/=o;}\n\n    constexpr mint\
+    \ &operator++(){return *this+=mint(1);}\n    constexpr mint &operator--(){return\
+    \ *this-=mint(1);}\n    constexpr mint operator++(int){mint res=*this;*this+=mint(1);return\
+    \ res;}\n    constexpr mint operator--(int){mint res=*this;*this-=mint(1);return\
+    \ res;}\n    \n    constexpr bool operator==(const mint &o)const{return x==o.x;}\n\
+    \    constexpr bool operator!=(const mint &o)const{return x!=o.x;}\n    constexpr\
+    \ bool operator<(const mint &o)const{return x<o.x;}\n    \n    friend istream\
+    \ &operator>>(istream &is,mint &o){ll x{};is>>x;o=mint(x);return is;}\n    friend\
+    \ ostream &operator<<(ostream &os,const mint &o){return os<<o.x;}\n};\nusing mint998\
+    \ = ModInt<998244353,3>;\nusing mint107 = ModInt<1000000007>;\n#line 2 \"src/number-theory/prime-counting.hpp\"\
+    \n\n/**\n * Author: Teetat T.\n * Date: 2026-10-03\n * Description: Lucy\\_Hedgehog\
+    \ sieve. For a completely multiplicative\n *  $f$ and every $v=\\lfloor n/i \\\
+    rfloor$ computes $G(v)=\\sum_{p\\le v,\\,p \\text{ prime}} f(p)$.\n *  \\texttt{pre(v)}\
+    \ must return $\\sum_{x=2}^{v} f(x)$ as \\texttt{T}\n *  (e.g. $v-1$ for $\\pi$,\
+    \ $v(v+1)/2-1$ for sum of primes).\n *  Read with \\texttt{g(v)} for $v=\\lfloor\
+    \ n/i \\rfloor$ (any $v\\le\\sqrt n$ works).\n *  Use \\texttt{T=ll} for $\\pi$,\
+    \ \\texttt{i128} for $\\sum p$ ($n\\le 10^{12}$) or a modint.\n *  For a polynomial\
+    \ $f(p)=\\sum c_k p^k$ run once per $k$ and combine.\n * Usage: Lucy<ll> pi(n,[](ll\
+    \ v){return v-1;}); pi(n/3);\n *  Lucy<i128> sp(n,[](ll v){return (i128)v*(v+1)/2-1;});\n\
     \ * Time: $O(n^{3/4}/\\log n)$, $\\pi(10^{11})$ in $\\approx 0.2$s.\n */\n\ntemplate<class\
     \ T>\nstruct Lucy{\n    ll n;int s;vector<T> lo,hi; // lo[v]=G(v), hi[i]=G(n/i)\n\
     \    template<class F>\n    Lucy(ll n,F pre):n(n),s(sqrtl(n)),lo(s+1),hi(s+1){\n\
@@ -128,7 +117,7 @@ data:
     \ s(v)-c(v);};\n    auto fpe=[](ll p,int e){mint r=p-1;while(--e)r*=p;return r;};\n\
     \    cout << min25<mint>(n,g,fpe) << \"\\n\";\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sum_of_totient_function\"\
-    \n#include \"src/contest/template.hpp\"\n#include \"src/number-theory/montgomery-modint.hpp\"\
+    \n#include \"src/contest/template.hpp\"\n#include \"src/number-theory/modint.hpp\"\
     \n#include \"src/number-theory/min25-sieve.hpp\"\n\nusing mint = mint998;\n\n\
     int main(){\n    cin.tie(nullptr)->sync_with_stdio(false);\n    ll n;\n    cin\
     \ >> n;\n    Lucy<mint> c(n,[](ll v){return mint(v-1);});\n    Lucy<mint> s(n,[](ll\
@@ -137,14 +126,14 @@ data:
     \ min25<mint>(n,g,fpe) << \"\\n\";\n}\n"
   dependsOn:
   - src/contest/template.hpp
-  - src/number-theory/montgomery-modint.hpp
+  - src/number-theory/modint.hpp
   - src/number-theory/min25-sieve.hpp
   - src/number-theory/prime-counting.hpp
   isVerificationFile: true
   path: verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
   requiredBy: []
-  timestamp: '2026-10-26 04:09:11+07:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2026-10-26 18:51:44+07:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
 layout: document

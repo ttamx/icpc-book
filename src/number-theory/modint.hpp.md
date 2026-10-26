@@ -1,8 +1,59 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':question:'
+    path: src/polynomials/formal-power-series.hpp
+    title: src/polynomials/formal-power-series.hpp
+  - icon: ':heavy_check_mark:'
+    path: src/polynomials/linear-recurrence.hpp
+    title: src/polynomials/linear-recurrence.hpp
+  - icon: ':question:'
+    path: src/polynomials/multipoint-evaluation.hpp
+    title: src/polynomials/multipoint-evaluation.hpp
+  - icon: ':question:'
+    path: src/polynomials/ntt.hpp
+    title: src/polynomials/ntt.hpp
+  - icon: ':x:'
+    path: src/polynomials/polynomial-interpolation.hpp
+    title: src/polynomials/polynomial-interpolation.hpp
+  - icon: ':question:'
+    path: src/polynomials/subproduct-tree.hpp
+    title: src/polynomials/subproduct-tree.hpp
+  - icon: ':x:'
+    path: src/polynomials/taylor-shift.hpp
+    title: src/polynomials/taylor-shift.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/linear-algebra/gauss-mod/inverse_matrix.test.cpp
+    title: verify/linear-algebra/gauss-mod/inverse_matrix.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/linear-algebra/gauss-mod/matrix_det.test.cpp
+    title: verify/linear-algebra/gauss-mod/matrix_det.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
+    title: verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
+    title: verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
+    title: verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp
+    title: verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
+    title: verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
+    title: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
+  - icon: ':x:'
+    path: verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
+    title: verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
+  - icon: ':x:'
+    path: verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
+    title: verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/tree/link-cut-tree/dynamic_tree_vertex_set_path_composite.test.cpp
     title: verify/tree/link-cut-tree/dynamic_tree_vertex_set_path_composite.test.cpp
@@ -12,9 +63,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/tree/static-top-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
     title: verify/tree/static-top-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/number-theory/modint.hpp\"\n\n/**\n * Author: Teetat\
@@ -83,10 +134,27 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: src/number-theory/modint.hpp
-  requiredBy: []
+  requiredBy:
+  - src/polynomials/ntt.hpp
+  - src/polynomials/linear-recurrence.hpp
+  - src/polynomials/multipoint-evaluation.hpp
+  - src/polynomials/polynomial-interpolation.hpp
+  - src/polynomials/taylor-shift.hpp
+  - src/polynomials/formal-power-series.hpp
+  - src/polynomials/subproduct-tree.hpp
   timestamp: '2026-10-26 04:09:11+07:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - verify/linear-algebra/gauss-mod/inverse_matrix.test.cpp
+  - verify/linear-algebra/gauss-mod/matrix_det.test.cpp
+  - verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
+  - verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
+  - verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
+  - verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
+  - verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp
+  - verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
+  - verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
+  - verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
   - verify/tree/link-cut-tree/dynamic_tree_vertex_set_path_composite.test.cpp
   - verify/tree/static-top-tree/point_set_tree_path_composite_sum.test.cpp
   - verify/tree/static-top-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp

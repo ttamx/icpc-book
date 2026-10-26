@@ -1,17 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/Point.h
     title: src/geometry/Point.h
   _extendedRequiredBy:
   - icon: ':warning:'
     path: src/geometry/MaxTriangle.h
     title: src/geometry/MaxTriangle.h
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/convex-hull/static_convex_hull.test.cpp
+    title: verify/geometry/convex-hull/static_convex_hull.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/hull-diameter/furthest_pair.test.cpp
+    title: verify/geometry/hull-diameter/furthest_pair.test.cpp
   _isVerificationFailed: false
   _pathExtension: h
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://github.com/stjepang/snippets/blob/master/convex_hull.cpp
@@ -44,8 +50,10 @@ data:
   requiredBy:
   - src/geometry/MaxTriangle.h
   timestamp: '2026-10-26 18:23:08+07:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/geometry/convex-hull/static_convex_hull.test.cpp
+  - verify/geometry/hull-diameter/furthest_pair.test.cpp
 documentation_of: src/geometry/ConvexHull.h
 layout: document
 redirect_from:

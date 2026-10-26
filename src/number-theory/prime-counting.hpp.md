@@ -2,19 +2,19 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/number-theory/min25-sieve.hpp
     title: src/number-theory/min25-sieve.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
     title: verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/number-theory/prime-counting/counting_primes.test.cpp
     title: verify/number-theory/prime-counting/counting_primes.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/number-theory/prime-counting.hpp\"\n\n/**\n * Author:\
@@ -60,7 +60,7 @@ data:
   requiredBy:
   - src/number-theory/min25-sieve.hpp
   timestamp: '2026-10-04 00:49:42+07:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/number-theory/prime-counting/counting_primes.test.cpp
   - verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp

@@ -22,18 +22,78 @@ data:
     path: verify/flows/hopcroft-karp/bipartitematching.test.cpp
     title: verify/flows/hopcroft-karp/bipartitematching.test.cpp
   - icon: ':heavy_check_mark:'
+    path: verify/geometry/circle-intersection/circle_cross_points.test.cpp
+    title: verify/geometry/circle-intersection/circle_cross_points.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/circle-line/circle_line_cross_points.test.cpp
+    title: verify/geometry/circle-line/circle_line_cross_points.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/circle-poly-inter/circle_polygon_area.test.cpp
+    title: verify/geometry/circle-poly-inter/circle_polygon_area.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/circle-tangents/circle_intersection_count.test.cpp
+    title: verify/geometry/circle-tangents/circle_intersection_count.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/circle-tangents/common_tangent.test.cpp
+    title: verify/geometry/circle-tangents/common_tangent.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/circle-tangents/tangent_to_circle.test.cpp
+    title: verify/geometry/circle-tangents/tangent_to_circle.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/convex-hull/static_convex_hull.test.cpp
+    title: verify/geometry/convex-hull/static_convex_hull.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/circumscribed_circle.test.cpp
+    title: verify/geometry/geo-utils/circumscribed_circle.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/counter_clockwise.test.cpp
+    title: verify/geometry/geo-utils/counter_clockwise.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/cross_point.test.cpp
+    title: verify/geometry/geo-utils/cross_point.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/is_convex.test.cpp
+    title: verify/geometry/geo-utils/is_convex.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/polygon_area.test.cpp
+    title: verify/geometry/geo-utils/polygon_area.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/projection.test.cpp
+    title: verify/geometry/geo-utils/projection.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/reflection.test.cpp
+    title: verify/geometry/geo-utils/reflection.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/segment_distance.test.cpp
+    title: verify/geometry/geo-utils/segment_distance.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/segment_intersection.test.cpp
+    title: verify/geometry/geo-utils/segment_intersection.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/hull-diameter/furthest_pair.test.cpp
+    title: verify/geometry/hull-diameter/furthest_pair.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/inside-poly/polygon_point_containment.test.cpp
+    title: verify/geometry/inside-poly/polygon_point_containment.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/manhattan-mst/manhattanmst.test.cpp
+    title: verify/geometry/manhattan-mst/manhattanmst.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/poly-cut/convex_cut.test.cpp
+    title: verify/geometry/poly-cut/convex_cut.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/graph/k-th-shortest-path/k_shortest_walk.test.cpp
     title: verify/graph/k-th-shortest-path/k_shortest_walk.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/linear-algebra/gauss-mod/inverse_matrix.test.cpp
     title: verify/linear-algebra/gauss-mod/inverse_matrix.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/linear-algebra/gauss-mod/matrix_det.test.cpp
     title: verify/linear-algebra/gauss-mod/matrix_det.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
     title: verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
     title: verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
   - icon: ':heavy_check_mark:'
@@ -48,7 +108,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/number-theory/floor-sum/sum_of_floor_of_linear.test.cpp
     title: verify/number-theory/floor-sum/sum_of_floor_of_linear.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
     title: verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
   - icon: ':heavy_check_mark:'
@@ -57,13 +117,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/number-theory/prime-counting/counting_primes.test.cpp
     title: verify/number-theory/prime-counting/counting_primes.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp
     title: verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
     title: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
   - icon: ':x:'
@@ -185,6 +245,26 @@ data:
   - verify/tree/static-top-tree/point_set_tree_path_composite_sum.test.cpp
   - verify/tree/static-top-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
   - verify/miscellaneous/integral.test.cpp
+  - verify/geometry/circle-tangents/common_tangent.test.cpp
+  - verify/geometry/circle-tangents/tangent_to_circle.test.cpp
+  - verify/geometry/circle-tangents/circle_intersection_count.test.cpp
+  - verify/geometry/circle-line/circle_line_cross_points.test.cpp
+  - verify/geometry/poly-cut/convex_cut.test.cpp
+  - verify/geometry/inside-poly/polygon_point_containment.test.cpp
+  - verify/geometry/convex-hull/static_convex_hull.test.cpp
+  - verify/geometry/circle-poly-inter/circle_polygon_area.test.cpp
+  - verify/geometry/manhattan-mst/manhattanmst.test.cpp
+  - verify/geometry/geo-utils/reflection.test.cpp
+  - verify/geometry/geo-utils/projection.test.cpp
+  - verify/geometry/geo-utils/cross_point.test.cpp
+  - verify/geometry/geo-utils/is_convex.test.cpp
+  - verify/geometry/geo-utils/segment_intersection.test.cpp
+  - verify/geometry/geo-utils/circumscribed_circle.test.cpp
+  - verify/geometry/geo-utils/polygon_area.test.cpp
+  - verify/geometry/geo-utils/segment_distance.test.cpp
+  - verify/geometry/geo-utils/counter_clockwise.test.cpp
+  - verify/geometry/hull-diameter/furthest_pair.test.cpp
+  - verify/geometry/circle-intersection/circle_cross_points.test.cpp
 documentation_of: src/contest/template.hpp
 layout: document
 redirect_from:

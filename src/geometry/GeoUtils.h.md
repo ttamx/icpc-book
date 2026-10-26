@@ -1,11 +1,11 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/Point.h
     title: src/geometry/Point.h
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/InsidePoly.h
     title: src/geometry/InsidePoly.h
   - icon: ':warning:'
@@ -17,10 +17,43 @@ data:
   - icon: ':warning:'
     path: src/geometry/PolyUnion.h
     title: src/geometry/PolyUnion.h
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/circumscribed_circle.test.cpp
+    title: verify/geometry/geo-utils/circumscribed_circle.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/counter_clockwise.test.cpp
+    title: verify/geometry/geo-utils/counter_clockwise.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/cross_point.test.cpp
+    title: verify/geometry/geo-utils/cross_point.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/is_convex.test.cpp
+    title: verify/geometry/geo-utils/is_convex.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/polygon_area.test.cpp
+    title: verify/geometry/geo-utils/polygon_area.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/projection.test.cpp
+    title: verify/geometry/geo-utils/projection.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/reflection.test.cpp
+    title: verify/geometry/geo-utils/reflection.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/segment_distance.test.cpp
+    title: verify/geometry/geo-utils/segment_distance.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/segment_intersection.test.cpp
+    title: verify/geometry/geo-utils/segment_intersection.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/inside-poly/polygon_point_containment.test.cpp
+    title: verify/geometry/inside-poly/polygon_point_containment.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/poly-cut/convex_cut.test.cpp
+    title: verify/geometry/poly-cut/convex_cut.test.cpp
   _isVerificationFailed: false
   _pathExtension: h
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://vlecomte.github.io/cp-geo.pdf,
@@ -86,8 +119,19 @@ data:
   - src/geometry/MinEnclosingCircle.h
   - src/geometry/PointInsideHull.h
   timestamp: '2026-10-26 18:23:08+07:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/geometry/poly-cut/convex_cut.test.cpp
+  - verify/geometry/inside-poly/polygon_point_containment.test.cpp
+  - verify/geometry/geo-utils/reflection.test.cpp
+  - verify/geometry/geo-utils/projection.test.cpp
+  - verify/geometry/geo-utils/cross_point.test.cpp
+  - verify/geometry/geo-utils/is_convex.test.cpp
+  - verify/geometry/geo-utils/segment_intersection.test.cpp
+  - verify/geometry/geo-utils/circumscribed_circle.test.cpp
+  - verify/geometry/geo-utils/polygon_area.test.cpp
+  - verify/geometry/geo-utils/segment_distance.test.cpp
+  - verify/geometry/geo-utils/counter_clockwise.test.cpp
 documentation_of: src/geometry/GeoUtils.h
 layout: document
 redirect_from:

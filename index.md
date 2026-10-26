@@ -65,22 +65,22 @@ data:
     - icon: ':warning:'
       path: src/geometry/Angle.h
       title: src/geometry/Angle.h
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/geometry/CircleIntersection.h
       title: src/geometry/CircleIntersection.h
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/geometry/CircleLine.h
       title: src/geometry/CircleLine.h
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/geometry/CirclePolyInter.h
       title: src/geometry/CirclePolyInter.h
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/geometry/CircleTangents.h
       title: src/geometry/CircleTangents.h
     - icon: ':warning:'
       path: src/geometry/ClosestPair.h
       title: src/geometry/ClosestPair.h
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/geometry/ConvexHull.h
       title: src/geometry/ConvexHull.h
     - icon: ':warning:'
@@ -89,22 +89,22 @@ data:
     - icon: ':warning:'
       path: src/geometry/FastDelaunay.h
       title: src/geometry/FastDelaunay.h
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/geometry/GeoUtils.h
       title: src/geometry/GeoUtils.h
     - icon: ':warning:'
       path: src/geometry/HalfPlane.h
       title: src/geometry/HalfPlane.h
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/geometry/HullDiameter.h
       title: src/geometry/HullDiameter.h
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/geometry/InsidePoly.h
       title: src/geometry/InsidePoly.h
     - icon: ':warning:'
       path: src/geometry/LineHullIntersection.h
       title: src/geometry/LineHullIntersection.h
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/geometry/ManhattanMST.h
       title: src/geometry/ManhattanMST.h
     - icon: ':warning:'
@@ -113,7 +113,7 @@ data:
     - icon: ':warning:'
       path: src/geometry/MinEnclosingCircle.h
       title: src/geometry/MinEnclosingCircle.h
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/geometry/Point.h
       title: src/geometry/Point.h
     - icon: ':warning:'
@@ -122,7 +122,7 @@ data:
     - icon: ':warning:'
       path: src/geometry/PointInsideHull.h
       title: src/geometry/PointInsideHull.h
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/geometry/PolyCut.h
       title: src/geometry/PolyCut.h
     - icon: ':warning:'
@@ -147,7 +147,7 @@ data:
     - icon: ':warning:'
       path: src/linear-algebra/gauss-double.hpp
       title: src/linear-algebra/gauss-double.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/linear-algebra/gauss-mod.hpp
       title: src/linear-algebra/gauss-mod.hpp
     - icon: ':warning:'
@@ -174,7 +174,7 @@ data:
     - icon: ':warning:'
       path: src/number-theory/barrett.hpp
       title: src/number-theory/barrett.hpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: src/number-theory/binpow.hpp
       title: src/number-theory/binpow.hpp
     - icon: ':warning:'
@@ -192,19 +192,19 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/number-theory/floor-sum.hpp
       title: src/number-theory/floor-sum.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/number-theory/min25-sieve.hpp
       title: src/number-theory/min25-sieve.hpp
     - icon: ':heavy_check_mark:'
       path: src/number-theory/mod-sqrt.hpp
       title: src/number-theory/mod-sqrt.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: src/number-theory/modint.hpp
       title: src/number-theory/modint.hpp
-    - icon: ':x:'
+    - icon: ':warning:'
       path: src/number-theory/montgomery-modint.hpp
       title: src/number-theory/montgomery-modint.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/number-theory/prime-counting.hpp
       title: src/number-theory/prime-counting.hpp
     - icon: ':warning:'
@@ -212,31 +212,31 @@ data:
       title: src/number-theory/primitive-root.hpp
   - name: src/polynomials
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/polynomials/berlekamp-massey.hpp
       title: src/polynomials/berlekamp-massey.hpp
     - icon: ':warning:'
       path: src/polynomials/fft.hpp
       title: src/polynomials/fft.hpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: src/polynomials/formal-power-series.hpp
       title: src/polynomials/formal-power-series.hpp
     - icon: ':warning:'
       path: src/polynomials/lagrange-interpolate.hpp
       title: src/polynomials/lagrange-interpolate.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/polynomials/linear-recurrence.hpp
       title: src/polynomials/linear-recurrence.hpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: src/polynomials/multipoint-evaluation.hpp
       title: src/polynomials/multipoint-evaluation.hpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: src/polynomials/ntt.hpp
       title: src/polynomials/ntt.hpp
     - icon: ':x:'
       path: src/polynomials/polynomial-interpolation.hpp
       title: src/polynomials/polynomial-interpolation.hpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: src/polynomials/subproduct-tree.hpp
       title: src/polynomials/subproduct-tree.hpp
     - icon: ':x:'
@@ -307,6 +307,86 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/flows/hopcroft-karp/bipartitematching.test.cpp
       title: verify/flows/hopcroft-karp/bipartitematching.test.cpp
+  - name: verify/geometry/circle-intersection
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/geometry/circle-intersection/circle_cross_points.test.cpp
+      title: verify/geometry/circle-intersection/circle_cross_points.test.cpp
+  - name: verify/geometry/circle-line
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/geometry/circle-line/circle_line_cross_points.test.cpp
+      title: verify/geometry/circle-line/circle_line_cross_points.test.cpp
+  - name: verify/geometry/circle-poly-inter
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/geometry/circle-poly-inter/circle_polygon_area.test.cpp
+      title: verify/geometry/circle-poly-inter/circle_polygon_area.test.cpp
+  - name: verify/geometry/circle-tangents
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/geometry/circle-tangents/circle_intersection_count.test.cpp
+      title: verify/geometry/circle-tangents/circle_intersection_count.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/geometry/circle-tangents/common_tangent.test.cpp
+      title: verify/geometry/circle-tangents/common_tangent.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/geometry/circle-tangents/tangent_to_circle.test.cpp
+      title: verify/geometry/circle-tangents/tangent_to_circle.test.cpp
+  - name: verify/geometry/convex-hull
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/geometry/convex-hull/static_convex_hull.test.cpp
+      title: verify/geometry/convex-hull/static_convex_hull.test.cpp
+  - name: verify/geometry/geo-utils
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/geometry/geo-utils/circumscribed_circle.test.cpp
+      title: verify/geometry/geo-utils/circumscribed_circle.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/geometry/geo-utils/counter_clockwise.test.cpp
+      title: verify/geometry/geo-utils/counter_clockwise.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/geometry/geo-utils/cross_point.test.cpp
+      title: verify/geometry/geo-utils/cross_point.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/geometry/geo-utils/is_convex.test.cpp
+      title: verify/geometry/geo-utils/is_convex.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/geometry/geo-utils/polygon_area.test.cpp
+      title: verify/geometry/geo-utils/polygon_area.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/geometry/geo-utils/projection.test.cpp
+      title: verify/geometry/geo-utils/projection.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/geometry/geo-utils/reflection.test.cpp
+      title: verify/geometry/geo-utils/reflection.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/geometry/geo-utils/segment_distance.test.cpp
+      title: verify/geometry/geo-utils/segment_distance.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/geometry/geo-utils/segment_intersection.test.cpp
+      title: verify/geometry/geo-utils/segment_intersection.test.cpp
+  - name: verify/geometry/hull-diameter
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/geometry/hull-diameter/furthest_pair.test.cpp
+      title: verify/geometry/hull-diameter/furthest_pair.test.cpp
+  - name: verify/geometry/inside-poly
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/geometry/inside-poly/polygon_point_containment.test.cpp
+      title: verify/geometry/inside-poly/polygon_point_containment.test.cpp
+  - name: verify/geometry/manhattan-mst
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/geometry/manhattan-mst/manhattanmst.test.cpp
+      title: verify/geometry/manhattan-mst/manhattanmst.test.cpp
+  - name: verify/geometry/poly-cut
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/geometry/poly-cut/convex_cut.test.cpp
+      title: verify/geometry/poly-cut/convex_cut.test.cpp
   - name: verify/graph/k-th-shortest-path
     pages:
     - icon: ':heavy_check_mark:'
@@ -314,16 +394,16 @@ data:
       title: verify/graph/k-th-shortest-path/k_shortest_walk.test.cpp
   - name: verify/linear-algebra/gauss-mod
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/linear-algebra/gauss-mod/inverse_matrix.test.cpp
       title: verify/linear-algebra/gauss-mod/inverse_matrix.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/linear-algebra/gauss-mod/matrix_det.test.cpp
       title: verify/linear-algebra/gauss-mod/matrix_det.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
       title: verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
       title: verify/linear-algebra/gauss-mod/system_of_linear_equations.test.cpp
   - name: verify/miscellaneous
@@ -348,7 +428,7 @@ data:
       title: verify/number-theory/floor-sum/sum_of_floor_of_linear.test.cpp
   - name: verify/number-theory/min25-sieve
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
       title: verify/number-theory/min25-sieve/sum_of_totient_function.test.cpp
   - name: verify/number-theory/mod-sqrt
@@ -363,17 +443,17 @@ data:
       title: verify/number-theory/prime-counting/counting_primes.test.cpp
   - name: verify/polynomials/berlekamp-massey
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp
       title: verify/polynomials/berlekamp-massey/find_linear_recurrence.test.cpp
   - name: verify/polynomials/linear-recurrence
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
       title: verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
   - name: verify/polynomials/multipoint-evaluation
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
       title: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
   - name: verify/polynomials/polynomial-interpolation

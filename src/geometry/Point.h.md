@@ -2,22 +2,22 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/CircleIntersection.h
     title: src/geometry/CircleIntersection.h
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/CircleLine.h
     title: src/geometry/CircleLine.h
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/CirclePolyInter.h
     title: src/geometry/CirclePolyInter.h
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/CircleTangents.h
     title: src/geometry/CircleTangents.h
   - icon: ':warning:'
     path: src/geometry/ClosestPair.h
     title: src/geometry/ClosestPair.h
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/ConvexHull.h
     title: src/geometry/ConvexHull.h
   - icon: ':warning:'
@@ -26,22 +26,22 @@ data:
   - icon: ':warning:'
     path: src/geometry/FastDelaunay.h
     title: src/geometry/FastDelaunay.h
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/GeoUtils.h
     title: src/geometry/GeoUtils.h
   - icon: ':warning:'
     path: src/geometry/HalfPlane.h
     title: src/geometry/HalfPlane.h
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/HullDiameter.h
     title: src/geometry/HullDiameter.h
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/InsidePoly.h
     title: src/geometry/InsidePoly.h
   - icon: ':warning:'
     path: src/geometry/LineHullIntersection.h
     title: src/geometry/LineHullIntersection.h
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/ManhattanMST.h
     title: src/geometry/ManhattanMST.h
   - icon: ':warning:'
@@ -53,7 +53,7 @@ data:
   - icon: ':warning:'
     path: src/geometry/PointInsideHull.h
     title: src/geometry/PointInsideHull.h
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/PolyCut.h
     title: src/geometry/PolyCut.h
   - icon: ':warning:'
@@ -62,10 +62,70 @@ data:
   - icon: ':warning:'
     path: src/geometry/kdTree.h
     title: src/geometry/kdTree.h
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/circle-intersection/circle_cross_points.test.cpp
+    title: verify/geometry/circle-intersection/circle_cross_points.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/circle-line/circle_line_cross_points.test.cpp
+    title: verify/geometry/circle-line/circle_line_cross_points.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/circle-poly-inter/circle_polygon_area.test.cpp
+    title: verify/geometry/circle-poly-inter/circle_polygon_area.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/circle-tangents/circle_intersection_count.test.cpp
+    title: verify/geometry/circle-tangents/circle_intersection_count.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/circle-tangents/common_tangent.test.cpp
+    title: verify/geometry/circle-tangents/common_tangent.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/circle-tangents/tangent_to_circle.test.cpp
+    title: verify/geometry/circle-tangents/tangent_to_circle.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/convex-hull/static_convex_hull.test.cpp
+    title: verify/geometry/convex-hull/static_convex_hull.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/circumscribed_circle.test.cpp
+    title: verify/geometry/geo-utils/circumscribed_circle.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/counter_clockwise.test.cpp
+    title: verify/geometry/geo-utils/counter_clockwise.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/cross_point.test.cpp
+    title: verify/geometry/geo-utils/cross_point.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/is_convex.test.cpp
+    title: verify/geometry/geo-utils/is_convex.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/polygon_area.test.cpp
+    title: verify/geometry/geo-utils/polygon_area.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/projection.test.cpp
+    title: verify/geometry/geo-utils/projection.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/reflection.test.cpp
+    title: verify/geometry/geo-utils/reflection.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/segment_distance.test.cpp
+    title: verify/geometry/geo-utils/segment_distance.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/geo-utils/segment_intersection.test.cpp
+    title: verify/geometry/geo-utils/segment_intersection.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/hull-diameter/furthest_pair.test.cpp
+    title: verify/geometry/hull-diameter/furthest_pair.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/inside-poly/polygon_point_containment.test.cpp
+    title: verify/geometry/inside-poly/polygon_point_containment.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/manhattan-mst/manhattanmst.test.cpp
+    title: verify/geometry/manhattan-mst/manhattanmst.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/geometry/poly-cut/convex_cut.test.cpp
+    title: verify/geometry/poly-cut/convex_cut.test.cpp
   _isVerificationFailed: false
   _pathExtension: h
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.14.8/x64/lib/python3.14/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -122,8 +182,28 @@ data:
   - src/geometry/CircleLine.h
   - src/geometry/kdTree.h
   timestamp: '2026-10-26 18:23:08+07:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/geometry/circle-tangents/common_tangent.test.cpp
+  - verify/geometry/circle-tangents/tangent_to_circle.test.cpp
+  - verify/geometry/circle-tangents/circle_intersection_count.test.cpp
+  - verify/geometry/circle-line/circle_line_cross_points.test.cpp
+  - verify/geometry/poly-cut/convex_cut.test.cpp
+  - verify/geometry/inside-poly/polygon_point_containment.test.cpp
+  - verify/geometry/convex-hull/static_convex_hull.test.cpp
+  - verify/geometry/circle-poly-inter/circle_polygon_area.test.cpp
+  - verify/geometry/manhattan-mst/manhattanmst.test.cpp
+  - verify/geometry/geo-utils/reflection.test.cpp
+  - verify/geometry/geo-utils/projection.test.cpp
+  - verify/geometry/geo-utils/cross_point.test.cpp
+  - verify/geometry/geo-utils/is_convex.test.cpp
+  - verify/geometry/geo-utils/segment_intersection.test.cpp
+  - verify/geometry/geo-utils/circumscribed_circle.test.cpp
+  - verify/geometry/geo-utils/polygon_area.test.cpp
+  - verify/geometry/geo-utils/segment_distance.test.cpp
+  - verify/geometry/geo-utils/counter_clockwise.test.cpp
+  - verify/geometry/hull-diameter/furthest_pair.test.cpp
+  - verify/geometry/circle-intersection/circle_cross_points.test.cpp
 documentation_of: src/geometry/Point.h
 layout: document
 redirect_from:

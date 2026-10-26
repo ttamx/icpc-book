@@ -2,32 +2,32 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':question:'
     path: src/polynomials/formal-power-series.hpp
     title: src/polynomials/formal-power-series.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/polynomials/linear-recurrence.hpp
     title: src/polynomials/linear-recurrence.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: src/polynomials/multipoint-evaluation.hpp
     title: src/polynomials/multipoint-evaluation.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: src/polynomials/ntt.hpp
     title: src/polynomials/ntt.hpp
   - icon: ':x:'
     path: src/polynomials/polynomial-interpolation.hpp
     title: src/polynomials/polynomial-interpolation.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: src/polynomials/subproduct-tree.hpp
     title: src/polynomials/subproduct-tree.hpp
   - icon: ':x:'
     path: src/polynomials/taylor-shift.hpp
     title: src/polynomials/taylor-shift.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: verify/polynomials/linear-recurrence/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
     title: verify/polynomials/multipoint-evaluation/multipoint_evaluation.test.cpp
   - icon: ':x:'
@@ -38,7 +38,7 @@ data:
     title: verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/number-theory/binpow.hpp\"\n\n/**\n * Author: Teetat\
@@ -61,7 +61,7 @@ data:
   - src/polynomials/formal-power-series.hpp
   - src/polynomials/subproduct-tree.hpp
   timestamp: '2026-10-04 00:49:42+07:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - verify/polynomials/polynomial-interpolation/polynomial_interpolation.test.cpp
   - verify/polynomials/taylor-shift/polynomial_taylor_shift.test.cpp

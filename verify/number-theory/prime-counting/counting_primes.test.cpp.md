@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: src/contest/template.hpp
     title: src/contest/template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/number-theory/prime-counting.hpp
     title: src/number-theory/prime-counting.hpp
   _extendedRequiredBy: []

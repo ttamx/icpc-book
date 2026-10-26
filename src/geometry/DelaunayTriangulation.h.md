@@ -4,7 +4,7 @@ data:
   - icon: ':warning:'
     path: src/geometry/3dHull.h
     title: src/geometry/3dHull.h
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/Point.h
     title: src/geometry/Point.h
   - icon: ':warning:'

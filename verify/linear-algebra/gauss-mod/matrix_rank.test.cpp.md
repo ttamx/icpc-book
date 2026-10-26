@@ -4,17 +4,17 @@ data:
   - icon: ':question:'
     path: src/contest/template.hpp
     title: src/contest/template.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/linear-algebra/gauss-mod.hpp
     title: src/linear-algebra/gauss-mod.hpp
-  - icon: ':x:'
-    path: src/number-theory/montgomery-modint.hpp
-    title: src/number-theory/montgomery-modint.hpp
+  - icon: ':question:'
+    path: src/number-theory/modint.hpp
+    title: src/number-theory/modint.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/matrix_rank
@@ -39,62 +39,51 @@ data:
     \ U &a){return accumulate(ALL(a),T{});}\n\ntemplate<class T>\nusing ordered_set\
     \ = tree<T,null_type,less<T>,rb_tree_tag,tree_order_statistics_node_update>;\n\
     \nmt19937 rng(chrono::steady_clock::now().time_since_epoch().count());\nmt19937_64\
-    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 2 \"src/number-theory/montgomery-modint.hpp\"\
-    \n\n/**\n * Author: Teetat T.\n * Date: 2024-03-17\n * Description: modular arithmetic\
-    \ operators using Montgomery space\n */\n\ntemplate<uint32_t mod,uint32_t root=0>\n\
-    struct MontgomeryModInt{\n    using mint = MontgomeryModInt;\n    using i32 =\
-    \ int32_t;\n    using u32 = uint32_t;\n    using u64 = uint64_t;\n\n    static\
-    \ constexpr u32 get_r(){\n        u32 res=1;\n        for(i32 i=0;i<5;i++)res*=2-mod*res;\n\
-    \        return res;\n    }\n\n    static const u32 r=get_r();\n    static const\
-    \ u32 n2=-u64(mod)%mod;\n    static_assert(mod<(1<<30));\n    static_assert((mod&1)==1);\n\
-    \    static_assert(r*mod==1);\n\n    u32 x;\n\n    constexpr MontgomeryModInt():x(0){}\n\
-    \    constexpr MontgomeryModInt(const int64_t &v):x(reduce(u64(v%mod+mod)*n2)){}\n\
-    \n    static constexpr u32 get_mod(){return mod;}\n    static constexpr mint get_root(){return\
-    \ mint(root);}\n    explicit constexpr operator int64_t()const{return val();}\n\
-    \n    static constexpr u32 reduce(const u64 &v){\n        return (v+u64(u32(v)*u32(-r))*mod)>>32;\n\
-    \    }\n\n    constexpr u32 val()const{\n        u32 res=reduce(x);\n        return\
-    \ res>=mod?res-mod:res;\n    }\n\n    constexpr mint inv()const{\n        int\
-    \ a=val(),b=mod,u=1,v=0,q=0;\n        while(b>0){\n            q=a/b;\n      \
-    \      a-=q*b;\n            u-=q*v;\n            swap(a,b);\n            swap(u,v);\n\
-    \        }\n        return mint(u);\n    }\n\n    constexpr mint &operator+=(const\
-    \ mint &rhs){\n        if(i32(x+=rhs.x-2*mod)<0)x+=2*mod;\n        return *this;\n\
-    \    }\n    constexpr mint &operator-=(const mint &rhs){\n        if(i32(x-=rhs.x)<0)x+=2*mod;\n\
-    \        return *this;\n    }\n    constexpr mint &operator*=(const mint &rhs){\n\
-    \        x=reduce(u64(x)*rhs.x);\n        return *this;\n    }\n    constexpr\
-    \ mint &operator/=(const mint &rhs){\n        return *this*=rhs.inv();\n    }\n\
-    \n    constexpr mint &operator++(){return *this+=mint(1);}\n    constexpr mint\
-    \ &operator--(){return *this-=mint(1);}\n    constexpr mint operator++(int){\n\
-    \        mint res=*this;\n        return *this+=mint(1),res;\n    }\n    constexpr\
-    \ mint operator--(int){\n        mint res=*this;\n        return *this-=mint(1),res;\n\
-    \    }\n\n    constexpr mint operator-()const{return mint()-mint(*this);};\n \
-    \   constexpr mint operator+()const{return mint(*this);};\n\n    friend constexpr\
-    \ mint operator+(const mint &lhs,const mint &rhs){return mint(lhs)+=rhs;}\n  \
-    \  friend constexpr mint operator-(const mint &lhs,const mint &rhs){return mint(lhs)-=rhs;}\n\
-    \    friend constexpr mint operator*(const mint &lhs,const mint &rhs){return mint(lhs)*=rhs;}\n\
-    \    friend constexpr mint operator/(const mint &lhs,const mint &rhs){return mint(lhs)/=rhs;}\n\
-    \    friend constexpr bool operator==(const mint &lhs,const mint &rhs){\n    \
-    \    return (lhs.x>=mod?lhs.x-mod:lhs.x)==(rhs.x>=mod?rhs.x-mod:rhs.x);\n    }\n\
-    \    friend constexpr bool operator!=(const mint &lhs,const mint &rhs){\n    \
-    \    return (lhs.x>=mod?lhs.x-mod:lhs.x)!=(rhs.x>=mod?rhs.x-mod:rhs.x);\n    }\n\
-    \    friend constexpr bool operator<(const mint &lhs,const mint &rhs){\n     \
-    \   return (lhs.x>=mod?lhs.x-mod:lhs.x)<(rhs.x>=mod?rhs.x-mod:rhs.x); // for std::map\n\
-    \    }\n\n    friend istream &operator>>(istream &is,mint &o){\n        int64_t\
-    \ v;\n        is >> v;\n        o=mint(v);\n        return is;\n    }\n    friend\
-    \ ostream &operator<<(ostream &os,const mint &o){\n        return os << o.val();\n\
-    \    }\n};\n#line 2 \"src/linear-algebra/gauss-mod.hpp\"\n\n/**\n * Author: Teetat\
-    \ T.\n * Description: Gauss-Jordan elimination over a field $\\mathbb{Z}_p$.\n\
-    \ * \\texttt{gauss(a,c,d)} reduces $a$ to RREF on its first $c$ columns\n * (later\
-    \ columns are carried along), returns pivot columns and sets\n * $d=\\det$ of\
-    \ the left $c\\times c$ block (for square use).\n * \\texttt{solve} returns rank\
-    \ or $-1$ if inconsistent, a solution $x$\n * (free vars $=0$) and a basis $K$\
-    \ of $\\{x : Ax=0\\}$ ($|K|=m-$rank).\n * \\texttt{mat\\_inv} returns false if\
-    \ singular (then $a$ is garbage).\n * Usage: Mat<mint> A(n,vector<mint>(m)); int\
-    \ r=solve(A,b,m,x,K);\n * Time: $O(nm\\cdot\\min(n,m))$; $500\\times 500$ det\
-    \ takes 60ms.\n */\n\ntemplate<class T>\nusing Mat = vector<vector<T>>;\n\ntemplate<class\
-    \ T>\nvector<int> gauss(Mat<T> &a,int c,T &d){\n    int n=SZ(a),r=0;\n    vector<int>\
-    \ piv;d=1;\n    for(int j=0;j<c&&r<n;j++){\n        int p=r;\n        while(p<n&&a[p][j]==0)p++;\n\
-    \        if(p==n)continue;\n        if(p!=r)swap(a[p],a[r]),d=-d;\n        auto\
-    \ &ar=a[r];\n        d*=ar[j];T iv=ar[j].inv();\n        for(int k=j;k<SZ(ar);k++)ar[k]*=iv;\n\
+    \ rng64(chrono::steady_clock::now().time_since_epoch().count());\n#line 2 \"src/number-theory/modint.hpp\"\
+    \n\n/**\n * Author: Teetat T.\n * Date: 2026-04-15\n * Description: modular arithmetic\
+    \ operations\n */\n\ntemplate<int mod,int root=0>\nstruct ModInt{\n    using mint\
+    \ = ModInt;\n    \n\tstatic_assert(mod>0,\"mod must be positive\");\n\n    int\
+    \ x;\n\n    constexpr ModInt():x(0){}\n    constexpr ModInt(ll x):x((x%=mod)<0?x+mod:x){}\n\
+    \    constexpr explicit operator int()const{return x;}\n    constexpr int val()const{return\
+    \ x;}\n    constexpr static int get_mod(){return mod;}\n    constexpr static mint\
+    \ get_root(){return mint(root);}\n    \n    constexpr mint operator-()const{\n\
+    \        mint res;\n        res.x=x?mod-x:0;\n        return res;\n    }\n   \
+    \ constexpr mint operator+()const{return *this;}\n\n    constexpr mint inv()const{\n\
+    \        int a=x,b=mod,u=1,v=0,q=0;\n        while(b>0){\n            q=a/b;\n\
+    \            swap(a-=q*b,b);\n            swap(u-=q*v,v);\n        }\n       \
+    \ return mint(u);\n    }\n    constexpr mint pow(ll n)const{\n        mint res=1,a=*this;\n\
+    \        for(;n>0;a*=a,n>>=1)if(n&1)res*=a;\n        return res;\n    }\n    constexpr\
+    \ mint &operator+=(const mint &o){\n        if((x+=o.x)>=mod)x-=mod;\n       \
+    \ return *this;\n    }\n    constexpr mint &operator-=(const mint &o){\n     \
+    \   if((x-=o.x)<0)x+=mod;\n        return *this;\n    }\n    constexpr mint &operator*=(const\
+    \ mint &o){\n        x=(ll(x)*o.x)%mod;\n        return *this;\n    }\n    constexpr\
+    \ mint &operator/=(const mint &o){\n        return *this*=o.inv();\n    }\n\n\
+    \    constexpr mint operator+(const mint &o)const{return mint(*this)+=o;}\n  \
+    \  constexpr mint operator-(const mint &o)const{return mint(*this)-=o;}\n    constexpr\
+    \ mint operator*(const mint &o)const{return mint(*this)*=o;}\n    constexpr mint\
+    \ operator/(const mint &o)const{return mint(*this)/=o;}\n\n    constexpr mint\
+    \ &operator++(){return *this+=mint(1);}\n    constexpr mint &operator--(){return\
+    \ *this-=mint(1);}\n    constexpr mint operator++(int){mint res=*this;*this+=mint(1);return\
+    \ res;}\n    constexpr mint operator--(int){mint res=*this;*this-=mint(1);return\
+    \ res;}\n    \n    constexpr bool operator==(const mint &o)const{return x==o.x;}\n\
+    \    constexpr bool operator!=(const mint &o)const{return x!=o.x;}\n    constexpr\
+    \ bool operator<(const mint &o)const{return x<o.x;}\n    \n    friend istream\
+    \ &operator>>(istream &is,mint &o){ll x{};is>>x;o=mint(x);return is;}\n    friend\
+    \ ostream &operator<<(ostream &os,const mint &o){return os<<o.x;}\n};\nusing mint998\
+    \ = ModInt<998244353,3>;\nusing mint107 = ModInt<1000000007>;\n#line 2 \"src/linear-algebra/gauss-mod.hpp\"\
+    \n\n/**\n * Author: Teetat T.\n * Description: Gauss-Jordan elimination over a\
+    \ field $\\mathbb{Z}_p$.\n * \\texttt{gauss(a,c,d)} reduces $a$ to RREF on its\
+    \ first $c$ columns\n * (later columns are carried along), returns pivot columns\
+    \ and sets\n * $d=\\det$ of the left $c\\times c$ block (for square use).\n *\
+    \ \\texttt{solve} returns rank or $-1$ if inconsistent, a solution $x$\n * (free\
+    \ vars $=0$) and a basis $K$ of $\\{x : Ax=0\\}$ ($|K|=m-$rank).\n * \\texttt{mat\\\
+    _inv} returns false if singular (then $a$ is garbage).\n * Usage: Mat<mint> A(n,vector<mint>(m));\
+    \ int r=solve(A,b,m,x,K);\n * Time: $O(nm\\cdot\\min(n,m))$; $500\\times 500$\
+    \ det takes 60ms.\n */\n\ntemplate<class T>\nusing Mat = vector<vector<T>>;\n\n\
+    template<class T>\nvector<int> gauss(Mat<T> &a,int c,T &d){\n    int n=SZ(a),r=0;\n\
+    \    vector<int> piv;d=1;\n    for(int j=0;j<c&&r<n;j++){\n        int p=r;\n\
+    \        while(p<n&&a[p][j]==0)p++;\n        if(p==n)continue;\n        if(p!=r)swap(a[p],a[r]),d=-d;\n\
+    \        auto &ar=a[r];\n        d*=ar[j];T iv=ar[j].inv();\n        for(int k=j;k<SZ(ar);k++)ar[k]*=iv;\n\
     \        for(int i=0;i<n;i++)if(i!=r&&!(a[i][j]==0)){\n            T f=a[i][j];\n\
     \            for(int k=j;k<SZ(ar);k++)a[i][k]-=f*ar[k];\n        }\n        piv.pb(j),r++;\n\
     \    }\n    if(r<c)d=0;\n    return piv;\n}\ntemplate<class T>\nT mat_det(Mat<T>\
@@ -113,20 +102,20 @@ data:
     \   int n,m;\n    cin >> n >> m;\n    Mat<mint> a(n,vector<mint>(m));\n    for(auto\
     \ &r:a)for(auto &v:r)cin >> v;\n    cout << mat_rank(a,m) << \"\\n\";\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_rank\"\n#include\
-    \ \"src/contest/template.hpp\"\n#include \"src/number-theory/montgomery-modint.hpp\"\
-    \n#include \"src/linear-algebra/gauss-mod.hpp\"\n\nusing mint = mint998;\n\nint\
-    \ main(){\n    cin.tie(nullptr)->sync_with_stdio(false);\n    int n,m;\n    cin\
-    \ >> n >> m;\n    Mat<mint> a(n,vector<mint>(m));\n    for(auto &r:a)for(auto\
-    \ &v:r)cin >> v;\n    cout << mat_rank(a,m) << \"\\n\";\n}\n"
+    \ \"src/contest/template.hpp\"\n#include \"src/number-theory/modint.hpp\"\n#include\
+    \ \"src/linear-algebra/gauss-mod.hpp\"\n\nusing mint = mint998;\n\nint main(){\n\
+    \    cin.tie(nullptr)->sync_with_stdio(false);\n    int n,m;\n    cin >> n >>\
+    \ m;\n    Mat<mint> a(n,vector<mint>(m));\n    for(auto &r:a)for(auto &v:r)cin\
+    \ >> v;\n    cout << mat_rank(a,m) << \"\\n\";\n}\n"
   dependsOn:
   - src/contest/template.hpp
-  - src/number-theory/montgomery-modint.hpp
+  - src/number-theory/modint.hpp
   - src/linear-algebra/gauss-mod.hpp
   isVerificationFile: true
   path: verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
   requiredBy: []
-  timestamp: '2026-10-26 18:23:08+07:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2026-10-26 18:51:44+07:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/linear-algebra/gauss-mod/matrix_rank.test.cpp
 layout: document
