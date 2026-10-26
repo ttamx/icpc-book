@@ -20,7 +20,7 @@ Points on the edge of the hull between two other points are not considered part 
 
 #include "src/geometry/Point.h"
 
-typedef Point<ll> P;
+using P = Point<ll>;
 vector<P> convexHull(vector<P> pts){
 	if(SZ(pts)<=1)return pts;
 	sort(ALL(pts));

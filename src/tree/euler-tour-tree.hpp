@@ -15,7 +15,7 @@
 
 template<int N,class T>
 struct EulerTourTree:Treap<N,T>{
-    using B=Treap<N,T>;using B::t,B::make,B::split;
+    using B = Treap<N,T>;using B::t,B::make,B::split;
     using B::merge,B::root,B::pos,B::apply;
     map<pair<int,int>,int> E; // directed edge -> node
     vector<int> fr; // freed edge nodes

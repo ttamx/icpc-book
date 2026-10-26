@@ -12,7 +12,7 @@
 
 #include "src/geometry/Point.h"
 
-typedef Point<double> P;
+using P = Point<double>;
 #define ARG(p,q) atan2(p.cross(q),p.dot(q))
 double circlePoly(P c,double r,vector<P> ps){
 	auto tri=[&](P p,P q){

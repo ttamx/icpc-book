@@ -20,7 +20,7 @@ pair<ll,array<P,3>> maxTriangle(vector<P> pts){
 	int n=SZ(h);
 	pair<ll,array<P,3>> res{};
 	if(n<3)return res;
-	typedef array<int,2> J;
+	using J = array<int,2>;
 	auto at=[&](int i){return h[i%n];};
 	auto A=[&](int a,int b,int c){
 		return at(a).cross(at(b),at(c));};

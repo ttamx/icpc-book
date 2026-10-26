@@ -72,8 +72,8 @@ struct StaticTopTree{
 }; */
 template<class D>
 struct StaticTopTreeRerootingDP:StaticTopTree{
-    using Path=typename D::Path;
-    using Point=typename D::Point;
+    using Path = typename D::Path;
+    using Point = typename D::Point;
     vector<Path> path,rvpath;
     vector<Point> point;
     StaticTopTreeRerootingDP(G &g):StaticTopTree(g){

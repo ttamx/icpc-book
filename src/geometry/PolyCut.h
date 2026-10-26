@@ -9,7 +9,7 @@
 \end{minipage}
 \begin{minipage}{15mm}
 \vspace{-6mm}
-\includegraphics[width=\textwidth]{src/geometry/PolygonCut}
+\includegraphics[width=\textwidth]{src/geometry/PolyCut}
 \vspace{-6mm}
 \end{minipage}
  * Usage:
@@ -21,7 +21,7 @@
 
 #include "src/geometry/Point.h"
 
-typedef Point<double> P;
+using P = Point<double>;
 vector<P> polygonCut(const vector<P>& poly,P s,P e){
 	vector<P> res;
 	for(int i=0;i<SZ(poly);i++){

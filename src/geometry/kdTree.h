@@ -9,8 +9,8 @@
 
 #include "src/geometry/Point.h"
 
-typedef long long T;
-typedef Point<T> P;
+using T = ll;
+using P = Point<T>;
 const T KINF=numeric_limits<T>::max();
 
 bool on_x(const P& a,const P& b){return a.x<b.x;}

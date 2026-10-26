@@ -14,7 +14,7 @@
  */
 
 template<class T>
-using Mat=vector<vector<T>>;
+using Mat = vector<vector<T>>;
 
 template<class T>
 vector<int> gauss(Mat<T> &a,int c,T &d){

@@ -32,7 +32,7 @@ struct MinCostFlow{
         if(cost<0)neg=true;
     }
     bool dijkstra(int s,int t){
-        using P=pair<C,int>;
+        using P = pair<C,int>;
         dist.assign(n,CINF),pre.assign(n,-1);
         PQ<P> pq;
         dist[s]=0,pq.emplace(0,s);

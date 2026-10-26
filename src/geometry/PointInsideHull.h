@@ -13,10 +13,9 @@
 #pragma once
 
 #include "src/geometry/Point.h"
-#include "src/geometry/sideOf.h"
-#include "src/geometry/OnSegment.h"
+#include "src/geometry/GeoUtils.h"
 
-typedef Point<ll> P;
+using P = Point<ll>;
 bool inHull(const vector<P>& l,P p,bool strict=true){
 	int a=1,b=SZ(l)-1,r=!strict;
 	if(SZ(l)<3)return r&&onSegment(l[0],l.back(),p);

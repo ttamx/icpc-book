@@ -9,7 +9,9 @@
  */
 #pragma once
 
-#include "circumcircle.h"
+#include "src/geometry/GeoUtils.h"
+
+using P = Point<double>;
 
 pair<P,double> mec(vector<P> ps){
 	shuffle(ALL(ps),mt19937(time(0)));

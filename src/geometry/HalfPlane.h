@@ -22,8 +22,8 @@
 
 #include "src/geometry/Point.h"
 
-typedef Point<double> P;
-typedef array<P,2> L;
+using P = Point<double>;
+using L = array<P,2>;
 P hpInter(L a,L b){
 	P d=a[1]-a[0],e=b[1]-b[0];
 	return a[0]+d*((b[0]-a[0]).cross(e)/d.cross(e));

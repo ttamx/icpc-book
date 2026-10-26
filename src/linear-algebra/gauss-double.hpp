@@ -14,7 +14,7 @@
  * Time: $O(nm\cdot\min(n,m))$
  */
 
-using vd=vector<db>;
+using vd = vector<db>;
 
 int gauss_db(vector<vd> &a,int c,db &d,vector<int> &piv){
     int n=SZ(a),r=0;d=1,piv.clear();
